@@ -207,7 +207,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(1034, 261);
+            this.ClientSize = new System.Drawing.Size(1034, 341);
             this.Controls.Add(this.changeButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.groupBox1);

@@ -14,17 +14,20 @@ namespace Elevator.Forms
 {
     public partial class AddContractorForm : Form
     {
-        private AddContractorController controller;
+        private AddContractorController controller; 
         public Contractor contractor;
         public AddContractorForm()
         {
             InitializeComponent();
             controller = new AddContractorController();
+            maskedTextBoxPhone.TextChanged += maskedTextBoxPhone_TextChanged;
+
         }
 
         public AddContractorForm(Contractor contr)
         {
             InitializeComponent();
+            maskedTextBoxPhone.TextChanged += maskedTextBoxPhone_TextChanged;
             controller = new AddContractorController();
             contractor = contr;
             textBoxName.Text = contr.Name;
@@ -49,7 +52,7 @@ namespace Elevator.Forms
                     textBoxSubdivision.Text,
                     richTextBoxYuradress.Text,
                     richTextBoxFactadress.Text,
-                    textBoxIndex.Text.Trim() == String.Empty ? 0 : Convert.ToInt32(textBoxIndex.Text),
+                    textBoxIndex.Text.Replace(" ", "") == String.Empty ? 0 : Convert.ToInt32(textBoxIndex.Text),
                     maskedTextBoxPhone.Text,
                     textBoxINN.Text);
                 controller.onSaveClick(contractor, false);
@@ -60,7 +63,7 @@ namespace Elevator.Forms
                 contractor.Sub = textBoxSubdivision.Text;
                 contractor.YurAdress = richTextBoxYuradress.Text;
                 contractor.FactAdress = richTextBoxFactadress.Text;
-                contractor.Index = textBoxIndex.Text.Trim() == String.Empty ? 0 : Convert.ToInt32(textBoxIndex.Text);
+                contractor.Index = textBoxIndex.Text.Replace(" ", "") == String.Empty ? 0 : Convert.ToInt32(textBoxIndex.Text);
                 contractor.Phone = maskedTextBoxPhone.Text;
                 contractor.Inn = textBoxINN.Text;
                 controller.onSaveClick(contractor, true);
@@ -70,16 +73,16 @@ namespace Elevator.Forms
         
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
-            saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text);
-            saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text) ? Color.DarkOrange : Color.Red;
-            textBoxName.BackColor = !AddContractorController.isEmpty(textBoxName.Text.Trim()) ? Color.White : Color.Red;
+            saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text);
+            saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text) ? Color.DarkOrange : Color.Red;
+            textBoxName.BackColor = !AddContractorController.isEmpty(textBoxName.Text.Replace(" ", "")) ? Color.White : Color.Red;
         }
 
         private void richTextBoxFactadress_TextChanged(object sender, EventArgs e)
         {
-            saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text);
-            saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text) ? Color.DarkOrange : Color.Red;
-            richTextBoxFactadress.BackColor = !AddContractorController.isEmpty(richTextBoxFactadress.Text.Trim()) ? Color.White : Color.Red;
+            saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text);
+            saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text) ? Color.DarkOrange : Color.Red;
+            richTextBoxFactadress.BackColor = !AddContractorController.isEmpty(richTextBoxFactadress.Text.Replace(" ", "")) ? Color.White : Color.Red;
         }
 
         private void textBoxIndex_TextChanged(object sender, EventArgs e)
@@ -94,8 +97,8 @@ namespace Elevator.Forms
                 textBoxIndex.Text = newIndex == -1 ? textBoxIndex.Text.Substring(0, textBoxIndex.Text.Length - 1) : newIndex.ToString();
             }
             textBoxIndex.SelectionStart = textBoxIndex.Text.Length;
-            saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text);
-            saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text) ? Color.DarkOrange : Color.Red;
+            saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text);
+            saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text) ? Color.DarkOrange : Color.Red;
             textBoxIndex.BackColor = controller.checkSaveForIndex(textBoxIndex.Text) ? Color.White : Color.Red;
         }
         
@@ -112,14 +115,16 @@ namespace Elevator.Forms
                 textBoxINN.Text = newIndex == -1 ? textBoxINN.Text.Substring(0, textBoxINN.Text.Length - 1) : newIndex.ToString();
             }
             textBoxINN.SelectionStart = textBoxINN.Text.Length;
-            saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text);
-            saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text) ? Color.DarkOrange : Color.Red;
+            saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text);
+            saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text) ? Color.DarkOrange : Color.Red;
             textBoxINN.BackColor = controller.checkSaveForInn(textBoxINN.Text) ? Color.White : Color.Red;
         }
 
         private void maskedTextBoxPhone_TextChanged(object sender, EventArgs e)
         {
-
-        }
+            maskedTextBoxPhone.BackColor = controller.checkPhone(maskedTextBoxPhone.Text) ? Color.White : Color.Red;
+            saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text);
+            saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text) ? Color.DarkOrange : Color.Red;
+        }   
     }
 }

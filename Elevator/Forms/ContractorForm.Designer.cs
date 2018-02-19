@@ -33,10 +33,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractorForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.nameContractortextBox = new System.Windows.Forms.TextBox();
             this.btnAllList = new System.Windows.Forms.Button();
             this.lbName = new System.Windows.Forms.Label();
             this.findButton = new System.Windows.Forms.Button();
             this.dataGridViewContractor = new System.Windows.Forms.DataGridView();
+            this.addButton = new System.Windows.Forms.Button();
+            this.changeButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.bindingSourceContractor = new System.Windows.Forms.BindingSource(this.components);
+            this.accountOfGrainDataSet1 = new Elevator.AccountOfGrainDataSet();
+            this.contractorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contractorTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.ContractorTableAdapter();
             this.idcontractorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namecontrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subdivisionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,19 +53,11 @@
             this.mailindexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.innDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contractorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSourceContractor = new System.Windows.Forms.BindingSource(this.components);
-            this.accountOfGrainElevatorDataSet = new Elevator.AccountOfGrainElevatorDataSet();
-            this.addButton = new System.Windows.Forms.Button();
-            this.changeButton = new System.Windows.Forms.Button();
-            this.deleteButton = new System.Windows.Forms.Button();
-            this.contractorTableAdapter = new Elevator.AccountOfGrainElevatorDataSetTableAdapters.ContractorTableAdapter();
-            this.nameContractortextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContractor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceContractor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainElevatorDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -75,6 +75,13 @@
             this.groupBox1.TabIndex = 42;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Поиск";
+            // 
+            // nameContractortextBox
+            // 
+            this.nameContractortextBox.Location = new System.Drawing.Point(130, 27);
+            this.nameContractortextBox.Name = "nameContractortextBox";
+            this.nameContractortextBox.Size = new System.Drawing.Size(282, 22);
+            this.nameContractortextBox.TabIndex = 48;
             // 
             // btnAllList
             // 
@@ -153,86 +160,8 @@
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.dataGridViewContractor.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewContractor.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridViewContractor.Size = new System.Drawing.Size(824, 102);
+            this.dataGridViewContractor.Size = new System.Drawing.Size(824, 230);
             this.dataGridViewContractor.TabIndex = 43;
-            // 
-            // idcontractorDataGridViewTextBoxColumn
-            // 
-            this.idcontractorDataGridViewTextBoxColumn.DataPropertyName = "id_contractor";
-            this.idcontractorDataGridViewTextBoxColumn.HeaderText = "id_contractor";
-            this.idcontractorDataGridViewTextBoxColumn.Name = "idcontractorDataGridViewTextBoxColumn";
-            this.idcontractorDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idcontractorDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // namecontrDataGridViewTextBoxColumn
-            // 
-            this.namecontrDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.namecontrDataGridViewTextBoxColumn.DataPropertyName = "name_contr";
-            this.namecontrDataGridViewTextBoxColumn.HeaderText = "Наименование";
-            this.namecontrDataGridViewTextBoxColumn.Name = "namecontrDataGridViewTextBoxColumn";
-            this.namecontrDataGridViewTextBoxColumn.ReadOnly = true;
-            this.namecontrDataGridViewTextBoxColumn.Width = 132;
-            // 
-            // subdivisionDataGridViewTextBoxColumn
-            // 
-            this.subdivisionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.subdivisionDataGridViewTextBoxColumn.DataPropertyName = "subdivision";
-            this.subdivisionDataGridViewTextBoxColumn.HeaderText = "Подразделение";
-            this.subdivisionDataGridViewTextBoxColumn.Name = "subdivisionDataGridViewTextBoxColumn";
-            this.subdivisionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.subdivisionDataGridViewTextBoxColumn.Width = 139;
-            // 
-            // juraddressDataGridViewTextBoxColumn
-            // 
-            this.juraddressDataGridViewTextBoxColumn.DataPropertyName = "jur_address";
-            this.juraddressDataGridViewTextBoxColumn.HeaderText = "Юр. адрес";
-            this.juraddressDataGridViewTextBoxColumn.Name = "juraddressDataGridViewTextBoxColumn";
-            this.juraddressDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // factaddressDataGridViewTextBoxColumn
-            // 
-            this.factaddressDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.factaddressDataGridViewTextBoxColumn.DataPropertyName = "fact_address";
-            this.factaddressDataGridViewTextBoxColumn.HeaderText = "Факт. адрес";
-            this.factaddressDataGridViewTextBoxColumn.Name = "factaddressDataGridViewTextBoxColumn";
-            this.factaddressDataGridViewTextBoxColumn.ReadOnly = true;
-            this.factaddressDataGridViewTextBoxColumn.Width = 111;
-            // 
-            // mailindexDataGridViewTextBoxColumn
-            // 
-            this.mailindexDataGridViewTextBoxColumn.DataPropertyName = "mail_index";
-            this.mailindexDataGridViewTextBoxColumn.HeaderText = "Индекс";
-            this.mailindexDataGridViewTextBoxColumn.Name = "mailindexDataGridViewTextBoxColumn";
-            this.mailindexDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "Телефон";
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // innDataGridViewTextBoxColumn
-            // 
-            this.innDataGridViewTextBoxColumn.DataPropertyName = "inn";
-            this.innDataGridViewTextBoxColumn.HeaderText = "ИНН";
-            this.innDataGridViewTextBoxColumn.Name = "innDataGridViewTextBoxColumn";
-            this.innDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // contractorBindingSource
-            // 
-            this.contractorBindingSource.DataMember = "Contractor";
-            this.contractorBindingSource.DataSource = this.bindingSourceContractor;
-            // 
-            // bindingSourceContractor
-            // 
-            this.bindingSourceContractor.DataSource = this.accountOfGrainElevatorDataSet;
-            this.bindingSourceContractor.Position = 0;
-            // 
-            // accountOfGrainElevatorDataSet
-            // 
-            this.accountOfGrainElevatorDataSet.DataSetName = "AccountOfGrainElevatorDataSet";
-            this.accountOfGrainElevatorDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // addButton
             // 
@@ -282,16 +211,81 @@
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
+            // bindingSourceContractor
+            // 
+            this.bindingSourceContractor.DataSource = this.accountOfGrainDataSet1;
+            this.bindingSourceContractor.Position = 0;
+            // 
+            // accountOfGrainDataSet1
+            // 
+            this.accountOfGrainDataSet1.DataSetName = "AccountOfGrainDataSet";
+            this.accountOfGrainDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // contractorBindingSource
+            // 
+            this.contractorBindingSource.DataMember = "Contractor";
+            this.contractorBindingSource.DataSource = this.accountOfGrainDataSet1;
+            // 
             // contractorTableAdapter
             // 
             this.contractorTableAdapter.ClearBeforeFill = true;
             // 
-            // nameContractortextBox
+            // idcontractorDataGridViewTextBoxColumn
             // 
-            this.nameContractortextBox.Location = new System.Drawing.Point(130, 27);
-            this.nameContractortextBox.Name = "nameContractortextBox";
-            this.nameContractortextBox.Size = new System.Drawing.Size(282, 22);
-            this.nameContractortextBox.TabIndex = 48;
+            this.idcontractorDataGridViewTextBoxColumn.DataPropertyName = "id_contractor";
+            this.idcontractorDataGridViewTextBoxColumn.HeaderText = "id_contractor";
+            this.idcontractorDataGridViewTextBoxColumn.Name = "idcontractorDataGridViewTextBoxColumn";
+            this.idcontractorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idcontractorDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // namecontrDataGridViewTextBoxColumn
+            // 
+            this.namecontrDataGridViewTextBoxColumn.DataPropertyName = "name_contr";
+            this.namecontrDataGridViewTextBoxColumn.HeaderText = "name_contr";
+            this.namecontrDataGridViewTextBoxColumn.Name = "namecontrDataGridViewTextBoxColumn";
+            this.namecontrDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // subdivisionDataGridViewTextBoxColumn
+            // 
+            this.subdivisionDataGridViewTextBoxColumn.DataPropertyName = "subdivision";
+            this.subdivisionDataGridViewTextBoxColumn.HeaderText = "subdivision";
+            this.subdivisionDataGridViewTextBoxColumn.Name = "subdivisionDataGridViewTextBoxColumn";
+            this.subdivisionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // juraddressDataGridViewTextBoxColumn
+            // 
+            this.juraddressDataGridViewTextBoxColumn.DataPropertyName = "jur_address";
+            this.juraddressDataGridViewTextBoxColumn.HeaderText = "jur_address";
+            this.juraddressDataGridViewTextBoxColumn.Name = "juraddressDataGridViewTextBoxColumn";
+            this.juraddressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // factaddressDataGridViewTextBoxColumn
+            // 
+            this.factaddressDataGridViewTextBoxColumn.DataPropertyName = "fact_address";
+            this.factaddressDataGridViewTextBoxColumn.HeaderText = "fact_address";
+            this.factaddressDataGridViewTextBoxColumn.Name = "factaddressDataGridViewTextBoxColumn";
+            this.factaddressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // mailindexDataGridViewTextBoxColumn
+            // 
+            this.mailindexDataGridViewTextBoxColumn.DataPropertyName = "mail_index";
+            this.mailindexDataGridViewTextBoxColumn.HeaderText = "mail_index";
+            this.mailindexDataGridViewTextBoxColumn.Name = "mailindexDataGridViewTextBoxColumn";
+            this.mailindexDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "phone";
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // innDataGridViewTextBoxColumn
+            // 
+            this.innDataGridViewTextBoxColumn.DataPropertyName = "inn";
+            this.innDataGridViewTextBoxColumn.HeaderText = "inn";
+            this.innDataGridViewTextBoxColumn.Name = "innDataGridViewTextBoxColumn";
+            this.innDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ContractorForm
             // 
@@ -311,9 +305,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContractor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceContractor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainElevatorDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractorBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -328,10 +322,12 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button changeButton;
         private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.TextBox nameContractortextBox;
         private System.Windows.Forms.BindingSource bindingSourceContractor;
-        private AccountOfGrainElevatorDataSet accountOfGrainElevatorDataSet;
+        private AccountOfGrainDataSet accountOfGrainDataSet;
+        private AccountOfGrainDataSet accountOfGrainDataSet1;
         private System.Windows.Forms.BindingSource contractorBindingSource;
-        private AccountOfGrainElevatorDataSetTableAdapters.ContractorTableAdapter contractorTableAdapter;
+        private AccountOfGrainDataSetTableAdapters.ContractorTableAdapter contractorTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idcontractorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn namecontrDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn subdivisionDataGridViewTextBoxColumn;
@@ -340,6 +336,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mailindexDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn innDataGridViewTextBoxColumn;
-        private System.Windows.Forms.TextBox nameContractortextBox;
     }
 }

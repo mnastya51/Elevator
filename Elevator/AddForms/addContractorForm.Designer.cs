@@ -162,8 +162,10 @@
             // maskedTextBoxPhone
             // 
             this.maskedTextBoxPhone.Location = new System.Drawing.Point(151, 280);
-            this.maskedTextBoxPhone.Mask = "8(000) 000-0000";
+            this.maskedTextBoxPhone.Mask = "8(000)000-0000";
             this.maskedTextBoxPhone.Name = "maskedTextBoxPhone";
+            this.maskedTextBoxPhone.RejectInputOnFirstFailure = true;
+            this.maskedTextBoxPhone.ResetOnSpace = false;
             this.maskedTextBoxPhone.Size = new System.Drawing.Size(232, 20);
             this.maskedTextBoxPhone.TabIndex = 75;
             // 

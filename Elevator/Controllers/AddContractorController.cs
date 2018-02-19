@@ -19,8 +19,8 @@ namespace Elevator.Controllers
                     new FormValue<string, string>("subdivision ", contractor.Sub),
                     new FormValue<string, string>("jur_address", contractor.YurAdress),
                     new FormValue<string, string>("fact_address", contractor.FactAdress),
-                    new FormValue<string, string>("mail_index", contractor.Index.ToString().Trim() == "0" ? string.Empty : contractor.Index.ToString()),
-                    new FormValue<string, string>("phone", contractor.Phone.Trim().Length == 14 ? contractor.Phone : string.Empty),
+                    new FormValue<string, string>("mail_index", contractor.Index.ToString().Replace(" ", "") == "0" ? string.Empty : contractor.Index.ToString()),
+                    new FormValue<string, string>("phone", contractor.Phone.Replace(" ", "").Length == 14 ? contractor.Phone : string.Empty),
                     new FormValue<string, string>("inn", contractor.Inn.ToString()));
             }
             else
@@ -30,8 +30,8 @@ namespace Elevator.Controllers
                     new FormValue<string, string>("subdivision ", contractor.Sub),
                     new FormValue<string, string>("jur_address", contractor.YurAdress),
                     new FormValue<string, string>("fact_address", contractor.FactAdress),
-                    new FormValue<string, string>("mail_index", contractor.Index.ToString().Trim() == "0" ? string.Empty : contractor.Index.ToString()),
-                    new FormValue<string, string>("phone", contractor.Phone.Trim().Length == 14 ? contractor.Phone : string.Empty),
+                    new FormValue<string, string>("mail_index", contractor.Index.ToString().Replace(" ", "") == "0" ? string.Empty : contractor.Index.ToString()),
+                    new FormValue<string, string>("phone", contractor.Phone.Replace(" ", "").Length == 14 ? contractor.Phone : string.Empty),
                     new FormValue<string, string>("inn", contractor.Inn.ToString()));
             }
         }
@@ -40,7 +40,7 @@ namespace Elevator.Controllers
         {
             try
             {
-                if (index.Trim().Length > 6)
+                if (index.Replace(" ", "").Length > 6)
                 {
                     MessageBox.Show("Длина индекса должа быть равна 6", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return Convert.ToInt32(index.Substring(0, index.Length - 1));
@@ -63,7 +63,7 @@ namespace Elevator.Controllers
         {
             try
             {
-                if (inn.Trim().Length > 12)
+                if (inn.Replace(" ", "").Length > 12)
                 {
                     MessageBox.Show("Длина ИНН должа быть равна 12", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return Convert.ToInt64(inn.Substring(0, inn.Length - 1));
@@ -85,7 +85,7 @@ namespace Elevator.Controllers
 
         public bool isSaveEnable(string text1, string text2)
         {
-            return text1.Trim().Length > 0 && text2.Trim().Length > 0;
+            return text1.Replace(" ", "").Length > 0 && text2.Replace(" ", "").Length > 0;
         }
 
         public static bool isEmpty(string text)
@@ -93,9 +93,15 @@ namespace Elevator.Controllers
             return text == null || text == string.Empty || text.Length == 0;
         }
 
-        public bool checkSaveForAll(string name, string factAddress, string index, string inn)
+        public bool checkSaveForAll(string name, string factAddress, string index, string inn, string phone)
         {
-            return isSaveEnable(name, factAddress) && checkSaveForIndex(index) && checkSaveForInn(inn);
+            return isSaveEnable(name, factAddress) && checkSaveForIndex(index) && checkSaveForInn(inn) && checkPhone(phone);
         }
+
+        public bool checkPhone(string phone)
+        {
+            return phone.Replace(" ", "").Length == 14 || phone == "8(   )   -";
+        }
+        
     }
 }

@@ -24,8 +24,6 @@ namespace Elevator.Forms
 
         private void ContractorForm_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "accountOfGrainElevatorDataSet.Contractor". При необходимости она может быть перемещена или удалена.
-            //this.contractorTableAdapter.Fill(this.accountOfGrainElevatorDataSet.Contractor);
             dataGridViewContractor.DataSource = DAO.getInstance().selectTable("Contractor");
             dataGridViewContractor.ClearSelection();
         }
@@ -82,5 +80,6 @@ namespace Elevator.Forms
             dataGridViewContractor.DataSource = DAO.getInstance().selectTable("Contractor");
             nameContractortextBox.Text = string.Empty;
         }
+
     }
 }

@@ -55,5 +55,16 @@ namespace Elevator.Properties {
                 return ((string)(this["AccountOfGrainElevator"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-3E20OVV\\SQLEXPRESS;AttachDbFilename=|DataDirectory|\\AccountOf" +
+            "Grain.mdf;Integrated Security=True")]
+        public string AccountOfGrainConnection {
+            get {
+                return ((string)(this["AccountOfGrainConnection"]));
+            }
+        }
     }
 }
