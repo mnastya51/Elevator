@@ -84,73 +84,75 @@ namespace Elevator {
         
         private Weed_impuritiesDataTable tableWeed_impurities;
         
-        private global::System.Data.DataRelation relationFK__Analysis__6754599E;
+        private global::System.Data.DataRelation relationFK__Analysis__68487DD7;
         
         private global::System.Data.DataRelation relationFK__Class__id_NameRa__173876EA;
         
-        private global::System.Data.DataRelation relationFK__Clearing__id_raw__3C69FB99;
+        private global::System.Data.DataRelation relationFK__Clearing__id_raw__3D5E1FD2;
         
         private global::System.Data.DataRelation relationFK__Contract__id_con__1273C1CD;
         
-        private global::System.Data.DataRelation relationFK__Delivery__id_con__31EC6D26;
+        private global::System.Data.DataRelation relationFK__Delivery__id_con__32E0915F;
         
-        private global::System.Data.DataRelation relationFK__Delivery__id_raw__32E0915F;
+        private global::System.Data.DataRelation relationFK__Delivery__id_raw__33D4B598;
         
-        private global::System.Data.DataRelation relationFK__Drying__id_raw__398D8EEE;
+        private global::System.Data.DataRelation relationFK__Drying__id_raw__3A81B327;
         
-        private global::System.Data.DataRelation relationFK__General_i__id_ra__5EBF139D;
+        private global::System.Data.DataRelation relationFK__General_i__id_ra__5FB337D6;
         
-        private global::System.Data.DataRelation relationFK__General_i__name___5DCAEF64;
+        private global::System.Data.DataRelation relationFK__General_i__name___5EBF139D;
         
-        private global::System.Data.DataRelation relationFK__Grain_imp__id_ra__5535A963;
+        private global::System.Data.DataRelation relationFK__Grain_imp__id_ra__5629CD9C;
         
-        private global::System.Data.DataRelation relationFK__Grain_imp__name___5441852A;
+        private global::System.Data.DataRelation relationFK__Grain_imp__name___5535A963;
         
-        private global::System.Data.DataRelation relationFK__Harmful_i__id_ra__4222D4EF;
+        private global::System.Data.DataRelation relationFK__Harmful_i__id_ra__4316F928;
         
-        private global::System.Data.DataRelation relationFK__Harmful_i__name___412EB0B6;
+        private global::System.Data.DataRelation relationFK__Harmful_i__name___4222D4EF;
         
-        private global::System.Data.DataRelation relationFK__Norm_gene__id_cl__628FA481;
+        private global::System.Data.DataRelation relationFK__Norm_gene__id_cl__6383C8BA;
         
-        private global::System.Data.DataRelation relationFK__Norm_gene__name___619B8048;
+        private global::System.Data.DataRelation relationFK__Norm_gene__name___628FA481;
         
-        private global::System.Data.DataRelation relationFK__Norm_grai__id_cl__59063A47;
+        private global::System.Data.DataRelation relationFK__Norm_grai__id_cl__59FA5E80;
         
-        private global::System.Data.DataRelation relationFK__Norm_grai__name___5812160E;
+        private global::System.Data.DataRelation relationFK__Norm_grai__name___59063A47;
         
-        private global::System.Data.DataRelation relationFK__Norm_harm__id_cl__45F365D3;
+        private global::System.Data.DataRelation relationFK__Norm_harm__id_cl__46E78A0C;
         
-        private global::System.Data.DataRelation relationFK__Norm_harm__name___44FF419A;
+        private global::System.Data.DataRelation relationFK__Norm_harm__name___45F365D3;
         
-        private global::System.Data.DataRelation relationFK__Norm_weed__id_cl__4F7CD00D;
+        private global::System.Data.DataRelation relationFK__Norm_weed__id_cl__5070F446;
         
-        private global::System.Data.DataRelation relationFK__Norm_weed__name___4E88ABD4;
+        private global::System.Data.DataRelation relationFK__Norm_weed__name___4F7CD00D;
         
-        private global::System.Data.DataRelation relationFK__PlaceStor__id_ra__239E4DCF;
+        private global::System.Data.DataRelation relationFK__PlaceStor__id_ra__24927208;
         
-        private global::System.Data.DataRelation relationFK__Shipment__id_con__35BCFE0A;
+        private global::System.Data.DataRelation relationFK__Shipment__id_con__36B12243;
         
-        private global::System.Data.DataRelation relationFK__Shipment__id_raw__36B12243;
+        private global::System.Data.DataRelation relationFK__Shipment__id_raw__37A5467C;
         
-        private global::System.Data.DataRelation relationFK__Silage_ra__numb___2E1BDC42;
+        private global::System.Data.DataRelation relationFK__Silage_ra__numb___2F10007B;
         
-        private global::System.Data.DataRelation relationFK__Silage_raw__2F10007B;
+        private global::System.Data.DataRelation relationFK__Silage_raw__300424B4;
         
-        private global::System.Data.DataRelation relationFK__Storage__id_clas__20C1E124;
+        private global::System.Data.DataRelation relationFK__Storage__id_clas__21B6055D;
         
-        private global::System.Data.DataRelation relationFK__Storage__id_Name__1FCDBCEB;
+        private global::System.Data.DataRelation relationFK__Storage__id_Name__20C1E124;
         
-        private global::System.Data.DataRelation relationFK__Storage__id_subt__1ED998B2;
+        private global::System.Data.DataRelation relationFK__Storage__id_subt__1FCDBCEB;
         
-        private global::System.Data.DataRelation relationFK__Store_raw__2B3F6F97;
+        private global::System.Data.DataRelation relationFK__Store_raw__2C3393D0;
         
-        private global::System.Data.DataRelation relationFK__Store_raw__numb___2A4B4B5E;
+        private global::System.Data.DataRelation relationFK__Store_raw__numb___2B3F6F97;
         
-        private global::System.Data.DataRelation relationFK__Subtype_r__name___1BFD2C07;
+        private global::System.Data.DataRelation relationFK__Subtype_r__name___1CF15040;
         
-        private global::System.Data.DataRelation relationFK__Weed_impu__id_ra__4BAC3F29;
+        private global::System.Data.DataRelation relationFK__Type_raw__id_Nam__1A14E395;
         
-        private global::System.Data.DataRelation relationFK__Weed_impu__name___4AB81AF0;
+        private global::System.Data.DataRelation relationFK__Weed_impu__id_ra__4CA06362;
+        
+        private global::System.Data.DataRelation relationFK__Weed_impu__name___4BAC3F29;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -958,40 +960,41 @@ namespace Elevator {
                     this.tableWeed_impurities.InitVars();
                 }
             }
-            this.relationFK__Analysis__6754599E = this.Relations["FK__Analysis__6754599E"];
+            this.relationFK__Analysis__68487DD7 = this.Relations["FK__Analysis__68487DD7"];
             this.relationFK__Class__id_NameRa__173876EA = this.Relations["FK__Class__id_NameRa__173876EA"];
-            this.relationFK__Clearing__id_raw__3C69FB99 = this.Relations["FK__Clearing__id_raw__3C69FB99"];
+            this.relationFK__Clearing__id_raw__3D5E1FD2 = this.Relations["FK__Clearing__id_raw__3D5E1FD2"];
             this.relationFK__Contract__id_con__1273C1CD = this.Relations["FK__Contract__id_con__1273C1CD"];
-            this.relationFK__Delivery__id_con__31EC6D26 = this.Relations["FK__Delivery__id_con__31EC6D26"];
-            this.relationFK__Delivery__id_raw__32E0915F = this.Relations["FK__Delivery__id_raw__32E0915F"];
-            this.relationFK__Drying__id_raw__398D8EEE = this.Relations["FK__Drying__id_raw__398D8EEE"];
-            this.relationFK__General_i__id_ra__5EBF139D = this.Relations["FK__General_i__id_ra__5EBF139D"];
-            this.relationFK__General_i__name___5DCAEF64 = this.Relations["FK__General_i__name___5DCAEF64"];
-            this.relationFK__Grain_imp__id_ra__5535A963 = this.Relations["FK__Grain_imp__id_ra__5535A963"];
-            this.relationFK__Grain_imp__name___5441852A = this.Relations["FK__Grain_imp__name___5441852A"];
-            this.relationFK__Harmful_i__id_ra__4222D4EF = this.Relations["FK__Harmful_i__id_ra__4222D4EF"];
-            this.relationFK__Harmful_i__name___412EB0B6 = this.Relations["FK__Harmful_i__name___412EB0B6"];
-            this.relationFK__Norm_gene__id_cl__628FA481 = this.Relations["FK__Norm_gene__id_cl__628FA481"];
-            this.relationFK__Norm_gene__name___619B8048 = this.Relations["FK__Norm_gene__name___619B8048"];
-            this.relationFK__Norm_grai__id_cl__59063A47 = this.Relations["FK__Norm_grai__id_cl__59063A47"];
-            this.relationFK__Norm_grai__name___5812160E = this.Relations["FK__Norm_grai__name___5812160E"];
-            this.relationFK__Norm_harm__id_cl__45F365D3 = this.Relations["FK__Norm_harm__id_cl__45F365D3"];
-            this.relationFK__Norm_harm__name___44FF419A = this.Relations["FK__Norm_harm__name___44FF419A"];
-            this.relationFK__Norm_weed__id_cl__4F7CD00D = this.Relations["FK__Norm_weed__id_cl__4F7CD00D"];
-            this.relationFK__Norm_weed__name___4E88ABD4 = this.Relations["FK__Norm_weed__name___4E88ABD4"];
-            this.relationFK__PlaceStor__id_ra__239E4DCF = this.Relations["FK__PlaceStor__id_ra__239E4DCF"];
-            this.relationFK__Shipment__id_con__35BCFE0A = this.Relations["FK__Shipment__id_con__35BCFE0A"];
-            this.relationFK__Shipment__id_raw__36B12243 = this.Relations["FK__Shipment__id_raw__36B12243"];
-            this.relationFK__Silage_ra__numb___2E1BDC42 = this.Relations["FK__Silage_ra__numb___2E1BDC42"];
-            this.relationFK__Silage_raw__2F10007B = this.Relations["FK__Silage_raw__2F10007B"];
-            this.relationFK__Storage__id_clas__20C1E124 = this.Relations["FK__Storage__id_clas__20C1E124"];
-            this.relationFK__Storage__id_Name__1FCDBCEB = this.Relations["FK__Storage__id_Name__1FCDBCEB"];
-            this.relationFK__Storage__id_subt__1ED998B2 = this.Relations["FK__Storage__id_subt__1ED998B2"];
-            this.relationFK__Store_raw__2B3F6F97 = this.Relations["FK__Store_raw__2B3F6F97"];
-            this.relationFK__Store_raw__numb___2A4B4B5E = this.Relations["FK__Store_raw__numb___2A4B4B5E"];
-            this.relationFK__Subtype_r__name___1BFD2C07 = this.Relations["FK__Subtype_r__name___1BFD2C07"];
-            this.relationFK__Weed_impu__id_ra__4BAC3F29 = this.Relations["FK__Weed_impu__id_ra__4BAC3F29"];
-            this.relationFK__Weed_impu__name___4AB81AF0 = this.Relations["FK__Weed_impu__name___4AB81AF0"];
+            this.relationFK__Delivery__id_con__32E0915F = this.Relations["FK__Delivery__id_con__32E0915F"];
+            this.relationFK__Delivery__id_raw__33D4B598 = this.Relations["FK__Delivery__id_raw__33D4B598"];
+            this.relationFK__Drying__id_raw__3A81B327 = this.Relations["FK__Drying__id_raw__3A81B327"];
+            this.relationFK__General_i__id_ra__5FB337D6 = this.Relations["FK__General_i__id_ra__5FB337D6"];
+            this.relationFK__General_i__name___5EBF139D = this.Relations["FK__General_i__name___5EBF139D"];
+            this.relationFK__Grain_imp__id_ra__5629CD9C = this.Relations["FK__Grain_imp__id_ra__5629CD9C"];
+            this.relationFK__Grain_imp__name___5535A963 = this.Relations["FK__Grain_imp__name___5535A963"];
+            this.relationFK__Harmful_i__id_ra__4316F928 = this.Relations["FK__Harmful_i__id_ra__4316F928"];
+            this.relationFK__Harmful_i__name___4222D4EF = this.Relations["FK__Harmful_i__name___4222D4EF"];
+            this.relationFK__Norm_gene__id_cl__6383C8BA = this.Relations["FK__Norm_gene__id_cl__6383C8BA"];
+            this.relationFK__Norm_gene__name___628FA481 = this.Relations["FK__Norm_gene__name___628FA481"];
+            this.relationFK__Norm_grai__id_cl__59FA5E80 = this.Relations["FK__Norm_grai__id_cl__59FA5E80"];
+            this.relationFK__Norm_grai__name___59063A47 = this.Relations["FK__Norm_grai__name___59063A47"];
+            this.relationFK__Norm_harm__id_cl__46E78A0C = this.Relations["FK__Norm_harm__id_cl__46E78A0C"];
+            this.relationFK__Norm_harm__name___45F365D3 = this.Relations["FK__Norm_harm__name___45F365D3"];
+            this.relationFK__Norm_weed__id_cl__5070F446 = this.Relations["FK__Norm_weed__id_cl__5070F446"];
+            this.relationFK__Norm_weed__name___4F7CD00D = this.Relations["FK__Norm_weed__name___4F7CD00D"];
+            this.relationFK__PlaceStor__id_ra__24927208 = this.Relations["FK__PlaceStor__id_ra__24927208"];
+            this.relationFK__Shipment__id_con__36B12243 = this.Relations["FK__Shipment__id_con__36B12243"];
+            this.relationFK__Shipment__id_raw__37A5467C = this.Relations["FK__Shipment__id_raw__37A5467C"];
+            this.relationFK__Silage_ra__numb___2F10007B = this.Relations["FK__Silage_ra__numb___2F10007B"];
+            this.relationFK__Silage_raw__300424B4 = this.Relations["FK__Silage_raw__300424B4"];
+            this.relationFK__Storage__id_clas__21B6055D = this.Relations["FK__Storage__id_clas__21B6055D"];
+            this.relationFK__Storage__id_Name__20C1E124 = this.Relations["FK__Storage__id_Name__20C1E124"];
+            this.relationFK__Storage__id_subt__1FCDBCEB = this.Relations["FK__Storage__id_subt__1FCDBCEB"];
+            this.relationFK__Store_raw__2C3393D0 = this.Relations["FK__Store_raw__2C3393D0"];
+            this.relationFK__Store_raw__numb___2B3F6F97 = this.Relations["FK__Store_raw__numb___2B3F6F97"];
+            this.relationFK__Subtype_r__name___1CF15040 = this.Relations["FK__Subtype_r__name___1CF15040"];
+            this.relationFK__Type_raw__id_Nam__1A14E395 = this.Relations["FK__Type_raw__id_Nam__1A14E395"];
+            this.relationFK__Weed_impu__id_ra__4CA06362 = this.Relations["FK__Weed_impu__id_ra__4CA06362"];
+            this.relationFK__Weed_impu__name___4BAC3F29 = this.Relations["FK__Weed_impu__name___4BAC3F29"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1062,148 +1065,152 @@ namespace Elevator {
             base.Tables.Add(this.tableType_weed_impurities);
             this.tableWeed_impurities = new Weed_impuritiesDataTable();
             base.Tables.Add(this.tableWeed_impurities);
-            this.relationFK__Analysis__6754599E = new global::System.Data.DataRelation("FK__Analysis__6754599E", new global::System.Data.DataColumn[] {
+            this.relationFK__Analysis__68487DD7 = new global::System.Data.DataRelation("FK__Analysis__68487DD7", new global::System.Data.DataColumn[] {
                         this.tableDelivery.id_contractorColumn,
                         this.tableDelivery.id_rawColumn}, new global::System.Data.DataColumn[] {
                         this.tableAnalysis.id_contractorColumn,
                         this.tableAnalysis.id_rawColumn}, false);
-            this.Relations.Add(this.relationFK__Analysis__6754599E);
+            this.Relations.Add(this.relationFK__Analysis__68487DD7);
             this.relationFK__Class__id_NameRa__173876EA = new global::System.Data.DataRelation("FK__Class__id_NameRa__173876EA", new global::System.Data.DataColumn[] {
                         this.tableRaw.id_NameRawColumn}, new global::System.Data.DataColumn[] {
                         this.tableClass.id_NameRawColumn}, false);
             this.Relations.Add(this.relationFK__Class__id_NameRa__173876EA);
-            this.relationFK__Clearing__id_raw__3C69FB99 = new global::System.Data.DataRelation("FK__Clearing__id_raw__3C69FB99", new global::System.Data.DataColumn[] {
+            this.relationFK__Clearing__id_raw__3D5E1FD2 = new global::System.Data.DataRelation("FK__Clearing__id_raw__3D5E1FD2", new global::System.Data.DataColumn[] {
                         this.tableStorage.id_rawColumn}, new global::System.Data.DataColumn[] {
                         this.tableClearing.id_rawColumn}, false);
-            this.Relations.Add(this.relationFK__Clearing__id_raw__3C69FB99);
+            this.Relations.Add(this.relationFK__Clearing__id_raw__3D5E1FD2);
             this.relationFK__Contract__id_con__1273C1CD = new global::System.Data.DataRelation("FK__Contract__id_con__1273C1CD", new global::System.Data.DataColumn[] {
                         this.tableContractor.id_contractorColumn}, new global::System.Data.DataColumn[] {
                         this.tableContract.id_contractorColumn}, false);
             this.Relations.Add(this.relationFK__Contract__id_con__1273C1CD);
-            this.relationFK__Delivery__id_con__31EC6D26 = new global::System.Data.DataRelation("FK__Delivery__id_con__31EC6D26", new global::System.Data.DataColumn[] {
+            this.relationFK__Delivery__id_con__32E0915F = new global::System.Data.DataRelation("FK__Delivery__id_con__32E0915F", new global::System.Data.DataColumn[] {
                         this.tableContractor.id_contractorColumn}, new global::System.Data.DataColumn[] {
                         this.tableDelivery.id_contractorColumn}, false);
-            this.Relations.Add(this.relationFK__Delivery__id_con__31EC6D26);
-            this.relationFK__Delivery__id_raw__32E0915F = new global::System.Data.DataRelation("FK__Delivery__id_raw__32E0915F", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Delivery__id_con__32E0915F);
+            this.relationFK__Delivery__id_raw__33D4B598 = new global::System.Data.DataRelation("FK__Delivery__id_raw__33D4B598", new global::System.Data.DataColumn[] {
                         this.tableStorage.id_rawColumn}, new global::System.Data.DataColumn[] {
                         this.tableDelivery.id_rawColumn}, false);
-            this.Relations.Add(this.relationFK__Delivery__id_raw__32E0915F);
-            this.relationFK__Drying__id_raw__398D8EEE = new global::System.Data.DataRelation("FK__Drying__id_raw__398D8EEE", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Delivery__id_raw__33D4B598);
+            this.relationFK__Drying__id_raw__3A81B327 = new global::System.Data.DataRelation("FK__Drying__id_raw__3A81B327", new global::System.Data.DataColumn[] {
                         this.tableStorage.id_rawColumn}, new global::System.Data.DataColumn[] {
                         this.tableDrying.id_rawColumn}, false);
-            this.Relations.Add(this.relationFK__Drying__id_raw__398D8EEE);
-            this.relationFK__General_i__id_ra__5EBF139D = new global::System.Data.DataRelation("FK__General_i__id_ra__5EBF139D", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Drying__id_raw__3A81B327);
+            this.relationFK__General_i__id_ra__5FB337D6 = new global::System.Data.DataRelation("FK__General_i__id_ra__5FB337D6", new global::System.Data.DataColumn[] {
                         this.tableStorage.id_rawColumn}, new global::System.Data.DataColumn[] {
                         this.tableGeneral_impurities.id_rawColumn}, false);
-            this.Relations.Add(this.relationFK__General_i__id_ra__5EBF139D);
-            this.relationFK__General_i__name___5DCAEF64 = new global::System.Data.DataRelation("FK__General_i__name___5DCAEF64", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__General_i__id_ra__5FB337D6);
+            this.relationFK__General_i__name___5EBF139D = new global::System.Data.DataRelation("FK__General_i__name___5EBF139D", new global::System.Data.DataColumn[] {
                         this.tableType_general_impurities.name_impColumn}, new global::System.Data.DataColumn[] {
                         this.tableGeneral_impurities.name_impColumn}, false);
-            this.Relations.Add(this.relationFK__General_i__name___5DCAEF64);
-            this.relationFK__Grain_imp__id_ra__5535A963 = new global::System.Data.DataRelation("FK__Grain_imp__id_ra__5535A963", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__General_i__name___5EBF139D);
+            this.relationFK__Grain_imp__id_ra__5629CD9C = new global::System.Data.DataRelation("FK__Grain_imp__id_ra__5629CD9C", new global::System.Data.DataColumn[] {
                         this.tableStorage.id_rawColumn}, new global::System.Data.DataColumn[] {
                         this.tableGrain_impurities.id_rawColumn}, false);
-            this.Relations.Add(this.relationFK__Grain_imp__id_ra__5535A963);
-            this.relationFK__Grain_imp__name___5441852A = new global::System.Data.DataRelation("FK__Grain_imp__name___5441852A", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Grain_imp__id_ra__5629CD9C);
+            this.relationFK__Grain_imp__name___5535A963 = new global::System.Data.DataRelation("FK__Grain_imp__name___5535A963", new global::System.Data.DataColumn[] {
                         this.tableType_grain_impurities.name_grain_impColumn}, new global::System.Data.DataColumn[] {
                         this.tableGrain_impurities.name_grain_impColumn}, false);
-            this.Relations.Add(this.relationFK__Grain_imp__name___5441852A);
-            this.relationFK__Harmful_i__id_ra__4222D4EF = new global::System.Data.DataRelation("FK__Harmful_i__id_ra__4222D4EF", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Grain_imp__name___5535A963);
+            this.relationFK__Harmful_i__id_ra__4316F928 = new global::System.Data.DataRelation("FK__Harmful_i__id_ra__4316F928", new global::System.Data.DataColumn[] {
                         this.tableStorage.id_rawColumn}, new global::System.Data.DataColumn[] {
                         this.tableHarmful_impurities.id_rawColumn}, false);
-            this.Relations.Add(this.relationFK__Harmful_i__id_ra__4222D4EF);
-            this.relationFK__Harmful_i__name___412EB0B6 = new global::System.Data.DataRelation("FK__Harmful_i__name___412EB0B6", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Harmful_i__id_ra__4316F928);
+            this.relationFK__Harmful_i__name___4222D4EF = new global::System.Data.DataRelation("FK__Harmful_i__name___4222D4EF", new global::System.Data.DataColumn[] {
                         this.tableType_harmful_impurities.name_harm_impColumn}, new global::System.Data.DataColumn[] {
                         this.tableHarmful_impurities.name_harm_impColumn}, false);
-            this.Relations.Add(this.relationFK__Harmful_i__name___412EB0B6);
-            this.relationFK__Norm_gene__id_cl__628FA481 = new global::System.Data.DataRelation("FK__Norm_gene__id_cl__628FA481", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Harmful_i__name___4222D4EF);
+            this.relationFK__Norm_gene__id_cl__6383C8BA = new global::System.Data.DataRelation("FK__Norm_gene__id_cl__6383C8BA", new global::System.Data.DataColumn[] {
                         this.tableClass.id_classColumn}, new global::System.Data.DataColumn[] {
                         this.tableNorm_general_impurities.id_classColumn}, false);
-            this.Relations.Add(this.relationFK__Norm_gene__id_cl__628FA481);
-            this.relationFK__Norm_gene__name___619B8048 = new global::System.Data.DataRelation("FK__Norm_gene__name___619B8048", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Norm_gene__id_cl__6383C8BA);
+            this.relationFK__Norm_gene__name___628FA481 = new global::System.Data.DataRelation("FK__Norm_gene__name___628FA481", new global::System.Data.DataColumn[] {
                         this.tableType_general_impurities.name_impColumn}, new global::System.Data.DataColumn[] {
                         this.tableNorm_general_impurities.name_impColumn}, false);
-            this.Relations.Add(this.relationFK__Norm_gene__name___619B8048);
-            this.relationFK__Norm_grai__id_cl__59063A47 = new global::System.Data.DataRelation("FK__Norm_grai__id_cl__59063A47", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Norm_gene__name___628FA481);
+            this.relationFK__Norm_grai__id_cl__59FA5E80 = new global::System.Data.DataRelation("FK__Norm_grai__id_cl__59FA5E80", new global::System.Data.DataColumn[] {
                         this.tableClass.id_classColumn}, new global::System.Data.DataColumn[] {
                         this.tableNorm_grain_impurities.id_classColumn}, false);
-            this.Relations.Add(this.relationFK__Norm_grai__id_cl__59063A47);
-            this.relationFK__Norm_grai__name___5812160E = new global::System.Data.DataRelation("FK__Norm_grai__name___5812160E", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Norm_grai__id_cl__59FA5E80);
+            this.relationFK__Norm_grai__name___59063A47 = new global::System.Data.DataRelation("FK__Norm_grai__name___59063A47", new global::System.Data.DataColumn[] {
                         this.tableType_grain_impurities.name_grain_impColumn}, new global::System.Data.DataColumn[] {
                         this.tableNorm_grain_impurities.name_grain_impColumn}, false);
-            this.Relations.Add(this.relationFK__Norm_grai__name___5812160E);
-            this.relationFK__Norm_harm__id_cl__45F365D3 = new global::System.Data.DataRelation("FK__Norm_harm__id_cl__45F365D3", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Norm_grai__name___59063A47);
+            this.relationFK__Norm_harm__id_cl__46E78A0C = new global::System.Data.DataRelation("FK__Norm_harm__id_cl__46E78A0C", new global::System.Data.DataColumn[] {
                         this.tableClass.id_classColumn}, new global::System.Data.DataColumn[] {
                         this.tableNorm_harmful_impurities.id_classColumn}, false);
-            this.Relations.Add(this.relationFK__Norm_harm__id_cl__45F365D3);
-            this.relationFK__Norm_harm__name___44FF419A = new global::System.Data.DataRelation("FK__Norm_harm__name___44FF419A", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Norm_harm__id_cl__46E78A0C);
+            this.relationFK__Norm_harm__name___45F365D3 = new global::System.Data.DataRelation("FK__Norm_harm__name___45F365D3", new global::System.Data.DataColumn[] {
                         this.tableType_harmful_impurities.name_harm_impColumn}, new global::System.Data.DataColumn[] {
                         this.tableNorm_harmful_impurities.name_harm_impColumn}, false);
-            this.Relations.Add(this.relationFK__Norm_harm__name___44FF419A);
-            this.relationFK__Norm_weed__id_cl__4F7CD00D = new global::System.Data.DataRelation("FK__Norm_weed__id_cl__4F7CD00D", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Norm_harm__name___45F365D3);
+            this.relationFK__Norm_weed__id_cl__5070F446 = new global::System.Data.DataRelation("FK__Norm_weed__id_cl__5070F446", new global::System.Data.DataColumn[] {
                         this.tableClass.id_classColumn}, new global::System.Data.DataColumn[] {
                         this.tableNorm_weed_impurities.id_classColumn}, false);
-            this.Relations.Add(this.relationFK__Norm_weed__id_cl__4F7CD00D);
-            this.relationFK__Norm_weed__name___4E88ABD4 = new global::System.Data.DataRelation("FK__Norm_weed__name___4E88ABD4", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Norm_weed__id_cl__5070F446);
+            this.relationFK__Norm_weed__name___4F7CD00D = new global::System.Data.DataRelation("FK__Norm_weed__name___4F7CD00D", new global::System.Data.DataColumn[] {
                         this.tableType_weed_impurities.name_weed_impColumn}, new global::System.Data.DataColumn[] {
                         this.tableNorm_weed_impurities.name_weed_impColumn}, false);
-            this.Relations.Add(this.relationFK__Norm_weed__name___4E88ABD4);
-            this.relationFK__PlaceStor__id_ra__239E4DCF = new global::System.Data.DataRelation("FK__PlaceStor__id_ra__239E4DCF", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Norm_weed__name___4F7CD00D);
+            this.relationFK__PlaceStor__id_ra__24927208 = new global::System.Data.DataRelation("FK__PlaceStor__id_ra__24927208", new global::System.Data.DataColumn[] {
                         this.tableStorage.id_rawColumn}, new global::System.Data.DataColumn[] {
                         this.tablePlaceStorage.id_rawColumn}, false);
-            this.Relations.Add(this.relationFK__PlaceStor__id_ra__239E4DCF);
-            this.relationFK__Shipment__id_con__35BCFE0A = new global::System.Data.DataRelation("FK__Shipment__id_con__35BCFE0A", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__PlaceStor__id_ra__24927208);
+            this.relationFK__Shipment__id_con__36B12243 = new global::System.Data.DataRelation("FK__Shipment__id_con__36B12243", new global::System.Data.DataColumn[] {
                         this.tableContractor.id_contractorColumn}, new global::System.Data.DataColumn[] {
                         this.tableShipment.id_contractorColumn}, false);
-            this.Relations.Add(this.relationFK__Shipment__id_con__35BCFE0A);
-            this.relationFK__Shipment__id_raw__36B12243 = new global::System.Data.DataRelation("FK__Shipment__id_raw__36B12243", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Shipment__id_con__36B12243);
+            this.relationFK__Shipment__id_raw__37A5467C = new global::System.Data.DataRelation("FK__Shipment__id_raw__37A5467C", new global::System.Data.DataColumn[] {
                         this.tableStorage.id_rawColumn}, new global::System.Data.DataColumn[] {
                         this.tableShipment.id_rawColumn}, false);
-            this.Relations.Add(this.relationFK__Shipment__id_raw__36B12243);
-            this.relationFK__Silage_ra__numb___2E1BDC42 = new global::System.Data.DataRelation("FK__Silage_ra__numb___2E1BDC42", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Shipment__id_raw__37A5467C);
+            this.relationFK__Silage_ra__numb___2F10007B = new global::System.Data.DataRelation("FK__Silage_ra__numb___2F10007B", new global::System.Data.DataColumn[] {
                         this.tableSilage.numb_silageColumn}, new global::System.Data.DataColumn[] {
                         this.tableSilage_raw.numb_silageColumn}, false);
-            this.Relations.Add(this.relationFK__Silage_ra__numb___2E1BDC42);
-            this.relationFK__Silage_raw__2F10007B = new global::System.Data.DataRelation("FK__Silage_raw__2F10007B", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Silage_ra__numb___2F10007B);
+            this.relationFK__Silage_raw__300424B4 = new global::System.Data.DataRelation("FK__Silage_raw__300424B4", new global::System.Data.DataColumn[] {
                         this.tablePlaceStorage.id_place_storageColumn,
                         this.tablePlaceStorage.id_rawColumn}, new global::System.Data.DataColumn[] {
                         this.tableSilage_raw.id_place_storageColumn,
                         this.tableSilage_raw.id_rawColumn}, false);
-            this.Relations.Add(this.relationFK__Silage_raw__2F10007B);
-            this.relationFK__Storage__id_clas__20C1E124 = new global::System.Data.DataRelation("FK__Storage__id_clas__20C1E124", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Silage_raw__300424B4);
+            this.relationFK__Storage__id_clas__21B6055D = new global::System.Data.DataRelation("FK__Storage__id_clas__21B6055D", new global::System.Data.DataColumn[] {
                         this.tableClass.id_classColumn}, new global::System.Data.DataColumn[] {
                         this.tableStorage.id_classColumn}, false);
-            this.Relations.Add(this.relationFK__Storage__id_clas__20C1E124);
-            this.relationFK__Storage__id_Name__1FCDBCEB = new global::System.Data.DataRelation("FK__Storage__id_Name__1FCDBCEB", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Storage__id_clas__21B6055D);
+            this.relationFK__Storage__id_Name__20C1E124 = new global::System.Data.DataRelation("FK__Storage__id_Name__20C1E124", new global::System.Data.DataColumn[] {
                         this.tableRaw.id_NameRawColumn}, new global::System.Data.DataColumn[] {
                         this.tableStorage.id_NameRawColumn}, false);
-            this.Relations.Add(this.relationFK__Storage__id_Name__1FCDBCEB);
-            this.relationFK__Storage__id_subt__1ED998B2 = new global::System.Data.DataRelation("FK__Storage__id_subt__1ED998B2", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Storage__id_Name__20C1E124);
+            this.relationFK__Storage__id_subt__1FCDBCEB = new global::System.Data.DataRelation("FK__Storage__id_subt__1FCDBCEB", new global::System.Data.DataColumn[] {
                         this.tableSubtype_raw.id_subtypeColumn}, new global::System.Data.DataColumn[] {
                         this.tableStorage.id_subtypeColumn}, false);
-            this.Relations.Add(this.relationFK__Storage__id_subt__1ED998B2);
-            this.relationFK__Store_raw__2B3F6F97 = new global::System.Data.DataRelation("FK__Store_raw__2B3F6F97", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Storage__id_subt__1FCDBCEB);
+            this.relationFK__Store_raw__2C3393D0 = new global::System.Data.DataRelation("FK__Store_raw__2C3393D0", new global::System.Data.DataColumn[] {
                         this.tablePlaceStorage.id_place_storageColumn,
                         this.tablePlaceStorage.id_rawColumn}, new global::System.Data.DataColumn[] {
                         this.tableStore_raw.id_place_storageColumn,
                         this.tableStore_raw.id_rawColumn}, false);
-            this.Relations.Add(this.relationFK__Store_raw__2B3F6F97);
-            this.relationFK__Store_raw__numb___2A4B4B5E = new global::System.Data.DataRelation("FK__Store_raw__numb___2A4B4B5E", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Store_raw__2C3393D0);
+            this.relationFK__Store_raw__numb___2B3F6F97 = new global::System.Data.DataRelation("FK__Store_raw__numb___2B3F6F97", new global::System.Data.DataColumn[] {
                         this.tableStore.numb_storeColumn}, new global::System.Data.DataColumn[] {
                         this.tableStore_raw.numb_storeColumn}, false);
-            this.Relations.Add(this.relationFK__Store_raw__numb___2A4B4B5E);
-            this.relationFK__Subtype_r__name___1BFD2C07 = new global::System.Data.DataRelation("FK__Subtype_r__name___1BFD2C07", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Store_raw__numb___2B3F6F97);
+            this.relationFK__Subtype_r__name___1CF15040 = new global::System.Data.DataRelation("FK__Subtype_r__name___1CF15040", new global::System.Data.DataColumn[] {
                         this.tableType_raw.name_type_rawColumn}, new global::System.Data.DataColumn[] {
                         this.tableSubtype_raw.name_type_rawColumn}, false);
-            this.Relations.Add(this.relationFK__Subtype_r__name___1BFD2C07);
-            this.relationFK__Weed_impu__id_ra__4BAC3F29 = new global::System.Data.DataRelation("FK__Weed_impu__id_ra__4BAC3F29", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Subtype_r__name___1CF15040);
+            this.relationFK__Type_raw__id_Nam__1A14E395 = new global::System.Data.DataRelation("FK__Type_raw__id_Nam__1A14E395", new global::System.Data.DataColumn[] {
+                        this.tableRaw.id_NameRawColumn}, new global::System.Data.DataColumn[] {
+                        this.tableType_raw.id_NameRawColumn}, false);
+            this.Relations.Add(this.relationFK__Type_raw__id_Nam__1A14E395);
+            this.relationFK__Weed_impu__id_ra__4CA06362 = new global::System.Data.DataRelation("FK__Weed_impu__id_ra__4CA06362", new global::System.Data.DataColumn[] {
                         this.tableStorage.id_rawColumn}, new global::System.Data.DataColumn[] {
                         this.tableWeed_impurities.id_rawColumn}, false);
-            this.Relations.Add(this.relationFK__Weed_impu__id_ra__4BAC3F29);
-            this.relationFK__Weed_impu__name___4AB81AF0 = new global::System.Data.DataRelation("FK__Weed_impu__name___4AB81AF0", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Weed_impu__id_ra__4CA06362);
+            this.relationFK__Weed_impu__name___4BAC3F29 = new global::System.Data.DataRelation("FK__Weed_impu__name___4BAC3F29", new global::System.Data.DataColumn[] {
                         this.tableType_weed_impurities.name_weed_impColumn}, new global::System.Data.DataColumn[] {
                         this.tableWeed_impurities.name_weed_impColumn}, false);
-            this.Relations.Add(this.relationFK__Weed_impu__name___4AB81AF0);
+            this.Relations.Add(this.relationFK__Weed_impu__name___4BAC3F29);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2240,7 +2247,7 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ClearingRow AddClearingRow(StorageRow parentStorageRowByFK__Clearing__id_raw__3C69FB99, System.DateTime date_clearing, string weight_before_clearing, string weight_after_clearing) {
+            public ClearingRow AddClearingRow(StorageRow parentStorageRowByFK__Clearing__id_raw__3D5E1FD2, System.DateTime date_clearing, string weight_before_clearing, string weight_after_clearing) {
                 ClearingRow rowClearingRow = ((ClearingRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2248,8 +2255,8 @@ namespace Elevator {
                         date_clearing,
                         weight_before_clearing,
                         weight_after_clearing};
-                if ((parentStorageRowByFK__Clearing__id_raw__3C69FB99 != null)) {
-                    columnValuesArray[1] = parentStorageRowByFK__Clearing__id_raw__3C69FB99[0];
+                if ((parentStorageRowByFK__Clearing__id_raw__3D5E1FD2 != null)) {
+                    columnValuesArray[1] = parentStorageRowByFK__Clearing__id_raw__3D5E1FD2[0];
                 }
                 rowClearingRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowClearingRow);
@@ -3261,7 +3268,7 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DeliveryRow AddDeliveryRow(ContractorRow parentContractorRowByFK__Delivery__id_con__31EC6D26, StorageRow parentStorageRowByFK__Delivery__id_raw__32E0915F, string type_transport_delivery, string brutto_delivery, string netto_delivery, string tara_delivery, System.DateTime date_delivery) {
+            public DeliveryRow AddDeliveryRow(ContractorRow parentContractorRowByFK__Delivery__id_con__32E0915F, StorageRow parentStorageRowByFK__Delivery__id_raw__33D4B598, string type_transport_delivery, string brutto_delivery, string netto_delivery, string tara_delivery, System.DateTime date_delivery) {
                 DeliveryRow rowDeliveryRow = ((DeliveryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3271,11 +3278,11 @@ namespace Elevator {
                         netto_delivery,
                         tara_delivery,
                         date_delivery};
-                if ((parentContractorRowByFK__Delivery__id_con__31EC6D26 != null)) {
-                    columnValuesArray[0] = parentContractorRowByFK__Delivery__id_con__31EC6D26[0];
+                if ((parentContractorRowByFK__Delivery__id_con__32E0915F != null)) {
+                    columnValuesArray[0] = parentContractorRowByFK__Delivery__id_con__32E0915F[0];
                 }
-                if ((parentStorageRowByFK__Delivery__id_raw__32E0915F != null)) {
-                    columnValuesArray[1] = parentStorageRowByFK__Delivery__id_raw__32E0915F[0];
+                if ((parentStorageRowByFK__Delivery__id_raw__33D4B598 != null)) {
+                    columnValuesArray[1] = parentStorageRowByFK__Delivery__id_raw__33D4B598[0];
                 }
                 rowDeliveryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDeliveryRow);
@@ -3616,7 +3623,7 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DryingRow AddDryingRow(StorageRow parentStorageRowByFK__Drying__id_raw__398D8EEE, System.DateTime date_drying, string weight_before_drying, string weight_after_drying, string wet_before, string wet_after) {
+            public DryingRow AddDryingRow(StorageRow parentStorageRowByFK__Drying__id_raw__3A81B327, System.DateTime date_drying, string weight_before_drying, string weight_after_drying, string wet_before, string wet_after) {
                 DryingRow rowDryingRow = ((DryingRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3626,8 +3633,8 @@ namespace Elevator {
                         weight_after_drying,
                         wet_before,
                         wet_after};
-                if ((parentStorageRowByFK__Drying__id_raw__398D8EEE != null)) {
-                    columnValuesArray[1] = parentStorageRowByFK__Drying__id_raw__398D8EEE[0];
+                if ((parentStorageRowByFK__Drying__id_raw__3A81B327 != null)) {
+                    columnValuesArray[1] = parentStorageRowByFK__Drying__id_raw__3A81B327[0];
                 }
                 rowDryingRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDryingRow);
@@ -4287,17 +4294,17 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public General_impuritiesRow AddGeneral_impuritiesRow(Type_general_impuritiesRow parentType_general_impuritiesRowByFK__General_i__name___5DCAEF64, StorageRow parentStorageRowByFK__General_i__id_ra__5EBF139D, string value_imp) {
+            public General_impuritiesRow AddGeneral_impuritiesRow(Type_general_impuritiesRow parentType_general_impuritiesRowByFK__General_i__name___5EBF139D, StorageRow parentStorageRowByFK__General_i__id_ra__5FB337D6, string value_imp) {
                 General_impuritiesRow rowGeneral_impuritiesRow = ((General_impuritiesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         value_imp};
-                if ((parentType_general_impuritiesRowByFK__General_i__name___5DCAEF64 != null)) {
-                    columnValuesArray[0] = parentType_general_impuritiesRowByFK__General_i__name___5DCAEF64[0];
+                if ((parentType_general_impuritiesRowByFK__General_i__name___5EBF139D != null)) {
+                    columnValuesArray[0] = parentType_general_impuritiesRowByFK__General_i__name___5EBF139D[0];
                 }
-                if ((parentStorageRowByFK__General_i__id_ra__5EBF139D != null)) {
-                    columnValuesArray[1] = parentStorageRowByFK__General_i__id_ra__5EBF139D[0];
+                if ((parentStorageRowByFK__General_i__id_ra__5FB337D6 != null)) {
+                    columnValuesArray[1] = parentStorageRowByFK__General_i__id_ra__5FB337D6[0];
                 }
                 rowGeneral_impuritiesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGeneral_impuritiesRow);
@@ -4584,17 +4591,17 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Grain_impuritiesRow AddGrain_impuritiesRow(Type_grain_impuritiesRow parentType_grain_impuritiesRowByFK__Grain_imp__name___5441852A, StorageRow parentStorageRowByFK__Grain_imp__id_ra__5535A963, string value_grain_imp) {
+            public Grain_impuritiesRow AddGrain_impuritiesRow(Type_grain_impuritiesRow parentType_grain_impuritiesRowByFK__Grain_imp__name___5535A963, StorageRow parentStorageRowByFK__Grain_imp__id_ra__5629CD9C, string value_grain_imp) {
                 Grain_impuritiesRow rowGrain_impuritiesRow = ((Grain_impuritiesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         value_grain_imp};
-                if ((parentType_grain_impuritiesRowByFK__Grain_imp__name___5441852A != null)) {
-                    columnValuesArray[0] = parentType_grain_impuritiesRowByFK__Grain_imp__name___5441852A[0];
+                if ((parentType_grain_impuritiesRowByFK__Grain_imp__name___5535A963 != null)) {
+                    columnValuesArray[0] = parentType_grain_impuritiesRowByFK__Grain_imp__name___5535A963[0];
                 }
-                if ((parentStorageRowByFK__Grain_imp__id_ra__5535A963 != null)) {
-                    columnValuesArray[1] = parentStorageRowByFK__Grain_imp__id_ra__5535A963[0];
+                if ((parentStorageRowByFK__Grain_imp__id_ra__5629CD9C != null)) {
+                    columnValuesArray[1] = parentStorageRowByFK__Grain_imp__id_ra__5629CD9C[0];
                 }
                 rowGrain_impuritiesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGrain_impuritiesRow);
@@ -4881,17 +4888,17 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Harmful_impuritiesRow AddHarmful_impuritiesRow(Type_harmful_impuritiesRow parentType_harmful_impuritiesRowByFK__Harmful_i__name___412EB0B6, StorageRow parentStorageRowByFK__Harmful_i__id_ra__4222D4EF, string value_harm_imp) {
+            public Harmful_impuritiesRow AddHarmful_impuritiesRow(Type_harmful_impuritiesRow parentType_harmful_impuritiesRowByFK__Harmful_i__name___4222D4EF, StorageRow parentStorageRowByFK__Harmful_i__id_ra__4316F928, string value_harm_imp) {
                 Harmful_impuritiesRow rowHarmful_impuritiesRow = ((Harmful_impuritiesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         value_harm_imp};
-                if ((parentType_harmful_impuritiesRowByFK__Harmful_i__name___412EB0B6 != null)) {
-                    columnValuesArray[0] = parentType_harmful_impuritiesRowByFK__Harmful_i__name___412EB0B6[0];
+                if ((parentType_harmful_impuritiesRowByFK__Harmful_i__name___4222D4EF != null)) {
+                    columnValuesArray[0] = parentType_harmful_impuritiesRowByFK__Harmful_i__name___4222D4EF[0];
                 }
-                if ((parentStorageRowByFK__Harmful_i__id_ra__4222D4EF != null)) {
-                    columnValuesArray[1] = parentStorageRowByFK__Harmful_i__id_ra__4222D4EF[0];
+                if ((parentStorageRowByFK__Harmful_i__id_ra__4316F928 != null)) {
+                    columnValuesArray[1] = parentStorageRowByFK__Harmful_i__id_ra__4316F928[0];
                 }
                 rowHarmful_impuritiesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowHarmful_impuritiesRow);
@@ -5178,17 +5185,17 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Norm_general_impuritiesRow AddNorm_general_impuritiesRow(Type_general_impuritiesRow parentType_general_impuritiesRowByFK__Norm_gene__name___619B8048, ClassRow parentClassRowByFK__Norm_gene__id_cl__628FA481, string norm_imp) {
+            public Norm_general_impuritiesRow AddNorm_general_impuritiesRow(Type_general_impuritiesRow parentType_general_impuritiesRowByFK__Norm_gene__name___628FA481, ClassRow parentClassRowByFK__Norm_gene__id_cl__6383C8BA, string norm_imp) {
                 Norm_general_impuritiesRow rowNorm_general_impuritiesRow = ((Norm_general_impuritiesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         norm_imp};
-                if ((parentType_general_impuritiesRowByFK__Norm_gene__name___619B8048 != null)) {
-                    columnValuesArray[0] = parentType_general_impuritiesRowByFK__Norm_gene__name___619B8048[0];
+                if ((parentType_general_impuritiesRowByFK__Norm_gene__name___628FA481 != null)) {
+                    columnValuesArray[0] = parentType_general_impuritiesRowByFK__Norm_gene__name___628FA481[0];
                 }
-                if ((parentClassRowByFK__Norm_gene__id_cl__628FA481 != null)) {
-                    columnValuesArray[1] = parentClassRowByFK__Norm_gene__id_cl__628FA481[0];
+                if ((parentClassRowByFK__Norm_gene__id_cl__6383C8BA != null)) {
+                    columnValuesArray[1] = parentClassRowByFK__Norm_gene__id_cl__6383C8BA[0];
                 }
                 rowNorm_general_impuritiesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowNorm_general_impuritiesRow);
@@ -5475,17 +5482,17 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Norm_grain_impuritiesRow AddNorm_grain_impuritiesRow(Type_grain_impuritiesRow parentType_grain_impuritiesRowByFK__Norm_grai__name___5812160E, ClassRow parentClassRowByFK__Norm_grai__id_cl__59063A47, string norm_grain_imp) {
+            public Norm_grain_impuritiesRow AddNorm_grain_impuritiesRow(Type_grain_impuritiesRow parentType_grain_impuritiesRowByFK__Norm_grai__name___59063A47, ClassRow parentClassRowByFK__Norm_grai__id_cl__59FA5E80, string norm_grain_imp) {
                 Norm_grain_impuritiesRow rowNorm_grain_impuritiesRow = ((Norm_grain_impuritiesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         norm_grain_imp};
-                if ((parentType_grain_impuritiesRowByFK__Norm_grai__name___5812160E != null)) {
-                    columnValuesArray[0] = parentType_grain_impuritiesRowByFK__Norm_grai__name___5812160E[0];
+                if ((parentType_grain_impuritiesRowByFK__Norm_grai__name___59063A47 != null)) {
+                    columnValuesArray[0] = parentType_grain_impuritiesRowByFK__Norm_grai__name___59063A47[0];
                 }
-                if ((parentClassRowByFK__Norm_grai__id_cl__59063A47 != null)) {
-                    columnValuesArray[1] = parentClassRowByFK__Norm_grai__id_cl__59063A47[0];
+                if ((parentClassRowByFK__Norm_grai__id_cl__59FA5E80 != null)) {
+                    columnValuesArray[1] = parentClassRowByFK__Norm_grai__id_cl__59FA5E80[0];
                 }
                 rowNorm_grain_impuritiesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowNorm_grain_impuritiesRow);
@@ -5772,17 +5779,17 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Norm_harmful_impuritiesRow AddNorm_harmful_impuritiesRow(Type_harmful_impuritiesRow parentType_harmful_impuritiesRowByFK__Norm_harm__name___44FF419A, ClassRow parentClassRowByFK__Norm_harm__id_cl__45F365D3, string norm_harm_imp) {
+            public Norm_harmful_impuritiesRow AddNorm_harmful_impuritiesRow(Type_harmful_impuritiesRow parentType_harmful_impuritiesRowByFK__Norm_harm__name___45F365D3, ClassRow parentClassRowByFK__Norm_harm__id_cl__46E78A0C, string norm_harm_imp) {
                 Norm_harmful_impuritiesRow rowNorm_harmful_impuritiesRow = ((Norm_harmful_impuritiesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         norm_harm_imp};
-                if ((parentType_harmful_impuritiesRowByFK__Norm_harm__name___44FF419A != null)) {
-                    columnValuesArray[0] = parentType_harmful_impuritiesRowByFK__Norm_harm__name___44FF419A[0];
+                if ((parentType_harmful_impuritiesRowByFK__Norm_harm__name___45F365D3 != null)) {
+                    columnValuesArray[0] = parentType_harmful_impuritiesRowByFK__Norm_harm__name___45F365D3[0];
                 }
-                if ((parentClassRowByFK__Norm_harm__id_cl__45F365D3 != null)) {
-                    columnValuesArray[1] = parentClassRowByFK__Norm_harm__id_cl__45F365D3[0];
+                if ((parentClassRowByFK__Norm_harm__id_cl__46E78A0C != null)) {
+                    columnValuesArray[1] = parentClassRowByFK__Norm_harm__id_cl__46E78A0C[0];
                 }
                 rowNorm_harmful_impuritiesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowNorm_harmful_impuritiesRow);
@@ -6069,17 +6076,17 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Norm_weed_impuritiesRow AddNorm_weed_impuritiesRow(Type_weed_impuritiesRow parentType_weed_impuritiesRowByFK__Norm_weed__name___4E88ABD4, ClassRow parentClassRowByFK__Norm_weed__id_cl__4F7CD00D, string norm_weed_imp) {
+            public Norm_weed_impuritiesRow AddNorm_weed_impuritiesRow(Type_weed_impuritiesRow parentType_weed_impuritiesRowByFK__Norm_weed__name___4F7CD00D, ClassRow parentClassRowByFK__Norm_weed__id_cl__5070F446, string norm_weed_imp) {
                 Norm_weed_impuritiesRow rowNorm_weed_impuritiesRow = ((Norm_weed_impuritiesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         norm_weed_imp};
-                if ((parentType_weed_impuritiesRowByFK__Norm_weed__name___4E88ABD4 != null)) {
-                    columnValuesArray[0] = parentType_weed_impuritiesRowByFK__Norm_weed__name___4E88ABD4[0];
+                if ((parentType_weed_impuritiesRowByFK__Norm_weed__name___4F7CD00D != null)) {
+                    columnValuesArray[0] = parentType_weed_impuritiesRowByFK__Norm_weed__name___4F7CD00D[0];
                 }
-                if ((parentClassRowByFK__Norm_weed__id_cl__4F7CD00D != null)) {
-                    columnValuesArray[1] = parentClassRowByFK__Norm_weed__id_cl__4F7CD00D[0];
+                if ((parentClassRowByFK__Norm_weed__id_cl__5070F446 != null)) {
+                    columnValuesArray[1] = parentClassRowByFK__Norm_weed__id_cl__5070F446[0];
                 }
                 rowNorm_weed_impuritiesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowNorm_weed_impuritiesRow);
@@ -6356,13 +6363,13 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PlaceStorageRow AddPlaceStorageRow(StorageRow parentStorageRowByFK__PlaceStor__id_ra__239E4DCF) {
+            public PlaceStorageRow AddPlaceStorageRow(StorageRow parentStorageRowByFK__PlaceStor__id_ra__24927208) {
                 PlaceStorageRow rowPlaceStorageRow = ((PlaceStorageRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null};
-                if ((parentStorageRowByFK__PlaceStor__id_ra__239E4DCF != null)) {
-                    columnValuesArray[1] = parentStorageRowByFK__PlaceStor__id_ra__239E4DCF[0];
+                if ((parentStorageRowByFK__PlaceStor__id_ra__24927208 != null)) {
+                    columnValuesArray[1] = parentStorageRowByFK__PlaceStor__id_ra__24927208[0];
                 }
                 rowPlaceStorageRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPlaceStorageRow);
@@ -6979,7 +6986,7 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ShipmentRow AddShipmentRow(ContractorRow parentContractorRowByFK__Shipment__id_con__35BCFE0A, StorageRow parentStorageRowByFK__Shipment__id_raw__36B12243, string type_transport_shipment, string brutto_shipment, string netto_shipment, string tara_shipment, System.DateTime date_shipment) {
+            public ShipmentRow AddShipmentRow(ContractorRow parentContractorRowByFK__Shipment__id_con__36B12243, StorageRow parentStorageRowByFK__Shipment__id_raw__37A5467C, string type_transport_shipment, string brutto_shipment, string netto_shipment, string tara_shipment, System.DateTime date_shipment) {
                 ShipmentRow rowShipmentRow = ((ShipmentRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -6989,11 +6996,11 @@ namespace Elevator {
                         netto_shipment,
                         tara_shipment,
                         date_shipment};
-                if ((parentContractorRowByFK__Shipment__id_con__35BCFE0A != null)) {
-                    columnValuesArray[0] = parentContractorRowByFK__Shipment__id_con__35BCFE0A[0];
+                if ((parentContractorRowByFK__Shipment__id_con__36B12243 != null)) {
+                    columnValuesArray[0] = parentContractorRowByFK__Shipment__id_con__36B12243[0];
                 }
-                if ((parentStorageRowByFK__Shipment__id_raw__36B12243 != null)) {
-                    columnValuesArray[1] = parentStorageRowByFK__Shipment__id_raw__36B12243[0];
+                if ((parentStorageRowByFK__Shipment__id_raw__37A5467C != null)) {
+                    columnValuesArray[1] = parentStorageRowByFK__Shipment__id_raw__37A5467C[0];
                 }
                 rowShipmentRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowShipmentRow);
@@ -7562,15 +7569,15 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Silage_rawRow AddSilage_rawRow(SilageRow parentSilageRowByFK__Silage_ra__numb___2E1BDC42, int id_place_storage, int id_raw, string weight_silage) {
+            public Silage_rawRow AddSilage_rawRow(SilageRow parentSilageRowByFK__Silage_ra__numb___2F10007B, int id_place_storage, int id_raw, string weight_silage) {
                 Silage_rawRow rowSilage_rawRow = ((Silage_rawRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         id_place_storage,
                         id_raw,
                         weight_silage};
-                if ((parentSilageRowByFK__Silage_ra__numb___2E1BDC42 != null)) {
-                    columnValuesArray[0] = parentSilageRowByFK__Silage_ra__numb___2E1BDC42[0];
+                if ((parentSilageRowByFK__Silage_ra__numb___2F10007B != null)) {
+                    columnValuesArray[0] = parentSilageRowByFK__Silage_ra__numb___2F10007B[0];
                 }
                 rowSilage_rawRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSilage_rawRow);
@@ -7892,7 +7899,7 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public StorageRow AddStorageRow(int year_crop, Subtype_rawRow parentSubtype_rawRowByFK__Storage__id_subt__1ED998B2, string weight, RawRow parentRawRowByFK__Storage__id_Name__1FCDBCEB, ClassRow parentClassRowByFK__Storage__id_clas__20C1E124) {
+            public StorageRow AddStorageRow(int year_crop, Subtype_rawRow parentSubtype_rawRowByFK__Storage__id_subt__1FCDBCEB, string weight, RawRow parentRawRowByFK__Storage__id_Name__20C1E124, ClassRow parentClassRowByFK__Storage__id_clas__21B6055D) {
                 StorageRow rowStorageRow = ((StorageRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -7901,14 +7908,14 @@ namespace Elevator {
                         weight,
                         null,
                         null};
-                if ((parentSubtype_rawRowByFK__Storage__id_subt__1ED998B2 != null)) {
-                    columnValuesArray[2] = parentSubtype_rawRowByFK__Storage__id_subt__1ED998B2[0];
+                if ((parentSubtype_rawRowByFK__Storage__id_subt__1FCDBCEB != null)) {
+                    columnValuesArray[2] = parentSubtype_rawRowByFK__Storage__id_subt__1FCDBCEB[0];
                 }
-                if ((parentRawRowByFK__Storage__id_Name__1FCDBCEB != null)) {
-                    columnValuesArray[4] = parentRawRowByFK__Storage__id_Name__1FCDBCEB[0];
+                if ((parentRawRowByFK__Storage__id_Name__20C1E124 != null)) {
+                    columnValuesArray[4] = parentRawRowByFK__Storage__id_Name__20C1E124[0];
                 }
-                if ((parentClassRowByFK__Storage__id_clas__20C1E124 != null)) {
-                    columnValuesArray[5] = parentClassRowByFK__Storage__id_clas__20C1E124[0];
+                if ((parentClassRowByFK__Storage__id_clas__21B6055D != null)) {
+                    columnValuesArray[5] = parentClassRowByFK__Storage__id_clas__21B6055D[0];
                 }
                 rowStorageRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStorageRow);
@@ -8474,15 +8481,15 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Store_rawRow AddStore_rawRow(StoreRow parentStoreRowByFK__Store_raw__numb___2A4B4B5E, int id_place_storage, int id_raw, string weight_store) {
+            public Store_rawRow AddStore_rawRow(StoreRow parentStoreRowByFK__Store_raw__numb___2B3F6F97, int id_place_storage, int id_raw, string weight_store) {
                 Store_rawRow rowStore_rawRow = ((Store_rawRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         id_place_storage,
                         id_raw,
                         weight_store};
-                if ((parentStoreRowByFK__Store_raw__numb___2A4B4B5E != null)) {
-                    columnValuesArray[0] = parentStoreRowByFK__Store_raw__numb___2A4B4B5E[0];
+                if ((parentStoreRowByFK__Store_raw__numb___2B3F6F97 != null)) {
+                    columnValuesArray[0] = parentStoreRowByFK__Store_raw__numb___2B3F6F97[0];
                 }
                 rowStore_rawRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStore_rawRow);
@@ -8774,14 +8781,14 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Subtype_rawRow AddSubtype_rawRow(Type_rawRow parentType_rawRowByFK__Subtype_r__name___1BFD2C07, int name_subtype) {
+            public Subtype_rawRow AddSubtype_rawRow(Type_rawRow parentType_rawRowByFK__Subtype_r__name___1CF15040, int name_subtype) {
                 Subtype_rawRow rowSubtype_rawRow = ((Subtype_rawRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         name_subtype};
-                if ((parentType_rawRowByFK__Subtype_r__name___1BFD2C07 != null)) {
-                    columnValuesArray[1] = parentType_rawRowByFK__Subtype_r__name___1BFD2C07[0];
+                if ((parentType_rawRowByFK__Subtype_r__name___1CF15040 != null)) {
+                    columnValuesArray[1] = parentType_rawRowByFK__Subtype_r__name___1CF15040[0];
                 }
                 rowSubtype_rawRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSubtype_rawRow);
@@ -9746,6 +9753,8 @@ namespace Elevator {
             
             private global::System.Data.DataColumn columnname_type_raw;
             
+            private global::System.Data.DataColumn columnid_NameRaw;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Type_rawDataTable() {
@@ -9789,6 +9798,14 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn id_NameRawColumn {
+                get {
+                    return this.columnid_NameRaw;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -9824,10 +9841,14 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Type_rawRow AddType_rawRow(int name_type_raw) {
+            public Type_rawRow AddType_rawRow(int name_type_raw, RawRow parentRawRowByFK__Type_raw__id_Nam__1A14E395) {
                 Type_rawRow rowType_rawRow = ((Type_rawRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        name_type_raw};
+                        name_type_raw,
+                        null};
+                if ((parentRawRowByFK__Type_raw__id_Nam__1A14E395 != null)) {
+                    columnValuesArray[1] = parentRawRowByFK__Type_raw__id_Nam__1A14E395[0];
+                }
                 rowType_rawRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowType_rawRow);
                 return rowType_rawRow;
@@ -9858,6 +9879,7 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnname_type_raw = base.Columns["name_type_raw"];
+                this.columnid_NameRaw = base.Columns["id_NameRaw"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9865,6 +9887,8 @@ namespace Elevator {
             private void InitClass() {
                 this.columnname_type_raw = new global::System.Data.DataColumn("name_type_raw", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnname_type_raw);
+                this.columnid_NameRaw = new global::System.Data.DataColumn("id_NameRaw", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_NameRaw);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnname_type_raw}, true));
                 this.columnname_type_raw.AllowDBNull = false;
@@ -10361,17 +10385,17 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public Weed_impuritiesRow AddWeed_impuritiesRow(Type_weed_impuritiesRow parentType_weed_impuritiesRowByFK__Weed_impu__name___4AB81AF0, StorageRow parentStorageRowByFK__Weed_impu__id_ra__4BAC3F29, string value_weed_imp) {
+            public Weed_impuritiesRow AddWeed_impuritiesRow(Type_weed_impuritiesRow parentType_weed_impuritiesRowByFK__Weed_impu__name___4BAC3F29, StorageRow parentStorageRowByFK__Weed_impu__id_ra__4CA06362, string value_weed_imp) {
                 Weed_impuritiesRow rowWeed_impuritiesRow = ((Weed_impuritiesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         value_weed_imp};
-                if ((parentType_weed_impuritiesRowByFK__Weed_impu__name___4AB81AF0 != null)) {
-                    columnValuesArray[0] = parentType_weed_impuritiesRowByFK__Weed_impu__name___4AB81AF0[0];
+                if ((parentType_weed_impuritiesRowByFK__Weed_impu__name___4BAC3F29 != null)) {
+                    columnValuesArray[0] = parentType_weed_impuritiesRowByFK__Weed_impu__name___4BAC3F29[0];
                 }
-                if ((parentStorageRowByFK__Weed_impu__id_ra__4BAC3F29 != null)) {
-                    columnValuesArray[1] = parentStorageRowByFK__Weed_impu__id_ra__4BAC3F29[0];
+                if ((parentStorageRowByFK__Weed_impu__id_ra__4CA06362 != null)) {
+                    columnValuesArray[1] = parentStorageRowByFK__Weed_impu__id_ra__4CA06362[0];
                 }
                 rowWeed_impuritiesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowWeed_impuritiesRow);
@@ -10602,10 +10626,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DeliveryRow DeliveryRowParent {
                 get {
-                    return ((DeliveryRow)(this.GetParentRow(this.Table.ParentRelations["FK__Analysis__6754599E"])));
+                    return ((DeliveryRow)(this.GetParentRow(this.Table.ParentRelations["FK__Analysis__68487DD7"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Analysis__6754599E"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Analysis__68487DD7"]);
                 }
             }
         }
@@ -10705,55 +10729,55 @@ namespace Elevator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Norm_general_impuritiesRow[] GetNorm_general_impuritiesRows() {
-                if ((this.Table.ChildRelations["FK__Norm_gene__id_cl__628FA481"] == null)) {
+                if ((this.Table.ChildRelations["FK__Norm_gene__id_cl__6383C8BA"] == null)) {
                     return new Norm_general_impuritiesRow[0];
                 }
                 else {
-                    return ((Norm_general_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Norm_gene__id_cl__628FA481"])));
+                    return ((Norm_general_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Norm_gene__id_cl__6383C8BA"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Norm_grain_impuritiesRow[] GetNorm_grain_impuritiesRows() {
-                if ((this.Table.ChildRelations["FK__Norm_grai__id_cl__59063A47"] == null)) {
+                if ((this.Table.ChildRelations["FK__Norm_grai__id_cl__59FA5E80"] == null)) {
                     return new Norm_grain_impuritiesRow[0];
                 }
                 else {
-                    return ((Norm_grain_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Norm_grai__id_cl__59063A47"])));
+                    return ((Norm_grain_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Norm_grai__id_cl__59FA5E80"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Norm_harmful_impuritiesRow[] GetNorm_harmful_impuritiesRows() {
-                if ((this.Table.ChildRelations["FK__Norm_harm__id_cl__45F365D3"] == null)) {
+                if ((this.Table.ChildRelations["FK__Norm_harm__id_cl__46E78A0C"] == null)) {
                     return new Norm_harmful_impuritiesRow[0];
                 }
                 else {
-                    return ((Norm_harmful_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Norm_harm__id_cl__45F365D3"])));
+                    return ((Norm_harmful_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Norm_harm__id_cl__46E78A0C"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Norm_weed_impuritiesRow[] GetNorm_weed_impuritiesRows() {
-                if ((this.Table.ChildRelations["FK__Norm_weed__id_cl__4F7CD00D"] == null)) {
+                if ((this.Table.ChildRelations["FK__Norm_weed__id_cl__5070F446"] == null)) {
                     return new Norm_weed_impuritiesRow[0];
                 }
                 else {
-                    return ((Norm_weed_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Norm_weed__id_cl__4F7CD00D"])));
+                    return ((Norm_weed_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Norm_weed__id_cl__5070F446"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public StorageRow[] GetStorageRows() {
-                if ((this.Table.ChildRelations["FK__Storage__id_clas__20C1E124"] == null)) {
+                if ((this.Table.ChildRelations["FK__Storage__id_clas__21B6055D"] == null)) {
                     return new StorageRow[0];
                 }
                 else {
-                    return ((StorageRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Storage__id_clas__20C1E124"])));
+                    return ((StorageRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Storage__id_clas__21B6055D"])));
                 }
             }
         }
@@ -10851,10 +10875,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public StorageRow StorageRow {
                 get {
-                    return ((StorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__Clearing__id_raw__3C69FB99"])));
+                    return ((StorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__Clearing__id_raw__3D5E1FD2"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Clearing__id_raw__3C69FB99"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Clearing__id_raw__3D5E1FD2"]);
                 }
             }
             
@@ -11178,22 +11202,22 @@ namespace Elevator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DeliveryRow[] GetDeliveryRows() {
-                if ((this.Table.ChildRelations["FK__Delivery__id_con__31EC6D26"] == null)) {
+                if ((this.Table.ChildRelations["FK__Delivery__id_con__32E0915F"] == null)) {
                     return new DeliveryRow[0];
                 }
                 else {
-                    return ((DeliveryRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Delivery__id_con__31EC6D26"])));
+                    return ((DeliveryRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Delivery__id_con__32E0915F"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ShipmentRow[] GetShipmentRows() {
-                if ((this.Table.ChildRelations["FK__Shipment__id_con__35BCFE0A"] == null)) {
+                if ((this.Table.ChildRelations["FK__Shipment__id_con__36B12243"] == null)) {
                     return new ShipmentRow[0];
                 }
                 else {
-                    return ((ShipmentRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Shipment__id_con__35BCFE0A"])));
+                    return ((ShipmentRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Shipment__id_con__36B12243"])));
                 }
             }
         }
@@ -11314,10 +11338,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ContractorRow ContractorRow {
                 get {
-                    return ((ContractorRow)(this.GetParentRow(this.Table.ParentRelations["FK__Delivery__id_con__31EC6D26"])));
+                    return ((ContractorRow)(this.GetParentRow(this.Table.ParentRelations["FK__Delivery__id_con__32E0915F"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Delivery__id_con__31EC6D26"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Delivery__id_con__32E0915F"]);
                 }
             }
             
@@ -11325,10 +11349,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public StorageRow StorageRow {
                 get {
-                    return ((StorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__Delivery__id_raw__32E0915F"])));
+                    return ((StorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__Delivery__id_raw__33D4B598"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Delivery__id_raw__32E0915F"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Delivery__id_raw__33D4B598"]);
                 }
             }
             
@@ -11383,11 +11407,11 @@ namespace Elevator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public AnalysisRow[] GetAnalysisRows() {
-                if ((this.Table.ChildRelations["FK__Analysis__6754599E"] == null)) {
+                if ((this.Table.ChildRelations["FK__Analysis__68487DD7"] == null)) {
                     return new AnalysisRow[0];
                 }
                 else {
-                    return ((AnalysisRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Analysis__6754599E"])));
+                    return ((AnalysisRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Analysis__68487DD7"])));
                 }
             }
         }
@@ -11517,10 +11541,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public StorageRow StorageRow {
                 get {
-                    return ((StorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__Drying__id_raw__398D8EEE"])));
+                    return ((StorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__Drying__id_raw__3A81B327"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Drying__id_raw__398D8EEE"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Drying__id_raw__3A81B327"]);
                 }
             }
             
@@ -11740,10 +11764,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public StorageRow StorageRow {
                 get {
-                    return ((StorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__General_i__id_ra__5EBF139D"])));
+                    return ((StorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__General_i__id_ra__5FB337D6"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__General_i__id_ra__5EBF139D"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__General_i__id_ra__5FB337D6"]);
                 }
             }
             
@@ -11751,10 +11775,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Type_general_impuritiesRow Type_general_impuritiesRow {
                 get {
-                    return ((Type_general_impuritiesRow)(this.GetParentRow(this.Table.ParentRelations["FK__General_i__name___5DCAEF64"])));
+                    return ((Type_general_impuritiesRow)(this.GetParentRow(this.Table.ParentRelations["FK__General_i__name___5EBF139D"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__General_i__name___5DCAEF64"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__General_i__name___5EBF139D"]);
                 }
             }
         }
@@ -11810,10 +11834,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public StorageRow StorageRow {
                 get {
-                    return ((StorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__Grain_imp__id_ra__5535A963"])));
+                    return ((StorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__Grain_imp__id_ra__5629CD9C"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Grain_imp__id_ra__5535A963"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Grain_imp__id_ra__5629CD9C"]);
                 }
             }
             
@@ -11821,10 +11845,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Type_grain_impuritiesRow Type_grain_impuritiesRow {
                 get {
-                    return ((Type_grain_impuritiesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Grain_imp__name___5441852A"])));
+                    return ((Type_grain_impuritiesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Grain_imp__name___5535A963"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Grain_imp__name___5441852A"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Grain_imp__name___5535A963"]);
                 }
             }
         }
@@ -11880,10 +11904,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public StorageRow StorageRow {
                 get {
-                    return ((StorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__Harmful_i__id_ra__4222D4EF"])));
+                    return ((StorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__Harmful_i__id_ra__4316F928"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Harmful_i__id_ra__4222D4EF"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Harmful_i__id_ra__4316F928"]);
                 }
             }
             
@@ -11891,10 +11915,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Type_harmful_impuritiesRow Type_harmful_impuritiesRow {
                 get {
-                    return ((Type_harmful_impuritiesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Harmful_i__name___412EB0B6"])));
+                    return ((Type_harmful_impuritiesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Harmful_i__name___4222D4EF"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Harmful_i__name___412EB0B6"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Harmful_i__name___4222D4EF"]);
                 }
             }
         }
@@ -11950,10 +11974,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ClassRow ClassRow {
                 get {
-                    return ((ClassRow)(this.GetParentRow(this.Table.ParentRelations["FK__Norm_gene__id_cl__628FA481"])));
+                    return ((ClassRow)(this.GetParentRow(this.Table.ParentRelations["FK__Norm_gene__id_cl__6383C8BA"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Norm_gene__id_cl__628FA481"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Norm_gene__id_cl__6383C8BA"]);
                 }
             }
             
@@ -11961,10 +11985,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Type_general_impuritiesRow Type_general_impuritiesRow {
                 get {
-                    return ((Type_general_impuritiesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Norm_gene__name___619B8048"])));
+                    return ((Type_general_impuritiesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Norm_gene__name___628FA481"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Norm_gene__name___619B8048"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Norm_gene__name___628FA481"]);
                 }
             }
         }
@@ -12020,10 +12044,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ClassRow ClassRow {
                 get {
-                    return ((ClassRow)(this.GetParentRow(this.Table.ParentRelations["FK__Norm_grai__id_cl__59063A47"])));
+                    return ((ClassRow)(this.GetParentRow(this.Table.ParentRelations["FK__Norm_grai__id_cl__59FA5E80"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Norm_grai__id_cl__59063A47"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Norm_grai__id_cl__59FA5E80"]);
                 }
             }
             
@@ -12031,10 +12055,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Type_grain_impuritiesRow Type_grain_impuritiesRow {
                 get {
-                    return ((Type_grain_impuritiesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Norm_grai__name___5812160E"])));
+                    return ((Type_grain_impuritiesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Norm_grai__name___59063A47"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Norm_grai__name___5812160E"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Norm_grai__name___59063A47"]);
                 }
             }
         }
@@ -12090,10 +12114,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ClassRow ClassRow {
                 get {
-                    return ((ClassRow)(this.GetParentRow(this.Table.ParentRelations["FK__Norm_harm__id_cl__45F365D3"])));
+                    return ((ClassRow)(this.GetParentRow(this.Table.ParentRelations["FK__Norm_harm__id_cl__46E78A0C"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Norm_harm__id_cl__45F365D3"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Norm_harm__id_cl__46E78A0C"]);
                 }
             }
             
@@ -12101,10 +12125,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Type_harmful_impuritiesRow Type_harmful_impuritiesRow {
                 get {
-                    return ((Type_harmful_impuritiesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Norm_harm__name___44FF419A"])));
+                    return ((Type_harmful_impuritiesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Norm_harm__name___45F365D3"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Norm_harm__name___44FF419A"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Norm_harm__name___45F365D3"]);
                 }
             }
         }
@@ -12160,10 +12184,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ClassRow ClassRow {
                 get {
-                    return ((ClassRow)(this.GetParentRow(this.Table.ParentRelations["FK__Norm_weed__id_cl__4F7CD00D"])));
+                    return ((ClassRow)(this.GetParentRow(this.Table.ParentRelations["FK__Norm_weed__id_cl__5070F446"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Norm_weed__id_cl__4F7CD00D"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Norm_weed__id_cl__5070F446"]);
                 }
             }
             
@@ -12171,10 +12195,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Type_weed_impuritiesRow Type_weed_impuritiesRow {
                 get {
-                    return ((Type_weed_impuritiesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Norm_weed__name___4E88ABD4"])));
+                    return ((Type_weed_impuritiesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Norm_weed__name___4F7CD00D"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Norm_weed__name___4E88ABD4"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Norm_weed__name___4F7CD00D"]);
                 }
             }
         }
@@ -12219,32 +12243,32 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public StorageRow StorageRow {
                 get {
-                    return ((StorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__PlaceStor__id_ra__239E4DCF"])));
+                    return ((StorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__PlaceStor__id_ra__24927208"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__PlaceStor__id_ra__239E4DCF"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__PlaceStor__id_ra__24927208"]);
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Silage_rawRow[] GetSilage_rawRows() {
-                if ((this.Table.ChildRelations["FK__Silage_raw__2F10007B"] == null)) {
+                if ((this.Table.ChildRelations["FK__Silage_raw__300424B4"] == null)) {
                     return new Silage_rawRow[0];
                 }
                 else {
-                    return ((Silage_rawRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Silage_raw__2F10007B"])));
+                    return ((Silage_rawRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Silage_raw__300424B4"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Store_rawRow[] GetStore_rawRows() {
-                if ((this.Table.ChildRelations["FK__Store_raw__2B3F6F97"] == null)) {
+                if ((this.Table.ChildRelations["FK__Store_raw__2C3393D0"] == null)) {
                     return new Store_rawRow[0];
                 }
                 else {
-                    return ((Store_rawRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Store_raw__2B3F6F97"])));
+                    return ((Store_rawRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Store_raw__2C3393D0"])));
                 }
             }
         }
@@ -12344,11 +12368,22 @@ namespace Elevator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public StorageRow[] GetStorageRows() {
-                if ((this.Table.ChildRelations["FK__Storage__id_Name__1FCDBCEB"] == null)) {
+                if ((this.Table.ChildRelations["FK__Storage__id_Name__20C1E124"] == null)) {
                     return new StorageRow[0];
                 }
                 else {
-                    return ((StorageRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Storage__id_Name__1FCDBCEB"])));
+                    return ((StorageRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Storage__id_Name__20C1E124"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Type_rawRow[] GetType_rawRows() {
+                if ((this.Table.ChildRelations["FK__Type_raw__id_Nam__1A14E395"] == null)) {
+                    return new Type_rawRow[0];
+                }
+                else {
+                    return ((Type_rawRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Type_raw__id_Nam__1A14E395"])));
                 }
             }
         }
@@ -12469,10 +12504,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ContractorRow ContractorRow {
                 get {
-                    return ((ContractorRow)(this.GetParentRow(this.Table.ParentRelations["FK__Shipment__id_con__35BCFE0A"])));
+                    return ((ContractorRow)(this.GetParentRow(this.Table.ParentRelations["FK__Shipment__id_con__36B12243"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Shipment__id_con__35BCFE0A"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Shipment__id_con__36B12243"]);
                 }
             }
             
@@ -12480,10 +12515,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public StorageRow StorageRow {
                 get {
-                    return ((StorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__Shipment__id_raw__36B12243"])));
+                    return ((StorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__Shipment__id_raw__37A5467C"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Shipment__id_raw__36B12243"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Shipment__id_raw__37A5467C"]);
                 }
             }
             
@@ -12564,11 +12599,11 @@ namespace Elevator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Silage_rawRow[] GetSilage_rawRows() {
-                if ((this.Table.ChildRelations["FK__Silage_ra__numb___2E1BDC42"] == null)) {
+                if ((this.Table.ChildRelations["FK__Silage_ra__numb___2F10007B"] == null)) {
                     return new Silage_rawRow[0];
                 }
                 else {
-                    return ((Silage_rawRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Silage_ra__numb___2E1BDC42"])));
+                    return ((Silage_rawRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Silage_ra__numb___2F10007B"])));
                 }
             }
         }
@@ -12635,10 +12670,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public SilageRow SilageRow {
                 get {
-                    return ((SilageRow)(this.GetParentRow(this.Table.ParentRelations["FK__Silage_ra__numb___2E1BDC42"])));
+                    return ((SilageRow)(this.GetParentRow(this.Table.ParentRelations["FK__Silage_ra__numb___2F10007B"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Silage_ra__numb___2E1BDC42"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Silage_ra__numb___2F10007B"]);
                 }
             }
             
@@ -12646,10 +12681,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public PlaceStorageRow PlaceStorageRowParent {
                 get {
-                    return ((PlaceStorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__Silage_raw__2F10007B"])));
+                    return ((PlaceStorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__Silage_raw__300424B4"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Silage_raw__2F10007B"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Silage_raw__300424B4"]);
                 }
             }
         }
@@ -12753,10 +12788,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ClassRow ClassRow {
                 get {
-                    return ((ClassRow)(this.GetParentRow(this.Table.ParentRelations["FK__Storage__id_clas__20C1E124"])));
+                    return ((ClassRow)(this.GetParentRow(this.Table.ParentRelations["FK__Storage__id_clas__21B6055D"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Storage__id_clas__20C1E124"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Storage__id_clas__21B6055D"]);
                 }
             }
             
@@ -12764,10 +12799,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RawRow RawRow {
                 get {
-                    return ((RawRow)(this.GetParentRow(this.Table.ParentRelations["FK__Storage__id_Name__1FCDBCEB"])));
+                    return ((RawRow)(this.GetParentRow(this.Table.ParentRelations["FK__Storage__id_Name__20C1E124"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Storage__id_Name__1FCDBCEB"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Storage__id_Name__20C1E124"]);
                 }
             }
             
@@ -12775,10 +12810,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Subtype_rawRow Subtype_rawRow {
                 get {
-                    return ((Subtype_rawRow)(this.GetParentRow(this.Table.ParentRelations["FK__Storage__id_subt__1ED998B2"])));
+                    return ((Subtype_rawRow)(this.GetParentRow(this.Table.ParentRelations["FK__Storage__id_subt__1FCDBCEB"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Storage__id_subt__1ED998B2"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Storage__id_subt__1FCDBCEB"]);
                 }
             }
             
@@ -12821,99 +12856,99 @@ namespace Elevator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ClearingRow[] GetClearingRows() {
-                if ((this.Table.ChildRelations["FK__Clearing__id_raw__3C69FB99"] == null)) {
+                if ((this.Table.ChildRelations["FK__Clearing__id_raw__3D5E1FD2"] == null)) {
                     return new ClearingRow[0];
                 }
                 else {
-                    return ((ClearingRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Clearing__id_raw__3C69FB99"])));
+                    return ((ClearingRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Clearing__id_raw__3D5E1FD2"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DeliveryRow[] GetDeliveryRows() {
-                if ((this.Table.ChildRelations["FK__Delivery__id_raw__32E0915F"] == null)) {
+                if ((this.Table.ChildRelations["FK__Delivery__id_raw__33D4B598"] == null)) {
                     return new DeliveryRow[0];
                 }
                 else {
-                    return ((DeliveryRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Delivery__id_raw__32E0915F"])));
+                    return ((DeliveryRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Delivery__id_raw__33D4B598"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DryingRow[] GetDryingRows() {
-                if ((this.Table.ChildRelations["FK__Drying__id_raw__398D8EEE"] == null)) {
+                if ((this.Table.ChildRelations["FK__Drying__id_raw__3A81B327"] == null)) {
                     return new DryingRow[0];
                 }
                 else {
-                    return ((DryingRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Drying__id_raw__398D8EEE"])));
+                    return ((DryingRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Drying__id_raw__3A81B327"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public General_impuritiesRow[] GetGeneral_impuritiesRows() {
-                if ((this.Table.ChildRelations["FK__General_i__id_ra__5EBF139D"] == null)) {
+                if ((this.Table.ChildRelations["FK__General_i__id_ra__5FB337D6"] == null)) {
                     return new General_impuritiesRow[0];
                 }
                 else {
-                    return ((General_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__General_i__id_ra__5EBF139D"])));
+                    return ((General_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__General_i__id_ra__5FB337D6"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Grain_impuritiesRow[] GetGrain_impuritiesRows() {
-                if ((this.Table.ChildRelations["FK__Grain_imp__id_ra__5535A963"] == null)) {
+                if ((this.Table.ChildRelations["FK__Grain_imp__id_ra__5629CD9C"] == null)) {
                     return new Grain_impuritiesRow[0];
                 }
                 else {
-                    return ((Grain_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Grain_imp__id_ra__5535A963"])));
+                    return ((Grain_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Grain_imp__id_ra__5629CD9C"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Harmful_impuritiesRow[] GetHarmful_impuritiesRows() {
-                if ((this.Table.ChildRelations["FK__Harmful_i__id_ra__4222D4EF"] == null)) {
+                if ((this.Table.ChildRelations["FK__Harmful_i__id_ra__4316F928"] == null)) {
                     return new Harmful_impuritiesRow[0];
                 }
                 else {
-                    return ((Harmful_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Harmful_i__id_ra__4222D4EF"])));
+                    return ((Harmful_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Harmful_i__id_ra__4316F928"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public PlaceStorageRow[] GetPlaceStorageRows() {
-                if ((this.Table.ChildRelations["FK__PlaceStor__id_ra__239E4DCF"] == null)) {
+                if ((this.Table.ChildRelations["FK__PlaceStor__id_ra__24927208"] == null)) {
                     return new PlaceStorageRow[0];
                 }
                 else {
-                    return ((PlaceStorageRow[])(base.GetChildRows(this.Table.ChildRelations["FK__PlaceStor__id_ra__239E4DCF"])));
+                    return ((PlaceStorageRow[])(base.GetChildRows(this.Table.ChildRelations["FK__PlaceStor__id_ra__24927208"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ShipmentRow[] GetShipmentRows() {
-                if ((this.Table.ChildRelations["FK__Shipment__id_raw__36B12243"] == null)) {
+                if ((this.Table.ChildRelations["FK__Shipment__id_raw__37A5467C"] == null)) {
                     return new ShipmentRow[0];
                 }
                 else {
-                    return ((ShipmentRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Shipment__id_raw__36B12243"])));
+                    return ((ShipmentRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Shipment__id_raw__37A5467C"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Weed_impuritiesRow[] GetWeed_impuritiesRows() {
-                if ((this.Table.ChildRelations["FK__Weed_impu__id_ra__4BAC3F29"] == null)) {
+                if ((this.Table.ChildRelations["FK__Weed_impu__id_ra__4CA06362"] == null)) {
                     return new Weed_impuritiesRow[0];
                 }
                 else {
-                    return ((Weed_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Weed_impu__id_ra__4BAC3F29"])));
+                    return ((Weed_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Weed_impu__id_ra__4CA06362"])));
                 }
             }
         }
@@ -12946,11 +12981,11 @@ namespace Elevator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Store_rawRow[] GetStore_rawRows() {
-                if ((this.Table.ChildRelations["FK__Store_raw__numb___2A4B4B5E"] == null)) {
+                if ((this.Table.ChildRelations["FK__Store_raw__numb___2B3F6F97"] == null)) {
                     return new Store_rawRow[0];
                 }
                 else {
-                    return ((Store_rawRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Store_raw__numb___2A4B4B5E"])));
+                    return ((Store_rawRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Store_raw__numb___2B3F6F97"])));
                 }
             }
         }
@@ -13017,10 +13052,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public PlaceStorageRow PlaceStorageRowParent {
                 get {
-                    return ((PlaceStorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__Store_raw__2B3F6F97"])));
+                    return ((PlaceStorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__Store_raw__2C3393D0"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Store_raw__2B3F6F97"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Store_raw__2C3393D0"]);
                 }
             }
             
@@ -13028,10 +13063,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public StoreRow StoreRow {
                 get {
-                    return ((StoreRow)(this.GetParentRow(this.Table.ParentRelations["FK__Store_raw__numb___2A4B4B5E"])));
+                    return ((StoreRow)(this.GetParentRow(this.Table.ParentRelations["FK__Store_raw__numb___2B3F6F97"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Store_raw__numb___2A4B4B5E"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Store_raw__numb___2B3F6F97"]);
                 }
             }
         }
@@ -13097,10 +13132,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Type_rawRow Type_rawRow {
                 get {
-                    return ((Type_rawRow)(this.GetParentRow(this.Table.ParentRelations["FK__Subtype_r__name___1BFD2C07"])));
+                    return ((Type_rawRow)(this.GetParentRow(this.Table.ParentRelations["FK__Subtype_r__name___1CF15040"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Subtype_r__name___1BFD2C07"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Subtype_r__name___1CF15040"]);
                 }
             }
             
@@ -13131,11 +13166,11 @@ namespace Elevator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public StorageRow[] GetStorageRows() {
-                if ((this.Table.ChildRelations["FK__Storage__id_subt__1ED998B2"] == null)) {
+                if ((this.Table.ChildRelations["FK__Storage__id_subt__1FCDBCEB"] == null)) {
                     return new StorageRow[0];
                 }
                 else {
-                    return ((StorageRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Storage__id_subt__1ED998B2"])));
+                    return ((StorageRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Storage__id_subt__1FCDBCEB"])));
                 }
             }
         }
@@ -13168,22 +13203,22 @@ namespace Elevator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public General_impuritiesRow[] GetGeneral_impuritiesRows() {
-                if ((this.Table.ChildRelations["FK__General_i__name___5DCAEF64"] == null)) {
+                if ((this.Table.ChildRelations["FK__General_i__name___5EBF139D"] == null)) {
                     return new General_impuritiesRow[0];
                 }
                 else {
-                    return ((General_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__General_i__name___5DCAEF64"])));
+                    return ((General_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__General_i__name___5EBF139D"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Norm_general_impuritiesRow[] GetNorm_general_impuritiesRows() {
-                if ((this.Table.ChildRelations["FK__Norm_gene__name___619B8048"] == null)) {
+                if ((this.Table.ChildRelations["FK__Norm_gene__name___628FA481"] == null)) {
                     return new Norm_general_impuritiesRow[0];
                 }
                 else {
-                    return ((Norm_general_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Norm_gene__name___619B8048"])));
+                    return ((Norm_general_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Norm_gene__name___628FA481"])));
                 }
             }
         }
@@ -13216,22 +13251,22 @@ namespace Elevator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Grain_impuritiesRow[] GetGrain_impuritiesRows() {
-                if ((this.Table.ChildRelations["FK__Grain_imp__name___5441852A"] == null)) {
+                if ((this.Table.ChildRelations["FK__Grain_imp__name___5535A963"] == null)) {
                     return new Grain_impuritiesRow[0];
                 }
                 else {
-                    return ((Grain_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Grain_imp__name___5441852A"])));
+                    return ((Grain_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Grain_imp__name___5535A963"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Norm_grain_impuritiesRow[] GetNorm_grain_impuritiesRows() {
-                if ((this.Table.ChildRelations["FK__Norm_grai__name___5812160E"] == null)) {
+                if ((this.Table.ChildRelations["FK__Norm_grai__name___59063A47"] == null)) {
                     return new Norm_grain_impuritiesRow[0];
                 }
                 else {
-                    return ((Norm_grain_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Norm_grai__name___5812160E"])));
+                    return ((Norm_grain_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Norm_grai__name___59063A47"])));
                 }
             }
         }
@@ -13264,22 +13299,22 @@ namespace Elevator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Harmful_impuritiesRow[] GetHarmful_impuritiesRows() {
-                if ((this.Table.ChildRelations["FK__Harmful_i__name___412EB0B6"] == null)) {
+                if ((this.Table.ChildRelations["FK__Harmful_i__name___4222D4EF"] == null)) {
                     return new Harmful_impuritiesRow[0];
                 }
                 else {
-                    return ((Harmful_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Harmful_i__name___412EB0B6"])));
+                    return ((Harmful_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Harmful_i__name___4222D4EF"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Norm_harmful_impuritiesRow[] GetNorm_harmful_impuritiesRows() {
-                if ((this.Table.ChildRelations["FK__Norm_harm__name___44FF419A"] == null)) {
+                if ((this.Table.ChildRelations["FK__Norm_harm__name___45F365D3"] == null)) {
                     return new Norm_harmful_impuritiesRow[0];
                 }
                 else {
-                    return ((Norm_harmful_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Norm_harm__name___44FF419A"])));
+                    return ((Norm_harmful_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Norm_harm__name___45F365D3"])));
                 }
             }
         }
@@ -13311,12 +13346,51 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int id_NameRaw {
+                get {
+                    try {
+                        return ((int)(this[this.tableType_raw.id_NameRawColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'id_NameRaw\' в таблице \'Type_raw\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableType_raw.id_NameRawColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RawRow RawRow {
+                get {
+                    return ((RawRow)(this.GetParentRow(this.Table.ParentRelations["FK__Type_raw__id_Nam__1A14E395"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Type_raw__id_Nam__1A14E395"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isid_NameRawNull() {
+                return this.IsNull(this.tableType_raw.id_NameRawColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setid_NameRawNull() {
+                this[this.tableType_raw.id_NameRawColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Subtype_rawRow[] GetSubtype_rawRows() {
-                if ((this.Table.ChildRelations["FK__Subtype_r__name___1BFD2C07"] == null)) {
+                if ((this.Table.ChildRelations["FK__Subtype_r__name___1CF15040"] == null)) {
                     return new Subtype_rawRow[0];
                 }
                 else {
-                    return ((Subtype_rawRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Subtype_r__name___1BFD2C07"])));
+                    return ((Subtype_rawRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Subtype_r__name___1CF15040"])));
                 }
             }
         }
@@ -13349,22 +13423,22 @@ namespace Elevator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Norm_weed_impuritiesRow[] GetNorm_weed_impuritiesRows() {
-                if ((this.Table.ChildRelations["FK__Norm_weed__name___4E88ABD4"] == null)) {
+                if ((this.Table.ChildRelations["FK__Norm_weed__name___4F7CD00D"] == null)) {
                     return new Norm_weed_impuritiesRow[0];
                 }
                 else {
-                    return ((Norm_weed_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Norm_weed__name___4E88ABD4"])));
+                    return ((Norm_weed_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Norm_weed__name___4F7CD00D"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Weed_impuritiesRow[] GetWeed_impuritiesRows() {
-                if ((this.Table.ChildRelations["FK__Weed_impu__name___4AB81AF0"] == null)) {
+                if ((this.Table.ChildRelations["FK__Weed_impu__name___4BAC3F29"] == null)) {
                     return new Weed_impuritiesRow[0];
                 }
                 else {
-                    return ((Weed_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Weed_impu__name___4AB81AF0"])));
+                    return ((Weed_impuritiesRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Weed_impu__name___4BAC3F29"])));
                 }
             }
         }
@@ -13420,10 +13494,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public StorageRow StorageRow {
                 get {
-                    return ((StorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__Weed_impu__id_ra__4BAC3F29"])));
+                    return ((StorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__Weed_impu__id_ra__4CA06362"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Weed_impu__id_ra__4BAC3F29"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Weed_impu__id_ra__4CA06362"]);
                 }
             }
             
@@ -13431,10 +13505,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Type_weed_impuritiesRow Type_weed_impuritiesRow {
                 get {
-                    return ((Type_weed_impuritiesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Weed_impu__name___4AB81AF0"])));
+                    return ((Type_weed_impuritiesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Weed_impu__name___4BAC3F29"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Weed_impu__name___4AB81AF0"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Weed_impu__name___4BAC3F29"]);
                 }
             }
         }
@@ -24513,26 +24587,35 @@ SELECT id_subtype, name_type_raw, name_subtype FROM Subtype_raw WHERE (id_subtyp
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Type_raw";
             tableMapping.ColumnMappings.Add("name_type_raw", "name_type_raw");
+            tableMapping.ColumnMappings.Add("id_NameRaw", "id_NameRaw");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Type_raw] WHERE (([name_type_raw] = @Original_name_type_raw))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Type_raw] WHERE (([name_type_raw] = @Original_name_type_raw) A" +
+                "ND ((@IsNull_id_NameRaw = 1 AND [id_NameRaw] IS NULL) OR ([id_NameRaw] = @Origin" +
+                "al_id_NameRaw)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name_type_raw", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name_type_raw", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_id_NameRaw", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_NameRaw", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_NameRaw", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_NameRaw", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Type_raw] ([name_type_raw]) VALUES (@name_type_raw);\r\nSELECT n" +
-                "ame_type_raw FROM Type_raw WHERE (name_type_raw = @name_type_raw)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Type_raw] ([name_type_raw], [id_NameRaw]) VALUES (@name_type_r" +
+                "aw, @id_NameRaw);\r\nSELECT name_type_raw, id_NameRaw FROM Type_raw WHERE (name_ty" +
+                "pe_raw = @name_type_raw)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name_type_raw", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name_type_raw", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_NameRaw", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_NameRaw", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Type_raw] SET [name_type_raw] = @name_type_raw WHERE (([name_type_r" +
-                "aw] = @Original_name_type_raw));\r\nSELECT name_type_raw FROM Type_raw WHERE (name" +
-                "_type_raw = @name_type_raw)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Type_raw] SET [name_type_raw] = @name_type_raw, [id_NameRaw] = @id_NameRaw WHERE (([name_type_raw] = @Original_name_type_raw) AND ((@IsNull_id_NameRaw = 1 AND [id_NameRaw] IS NULL) OR ([id_NameRaw] = @Original_id_NameRaw)));
+SELECT name_type_raw, id_NameRaw FROM Type_raw WHERE (name_type_raw = @name_type_raw)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name_type_raw", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name_type_raw", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_NameRaw", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_NameRaw", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name_type_raw", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name_type_raw", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_id_NameRaw", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_NameRaw", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_NameRaw", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_NameRaw", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -24548,7 +24631,7 @@ SELECT id_subtype, name_type_raw, name_subtype FROM Subtype_raw WHERE (id_subtyp
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT name_type_raw FROM dbo.Type_raw";
+            this._commandCollection[0].CommandText = "SELECT name_type_raw, id_NameRaw FROM dbo.Type_raw";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -24609,8 +24692,16 @@ SELECT id_subtype, name_type_raw, name_subtype FROM Subtype_raw WHERE (id_subtyp
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_name_type_raw) {
+        public virtual int Delete(int Original_name_type_raw, global::System.Nullable<int> Original_id_NameRaw) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_name_type_raw));
+            if ((Original_id_NameRaw.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_id_NameRaw.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -24631,8 +24722,14 @@ SELECT id_subtype, name_type_raw, name_subtype FROM Subtype_raw WHERE (id_subtyp
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int name_type_raw) {
+        public virtual int Insert(int name_type_raw, global::System.Nullable<int> id_NameRaw) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(name_type_raw));
+            if ((id_NameRaw.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(id_NameRaw.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -24653,9 +24750,23 @@ SELECT id_subtype, name_type_raw, name_subtype FROM Subtype_raw WHERE (id_subtyp
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int name_type_raw, int Original_name_type_raw) {
+        public virtual int Update(int name_type_raw, global::System.Nullable<int> id_NameRaw, int Original_name_type_raw, global::System.Nullable<int> Original_id_NameRaw) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(name_type_raw));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_name_type_raw));
+            if ((id_NameRaw.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(id_NameRaw.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_name_type_raw));
+            if ((Original_id_NameRaw.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_id_NameRaw.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -24676,8 +24787,8 @@ SELECT id_subtype, name_type_raw, name_subtype FROM Subtype_raw WHERE (id_subtyp
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Original_name_type_raw) {
-            return this.Update(Original_name_type_raw, Original_name_type_raw);
+        public virtual int Update(global::System.Nullable<int> id_NameRaw, int Original_name_type_raw, global::System.Nullable<int> Original_id_NameRaw) {
+            return this.Update(Original_name_type_raw, id_NameRaw, Original_name_type_raw, Original_id_NameRaw);
         }
     }
     

@@ -23,6 +23,10 @@ namespace Elevator.Forms
 
         private void RawForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "accountOfGrainDataSet.Class". При необходимости она может быть перемещена или удалена.
+            this.classTableAdapter.Fill(this.accountOfGrainDataSet.Class);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "accountOfGrainDataSet.Raw". При необходимости она может быть перемещена или удалена.
+            this.rawTableAdapter.Fill(this.accountOfGrainDataSet.Raw);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "accountOfGrainDataSet.Raw". При необходимости она может быть перемещена или удалена.
             this.rawTableAdapter.Fill(this.accountOfGrainDataSet.Raw);
             dataGridViewRaw.DataSource = DAO.getInstance().selectTable("Raw");

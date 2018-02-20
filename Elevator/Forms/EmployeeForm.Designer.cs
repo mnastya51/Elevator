@@ -155,6 +155,11 @@
             this.changeButton.UseVisualStyleBackColor = false;
             this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
             // 
+            // bindingSourceEmployee
+            // 
+            this.bindingSourceEmployee.DataSource = this.accountOfGrainDataSet;
+            this.bindingSourceEmployee.Position = 0;
+            // 
             // dataGridViewEmployee
             // 
             this.dataGridViewEmployee.AllowUserToAddRows = false;

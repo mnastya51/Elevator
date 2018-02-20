@@ -38,10 +38,10 @@
             this.lbName = new System.Windows.Forms.Label();
             this.findButton = new System.Windows.Forms.Button();
             this.dataGridViewContractor = new System.Windows.Forms.DataGridView();
+            this.bindingSourceContractor = new System.Windows.Forms.BindingSource(this.components);
             this.addButton = new System.Windows.Forms.Button();
             this.changeButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.bindingSourceContractor = new System.Windows.Forms.BindingSource(this.components);
             this.accountOfGrainDataSet = new Elevator.AccountOfGrainDataSet();
             this.contractorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contractorTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.ContractorTableAdapter();
@@ -211,11 +211,6 @@
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
-            // bindingSourceContractor
-            // 
-            this.bindingSourceContractor.DataSource = this.accountOfGrainDataSet;
-            this.bindingSourceContractor.Position = 0;
-            // 
             // accountOfGrainDataSet
             // 
             this.accountOfGrainDataSet.DataSetName = "AccountOfGrainDataSet";
@@ -224,7 +219,7 @@
             // contractorBindingSource
             // 
             this.contractorBindingSource.DataMember = "Contractor";
-            this.contractorBindingSource.DataSource = this.bindingSourceContractor;
+            this.contractorBindingSource.DataSource = this.accountOfGrainDataSet;
             // 
             // contractorTableAdapter
             // 
