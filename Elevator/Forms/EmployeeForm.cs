@@ -59,5 +59,16 @@ namespace Elevator.Forms
             }
             catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите контрагента!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
+
+        private void findButton_Click(object sender, EventArgs e)
+        {
+            dataGridViewEmployee.DataSource = controller.findButtonClick(surnameTextBox.Text);
+        }
+
+        private void btnAllList_Click(object sender, EventArgs e)
+        {
+            dataGridViewEmployee.DataSource = DAO.getInstance().selectTable("Employee");
+            surnameTextBox.Text = string.Empty;
+        }
     }
 }

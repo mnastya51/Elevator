@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAllList = new System.Windows.Forms.Button();
-            this.nameContractorComboBox = new System.Windows.Forms.ComboBox();
             this.lbName = new System.Windows.Forms.Label();
             this.findButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
@@ -50,6 +49,7 @@
             this.postDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.surnameTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).BeginInit();
@@ -59,8 +59,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.surnameTextBox);
             this.groupBox1.Controls.Add(this.btnAllList);
-            this.groupBox1.Controls.Add(this.nameContractorComboBox);
             this.groupBox1.Controls.Add(this.lbName);
             this.groupBox1.Controls.Add(this.findButton);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -87,14 +87,7 @@
             this.btnAllList.Text = "Вывести полный список";
             this.btnAllList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAllList.UseVisualStyleBackColor = false;
-            // 
-            // nameContractorComboBox
-            // 
-            this.nameContractorComboBox.FormattingEnabled = true;
-            this.nameContractorComboBox.Location = new System.Drawing.Point(92, 21);
-            this.nameContractorComboBox.Name = "nameContractorComboBox";
-            this.nameContractorComboBox.Size = new System.Drawing.Size(166, 24);
-            this.nameContractorComboBox.TabIndex = 8;
+            this.btnAllList.Click += new System.EventHandler(this.btnAllList_Click);
             // 
             // lbName
             // 
@@ -121,6 +114,7 @@
             this.findButton.Text = "Найти";
             this.findButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.findButton.UseVisualStyleBackColor = false;
+            this.findButton.Click += new System.EventHandler(this.findButton_Click);
             // 
             // deleteButton
             // 
@@ -181,14 +175,14 @@
             this.dataGridViewEmployee.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewEmployee.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.dataGridViewEmployee.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEmployee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idempDataGridViewTextBoxColumn,
@@ -203,8 +197,8 @@
             this.dataGridViewEmployee.Location = new System.Drawing.Point(10, 129);
             this.dataGridViewEmployee.Name = "dataGridViewEmployee";
             this.dataGridViewEmployee.ReadOnly = true;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewEmployee.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewEmployee.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewEmployee.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewEmployee.Size = new System.Drawing.Size(601, 104);
             this.dataGridViewEmployee.TabIndex = 54;
@@ -269,6 +263,13 @@
             this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
             this.passwordDataGridViewTextBoxColumn.Visible = false;
             // 
+            // surnameTextBox
+            // 
+            this.surnameTextBox.Location = new System.Drawing.Point(86, 21);
+            this.surnameTextBox.Name = "surnameTextBox";
+            this.surnameTextBox.Size = new System.Drawing.Size(184, 22);
+            this.surnameTextBox.TabIndex = 49;
+            // 
             // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,7 +296,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox nameContractorComboBox;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.Button findButton;
         private System.Windows.Forms.Button btnAllList;
@@ -313,5 +313,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn postDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn loginDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox surnameTextBox;
     }
 }
