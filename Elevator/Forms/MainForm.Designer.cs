@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.контрагентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.типИПодтипСырьяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.показателиКачестваToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contractorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rawToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.местаХраненияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сырьеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,32 +69,32 @@
             // справочникиToolStripMenuItem
             // 
             this.справочникиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.контрагентыToolStripMenuItem,
-            this.типИПодтипСырьяToolStripMenuItem,
-            this.показателиКачестваToolStripMenuItem,
+            this.employeeToolStripMenuItem,
+            this.contractorToolStripMenuItem,
+            this.rawToolStripMenuItem,
             this.местаХраненияToolStripMenuItem,
             this.сырьеToolStripMenuItem});
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.справочникиToolStripMenuItem.Text = "Справочники";
             // 
-            // контрагентыToolStripMenuItem
+            // employeeToolStripMenuItem
             // 
-            this.контрагентыToolStripMenuItem.Name = "контрагентыToolStripMenuItem";
-            this.контрагентыToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.контрагентыToolStripMenuItem.Text = "Сотрудники";
+            this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.employeeToolStripMenuItem.Text = "Сотрудники";
             // 
-            // типИПодтипСырьяToolStripMenuItem
+            // contractorToolStripMenuItem
             // 
-            this.типИПодтипСырьяToolStripMenuItem.Name = "типИПодтипСырьяToolStripMenuItem";
-            this.типИПодтипСырьяToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.типИПодтипСырьяToolStripMenuItem.Text = "Контрагенты";
+            this.contractorToolStripMenuItem.Name = "contractorToolStripMenuItem";
+            this.contractorToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.contractorToolStripMenuItem.Text = "Контрагенты";
             // 
-            // показателиКачестваToolStripMenuItem
+            // rawToolStripMenuItem
             // 
-            this.показателиКачестваToolStripMenuItem.Name = "показателиКачестваToolStripMenuItem";
-            this.показателиКачестваToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.показателиКачестваToolStripMenuItem.Text = "Показатели качества";
+            this.rawToolStripMenuItem.Name = "rawToolStripMenuItem";
+            this.rawToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.rawToolStripMenuItem.Text = "Сырье";
             // 
             // местаХраненияToolStripMenuItem
             // 
@@ -106,7 +106,7 @@
             // 
             this.сырьеToolStripMenuItem.Name = "сырьеToolStripMenuItem";
             this.сырьеToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.сырьеToolStripMenuItem.Text = "Сырье";
+            this.сырьеToolStripMenuItem.Text = "Показатели качества";
             // 
             // сервисToolStripMenuItem
             // 
@@ -213,9 +213,9 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem справочникиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem контрагентыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem типИПодтипСырьяToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem показателиКачестваToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem employeeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem contractorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rawToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem местаХраненияToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сырьеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сервисToolStripMenuItem;

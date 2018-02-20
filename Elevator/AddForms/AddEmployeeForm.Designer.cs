@@ -82,6 +82,7 @@
             // 
             // secnameTextBox
             // 
+            this.secnameTextBox.BackColor = System.Drawing.Color.Red;
             this.secnameTextBox.Location = new System.Drawing.Point(115, 104);
             this.secnameTextBox.Name = "secnameTextBox";
             this.secnameTextBox.Size = new System.Drawing.Size(231, 22);
@@ -90,6 +91,7 @@
             // 
             // nameTextBox
             // 
+            this.nameTextBox.BackColor = System.Drawing.Color.Red;
             this.nameTextBox.Location = new System.Drawing.Point(115, 63);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(231, 22);
@@ -98,6 +100,7 @@
             // 
             // surnameTextBox
             // 
+            this.surnameTextBox.BackColor = System.Drawing.Color.Red;
             this.surnameTextBox.Location = new System.Drawing.Point(115, 26);
             this.surnameTextBox.Name = "surnameTextBox";
             this.surnameTextBox.Size = new System.Drawing.Size(231, 22);
@@ -111,9 +114,9 @@
             this.labelPost.ForeColor = System.Drawing.Color.Black;
             this.labelPost.Location = new System.Drawing.Point(9, 149);
             this.labelPost.Name = "labelPost";
-            this.labelPost.Size = new System.Drawing.Size(93, 18);
+            this.labelPost.Size = new System.Drawing.Size(99, 18);
             this.labelPost.TabIndex = 19;
-            this.labelPost.Text = "Должность:";
+            this.labelPost.Text = "Должность*:";
             // 
             // secnameLabel
             // 
@@ -122,9 +125,9 @@
             this.secnameLabel.ForeColor = System.Drawing.Color.Black;
             this.secnameLabel.Location = new System.Drawing.Point(9, 104);
             this.secnameLabel.Name = "secnameLabel";
-            this.secnameLabel.Size = new System.Drawing.Size(79, 18);
+            this.secnameLabel.Size = new System.Drawing.Size(85, 18);
             this.secnameLabel.TabIndex = 17;
-            this.secnameLabel.Text = "Отчество:";
+            this.secnameLabel.Text = "Отчество*:";
             // 
             // rawLabel
             // 
@@ -133,9 +136,9 @@
             this.rawLabel.ForeColor = System.Drawing.Color.Black;
             this.rawLabel.Location = new System.Drawing.Point(9, 63);
             this.rawLabel.Name = "rawLabel";
-            this.rawLabel.Size = new System.Drawing.Size(42, 18);
+            this.rawLabel.Size = new System.Drawing.Size(48, 18);
             this.rawLabel.TabIndex = 15;
-            this.rawLabel.Text = "Имя:";
+            this.rawLabel.Text = "Имя*:";
             // 
             // lbSurname
             // 
@@ -144,9 +147,9 @@
             this.lbSurname.ForeColor = System.Drawing.Color.Black;
             this.lbSurname.Location = new System.Drawing.Point(9, 27);
             this.lbSurname.Name = "lbSurname";
-            this.lbSurname.Size = new System.Drawing.Size(77, 18);
+            this.lbSurname.Size = new System.Drawing.Size(83, 18);
             this.lbSurname.TabIndex = 6;
-            this.lbSurname.Text = "Фамилия:";
+            this.lbSurname.Text = "Фамилия*:";
             // 
             // groupBox2
             // 
@@ -192,9 +195,9 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(9, 63);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 18);
+            this.label3.Size = new System.Drawing.Size(71, 18);
             this.label3.TabIndex = 15;
-            this.label3.Text = "Пароль:";
+            this.label3.Text = "Пароль*:";
             // 
             // label4
             // 
@@ -203,9 +206,9 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(9, 27);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 18);
+            this.label4.Size = new System.Drawing.Size(60, 18);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Логин:";
+            this.label4.Text = "Логин*:";
             // 
             // saveButton
             // 

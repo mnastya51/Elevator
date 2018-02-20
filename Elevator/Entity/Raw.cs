@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Elevator.Entity
 {
-    class Raw
+    public class Raw
     {
         public string Name { get; set; }
         public string Gost { get; set; }
