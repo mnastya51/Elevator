@@ -42,7 +42,7 @@
             this.changeButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.bindingSourceContractor = new System.Windows.Forms.BindingSource(this.components);
-            this.accountOfGrainDataSet1 = new Elevator.AccountOfGrainDataSet();
+            this.accountOfGrainDataSet = new Elevator.AccountOfGrainDataSet();
             this.contractorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contractorTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.ContractorTableAdapter();
             this.idcontractorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,7 +56,7 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContractor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceContractor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -213,18 +213,18 @@
             // 
             // bindingSourceContractor
             // 
-            this.bindingSourceContractor.DataSource = this.accountOfGrainDataSet1;
+            this.bindingSourceContractor.DataSource = this.accountOfGrainDataSet;
             this.bindingSourceContractor.Position = 0;
             // 
-            // accountOfGrainDataSet1
+            // accountOfGrainDataSet
             // 
-            this.accountOfGrainDataSet1.DataSetName = "AccountOfGrainDataSet";
-            this.accountOfGrainDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.accountOfGrainDataSet.DataSetName = "AccountOfGrainDataSet";
+            this.accountOfGrainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // contractorBindingSource
             // 
             this.contractorBindingSource.DataMember = "Contractor";
-            this.contractorBindingSource.DataSource = this.accountOfGrainDataSet1;
+            this.contractorBindingSource.DataSource = this.bindingSourceContractor;
             // 
             // contractorTableAdapter
             // 
@@ -306,7 +306,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContractor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceContractor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractorBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -325,7 +325,6 @@
         private System.Windows.Forms.TextBox nameContractortextBox;
         private System.Windows.Forms.BindingSource bindingSourceContractor;
         private AccountOfGrainDataSet accountOfGrainDataSet;
-        private AccountOfGrainDataSet accountOfGrainDataSet1;
         private System.Windows.Forms.BindingSource contractorBindingSource;
         private AccountOfGrainDataSetTableAdapters.ContractorTableAdapter contractorTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idcontractorDataGridViewTextBoxColumn;

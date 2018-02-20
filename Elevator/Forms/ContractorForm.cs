@@ -24,6 +24,8 @@ namespace Elevator.Forms
 
         private void ContractorForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "accountOfGrainDataSet.Contractor". При необходимости она может быть перемещена или удалена.
+            this.contractorTableAdapter.Fill(this.accountOfGrainDataSet.Contractor);
             dataGridViewContractor.DataSource = DAO.getInstance().selectTable("Contractor");
             dataGridViewContractor.ClearSelection();
         }
@@ -50,7 +52,7 @@ namespace Elevator.Forms
                 controller.changeButtonClick(contractor);
                 dataGridViewContractor.DataSource = DAO.getInstance().selectTable("Contractor");
             }
-            catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите контрагента!", "Измнение", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите контрагента!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void deleteButton_Click(object sender, EventArgs e)

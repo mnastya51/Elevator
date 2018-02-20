@@ -23,6 +23,8 @@ namespace Elevator.Forms
 
         private void EmployeeForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "accountOfGrainDataSet.Employee". При необходимости она может быть перемещена или удалена.
+            this.employeeTableAdapter.Fill(this.accountOfGrainDataSet.Employee);
             dataGridViewEmployee.DataSource = DAO.getInstance().selectTable("Employee");
             dataGridViewEmployee.ClearSelection();
 
@@ -33,15 +35,15 @@ namespace Elevator.Forms
             try
             {
                 DataGridViewRow row = dataGridViewEmployee.SelectedRows[0];
-                Employee Employee = new Employee(Convert.ToInt32(dataGridViewEmployee.CurrentRow.Cells[0].Value),
+                Employee employee = new Employee(Convert.ToInt32(dataGridViewEmployee.CurrentRow.Cells[0].Value),
                     Convert.ToString(dataGridViewEmployee.CurrentRow.Cells[1].Value),
                     Convert.ToString(dataGridViewEmployee.CurrentRow.Cells[2].Value),
                     Convert.ToString(dataGridViewEmployee.CurrentRow.Cells[3].Value),
                     Convert.ToString(dataGridViewEmployee.CurrentRow.Cells[4].Value));
-                controller.changeButtonClick(Employee);
+                controller.changeButtonClick(employee);
                 dataGridViewEmployee.DataSource = DAO.getInstance().selectTable("Employee");
             }
-            catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите сотрудника!", "Измнение", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите сотрудника!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
