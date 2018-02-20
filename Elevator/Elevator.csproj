@@ -121,9 +121,12 @@
       <DependentUpon>AddSaveForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AddContractorController.cs" />
+    <Compile Include="Controllers\AddEmployeeController.cs" />
     <Compile Include="Controllers\ContractorController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="DAO.cs" />
     <Compile Include="Entity\Contractor.cs" />
+    <Compile Include="Entity\Employee.cs" />
     <Compile Include="Entity\Raw.cs" />
     <Compile Include="Forms\AnalysQualityRawForm.cs">
       <SubType>Form</SubType>

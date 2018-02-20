@@ -82,13 +82,13 @@
             // 
             this.контрагентыToolStripMenuItem.Name = "контрагентыToolStripMenuItem";
             this.контрагентыToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.контрагентыToolStripMenuItem.Text = "Контрагенты";
+            this.контрагентыToolStripMenuItem.Text = "Сотрудники";
             // 
             // типИПодтипСырьяToolStripMenuItem
             // 
             this.типИПодтипСырьяToolStripMenuItem.Name = "типИПодтипСырьяToolStripMenuItem";
             this.типИПодтипСырьяToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.типИПодтипСырьяToolStripMenuItem.Text = "Тип и подтип сырья";
+            this.типИПодтипСырьяToolStripMenuItem.Text = "Контрагенты";
             // 
             // показателиКачестваToolStripMenuItem
             // 

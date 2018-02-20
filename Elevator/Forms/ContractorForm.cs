@@ -31,7 +31,6 @@ namespace Elevator.Forms
         private void addButton_Click(object sender, EventArgs e)
         {
             controller.addButtonClick();
-            //this.contractorTableAdapter.Fill(DAO.getInstance().selectTable("Contractor"));
             dataGridViewContractor.DataSource = DAO.getInstance().selectTable("Contractor");
         }
 

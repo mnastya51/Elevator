@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxPost = new System.Windows.Forms.ComboBox();
+            this.secnameTextBox = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
             this.surnameTextBox = new System.Windows.Forms.TextBox();
             this.labelPost = new System.Windows.Forms.Label();
             this.secnameLabel = new System.Windows.Forms.Label();
             this.rawLabel = new System.Windows.Forms.Label();
             this.lbSurname = new System.Windows.Forms.Label();
-            this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.secnameTextBox = new System.Windows.Forms.TextBox();
-            this.comboBoxPost = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.loginTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
@@ -67,12 +67,42 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Информация о сотруднике";
             // 
+            // comboBoxPost
+            // 
+            this.comboBoxPost.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPost.FormattingEnabled = true;
+            this.comboBoxPost.Items.AddRange(new object[] {
+            "Лаборант",
+            "Заведующий лаборатории",
+            "Бухгалтер"});
+            this.comboBoxPost.Location = new System.Drawing.Point(115, 143);
+            this.comboBoxPost.Name = "comboBoxPost";
+            this.comboBoxPost.Size = new System.Drawing.Size(231, 24);
+            this.comboBoxPost.TabIndex = 25;
+            // 
+            // secnameTextBox
+            // 
+            this.secnameTextBox.Location = new System.Drawing.Point(115, 104);
+            this.secnameTextBox.Name = "secnameTextBox";
+            this.secnameTextBox.Size = new System.Drawing.Size(231, 22);
+            this.secnameTextBox.TabIndex = 24;
+            this.secnameTextBox.TextChanged += new System.EventHandler(this.secnameTextBox_TextChanged);
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Location = new System.Drawing.Point(115, 63);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(231, 22);
+            this.nameTextBox.TabIndex = 23;
+            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
+            // 
             // surnameTextBox
             // 
             this.surnameTextBox.Location = new System.Drawing.Point(115, 26);
             this.surnameTextBox.Name = "surnameTextBox";
             this.surnameTextBox.Size = new System.Drawing.Size(231, 22);
             this.surnameTextBox.TabIndex = 22;
+            this.surnameTextBox.TextChanged += new System.EventHandler(this.surnameTextBox_TextChanged);
             // 
             // labelPost
             // 
@@ -118,32 +148,10 @@
             this.lbSurname.TabIndex = 6;
             this.lbSurname.Text = "Фамилия:";
             // 
-            // nameTextBox
-            // 
-            this.nameTextBox.Location = new System.Drawing.Point(115, 63);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(231, 22);
-            this.nameTextBox.TabIndex = 23;
-            // 
-            // secnameTextBox
-            // 
-            this.secnameTextBox.Location = new System.Drawing.Point(115, 104);
-            this.secnameTextBox.Name = "secnameTextBox";
-            this.secnameTextBox.Size = new System.Drawing.Size(231, 22);
-            this.secnameTextBox.TabIndex = 24;
-            // 
-            // comboBoxPost
-            // 
-            this.comboBoxPost.FormattingEnabled = true;
-            this.comboBoxPost.Location = new System.Drawing.Point(115, 143);
-            this.comboBoxPost.Name = "comboBoxPost";
-            this.comboBoxPost.Size = new System.Drawing.Size(231, 24);
-            this.comboBoxPost.TabIndex = 25;
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.passwordTextBox);
+            this.groupBox2.Controls.Add(this.loginTextBox);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -156,19 +164,26 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Информация для входа в систему";
             // 
-            // textBox2
+            // passwordTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(115, 63);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(231, 22);
-            this.textBox2.TabIndex = 23;
+            this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.passwordTextBox.ForeColor = System.Drawing.Color.Gray;
+            this.passwordTextBox.Location = new System.Drawing.Point(114, 60);
+            this.passwordTextBox.MaxLength = 15;
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
+            this.passwordTextBox.Size = new System.Drawing.Size(231, 25);
+            this.passwordTextBox.TabIndex = 23;
+            this.passwordTextBox.Text = "Пароль";
             // 
-            // textBox3
+            // loginTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(115, 26);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(231, 22);
-            this.textBox3.TabIndex = 22;
+            this.loginTextBox.Location = new System.Drawing.Point(115, 26);
+            this.loginTextBox.Name = "loginTextBox";
+            this.loginTextBox.Size = new System.Drawing.Size(231, 22);
+            this.loginTextBox.TabIndex = 22;
+            this.loginTextBox.TextChanged += new System.EventHandler(this.loginTextBox_TextChanged);
             // 
             // label3
             // 
@@ -206,6 +221,7 @@
             this.saveButton.Text = "Сохранить";
             this.saveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // AddEmployeeForm
             // 
@@ -238,10 +254,10 @@
         private System.Windows.Forms.Label rawLabel;
         private System.Windows.Forms.Label lbSurname;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox loginTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.TextBox passwordTextBox;
     }
 }

@@ -20,10 +20,7 @@ namespace Elevator.Entity
         public Contractor()
         {
         }
-        public Contractor(int id)
-        {
-            this.Id = id;
-        }
+
         public Contractor(int id, string name, string sub, string factAdress)
         {
             this.Id = id;
