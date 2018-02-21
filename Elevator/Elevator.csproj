@@ -114,6 +114,12 @@
     <Compile Include="AddForms\AddImpurityQualityForm.Designer.cs">
       <DependentUpon>AddImpurityQualityForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddForms\AddNoteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddForms\AddNoteForm.Designer.cs">
+      <DependentUpon>AddNoteForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddForms\AddRawForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,7 @@
     </Compile>
     <Compile Include="Controllers\AddContractorController.cs" />
     <Compile Include="Controllers\AddEmployeeController.cs" />
+    <Compile Include="Controllers\AddNoteController.cs" />
     <Compile Include="Controllers\AddRawController.cs" />
     <Compile Include="Controllers\ContractorController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
@@ -241,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddForms\AddImpurityQualityForm.resx">
       <DependentUpon>AddImpurityQualityForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddForms\AddNoteForm.resx">
+      <DependentUpon>AddNoteForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddForms\AddRawForm.resx">
       <DependentUpon>AddRawForm.cs</DependentUpon>

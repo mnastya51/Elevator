@@ -46,15 +46,18 @@ namespace Elevator.AddForms
             if (raw == null)
             {
                 raw = new Raw(textBoxName.Text, textBoxGost.Text);
-                controller.onSaveClick(raw, false);
+                if (controller.onSaveClick(raw, false))
+                    this.Close();
+                else raw = null;
             }
             else
             {
                 raw.Name = textBoxName.Text;
                 raw.Gost = textBoxGost.Text;
-                controller.onSaveClick(raw, true);
+                if (controller.onSaveClick(raw, true))
+                    this.Close();
+                else raw = null;
             }
-            this.Close();
         }
     }
 }

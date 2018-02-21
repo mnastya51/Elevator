@@ -14,14 +14,14 @@ namespace Elevator.Forms
 {
     public partial class AddContractorForm : Form
     {
-        private AddContractorController controller; 
+        private AddContractorController controller;
         public Contractor contractor;
         public AddContractorForm()
         {
             InitializeComponent();
             controller = new AddContractorController();
             maskedTextBoxPhone.TextChanged += maskedTextBoxPhone_TextChanged;
-
+            maskedTextBoxPhone.GotFocus += maskedTextBoxPhone_GotFocus;
         }
 
         public AddContractorForm(Contractor contr)
@@ -55,7 +55,9 @@ namespace Elevator.Forms
                     textBoxIndex.Text.Replace(" ", "") == String.Empty ? 0 : Convert.ToInt32(textBoxIndex.Text),
                     maskedTextBoxPhone.Text,
                     textBoxINN.Text);
-                controller.onSaveClick(contractor, false);
+                if (controller.onSaveClick(contractor, false))
+                    this.Close();
+                else contractor = null;
             }
             else
             {
@@ -66,11 +68,12 @@ namespace Elevator.Forms
                 contractor.Index = textBoxIndex.Text.Replace(" ", "") == String.Empty ? 0 : Convert.ToInt32(textBoxIndex.Text);
                 contractor.Phone = maskedTextBoxPhone.Text;
                 contractor.Inn = textBoxINN.Text;
-                controller.onSaveClick(contractor, true);
-            }
-            this.Close();
+                if(controller.onSaveClick(contractor, true))
+                    this.Close();
+                else contractor = null;
+            }        
         }
-        
+
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
             saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text);
@@ -91,7 +94,7 @@ namespace Elevator.Forms
             if (newIndex == -1 && textBoxIndex.Text.Length <= 1)
             {
                 textBoxIndex.Text = string.Empty;
-            } 
+            }
             else
             {
                 textBoxIndex.Text = newIndex == -1 ? textBoxIndex.Text.Substring(0, textBoxIndex.Text.Length - 1) : newIndex.ToString();
@@ -101,7 +104,7 @@ namespace Elevator.Forms
             saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text) ? Color.DarkOrange : Color.Red;
             textBoxIndex.BackColor = controller.checkSaveForIndex(textBoxIndex.Text) ? Color.White : Color.Red;
         }
-        
+
 
         private void textBoxINN_TextChanged(object sender, EventArgs e)
         {
@@ -125,6 +128,13 @@ namespace Elevator.Forms
             maskedTextBoxPhone.BackColor = controller.checkPhone(maskedTextBoxPhone.Text) ? Color.White : Color.Red;
             saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text);
             saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text) ? Color.DarkOrange : Color.Red;
-        }   
+        }
+        private void maskedTextBoxPhone_GotFocus(object sender, EventArgs e)
+        {
+            /*maskedTextBoxPhone.Focus();
+
+            maskedTextBoxPhone.SelectionStart = 2;
+            maskedTextBoxPhone.SelectionLength = 1;*/
+        }
     }
 }

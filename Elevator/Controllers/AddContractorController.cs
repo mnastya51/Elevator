@@ -11,28 +11,38 @@ namespace Elevator.Controllers
 {
     class AddContractorController
     {
-        public void onSaveClick(Contractor contractor, bool forChange)
+        public bool onSaveClick(Contractor contractor, bool forChange)
         {
             if (!forChange)
             {
-                DAO.getInstance().addNote("Contractor", new FormValue<string, string>("name_contr", contractor.Name),
+                if (!DAO.getInstance().addNote("Contractor", new FormValue<string, string>("name_contr", contractor.Name),
                     new FormValue<string, string>("subdivision ", contractor.Sub),
                     new FormValue<string, string>("jur_address", contractor.YurAdress),
                     new FormValue<string, string>("fact_address", contractor.FactAdress),
                     new FormValue<string, string>("mail_index", contractor.Index.ToString().Replace(" ", "") == "0" ? string.Empty : contractor.Index.ToString()),
                     new FormValue<string, string>("phone", contractor.Phone.Replace(" ", "").Length == 14 ? contractor.Phone : string.Empty),
-                    new FormValue<string, string>("inn", contractor.Inn.ToString()));
+                    new FormValue<string, string>("inn", contractor.Inn.ToString())))
+                {
+                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;                
+                }
+                else return true;
             }
             else
             {
-                DAO.getInstance().updateNote("Contractor", new FormValue<string, string>("id_contractor", contractor.Id.ToString()),
+                if(!DAO.getInstance().updateNote("Contractor", new FormValue<string, string>("id_contractor", contractor.Id.ToString()),
                     new FormValue<string, string>("name_contr", contractor.Name),
                     new FormValue<string, string>("subdivision ", contractor.Sub),
                     new FormValue<string, string>("jur_address", contractor.YurAdress),
                     new FormValue<string, string>("fact_address", contractor.FactAdress),
                     new FormValue<string, string>("mail_index", contractor.Index.ToString().Replace(" ", "") == "0" ? string.Empty : contractor.Index.ToString()),
                     new FormValue<string, string>("phone", contractor.Phone.Replace(" ", "").Length == 14 ? contractor.Phone : string.Empty),
-                    new FormValue<string, string>("inn", contractor.Inn.ToString()));
+                    new FormValue<string, string>("inn", contractor.Inn.ToString())))
+                {
+                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else return true;
             }
         }
 

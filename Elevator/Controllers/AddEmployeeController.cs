@@ -5,31 +5,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Elevator.Controllers
 {
     class AddEmployeeController
     {
-        public void onSaveClick(Employee employee, bool forChange)
+        public bool onSaveClick(Employee employee, bool forChange)
         {
             if (!forChange)
             {
-                DAO.getInstance().addNote("employee", new FormValue<string, string>("surname", employee.Surname),
+                if(!DAO.getInstance().addNote("employee", new FormValue<string, string>("surname", employee.Surname),
                     new FormValue<string, string>("name", employee.Name),
                     new FormValue<string, string>("secName", employee.SecName),
                     new FormValue<string, string>("post", employee.Post),
                     new FormValue<string, string>("login", employee.Login),
-                    new FormValue<string, string>("password", employee.Password));
+                    new FormValue<string, string>("password", employee.Password)))
+                {
+                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else return true;
             }
             else
             {
-                DAO.getInstance().updateNote("employee", new FormValue<string, string>("id_emp", employee.Id.ToString()),
+                if(!DAO.getInstance().updateNote("employee", new FormValue<string, string>("id_emp", employee.Id.ToString()),
                     new FormValue<string, string>("surname", employee.Surname),
                     new FormValue<string, string>("name", employee.Name),
                     new FormValue<string, string>("secName", employee.SecName),
                     new FormValue<string, string>("post", employee.Post),
                     new FormValue<string, string>("login", employee.Login),
-                    new FormValue<string, string>("password", employee.Password));
+                    new FormValue<string, string>("password", employee.Password)))
+                {
+                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else return true;
             }
         }
 

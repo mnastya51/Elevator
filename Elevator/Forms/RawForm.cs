@@ -19,16 +19,11 @@ namespace Elevator.Forms
         {
             InitializeComponent();
             controller = new RawController();
+            dataGridViewRaw.CellClick += dataGridViewRawe_CellClick;
         }
 
         private void RawForm_Load(object sender, EventArgs e)
-        {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "accountOfGrainDataSet.Class". При необходимости она может быть перемещена или удалена.
-            this.classTableAdapter.Fill(this.accountOfGrainDataSet.Class);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "accountOfGrainDataSet.Raw". При необходимости она может быть перемещена или удалена.
-            this.rawTableAdapter.Fill(this.accountOfGrainDataSet.Raw);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "accountOfGrainDataSet.Raw". При необходимости она может быть перемещена или удалена.
-            this.rawTableAdapter.Fill(this.accountOfGrainDataSet.Raw);
+        {          
             dataGridViewRaw.DataSource = DAO.getInstance().selectTable("Raw");
             dataGridViewRaw.ClearSelection();
         }
@@ -37,6 +32,10 @@ namespace Elevator.Forms
         {
             controller.addButtonClick();
             dataGridViewRaw.DataSource = DAO.getInstance().selectTable("Raw");
+            dataGridViewRaw.ClearSelection();
+            groupBoxClass.Enabled = false;
+            addButtonClass.BackColor = Color.LightGray;
+            deleteButtonClass.BackColor = Color.LightGray;
         }
 
         private void changeButton_Click(object sender, EventArgs e)
@@ -44,14 +43,19 @@ namespace Elevator.Forms
             try
             {
                 DataGridViewRow row = dataGridViewRaw.SelectedRows[0];
-                Raw raw = new Raw(Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value), 
+                Raw raw = new Raw(Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value),
                     Convert.ToString(dataGridViewRaw.CurrentRow.Cells[1].Value),
                     Convert.ToString(dataGridViewRaw.CurrentRow.Cells[2].Value));
                 controller.changeButtonClick(raw);
                 dataGridViewRaw.DataSource = DAO.getInstance().selectTable("Raw");
+                dataGridViewRaw.ClearSelection();
             }
             catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите сырье!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            groupBoxClass.Enabled = false;
+            addButtonClass.BackColor = Color.LightGray;
+            deleteButtonClass.BackColor = Color.LightGray;
         }
+
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
@@ -64,9 +68,27 @@ namespace Elevator.Forms
                 {
                     controller.deleteButtonClick(dataGridViewRaw.CurrentRow.Cells[0].Value.ToString());
                     dataGridViewRaw.DataSource = DAO.getInstance().selectTable("Raw");
+                    dataGridViewRaw.ClearSelection();
                 }
             }
             catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите сырье!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            groupBoxClass.Enabled = false;
+            addButtonClass.BackColor = Color.LightGray;
+            deleteButtonClass.BackColor = Color.LightGray;
+        }
+
+        private void dataGridViewRawe_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            groupBoxClass.Enabled = true;
+            addButtonClass.BackColor = Color.DarkOrange;
+            deleteButtonClass.BackColor = Color.DarkOrange;
+        }
+
+        private void addButtonClass_Click(object sender, EventArgs e)
+        {
+            controller.addClassButtonClick("Класс:");
+          //  dataGridViewRaw.DataSource = DAO.getInstance().selectTable("Class");
+            dataGridViewRaw.ClearSelection();
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Elevator
             }
             return instance;
         }
-        public void addNote(string nameTable, params FormValue<string, string>[] values)
+        public bool addNote(string nameTable, params FormValue<string, string>[] values)
         {
             string sqlCommand;
             string val = string.Empty;
@@ -40,17 +40,25 @@ namespace Elevator
                 val += ", '" + values[i].getValue() + "'";
                 names += ", " + values[i].getKey();
             }
-            sqlCommand = string.Format("Insert into {0} ({1}) values({2})", nameTable, names, val);
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                connection.Open();
-                SqlCommand cmd = new SqlCommand(sqlCommand, connection);
-                cmd.ExecuteNonQuery();
-                connection.Close();
+                sqlCommand = string.Format("Insert into {0} ({1}) values({2})", nameTable, names, val);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
 
-        public void updateNote(string nameTable, FormValue<string, string> primaryKey, params FormValue<string, string>[] values)
+        public bool updateNote(string nameTable, FormValue<string, string> primaryKey, params FormValue<string, string>[] values)
         {
             string sqlCommand;
             string settingString = string.Empty;
@@ -59,14 +67,22 @@ namespace Elevator
             {
                 settingString += ", " + values[i].getKey() + "='" + values[i].getValue() + "'";
             }
-            sqlCommand = string.Format("Update {0} Set {1} where {2}='{3}'", nameTable, settingString, primaryKey.getKey(), primaryKey.getValue());
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                connection.Open();
-                SqlCommand cmd = new SqlCommand(sqlCommand, connection);
-                cmd.ExecuteNonQuery();
-                connection.Close();
+                sqlCommand = string.Format("Update {0} Set {1} where {2}='{3}'", nameTable, settingString, primaryKey.getKey(), primaryKey.getValue());
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
 

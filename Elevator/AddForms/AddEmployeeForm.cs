@@ -52,7 +52,9 @@ namespace Elevator.Forms
                     comboBoxPost.Text,
                     loginTextBox.Text,
                     passwordTextBox.Text);
-                controller.onSaveClick(employee, false);
+                if (controller.onSaveClick(employee, false))
+                    this.Close();
+                else employee = null;
             }
             else
             {
@@ -63,8 +65,10 @@ namespace Elevator.Forms
                 employee.Login = loginTextBox.Text;
                 employee.Password = passwordTextBox.Text;
                 controller.onSaveClick(employee, true);
+                if (controller.onSaveClick(employee, true))
+                    this.Close();
+                else employee = null;
             }
-            this.Close();
         }
 
         private void checkSaveForAll()

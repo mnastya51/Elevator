@@ -165,7 +165,7 @@
             this.dataGridViewEmployee.AllowUserToAddRows = false;
             this.dataGridViewEmployee.AllowUserToDeleteRows = false;
             this.dataGridViewEmployee.AutoGenerateColumns = false;
-            this.dataGridViewEmployee.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridViewEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewEmployee.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.dataGridViewEmployee.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -188,11 +188,14 @@
             this.dataGridViewEmployee.DataSource = this.employeeBindingSource;
             this.dataGridViewEmployee.EnableHeadersVisualStyles = false;
             this.dataGridViewEmployee.Location = new System.Drawing.Point(10, 129);
+            this.dataGridViewEmployee.MultiSelect = false;
             this.dataGridViewEmployee.Name = "dataGridViewEmployee";
             this.dataGridViewEmployee.ReadOnly = true;
+            this.dataGridViewEmployee.RowHeadersVisible = false;
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.dataGridViewEmployee.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewEmployee.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridViewEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewEmployee.Size = new System.Drawing.Size(601, 104);
             this.dataGridViewEmployee.TabIndex = 54;
             // 
@@ -216,7 +219,6 @@
             this.idempDataGridViewTextBoxColumn.HeaderText = "id_emp";
             this.idempDataGridViewTextBoxColumn.Name = "idempDataGridViewTextBoxColumn";
             this.idempDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idempDataGridViewTextBoxColumn.Visible = false;
             // 
             // surnameDataGridViewTextBoxColumn
             // 
@@ -252,7 +254,6 @@
             this.loginDataGridViewTextBoxColumn.HeaderText = "login";
             this.loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
             this.loginDataGridViewTextBoxColumn.ReadOnly = true;
-            this.loginDataGridViewTextBoxColumn.Visible = false;
             // 
             // passwordDataGridViewTextBoxColumn
             // 
@@ -260,7 +261,6 @@
             this.passwordDataGridViewTextBoxColumn.HeaderText = "password";
             this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
             this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
-            this.passwordDataGridViewTextBoxColumn.Visible = false;
             // 
             // EmployeeForm
             // 

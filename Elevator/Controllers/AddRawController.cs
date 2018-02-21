@@ -5,24 +5,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Elevator.Controllers
 {
     class AddRawController
     {
-        public void onSaveClick(Raw raw, bool forChange)
+        public bool onSaveClick(Raw raw, bool forChange)
         {
             if (!forChange)
             {
-                DAO.getInstance().addNote("Raw", new FormValue<string, string>("name_raw", raw.Name),
-                 new FormValue<string, string>("number_gost  ", raw.Gost));
-
+                if(!DAO.getInstance().addNote("Raw", new FormValue<string, string>("name_raw", raw.Name),
+                 new FormValue<string, string>("number_gost  ", raw.Gost)))
+                {
+                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else return true;
             }
             else
             {
-                DAO.getInstance().updateNote("Raw", new FormValue<string, string>("id_NameRaw ", raw.Id.ToString()),
+                if(DAO.getInstance().updateNote("Raw", new FormValue<string, string>("id_NameRaw ", raw.Id.ToString()),
                     new FormValue<string, string>("name_raw", raw.Name),
-                new FormValue<string, string>("number_gost  ", raw.Gost));
+                new FormValue<string, string>("number_gost  ", raw.Gost)))
+                {
+                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else return true;
             }
             
         }
