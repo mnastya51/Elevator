@@ -15,24 +15,29 @@ namespace Elevator.AddForms
     {
         private AddNoteController controller;
         int idNameRaw = 0;
+        string nameTable;
+        string column;
         public Note note;
         public AddNoteForm()
         {
             InitializeComponent();
             controller = new AddNoteController();
         }
-        public AddNoteForm(string field, int idName)
+        public AddNoteForm(string field, int idName, string newNameTable, string newColumn)
         {
             InitializeComponent();
             fieldLabel.Text = field;
             idNameRaw = idName;
+            column = newColumn;
+            nameTable = newNameTable;
+
             controller = new AddNoteController();
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
             note = new Note(Convert.ToInt32(valueTextBox.Text), idNameRaw);
-            if (controller.onSaveClick(note))
+            if (controller.onSaveClick(note, nameTable, column))
                 this.Close();
             else note = null;
         }       

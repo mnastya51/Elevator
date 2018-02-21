@@ -11,9 +11,9 @@ namespace Elevator.Controllers
 {
    class AddNoteController
     {
-        public bool onSaveClick(Note note)
+        public bool onSaveClick(Note note, string nameTable, string column)
         {
-            if (!DAO.getInstance().addNote("Class", new FormValue<string, string>("number_class", note.NumberClass.ToString()),
+            if (!DAO.getInstance().addNote(nameTable, new FormValue<string, string>(column, note.NumberClass.ToString()),
                 new FormValue<string, string> ("id_NameRaw ", note.IdNameRaw.ToString())))
             {
                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);

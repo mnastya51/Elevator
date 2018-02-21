@@ -24,11 +24,6 @@ namespace Elevator.Forms
 
         private void RawForm_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "accountOfGrainDataSet.Class". При необходимости она может быть перемещена или удалена.
-            this.classTableAdapter.Fill(this.accountOfGrainDataSet.Class);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "accountOfGrainDataSet.Raw". При необходимости она может быть перемещена или удалена.
-            this.rawTableAdapter.Fill(this.accountOfGrainDataSet.Raw);
-
             dataGridViewRaw.DataSource = DAO.getInstance().selectTable("Raw");
             dataGridViewRaw.ClearSelection();
           /*  if (groupBoxClass.Enabled)
@@ -92,13 +87,45 @@ namespace Elevator.Forms
             groupBoxClass.Enabled = true;
             addButtonClass.BackColor = Color.DarkOrange;
             deleteButtonClass.BackColor = Color.DarkOrange;
+            dataGridViewClass.DataSource = DAO.getInstance().selectTableNote("Class", "id_NameRaw ", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+            dataGridViewClass.ClearSelection();
+
+            groupBoxType.Enabled = true;
+            addTypeButton.BackColor = Color.DarkOrange;
+            deleteTypeButton.BackColor = Color.DarkOrange;
+            dataGridViewType.DataSource = DAO.getInstance().selectTableNote("Type_raw", "id_type ", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+            dataGridViewType.ClearSelection();
         }
 
         private void addButtonClass_Click(object sender, EventArgs e)
         {
-            controller.addClassButtonClick("Класс:", Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value));
+            controller.addNoteButtonClick("Класс:", Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value), "Class", "id_class");
             dataGridViewClass.DataSource = DAO.getInstance().selectTableNote("Class", "id_NameRaw ", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
             dataGridViewClass.ClearSelection();
+        }
+
+        private void deleteButtonClass_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataGridViewRow row = dataGridViewClass.SelectedRows[0];
+                DialogResult dr = MessageBox.Show("Вы действительно хотите удалить запись?",
+                "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                if (dr == DialogResult.OK)
+                {
+                    controller.deleteClassButtonClick(dataGridViewClass.CurrentRow.Cells[0].Value.ToString());
+                    dataGridViewClass.DataSource = DAO.getInstance().selectTableNote("Class", "id_NameRaw ", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+                    dataGridViewClass.ClearSelection();
+                }
+            }
+            catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите класс!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error); }        
+        }
+
+        private void addTypeButton_Click(object sender, EventArgs e)
+        {
+            controller.addNoteButtonClick("Тип:", Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value), "Type_raw", "id_type");
+            dataGridViewType.DataSource = DAO.getInstance().selectTableNote("Type_raw", "id_type ", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+            dataGridViewType.ClearSelection();
         }
     }
 }
