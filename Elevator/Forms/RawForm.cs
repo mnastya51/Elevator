@@ -23,9 +23,19 @@ namespace Elevator.Forms
         }
 
         private void RawForm_Load(object sender, EventArgs e)
-        {          
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "accountOfGrainDataSet.Class". При необходимости она может быть перемещена или удалена.
+            this.classTableAdapter.Fill(this.accountOfGrainDataSet.Class);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "accountOfGrainDataSet.Raw". При необходимости она может быть перемещена или удалена.
+            this.rawTableAdapter.Fill(this.accountOfGrainDataSet.Raw);
+
             dataGridViewRaw.DataSource = DAO.getInstance().selectTable("Raw");
             dataGridViewRaw.ClearSelection();
+          /*  if (groupBoxClass.Enabled)
+            {
+                dataGridViewClass.DataSource = DAO.getInstance().selectTable("Class");
+                dataGridViewClass.ClearSelection();
+            }*/
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -86,9 +96,9 @@ namespace Elevator.Forms
 
         private void addButtonClass_Click(object sender, EventArgs e)
         {
-            controller.addClassButtonClick("Класс:");
-          //  dataGridViewRaw.DataSource = DAO.getInstance().selectTable("Class");
-            dataGridViewRaw.ClearSelection();
+            controller.addClassButtonClick("Класс:", Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value));
+            dataGridViewClass.DataSource = DAO.getInstance().selectTableNote("Class", "id_NameRaw ", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+            dataGridViewClass.ClearSelection();
         }
     }
 }

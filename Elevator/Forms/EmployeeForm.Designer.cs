@@ -38,7 +38,6 @@
             this.findButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.changeButton = new System.Windows.Forms.Button();
-            this.bindingSourceEmployee = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewEmployee = new System.Windows.Forms.DataGridView();
             this.accountOfGrainDataSet = new Elevator.AccountOfGrainDataSet();
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -51,7 +50,6 @@
             this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
@@ -154,11 +152,6 @@
             this.changeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.changeButton.UseVisualStyleBackColor = false;
             this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
-            // 
-            // bindingSourceEmployee
-            // 
-            this.bindingSourceEmployee.DataSource = this.accountOfGrainDataSet;
-            this.bindingSourceEmployee.Position = 0;
             // 
             // dataGridViewEmployee
             // 
@@ -277,7 +270,6 @@
             this.Load += new System.EventHandler(this.EmployeeForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEmployee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
@@ -293,7 +285,6 @@
         private System.Windows.Forms.Button btnAllList;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button changeButton;
-        private System.Windows.Forms.BindingSource bindingSourceEmployee;
         private System.Windows.Forms.DataGridView dataGridViewEmployee;
         private System.Windows.Forms.TextBox surnameTextBox;
         private AccountOfGrainDataSet accountOfGrainDataSet;

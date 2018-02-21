@@ -38,25 +38,23 @@
             this.lbName = new System.Windows.Forms.Label();
             this.findButton = new System.Windows.Forms.Button();
             this.dataGridViewContractor = new System.Windows.Forms.DataGridView();
-            this.bindingSourceContractor = new System.Windows.Forms.BindingSource(this.components);
             this.addButton = new System.Windows.Forms.Button();
             this.changeButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.accountOfGrainDataSet1 = new Elevator.AccountOfGrainDataSet();
+            this.accountOfGrainDataSet = new Elevator.AccountOfGrainDataSet();
             this.contractorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contractorTableAdapter1 = new Elevator.AccountOfGrainDataSetTableAdapters.ContractorTableAdapter();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contractorTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.ContractorTableAdapter();
+            this.idcontractorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namecontrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subdivisionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.juraddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.factaddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mailindexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.innDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContractor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceContractor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,14 +142,14 @@
             this.dataGridViewContractor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewContractor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewContractor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8});
+            this.idcontractorDataGridViewTextBoxColumn,
+            this.namecontrDataGridViewTextBoxColumn,
+            this.subdivisionDataGridViewTextBoxColumn,
+            this.juraddressDataGridViewTextBoxColumn,
+            this.factaddressDataGridViewTextBoxColumn,
+            this.mailindexDataGridViewTextBoxColumn,
+            this.phoneDataGridViewTextBoxColumn,
+            this.innDataGridViewTextBoxColumn});
             this.dataGridViewContractor.DataSource = this.contractorBindingSource;
             this.dataGridViewContractor.EnableHeadersVisualStyles = false;
             this.dataGridViewContractor.Location = new System.Drawing.Point(12, 137);
@@ -163,13 +161,8 @@
             this.dataGridViewContractor.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewContractor.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewContractor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContractor.Size = new System.Drawing.Size(824, 230);
+            this.dataGridViewContractor.Size = new System.Drawing.Size(824, 152);
             this.dataGridViewContractor.TabIndex = 43;
-            // 
-            // bindingSourceContractor
-            // 
-            this.bindingSourceContractor.DataSource = this.accountOfGrainDataSet1;
-            this.bindingSourceContractor.Position = 0;
             // 
             // addButton
             // 
@@ -219,83 +212,82 @@
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
-            // accountOfGrainDataSet1
+            // accountOfGrainDataSet
             // 
-            this.accountOfGrainDataSet1.DataSetName = "AccountOfGrainDataSet";
-            this.accountOfGrainDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.accountOfGrainDataSet.DataSetName = "AccountOfGrainDataSet";
+            this.accountOfGrainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // contractorBindingSource
             // 
             this.contractorBindingSource.DataMember = "Contractor";
-            this.contractorBindingSource.DataSource = this.bindingSourceContractor;
+            this.contractorBindingSource.DataSource = this.accountOfGrainDataSet;
             // 
-            // contractorTableAdapter1
+            // contractorTableAdapter
             // 
-            this.contractorTableAdapter1.ClearBeforeFill = true;
+            this.contractorTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridViewTextBoxColumn1
+            // idcontractorDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "id_contractor";
-            this.dataGridViewTextBoxColumn1.HeaderText = "id_contractor";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
+            this.idcontractorDataGridViewTextBoxColumn.DataPropertyName = "id_contractor";
+            this.idcontractorDataGridViewTextBoxColumn.HeaderText = "id_contractor";
+            this.idcontractorDataGridViewTextBoxColumn.Name = "idcontractorDataGridViewTextBoxColumn";
+            this.idcontractorDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn2
+            // namecontrDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "name_contr";
-            this.dataGridViewTextBoxColumn2.HeaderText = "name_contr";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.namecontrDataGridViewTextBoxColumn.DataPropertyName = "name_contr";
+            this.namecontrDataGridViewTextBoxColumn.HeaderText = "name_contr";
+            this.namecontrDataGridViewTextBoxColumn.Name = "namecontrDataGridViewTextBoxColumn";
+            this.namecontrDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn3
+            // subdivisionDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "subdivision";
-            this.dataGridViewTextBoxColumn3.HeaderText = "subdivision";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.subdivisionDataGridViewTextBoxColumn.DataPropertyName = "subdivision";
+            this.subdivisionDataGridViewTextBoxColumn.HeaderText = "subdivision";
+            this.subdivisionDataGridViewTextBoxColumn.Name = "subdivisionDataGridViewTextBoxColumn";
+            this.subdivisionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn4
+            // juraddressDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "jur_address";
-            this.dataGridViewTextBoxColumn4.HeaderText = "jur_address";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.juraddressDataGridViewTextBoxColumn.DataPropertyName = "jur_address";
+            this.juraddressDataGridViewTextBoxColumn.HeaderText = "jur_address";
+            this.juraddressDataGridViewTextBoxColumn.Name = "juraddressDataGridViewTextBoxColumn";
+            this.juraddressDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn5
+            // factaddressDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "fact_address";
-            this.dataGridViewTextBoxColumn5.HeaderText = "fact_address";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.factaddressDataGridViewTextBoxColumn.DataPropertyName = "fact_address";
+            this.factaddressDataGridViewTextBoxColumn.HeaderText = "fact_address";
+            this.factaddressDataGridViewTextBoxColumn.Name = "factaddressDataGridViewTextBoxColumn";
+            this.factaddressDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn6
+            // mailindexDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "mail_index";
-            this.dataGridViewTextBoxColumn6.HeaderText = "mail_index";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.mailindexDataGridViewTextBoxColumn.DataPropertyName = "mail_index";
+            this.mailindexDataGridViewTextBoxColumn.HeaderText = "mail_index";
+            this.mailindexDataGridViewTextBoxColumn.Name = "mailindexDataGridViewTextBoxColumn";
+            this.mailindexDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn7
+            // phoneDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "phone";
-            this.dataGridViewTextBoxColumn7.HeaderText = "phone";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "phone";
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn8
+            // innDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "inn";
-            this.dataGridViewTextBoxColumn8.HeaderText = "inn";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.innDataGridViewTextBoxColumn.DataPropertyName = "inn";
+            this.innDataGridViewTextBoxColumn.HeaderText = "inn";
+            this.innDataGridViewTextBoxColumn.Name = "innDataGridViewTextBoxColumn";
+            this.innDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ContractorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(848, 379);
+            this.ClientSize = new System.Drawing.Size(848, 342);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.changeButton);
             this.Controls.Add(this.addButton);
@@ -308,8 +300,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContractor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceContractor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractorBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -326,8 +317,8 @@
         private System.Windows.Forms.Button changeButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.TextBox nameContractortextBox;
-        private System.Windows.Forms.BindingSource bindingSourceContractor;
         private AccountOfGrainDataSet accountOfGrainDataSet;
+        private System.Windows.Forms.BindingSource contractorBindingSource;
         private AccountOfGrainDataSetTableAdapters.ContractorTableAdapter contractorTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idcontractorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn namecontrDataGridViewTextBoxColumn;
@@ -337,16 +328,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mailindexDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn innDataGridViewTextBoxColumn;
-        private AccountOfGrainDataSet accountOfGrainDataSet1;
-        private System.Windows.Forms.BindingSource contractorBindingSource;
-        private AccountOfGrainDataSetTableAdapters.ContractorTableAdapter contractorTableAdapter1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
     }
 }

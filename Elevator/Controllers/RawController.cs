@@ -23,9 +23,9 @@ namespace Elevator.Controllers
         {
             DAO.getInstance().deleteNote("Raw", new FormValue <string, string>("id_NameRaw", id));
         }
-        public void addClassButtonClick(string field)
+        public void addClassButtonClick(string field, int idNameraw)
         {
-            new AddNoteForm(field).ShowDialog();
+            new AddNoteForm(field, idNameraw).ShowDialog();
         }     
     }
 }
