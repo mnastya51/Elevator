@@ -146,12 +146,12 @@ namespace Elevator
                 return table;
             }
         }
-        public DataTable selectTableNote(string nameTable, string colum, string value)
+        public DataTable selectTableNote(string nameTable, string column, string value)
         {
             string sqlCommand = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                sqlCommand = string.Format("Select * From {0} where {1}='{2}'", nameTable, colum, value);                
+                sqlCommand = string.Format("Select * From {0} where {1}='{2}'", nameTable, column, value);                
                 connection.Open();
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlCommand, connection);
                 SqlCommandBuilder builder = new SqlCommandBuilder(dataAdapter);

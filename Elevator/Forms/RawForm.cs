@@ -26,11 +26,6 @@ namespace Elevator.Forms
         {
             dataGridViewRaw.DataSource = DAO.getInstance().selectTable("Raw");
             dataGridViewRaw.ClearSelection();
-          /*  if (groupBoxClass.Enabled)
-            {
-                dataGridViewClass.DataSource = DAO.getInstance().selectTable("Class");
-                dataGridViewClass.ClearSelection();
-            }*/
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -87,13 +82,13 @@ namespace Elevator.Forms
             groupBoxClass.Enabled = true;
             addButtonClass.BackColor = Color.DarkOrange;
             deleteButtonClass.BackColor = Color.DarkOrange;
-            dataGridViewClass.DataSource = DAO.getInstance().selectTableNote("Class", "id_NameRaw ", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+            dataGridViewClass.DataSource = DAO.getInstance().selectTableNote("Class", "id_NameRaw", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
             dataGridViewClass.ClearSelection();
 
             groupBoxType.Enabled = true;
             addTypeButton.BackColor = Color.DarkOrange;
             deleteTypeButton.BackColor = Color.DarkOrange;
-            dataGridViewType.DataSource = DAO.getInstance().selectTableNote("Type_raw", "id_type ", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+            dataGridViewType.DataSource = DAO.getInstance().selectTableNote("Type_raw", "id_NameRaw", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
             dataGridViewType.ClearSelection();
         }
 
@@ -114,7 +109,7 @@ namespace Elevator.Forms
                 if (dr == DialogResult.OK)
                 {
                     controller.deleteClassButtonClick(dataGridViewClass.CurrentRow.Cells[0].Value.ToString());
-                    dataGridViewClass.DataSource = DAO.getInstance().selectTableNote("Class", "id_NameRaw ", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+                    dataGridViewClass.DataSource = DAO.getInstance().selectTableNote("Class", "id_NameRaw", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
                     dataGridViewClass.ClearSelection();
                 }
             }
@@ -123,9 +118,27 @@ namespace Elevator.Forms
 
         private void addTypeButton_Click(object sender, EventArgs e)
         {
-            controller.addNoteButtonClick("Тип:", Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value), "Type_raw", "id_type");
-            dataGridViewType.DataSource = DAO.getInstance().selectTableNote("Type_raw", "id_type ", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+            controller.addNoteButtonClick("Тип:", Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value), "Type_raw", "name_type_raw");
+            dataGridViewType.DataSource = DAO.getInstance().selectTableNote("Type_raw", "id_NameRaw", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
             dataGridViewType.ClearSelection();
         }
+
+        private void deleteTypeButton_Click(object sender, EventArgs e)
+        {
+            /*  try
+              {
+                  DataGridViewRow row = dataGridViewType.SelectedRows[0];
+                  DialogResult dr = MessageBox.Show("Вы действительно хотите удалить запись?",
+                  "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                  if (dr == DialogResult.OK)
+                  {
+                      controller.deleteClassButtonClick(dataGridViewClass.CurrentRow.Cells[0].Value.ToString());
+                      dataGridViewType.DataSource = DAO.getInstance().selectTableNote("Class", "id_NameRaw", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+                      dataGridViewType.ClearSelection();
+                  }
+              }
+              catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите класс!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+              */
+        }
     }
-}
+    }
