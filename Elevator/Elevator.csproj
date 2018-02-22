@@ -66,70 +66,76 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AccountOfGrainDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="AddForms\AddAnalysQualityRawForm.cs">
+    <Compile Include="AddAndEditForms\AddAnalysQualityRawForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddForms\AddAnalysQualityRawForm.Designer.cs">
+    <Compile Include="AddAndEditForms\AddAnalysQualityRawForm.Designer.cs">
       <DependentUpon>AddAnalysQualityRawForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddForms\AddClearForm.cs">
+    <Compile Include="AddAndEditForms\AddClearForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddForms\AddClearForm.Designer.cs">
+    <Compile Include="AddAndEditForms\AddClearForm.Designer.cs">
       <DependentUpon>AddClearForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddForms\AddContractForm.cs">
+    <Compile Include="AddAndEditForms\AddContractForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddForms\AddContractForm.Designer.cs">
+    <Compile Include="AddAndEditForms\AddContractForm.Designer.cs">
       <DependentUpon>AddContractForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddForms\AddContractorForm.cs">
+    <Compile Include="AddAndEditForms\AddContractorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddForms\AddContractorForm.Designer.cs">
+    <Compile Include="AddAndEditForms\AddContractorForm.Designer.cs">
       <DependentUpon>AddContractorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddForms\AddDeliveryForm.cs">
+    <Compile Include="AddAndEditForms\AddDeliveryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddForms\AddDeliveryForm.Designer.cs">
+    <Compile Include="AddAndEditForms\AddDeliveryForm.Designer.cs">
       <DependentUpon>AddDeliveryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddForms\AddDryForm.cs">
+    <Compile Include="AddAndEditForms\AddDryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddForms\AddDryForm.Designer.cs">
+    <Compile Include="AddAndEditForms\AddDryForm.Designer.cs">
       <DependentUpon>AddDryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddForms\AddEmployeeForm.cs">
+    <Compile Include="AddAndEditForms\AddEmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddForms\AddEmployeeForm.Designer.cs">
+    <Compile Include="AddAndEditForms\AddEmployeeForm.Designer.cs">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddForms\AddImpurityQualityForm.cs">
+    <Compile Include="AddAndEditForms\AddImpurityQualityForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddForms\AddImpurityQualityForm.Designer.cs">
+    <Compile Include="AddAndEditForms\AddImpurityQualityForm.Designer.cs">
       <DependentUpon>AddImpurityQualityForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddForms\AddNoteForm.cs">
+    <Compile Include="AddAndEditForms\AddImputityQualityForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddForms\AddNoteForm.Designer.cs">
+    <Compile Include="AddAndEditForms\AddImputityQualityForm.Designer.cs">
+      <DependentUpon>AddImputityQualityForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddAndEditForms\AddNoteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAndEditForms\AddNoteForm.Designer.cs">
       <DependentUpon>AddNoteForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddForms\AddRawForm.cs">
+    <Compile Include="AddAndEditForms\AddRawForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddForms\AddRawForm.Designer.cs">
+    <Compile Include="AddAndEditForms\AddRawForm.Designer.cs">
       <DependentUpon>AddRawForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddForms\AddSaveForm.cs">
+    <Compile Include="AddAndEditForms\AddSaveForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddForms\AddSaveForm.Designer.cs">
+    <Compile Include="AddAndEditForms\AddSaveForm.Designer.cs">
       <DependentUpon>AddSaveForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AddContractorController.cs" />
@@ -234,37 +240,40 @@
     <Compile Include="Model\FormValue.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddForms\AddAnalysQualityRawForm.resx">
+    <EmbeddedResource Include="AddAndEditForms\AddAnalysQualityRawForm.resx">
       <DependentUpon>AddAnalysQualityRawForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddForms\AddClearForm.resx">
+    <EmbeddedResource Include="AddAndEditForms\AddClearForm.resx">
       <DependentUpon>AddClearForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddForms\AddContractForm.resx">
+    <EmbeddedResource Include="AddAndEditForms\AddContractForm.resx">
       <DependentUpon>AddContractForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddForms\AddContractorForm.resx">
+    <EmbeddedResource Include="AddAndEditForms\AddContractorForm.resx">
       <DependentUpon>AddContractorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddForms\AddDeliveryForm.resx">
+    <EmbeddedResource Include="AddAndEditForms\AddDeliveryForm.resx">
       <DependentUpon>AddDeliveryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddForms\AddDryForm.resx">
+    <EmbeddedResource Include="AddAndEditForms\AddDryForm.resx">
       <DependentUpon>AddDryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddForms\AddEmployeeForm.resx">
+    <EmbeddedResource Include="AddAndEditForms\AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddForms\AddImpurityQualityForm.resx">
+    <EmbeddedResource Include="AddAndEditForms\AddImpurityQualityForm.resx">
       <DependentUpon>AddImpurityQualityForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddForms\AddNoteForm.resx">
+    <EmbeddedResource Include="AddAndEditForms\AddImputityQualityForm.resx">
+      <DependentUpon>AddImputityQualityForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddAndEditForms\AddNoteForm.resx">
       <DependentUpon>AddNoteForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddForms\AddRawForm.resx">
+    <EmbeddedResource Include="AddAndEditForms\AddRawForm.resx">
       <DependentUpon>AddRawForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddForms\AddSaveForm.resx">
+    <EmbeddedResource Include="AddAndEditForms\AddSaveForm.resx">
       <DependentUpon>AddSaveForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AnalysQualityRawForm.resx">
