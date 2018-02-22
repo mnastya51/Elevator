@@ -9,22 +9,22 @@ namespace Elevator.Entity
     public class Note
     {
         public int Id { get; set; }
-        public int IdNameRaw { get; set; }
+        public int ParentColumn { get; set; }
         public int Column { get; set; }
 
         public Note()
         {
         }
-        public Note(int idClass, int idNameRaw, int column)
+        public Note(int idClass, int parentColumn, int column)
         {
             this.Id = idClass;
-            this.IdNameRaw = idNameRaw;
+            this.ParentColumn = parentColumn;
             this.Column = column;
         }
-        public Note(int column, int idNameRaw)
+        public Note(int column, int parentColumn)
         {
            this.Column = column;
-           this.IdNameRaw = idNameRaw;
+           this.ParentColumn = parentColumn;
         }
     }
 }

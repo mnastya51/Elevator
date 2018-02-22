@@ -23,13 +23,13 @@ namespace Elevator.Controllers
         {
             DAO.getInstance().deleteNote("Raw", new FormValue <string, string>("id_NameRaw", id));
         }
-        public void addNoteButtonClick(string field, int idNameraw, string newNameTable, string newColumn)
+        public void addNoteButtonClick(string field, int idNameraw, string newNameTable, string newColumn, string parentColumn)
         {
-            new AddNoteForm(field, idNameraw, newNameTable, newColumn).ShowDialog();
+            new AddNoteForm(field, idNameraw, newNameTable, newColumn, parentColumn).ShowDialog();
         }
-        public void deleteClassButtonClick(string id)
+        public void deleteNoteButtonClick(string nameTable, string column, string id)
         {
-            DAO.getInstance().deleteNote("Class", new FormValue<string, string>("id_class", id));
+            DAO.getInstance().deleteNote (nameTable, new FormValue<string, string>(column, id));
         }
     }
 }
