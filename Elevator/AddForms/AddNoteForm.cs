@@ -37,7 +37,7 @@ namespace Elevator.AddForms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            note = new Note(Convert.ToInt32(valueTextBox.Text), idNameRaw);
+            note = new Note(Convert.ToInt32(valueTextBox.Value), idNameRaw);
             if (controller.onSaveClick(note, nameTable, column, parentColumn))
                 this.Close();
             else note = null;

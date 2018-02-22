@@ -102,7 +102,7 @@ namespace Elevator.Forms
 
         private void addButtonClass_Click(object sender, EventArgs e)
         {
-            controller.addNoteButtonClick("Класс:", Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value), "Class", "id_class", "id_NameRaw");
+            controller.addNoteButtonClick("Класс:", Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value), "Class", "number_class", "id_NameRaw");
             dataGridViewClass.DataSource = DAO.getInstance().selectTableNote("Class", "id_NameRaw ", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
             dataGridViewClass.ClearSelection();
         }

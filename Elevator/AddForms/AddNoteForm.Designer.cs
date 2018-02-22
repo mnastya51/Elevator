@@ -28,17 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.valueTextBox = new System.Windows.Forms.TextBox();
             this.fieldLabel = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
+            this.valueTextBox = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.valueTextBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // valueTextBox
-            // 
-            this.valueTextBox.Location = new System.Drawing.Point(120, 12);
-            this.valueTextBox.Name = "valueTextBox";
-            this.valueTextBox.Size = new System.Drawing.Size(200, 20);
-            this.valueTextBox.TabIndex = 61;
             // 
             // fieldLabel
             // 
@@ -56,7 +50,7 @@
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.saveButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.saveButton.Location = new System.Drawing.Point(120, 49);
+            this.saveButton.Location = new System.Drawing.Point(75, 49);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(92, 34);
             this.saveButton.TabIndex = 69;
@@ -65,26 +59,43 @@
             this.saveButton.UseVisualStyleBackColor = false;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
+            // valueTextBox
+            // 
+            this.valueTextBox.Location = new System.Drawing.Point(120, 12);
+            this.valueTextBox.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.valueTextBox.Name = "valueTextBox";
+            this.valueTextBox.Size = new System.Drawing.Size(120, 20);
+            this.valueTextBox.TabIndex = 70;
+            this.valueTextBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // AddNoteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(336, 95);
-            this.Controls.Add(this.saveButton);
+            this.ClientSize = new System.Drawing.Size(252, 95);
             this.Controls.Add(this.valueTextBox);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.fieldLabel);
             this.Name = "AddNoteForm";
             this.Text = "Добавление";
+            ((System.ComponentModel.ISupportInitialize)(this.valueTextBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox valueTextBox;
         private System.Windows.Forms.Label fieldLabel;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.NumericUpDown valueTextBox;
     }
 }
