@@ -35,9 +35,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.showButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.changeButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.dataGridViewImpurityQuality = new System.Windows.Forms.DataGridView();
+            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewImpurityQuality)).BeginInit();
             this.SuspendLayout();
@@ -92,15 +92,17 @@
             this.showButton.Text = "Показать";
             this.showButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.showButton.UseVisualStyleBackColor = false;
+            this.showButton.Click += new System.EventHandler(this.showButton_Click);
             // 
             // deleteButton
             // 
-            this.deleteButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.deleteButton.BackColor = System.Drawing.Color.LightGray;
+            this.deleteButton.Enabled = false;
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.deleteButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteButton.Location = new System.Drawing.Point(200, 80);
+            this.deleteButton.Location = new System.Drawing.Point(106, 80);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(88, 28);
             this.deleteButton.TabIndex = 61;
@@ -108,24 +110,10 @@
             this.deleteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.deleteButton.UseVisualStyleBackColor = false;
             // 
-            // changeButton
-            // 
-            this.changeButton.BackColor = System.Drawing.Color.DarkOrange;
-            this.changeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.changeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.changeButton.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.changeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.changeButton.Location = new System.Drawing.Point(106, 80);
-            this.changeButton.Name = "changeButton";
-            this.changeButton.Size = new System.Drawing.Size(88, 28);
-            this.changeButton.TabIndex = 60;
-            this.changeButton.Text = "Изменить";
-            this.changeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.changeButton.UseVisualStyleBackColor = false;
-            // 
             // addButton
             // 
-            this.addButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.addButton.BackColor = System.Drawing.Color.LightGray;
+            this.addButton.Enabled = false;
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addButton.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -143,7 +131,7 @@
             this.dataGridViewImpurityQuality.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewImpurityQuality.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.dataGridViewImpurityQuality.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -152,6 +140,8 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImpurityQuality.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewImpurityQuality.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewImpurityQuality.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NameColumn});
             this.dataGridViewImpurityQuality.EnableHeadersVisualStyles = false;
             this.dataGridViewImpurityQuality.Location = new System.Drawing.Point(70, 124);
             this.dataGridViewImpurityQuality.Name = "dataGridViewImpurityQuality";
@@ -163,6 +153,13 @@
             this.dataGridViewImpurityQuality.Size = new System.Drawing.Size(377, 162);
             this.dataGridViewImpurityQuality.TabIndex = 62;
             // 
+            // NameColumn
+            // 
+            this.NameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NameColumn.HeaderText = "Показатель качества";
+            this.NameColumn.Name = "NameColumn";
+            this.NameColumn.ReadOnly = true;
+            // 
             // ImpurityQualityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,7 +168,6 @@
             this.ClientSize = new System.Drawing.Size(514, 298);
             this.Controls.Add(this.dataGridViewImpurityQuality);
             this.Controls.Add(this.deleteButton);
-            this.Controls.Add(this.changeButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.groupBox1);
             this.Name = "ImpurityQualityForm";
@@ -189,8 +185,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button showButton;
         private System.Windows.Forms.Button deleteButton;
-        private System.Windows.Forms.Button changeButton;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.DataGridView dataGridViewImpurityQuality;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
     }
 }

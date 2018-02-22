@@ -44,7 +44,9 @@ namespace Elevator.Forms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (employee == null)
+            if (comboBoxPost.Text == "")
+                MessageBox.Show("Выберите должность!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (employee == null)
             {
                 employee = new Employee(surnameTextBox.Text,
                     nameTextBox.Text,

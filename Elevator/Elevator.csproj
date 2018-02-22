@@ -138,6 +138,7 @@
     <Compile Include="Controllers\AddRawController.cs" />
     <Compile Include="Controllers\ContractorController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\ImpurityQualityController.cs" />
     <Compile Include="Controllers\RawController.cs" />
     <Compile Include="Controllers\StorageController.cs" />
     <Compile Include="DAO.cs" />
