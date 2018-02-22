@@ -16,7 +16,7 @@ namespace Elevator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.RawForm());
+            Application.Run(new Forms.StorageForm());
         }
     }
 }

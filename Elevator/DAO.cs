@@ -16,7 +16,7 @@ namespace Elevator
         private DAO()
         {
         }
-        
+
         public static DAO getInstance()
         {
             if (instance == null)
@@ -135,7 +135,7 @@ namespace Elevator
             string sqlCommand = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                sqlCommand = string.Format("Select * From {0} where UPPER(REPLACE({1},' ','')) LIKE(UPPER(REPLACE('{2}',' ','')))", nameTable, value.getKey(),  " %" + value.getValue().Trim() + "%");
+                sqlCommand = string.Format("Select * From {0} where UPPER(REPLACE({1},' ','')) LIKE(UPPER(REPLACE('{2}',' ','')))", nameTable, value.getKey(), " %" + value.getValue().Trim() + "%");
                 connection.Open();
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlCommand, connection);
                 SqlCommandBuilder builder = new SqlCommandBuilder(dataAdapter);
@@ -151,7 +151,7 @@ namespace Elevator
             string sqlCommand = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                sqlCommand = string.Format("Select * From {0} where {1}='{2}'", nameTable, column, value);                
+                sqlCommand = string.Format("Select * From {0} where {1}='{2}'", nameTable, column, value);
                 connection.Open();
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlCommand, connection);
                 SqlCommandBuilder builder = new SqlCommandBuilder(dataAdapter);
@@ -160,6 +160,55 @@ namespace Elevator
                 connection.Close();
                 return table;
             }
+        }
+        public void addStorage(string nameTable, int storage, int value)
+        {
+            string sqlCommand;
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+            for (int i = 1; i <= value; i++)
+            {
+                sqlCommand = string.Format("Insert into {0} values({1})", nameTable, storage + 1);
+                storage++;
+                SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                cmd.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+        public Int32 getStorage(string nameTable, string column)
+        {
+            Int32 max = 0;
+            string sqlCommand;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    sqlCommand = string.Format("Select max({1}) from {0}", nameTable, column);
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    max = (Int32)cmd.ExecuteScalar();
+                    connection.Close();
+                    return max;
+                }
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        public void deleteStorage(string nameTable, int storage, int value, string nameStorage)
+        {
+            string sqlCommand;
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+            for (int i = 1; i <= value; i++)
+            { 
+                sqlCommand = string.Format("Delete {0} where {1}='{2}'", nameTable, nameStorage, storage);
+                storage--; 
+                SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                cmd.ExecuteNonQuery();              
+            }
+            connection.Close();
         }
     }
 }
