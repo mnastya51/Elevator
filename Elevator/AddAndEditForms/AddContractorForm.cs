@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Elevator.Controllers;
-using Elevator.Entity;
+using Elevator.Model;
 
 namespace Elevator.Forms
 {

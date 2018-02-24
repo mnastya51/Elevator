@@ -1,5 +1,4 @@
-﻿using Elevator.Entity;
-using Elevator.Model;
+﻿using Elevator.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

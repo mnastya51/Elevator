@@ -108,11 +108,11 @@
     <Compile Include="AddAndEditForms\AddEmployeeForm.Designer.cs">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddAndEditForms\AddImpurityQualityForm.cs">
+    <Compile Include="AddAndEditForms\AddNormImpurityQualityForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddAndEditForms\AddImpurityQualityForm.Designer.cs">
-      <DependentUpon>AddImpurityQualityForm.cs</DependentUpon>
+    <Compile Include="AddAndEditForms\AddNormImpurityQualityForm.Designer.cs">
+      <DependentUpon>AddNormImpurityQualityForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AddAndEditForms\AddImputityQualityForm.cs">
       <SubType>Form</SubType>
@@ -148,10 +148,10 @@
     <Compile Include="Controllers\RawController.cs" />
     <Compile Include="Controllers\StorageController.cs" />
     <Compile Include="DAO.cs" />
-    <Compile Include="Entity\Contractor.cs" />
-    <Compile Include="Entity\Employee.cs" />
-    <Compile Include="Entity\Note.cs" />
-    <Compile Include="Entity\Raw.cs" />
+    <Compile Include="Model\Contractor.cs" />
+    <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\Note.cs" />
+    <Compile Include="Model\Raw.cs" />
     <Compile Include="Forms\AnalysQualityRawForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,7 +188,7 @@
     <Compile Include="Forms\EmployeeForm.Designer.cs">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entity\ImpurityQuality.cs" />
+    <Compile Include="Model\ImpurityQuality.cs" />
     <Compile Include="Forms\ImpurityQualityForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,8 +261,8 @@
     <EmbeddedResource Include="AddAndEditForms\AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddAndEditForms\AddImpurityQualityForm.resx">
-      <DependentUpon>AddImpurityQualityForm.cs</DependentUpon>
+    <EmbeddedResource Include="AddAndEditForms\AddNormImpurityQualityForm.resx">
+      <DependentUpon>AddNormImpurityQualityForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddAndEditForms\AddImputityQualityForm.resx">
       <DependentUpon>AddImputityQualityForm.cs</DependentUpon>
@@ -370,6 +370,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

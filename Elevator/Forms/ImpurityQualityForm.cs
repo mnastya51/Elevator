@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Elevator.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,23 @@ namespace Elevator.Forms
 {
     public partial class ImpurityQualityForm : Form
     {
+        private ImpurityQualityController controller;
         public ImpurityQualityForm()
         {
             InitializeComponent();
+            controller = new ImpurityQualityController();
         }
 
+        private string changeComboBox(string nameTable)
+        {
+            if (nameTable == "Общие показатели")
+                return "Type_general_impurities";
+            else if (nameTable == "Вредные примеси")
+                return "Type_harmful_impurities";
+            else if (nameTable == "Зерновые примеси")
+                return "Type_grain_impurities";
+            else return "Type_weed_impurities";
+        }
         private void showButton_Click(object sender, EventArgs e)
         {
             if (groupComboBox.Text == "")
@@ -27,23 +40,16 @@ namespace Elevator.Forms
                 addButton.BackColor = Color.DarkOrange;
                 deleteButton.Enabled = true;
                 deleteButton.BackColor = Color.DarkOrange;
-                if (groupComboBox.Text == "Общие показатели")
-                {
 
-                }
-                else if (groupComboBox.Text == "Вредные примеси")
-                {
-
-                }
-                else if (groupComboBox.Text == "Зерновые примеси")
-                {
-
-                }
-                else if (groupComboBox.Text == "Сорные примеси")
-                {
-
-                }
+                dataGridViewImpurityQuality.Rows.Clear();
+                DAO.getInstance().selectImputityTable(changeComboBox(groupComboBox.Text), dataGridViewImpurityQuality);
+                dataGridViewImpurityQuality.ClearSelection();
             }
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

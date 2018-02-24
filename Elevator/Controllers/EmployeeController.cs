@@ -1,6 +1,5 @@
-﻿using Elevator.Entity;
+﻿using Elevator.Model;
 using Elevator.Forms;
-using Elevator.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;

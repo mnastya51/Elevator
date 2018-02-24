@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Elevator.Entity;
+using Elevator.Model;
 using Elevator.Controllers;
 
 namespace Elevator.Forms

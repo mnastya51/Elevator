@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Elevator.Entity
+namespace Elevator.Model
 {
     public class Employee
     {

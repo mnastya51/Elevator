@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Elevator.Model;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Elevator
 {
@@ -209,6 +210,30 @@ namespace Elevator
                 cmd.ExecuteNonQuery();              
             }
             connection.Close();
+        }
+        public void selectImputityTable(string nameTable, DataGridView dataGridViewImpurityQuality)
+        {
+            string sqlCommand = string.Empty;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select * From {0}", nameTable);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        dataGridViewImpurityQuality.Rows.Add();
+                        DataGridViewRow row = dataGridViewImpurityQuality.Rows[c];
+                        row.Cells[0].Value = reader.GetString(0);
+                        c++;
+                    }
+                }
+                reader.Close();
+                connection.Close();
+            }
         }
     }
 }

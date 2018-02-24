@@ -125,9 +125,11 @@
             this.addButton.Text = "Добавить";
             this.addButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // dataGridViewImpurityQuality
             // 
+            this.dataGridViewImpurityQuality.AllowUserToAddRows = false;
             this.dataGridViewImpurityQuality.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewImpurityQuality.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.dataGridViewImpurityQuality.BorderStyle = System.Windows.Forms.BorderStyle.None;

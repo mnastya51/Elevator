@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Elevator.Model;
-using Elevator.Entity;
 using System.Windows.Forms;
 
 namespace Elevator.Controllers
@@ -56,7 +55,7 @@ namespace Elevator.Controllers
                     return Convert.ToInt32(index.Substring(0, index.Length - 1));
                 }
                 return Convert.ToInt32(index);
-            } catch (Exception e)
+            } catch (Exception)
             {
                 return -1;
             }
@@ -80,7 +79,7 @@ namespace Elevator.Controllers
                 }
                 return Convert.ToInt64(inn);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return -1;
             }
