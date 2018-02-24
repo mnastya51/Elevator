@@ -1,4 +1,5 @@
 ﻿using Elevator.Controllers;
+using Elevator.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,17 +19,26 @@ namespace Elevator.Forms
         {
             InitializeComponent();
             controller = new ImpurityQualityController();
+            groupComboBox.SelectedIndexChanged += groupComboBox_SelectedIndexChanged;
         }
 
-        private string changeComboBox(string nameTable)
+        private void groupComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            addButton.Enabled = false;
+            addButton.BackColor = Color.LightGray;
+            deleteButton.Enabled = false;
+            deleteButton.BackColor = Color.LightGray;
+        }
+
+        private FormValue<string, string> changeComboBox(string nameTable)
         {
             if (nameTable == "Общие показатели")
-                return "Type_general_impurities";
+                return new FormValue<string, string>("Type_general_impurities", "name_imp");
             else if (nameTable == "Вредные примеси")
-                return "Type_harmful_impurities";
+                return new FormValue<string, string>("Type_harmful_impurities", "name_harm_imp ");
             else if (nameTable == "Зерновые примеси")
-                return "Type_grain_impurities";
-            else return "Type_weed_impurities";
+                return new FormValue<string, string>("Type_grain_impurities", "name_grain_imp"); 
+            else return new FormValue<string, string>("Type_weed_impurities", "name_weed_imp"); 
         }
         private void showButton_Click(object sender, EventArgs e)
         {
@@ -42,15 +52,39 @@ namespace Elevator.Forms
                 deleteButton.BackColor = Color.DarkOrange;
 
                 dataGridViewImpurityQuality.Rows.Clear();
-                DAO.getInstance().selectImputityTable(changeComboBox(groupComboBox.Text), dataGridViewImpurityQuality);
+                DAO.getInstance().selectImpurityTable(changeComboBox(groupComboBox.Text).getKey(), dataGridViewImpurityQuality);
                 dataGridViewImpurityQuality.ClearSelection();
             }
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            controller.addButtonClick();
-            dataGridViewImpurityQuality.DataSource = DAO.getInstance().selectTable(changeComboBox(groupComboBox.Text));
+            FormValue<string, string> formValue = changeComboBox(groupComboBox.Text);
+            controller.addButtonClick(formValue);
+
+            dataGridViewImpurityQuality.Rows.Clear();
+            DAO.getInstance().selectImpurityTable(formValue.getKey(), dataGridViewImpurityQuality);
+            dataGridViewImpurityQuality.ClearSelection();
         }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataGridViewRow row = dataGridViewImpurityQuality.SelectedRows[0];
+                DialogResult dr = MessageBox.Show("Вы действительно хотите удалить запись?",
+                "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                if (dr == DialogResult.OK)
+                {
+                    FormValue<string, string> formValue = changeComboBox(groupComboBox.Text);
+                    controller.deleteButtonClick(formValue, dataGridViewImpurityQuality.CurrentRow.Cells[0].Value.ToString());
+
+                    dataGridViewImpurityQuality.Rows.Clear();
+                    DAO.getInstance().selectImpurityTable(changeComboBox(groupComboBox.Text).getKey(), dataGridViewImpurityQuality);
+                    dataGridViewImpurityQuality.ClearSelection();
+                }
+            }
+            catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите показатель!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+    }
     }
 }

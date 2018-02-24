@@ -211,7 +211,7 @@ namespace Elevator
             }
             connection.Close();
         }
-        public void selectImputityTable(string nameTable, DataGridView dataGridViewImpurityQuality)
+        public void selectImpurityTable(string nameTable, DataGridView dataGridViewImpurityQuality)
         {
             string sqlCommand = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -233,6 +233,26 @@ namespace Elevator
                 }
                 reader.Close();
                 connection.Close();
+            }
+        }
+        public bool addImpurity(string nameTable, string value)
+        {
+            string sqlCommand;
+            try
+            {
+                sqlCommand = string.Format("Insert into {0} values({1})", nameTable, value);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace Elevator.AddAndEditForms
 {
-    partial class AddImputityQualityForm
+    partial class AddImpurityQualityForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.saveButton = new System.Windows.Forms.Button();
             this.impurityLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxImpurity = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // saveButton
@@ -47,6 +47,7 @@
             this.saveButton.Text = "Сохранить";
             this.saveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // impurityLabel
             // 
@@ -58,13 +59,13 @@
             this.impurityLabel.TabIndex = 71;
             this.impurityLabel.Text = "Показатель:";
             // 
-            // textBox1
+            // textBoxImpurity
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(124, 9);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(269, 22);
-            this.textBox1.TabIndex = 73;
+            this.textBoxImpurity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxImpurity.Location = new System.Drawing.Point(124, 9);
+            this.textBoxImpurity.Name = "textBoxImpurity";
+            this.textBoxImpurity.Size = new System.Drawing.Size(269, 22);
+            this.textBoxImpurity.TabIndex = 73;
             // 
             // AddImputityQualityForm
             // 
@@ -72,7 +73,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.ClientSize = new System.Drawing.Size(405, 94);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxImpurity);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.impurityLabel);
             this.Name = "AddImputityQualityForm";
@@ -85,6 +86,6 @@
         #endregion
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Label impurityLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxImpurity;
     }
 }

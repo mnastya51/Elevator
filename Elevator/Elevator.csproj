@@ -108,17 +108,11 @@
     <Compile Include="AddAndEditForms\AddEmployeeForm.Designer.cs">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddAndEditForms\AddNormImpurityQualityForm.cs">
+    <Compile Include="AddAndEditForms\AddImpurityQualityForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddAndEditForms\AddNormImpurityQualityForm.Designer.cs">
-      <DependentUpon>AddNormImpurityQualityForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AddAndEditForms\AddImputityQualityForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddAndEditForms\AddImputityQualityForm.Designer.cs">
-      <DependentUpon>AddImputityQualityForm.cs</DependentUpon>
+    <Compile Include="AddAndEditForms\AddImpurityQualityForm.Designer.cs">
+      <DependentUpon>AddImpurityQualityForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AddAndEditForms\AddNoteForm.cs">
       <SubType>Form</SubType>
@@ -140,6 +134,7 @@
     </Compile>
     <Compile Include="Controllers\AddContractorController.cs" />
     <Compile Include="Controllers\AddEmployeeController.cs" />
+    <Compile Include="Controllers\AddImpurityQualityController.cs" />
     <Compile Include="Controllers\AddNoteController.cs" />
     <Compile Include="Controllers\AddRawController.cs" />
     <Compile Include="Controllers\ContractorController.cs" />
@@ -261,11 +256,8 @@
     <EmbeddedResource Include="AddAndEditForms\AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddAndEditForms\AddNormImpurityQualityForm.resx">
-      <DependentUpon>AddNormImpurityQualityForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddAndEditForms\AddImputityQualityForm.resx">
-      <DependentUpon>AddImputityQualityForm.cs</DependentUpon>
+    <EmbeddedResource Include="AddAndEditForms\AddImpurityQualityForm.resx">
+      <DependentUpon>AddImpurityQualityForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddAndEditForms\AddNoteForm.resx">
       <DependentUpon>AddNoteForm.cs</DependentUpon>

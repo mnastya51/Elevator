@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Elevator.Model
 {
-    class FormValue<K, V>
+    public class FormValue<K, V>
     {
         private K key;
         private V value;
