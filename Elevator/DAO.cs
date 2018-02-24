@@ -255,5 +255,90 @@ namespace Elevator
                 return false;
             }
         }
+        public LinkedList<string> selectNormsTable(string nameTable, string norm, string name_imp, string name_raw, DataGridView dataGridViewNorms)
+        {
+            string sqlCommand = string.Empty;
+            LinkedList<string> res = new LinkedList<string>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select n.{1}, n.{2} from {0} n join Class c " + 
+                    "on c.id_class=n.id_class join Raw r on c.id_NameRaw=r.id_NameRaw " +
+                    "where r.name_raw = '{3}'", nameTable, name_imp, norm, name_raw);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        dataGridViewNorms.Rows.Add();
+                        DataGridViewRow row = dataGridViewNorms.Rows[c];
+                        string listElement = reader.GetString(0);
+                        res.AddLast(listElement);
+                        row.Cells[0].Value = listElement;
+                        row.Cells[1].Value = reader.GetString(1);
+                        c++;
+                    }
+                }
+                reader.Close();
+                connection.Close();
+            }
+            return res;
+        }
+        public string[] getImpurity(string nameTable, string nameImp, LinkedList<string> impurities)
+        {
+            LinkedList<string> res = new LinkedList<string>();
+            string sqlCommand = string.Empty;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string enemyValue = string.Empty;
+                string[] enemyArray = impurities.ToArray<string>();
+                if (enemyArray.Length > 0) enemyValue += string.Format("where {0} != '{1}'", nameImp, enemyArray[0]);
+                for (int i = 1; i < enemyArray.Length; i++)
+                {
+                    enemyValue += string.Format(" and {0} != '{1}'", nameImp, enemyArray[i]);
+                }
+                sqlCommand = string.Format("Select * from {0} {1}", nameTable, enemyValue);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        string listElement = reader.GetString(0);
+                        res.AddLast(listElement);
+                        c++;
+                    }
+                }
+                reader.Close();
+                connection.Close();
+            }
+            return res.ToArray<string>();
+        }
+        public bool addNorm(string nameTable, string name_imp, string valImp, string norm, string raw, string value)
+        {
+            string sqlCommand;
+            try
+            {
+                sqlCommand = string.Format("Insert into {0} ({1}, id_class, {2}) values('{3}', "+
+                    "(select c.id_class from Class c join Raw r on c.id_NameRaw = r.id_NameRaw where r.name_raw = '{4}'), '{5}')",
+                    nameTable, name_imp, norm, valImp, raw, value);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

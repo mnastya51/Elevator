@@ -114,6 +114,12 @@
     <Compile Include="AddAndEditForms\AddImpurityQualityForm.Designer.cs">
       <DependentUpon>AddImpurityQualityForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddAndEditForms\AddNormOfRawForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAndEditForms\AddNormOfRawForm.Designer.cs">
+      <DependentUpon>AddNormOfRawForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddAndEditForms\AddNoteForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,7 @@
     <Compile Include="Controllers\AddContractorController.cs" />
     <Compile Include="Controllers\AddEmployeeController.cs" />
     <Compile Include="Controllers\AddImpurityQualityController.cs" />
+    <Compile Include="Controllers\AddNormOfRawController.cs" />
     <Compile Include="Controllers\AddNoteController.cs" />
     <Compile Include="Controllers\AddRawController.cs" />
     <Compile Include="Controllers\ContractorController.cs" />
@@ -259,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddAndEditForms\AddImpurityQualityForm.resx">
       <DependentUpon>AddImpurityQualityForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddAndEditForms\AddNormOfRawForm.resx">
+      <DependentUpon>AddNormOfRawForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddAndEditForms\AddNoteForm.resx">
       <DependentUpon>AddNoteForm.cs</DependentUpon>

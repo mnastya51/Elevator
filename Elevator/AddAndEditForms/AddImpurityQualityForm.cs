@@ -27,7 +27,6 @@ namespace Elevator.AddAndEditForms
         {
             if (controller.onSaveClick(formValue, textBoxImpurity.Text))
                 this.Close();
-
         }
     }
 }

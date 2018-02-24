@@ -40,16 +40,16 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.showButton = new System.Windows.Forms.Button();
             this.rawComboBox = new System.Windows.Forms.ComboBox();
+            this.rawBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.accountOfGrainDataSet = new Elevator.AccountOfGrainDataSet();
             this.groupComboBox = new System.Windows.Forms.ComboBox();
             this.labelName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.accountOfGrainDataSet = new Elevator.AccountOfGrainDataSet();
-            this.rawBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rawTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.RawTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNorms)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rawBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewNorms
@@ -139,6 +139,7 @@
             this.addButton.Text = "Добавить";
             this.addButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // groupBox1
             // 
@@ -181,6 +182,16 @@
             this.rawComboBox.Size = new System.Drawing.Size(162, 24);
             this.rawComboBox.TabIndex = 55;
             // 
+            // rawBindingSource
+            // 
+            this.rawBindingSource.DataMember = "Raw";
+            this.rawBindingSource.DataSource = this.accountOfGrainDataSet;
+            // 
+            // accountOfGrainDataSet
+            // 
+            this.accountOfGrainDataSet.DataSetName = "AccountOfGrainDataSet";
+            this.accountOfGrainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // groupComboBox
             // 
             this.groupComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -215,16 +226,6 @@
             this.label1.TabIndex = 56;
             this.label1.Text = "Группа:";
             // 
-            // accountOfGrainDataSet
-            // 
-            this.accountOfGrainDataSet.DataSetName = "AccountOfGrainDataSet";
-            this.accountOfGrainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rawBindingSource
-            // 
-            this.rawBindingSource.DataMember = "Raw";
-            this.rawBindingSource.DataSource = this.accountOfGrainDataSet;
-            // 
             // rawTableAdapter
             // 
             this.rawTableAdapter.ClearBeforeFill = true;
@@ -246,8 +247,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNorms)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rawBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
