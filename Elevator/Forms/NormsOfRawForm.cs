@@ -87,5 +87,45 @@ namespace Elevator.Forms
                   dataGridViewNorms);
             dataGridViewNorms.ClearSelection();
         }
+
+        private void changeButton_Click(object sender, EventArgs e)
+        {
+            string[] change = changeComboBox(groupComboBox.Text);
+            try
+            {
+                DataGridViewRow row = dataGridViewNorms.SelectedRows[0];
+                controller.changeButtonClick(Convert.ToString(dataGridViewNorms.CurrentRow.Cells[0].Value),
+                    Convert.ToString(dataGridViewNorms.CurrentRow.Cells[1].Value), change[0], 
+                    rawComboBox.Text, change[2], change[1]);
+
+                dataGridViewNorms.Rows.Clear();
+                impurities = DAO.getInstance().selectNormsTable(change[0], //название таблицы
+                     change[1], change[2], rawComboBox.Text, //поле для заполнение нормы, наим показателя, имя сырья
+                      dataGridViewNorms);
+            }
+            catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите запись!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataGridViewRow row = dataGridViewNorms.SelectedRows[0];
+                DialogResult dr = MessageBox.Show("Вы действительно хотите удалить запись?",
+                "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                if (dr == DialogResult.OK)
+                {
+                    string[] change = changeComboBox(groupComboBox.Text);
+                    controller.deleteButtonClick(change[0], change[2], dataGridViewNorms.CurrentRow.Cells[0].Value.ToString(), rawComboBox.Text);
+
+                   
+                    dataGridViewNorms.Rows.Clear();
+                    impurities = DAO.getInstance().selectNormsTable(change[0], //название таблицы
+                         change[1], change[2], rawComboBox.Text, //поле для заполнение нормы, наим показателя, имя сырья
+                          dataGridViewNorms);
+                }
+            }
+            catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите запись!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
     }
 }

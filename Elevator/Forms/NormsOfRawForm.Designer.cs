@@ -80,6 +80,7 @@
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.dataGridViewNorms.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewNorms.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridViewNorms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewNorms.Size = new System.Drawing.Size(425, 113);
             this.dataGridViewNorms.TabIndex = 67;
             // 
@@ -109,6 +110,7 @@
             this.deleteButton.Text = "Удалить";
             this.deleteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // changeButton
             // 
@@ -124,6 +126,7 @@
             this.changeButton.Text = "Изменить";
             this.changeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.changeButton.UseVisualStyleBackColor = false;
+            this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
             // 
             // addButton
             // 

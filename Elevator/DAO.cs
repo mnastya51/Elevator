@@ -323,7 +323,7 @@ namespace Elevator
             string sqlCommand;
             try
             {
-                sqlCommand = string.Format("Insert into {0} ({1}, id_class, {2}) values('{3}', "+
+                sqlCommand = string.Format("Insert into {0} ({1}, id_class, {2}) values('{3}', " +
                     "(select c.id_class from Class c join Raw r on c.id_NameRaw = r.id_NameRaw where r.name_raw = '{4}'), '{5}')",
                     nameTable, name_imp, norm, valImp, raw, value);
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -338,6 +338,44 @@ namespace Elevator
             catch
             {
                 return false;
+            }
+        }
+
+        public bool changeNorm(string valueImp, string nameTable, string raw, string valueNorm, string nameImp, string nameNorm)
+        {
+            string sqlCommand;
+            try
+            {
+                sqlCommand = string.Format("Update {0} Set {1} = '{2}' where {3}='{4}' and " +
+                    "id_class = (select c.id_class from Class c join Raw r on c.id_NameRaw = r.id_NameRaw where r.name_raw ='{5}')", 
+                    nameTable, nameNorm, valueNorm, nameImp, valueImp, raw);
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public void deleteNorm(string nameTable, string nameImp, string valueImp, string raw)
+        {
+            string sqlCommand;
+            sqlCommand = string.Format("Delete {0} where {1}='{2}' and id_class = (select c.id_class from Class c join Raw r "+
+                "on c.id_NameRaw = r.id_NameRaw where r.name_raw ='{3}')", 
+                nameTable, nameImp, valueImp, raw);
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                cmd.ExecuteNonQuery();
+                connection.Close();
             }
         }
     }
