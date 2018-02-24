@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Elevator.Model;
 using Elevator.Controllers;
 
-namespace Elevator.AddAndEditForms
+namespace Elevator.Forms
 {
     public partial class ContractorForm : Form
     {

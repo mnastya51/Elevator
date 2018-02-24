@@ -140,6 +140,7 @@
     <Compile Include="Controllers\ContractorController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\ImpurityQualityController.cs" />
+    <Compile Include="Controllers\NormOfRawController.cs" />
     <Compile Include="Controllers\RawController.cs" />
     <Compile Include="Controllers\StorageController.cs" />
     <Compile Include="DAO.cs" />
@@ -196,11 +197,11 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\NormOfImpurityQualityForm.cs">
+    <Compile Include="Forms\NormsOfRawForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\NormOfImpurityQualityForm.Designer.cs">
-      <DependentUpon>NormOfImpurityQualityForm.cs</DependentUpon>
+    <Compile Include="Forms\NormsOfRawForm.Designer.cs">
+      <DependentUpon>NormsOfRawForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ProcessingForm.cs">
       <SubType>Form</SubType>
@@ -292,8 +293,8 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\NormOfImpurityQualityForm.resx">
-      <DependentUpon>NormOfImpurityQualityForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\NormsOfRawForm.resx">
+      <DependentUpon>NormsOfRawForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProcessingForm.resx">
       <DependentUpon>ProcessingForm.cs</DependentUpon>

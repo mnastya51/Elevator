@@ -34,8 +34,8 @@
             this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contractorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rawToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.местаХраненияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.сырьеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.storageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.impurityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.договорыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.поставкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +48,7 @@
             this.прочиеОтчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сменитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.normsImpurityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,8 +73,9 @@
             this.employeeToolStripMenuItem,
             this.contractorToolStripMenuItem,
             this.rawToolStripMenuItem,
-            this.местаХраненияToolStripMenuItem,
-            this.сырьеToolStripMenuItem});
+            this.storageToolStripMenuItem,
+            this.impurityToolStripMenuItem,
+            this.normsImpurityToolStripMenuItem});
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.справочникиToolStripMenuItem.Text = "Справочники";
@@ -81,32 +83,37 @@
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.employeeToolStripMenuItem.Text = "Сотрудники";
+            this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeeToolStripMenuItem_Click);
             // 
             // contractorToolStripMenuItem
             // 
             this.contractorToolStripMenuItem.Name = "contractorToolStripMenuItem";
-            this.contractorToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.contractorToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.contractorToolStripMenuItem.Text = "Контрагенты";
+            this.contractorToolStripMenuItem.Click += new System.EventHandler(this.contractorToolStripMenuItem_Click);
             // 
             // rawToolStripMenuItem
             // 
             this.rawToolStripMenuItem.Name = "rawToolStripMenuItem";
-            this.rawToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.rawToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.rawToolStripMenuItem.Text = "Сырье";
+            this.rawToolStripMenuItem.Click += new System.EventHandler(this.rawToolStripMenuItem_Click);
             // 
-            // местаХраненияToolStripMenuItem
+            // storageToolStripMenuItem
             // 
-            this.местаХраненияToolStripMenuItem.Name = "местаХраненияToolStripMenuItem";
-            this.местаХраненияToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.местаХраненияToolStripMenuItem.Text = "Места хранения";
+            this.storageToolStripMenuItem.Name = "storageToolStripMenuItem";
+            this.storageToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.storageToolStripMenuItem.Text = "Места хранения";
+            this.storageToolStripMenuItem.Click += new System.EventHandler(this.storageToolStripMenuItem_Click);
             // 
-            // сырьеToolStripMenuItem
+            // impurityToolStripMenuItem
             // 
-            this.сырьеToolStripMenuItem.Name = "сырьеToolStripMenuItem";
-            this.сырьеToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.сырьеToolStripMenuItem.Text = "Показатели качества";
+            this.impurityToolStripMenuItem.Name = "impurityToolStripMenuItem";
+            this.impurityToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.impurityToolStripMenuItem.Text = "Показатели качества";
+            this.impurityToolStripMenuItem.Click += new System.EventHandler(this.impurityToolStripMenuItem_Click);
             // 
             // сервисToolStripMenuItem
             // 
@@ -191,6 +198,13 @@
             this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.справкаToolStripMenuItem.Text = "Справка";
             // 
+            // normsImpurityToolStripMenuItem
+            // 
+            this.normsImpurityToolStripMenuItem.Name = "normsImpurityToolStripMenuItem";
+            this.normsImpurityToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.normsImpurityToolStripMenuItem.Text = "Нормы показателей качества";
+            this.normsImpurityToolStripMenuItem.Click += new System.EventHandler(this.normsImpurityToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,8 +230,8 @@
         private System.Windows.Forms.ToolStripMenuItem employeeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contractorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rawToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem местаХраненияToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem сырьеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem storageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem impurityToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сервисToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem договорыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem поставкаToolStripMenuItem;
@@ -230,5 +244,6 @@
         private System.Windows.Forms.ToolStripMenuItem прочиеОтчетыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сменитьПользователяToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem normsImpurityToolStripMenuItem;
     }
 }

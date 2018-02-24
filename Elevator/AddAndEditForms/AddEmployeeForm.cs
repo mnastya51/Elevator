@@ -20,6 +20,7 @@ namespace Elevator.AddAndEditForms
         {
             InitializeComponent();
             controller = new AddEmployeeController();
+            comboBoxPost.Text = comboBoxPost.Items[0].ToString();
         }
         public AddEmployeeForm(Employee emp)
         {
@@ -44,9 +45,7 @@ namespace Elevator.AddAndEditForms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (comboBoxPost.Text == "")
-                MessageBox.Show("Выберите должность!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else if (employee == null)
+            if (employee == null)
             {
                 employee = new Employee(surnameTextBox.Text,
                     nameTextBox.Text,

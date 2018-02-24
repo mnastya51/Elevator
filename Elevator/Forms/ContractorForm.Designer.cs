@@ -1,4 +1,4 @@
-﻿namespace Elevator.AddAndEditForms
+﻿namespace Elevator.Forms
 {
     partial class ContractorForm
     {

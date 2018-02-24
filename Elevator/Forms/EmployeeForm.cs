@@ -23,9 +23,6 @@ namespace Elevator.Forms
 
         private void EmployeeForm_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "accountOfGrainDataSet.Employee". При необходимости она может быть перемещена или удалена.
-            this.employeeTableAdapter.Fill(this.accountOfGrainDataSet.Employee);
-
             dataGridViewEmployee.DataSource = DAO.getInstance().selectTable("Employee");
             dataGridViewEmployee.ClearSelection();
 

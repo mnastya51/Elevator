@@ -20,6 +20,7 @@ namespace Elevator.Forms
             InitializeComponent();
             controller = new ImpurityQualityController();
             groupComboBox.SelectedIndexChanged += groupComboBox_SelectedIndexChanged;
+            groupComboBox.Text = groupComboBox.Items[0].ToString();
         }
 
         private void groupComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -42,20 +43,15 @@ namespace Elevator.Forms
         }
         private void showButton_Click(object sender, EventArgs e)
         {
-            if (groupComboBox.Text == "")
-                MessageBox.Show("Выберите группу!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else
-            {
-                addButton.Enabled = true;
-                addButton.BackColor = Color.DarkOrange;
-                deleteButton.Enabled = true;
-                deleteButton.BackColor = Color.DarkOrange;
+            addButton.Enabled = true;
+            addButton.BackColor = Color.DarkOrange;
+            deleteButton.Enabled = true;
+            deleteButton.BackColor = Color.DarkOrange;
 
-                dataGridViewImpurityQuality.Rows.Clear();
-                DAO.getInstance().selectImpurityTable(changeComboBox(groupComboBox.Text).getKey(), dataGridViewImpurityQuality);
-                dataGridViewImpurityQuality.ClearSelection();
-            }
-        }
+            dataGridViewImpurityQuality.Rows.Clear();
+            DAO.getInstance().selectImpurityTable(changeComboBox(groupComboBox.Text).getKey(), dataGridViewImpurityQuality);
+            dataGridViewImpurityQuality.ClearSelection();
+        }                 
 
         private void addButton_Click(object sender, EventArgs e)
         {
@@ -85,6 +81,6 @@ namespace Elevator.Forms
                 }
             }
             catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите показатель!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-    }
+        }
     }
 }
