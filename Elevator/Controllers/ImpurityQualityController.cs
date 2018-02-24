@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Elevator.AddAndEditForms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,9 @@ namespace Elevator.Controllers
 {
     class ImpurityQualityController
     {
+        public void addButtonClick()
+        {
+            new AddContractorForm().ShowDialog();
+        }
     }
 }

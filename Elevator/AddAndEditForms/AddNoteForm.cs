@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Elevator.AddForms
+namespace Elevator.AddAndEditForms
 {
     public partial class AddNoteForm : Form
     {

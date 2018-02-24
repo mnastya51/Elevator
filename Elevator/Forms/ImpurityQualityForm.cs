@@ -49,7 +49,8 @@ namespace Elevator.Forms
 
         private void addButton_Click(object sender, EventArgs e)
         {
-
+            controller.addButtonClick();
+            dataGridViewImpurityQuality.DataSource = DAO.getInstance().selectTable(changeComboBox(groupComboBox.Text));
         }
     }
 }

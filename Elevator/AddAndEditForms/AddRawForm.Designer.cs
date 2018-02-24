@@ -1,4 +1,4 @@
-﻿namespace Elevator.AddForms
+﻿namespace Elevator.AddAndEditForms
 {
     partial class AddRawForm
     {

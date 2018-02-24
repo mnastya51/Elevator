@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Elevator.Forms
+namespace Elevator.AddAndEditForms
 {
     public partial class AddEmployeeForm : Form
     {
