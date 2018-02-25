@@ -38,10 +38,12 @@
             this.changeButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.showButton = new System.Windows.Forms.Button();
-            this.rawComboBox = new System.Windows.Forms.ComboBox();
+            this.comboBoxClass = new System.Windows.Forms.ComboBox();
             this.rawBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.accountOfGrainDataSet = new Elevator.AccountOfGrainDataSet();
+            this.label2 = new System.Windows.Forms.Label();
+            this.showButton = new System.Windows.Forms.Button();
+            this.rawComboBox = new System.Windows.Forms.ComboBox();
             this.groupComboBox = new System.Windows.Forms.ComboBox();
             this.labelName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,6 +58,7 @@
             // 
             this.dataGridViewNorms.AllowUserToAddRows = false;
             this.dataGridViewNorms.AllowUserToDeleteRows = false;
+            this.dataGridViewNorms.AllowUserToResizeRows = false;
             this.dataGridViewNorms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewNorms.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.dataGridViewNorms.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -146,6 +149,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBoxClass);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.showButton);
             this.groupBox1.Controls.Add(this.rawComboBox);
             this.groupBox1.Controls.Add(this.groupComboBox);
@@ -154,9 +159,39 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(425, 105);
+            this.groupBox1.Size = new System.Drawing.Size(476, 105);
             this.groupBox1.TabIndex = 63;
             this.groupBox1.TabStop = false;
+            // 
+            // comboBoxClass
+            // 
+            this.comboBoxClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxClass.Enabled = false;
+            this.comboBoxClass.FormattingEnabled = true;
+            this.comboBoxClass.Location = new System.Drawing.Point(369, 21);
+            this.comboBoxClass.Name = "comboBoxClass";
+            this.comboBoxClass.Size = new System.Drawing.Size(90, 24);
+            this.comboBoxClass.TabIndex = 69;
+            // 
+            // rawBindingSource
+            // 
+            this.rawBindingSource.DataMember = "Raw";
+            this.rawBindingSource.DataSource = this.accountOfGrainDataSet;
+            // 
+            // accountOfGrainDataSet
+            // 
+            this.accountOfGrainDataSet.DataSetName = "AccountOfGrainDataSet";
+            this.accountOfGrainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(305, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 20);
+            this.label2.TabIndex = 68;
+            this.label2.Text = "Класс:";
             // 
             // showButton
             // 
@@ -165,7 +200,7 @@
             this.showButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.showButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.showButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.showButton.Location = new System.Drawing.Point(318, 51);
+            this.showButton.Location = new System.Drawing.Point(369, 54);
             this.showButton.Name = "showButton";
             this.showButton.Size = new System.Drawing.Size(92, 34);
             this.showButton.TabIndex = 67;
@@ -184,16 +219,6 @@
             this.rawComboBox.Name = "rawComboBox";
             this.rawComboBox.Size = new System.Drawing.Size(162, 24);
             this.rawComboBox.TabIndex = 55;
-            // 
-            // rawBindingSource
-            // 
-            this.rawBindingSource.DataMember = "Raw";
-            this.rawBindingSource.DataSource = this.accountOfGrainDataSet;
-            // 
-            // accountOfGrainDataSet
-            // 
-            this.accountOfGrainDataSet.DataSetName = "AccountOfGrainDataSet";
-            this.accountOfGrainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // groupComboBox
             // 
@@ -238,7 +263,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(451, 332);
+            this.ClientSize = new System.Drawing.Size(500, 332);
             this.Controls.Add(this.dataGridViewNorms);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.changeButton);
@@ -273,5 +298,7 @@
         private AccountOfGrainDataSet accountOfGrainDataSet;
         private System.Windows.Forms.BindingSource rawBindingSource;
         private AccountOfGrainDataSetTableAdapters.RawTableAdapter rawTableAdapter;
+        private System.Windows.Forms.ComboBox comboBoxClass;
+        private System.Windows.Forms.Label label2;
     }
 }

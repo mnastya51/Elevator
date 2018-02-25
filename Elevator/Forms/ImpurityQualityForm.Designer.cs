@@ -132,6 +132,7 @@
             // 
             this.dataGridViewImpurityQuality.AllowUserToAddRows = false;
             this.dataGridViewImpurityQuality.AllowUserToDeleteRows = false;
+            this.dataGridViewImpurityQuality.AllowUserToResizeRows = false;
             this.dataGridViewImpurityQuality.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewImpurityQuality.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.dataGridViewImpurityQuality.BorderStyle = System.Windows.Forms.BorderStyle.None;

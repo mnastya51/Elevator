@@ -39,9 +39,6 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.changeButton = new System.Windows.Forms.Button();
             this.dataGridViewEmployee = new System.Windows.Forms.DataGridView();
-            this.accountOfGrainDataSet = new Elevator.AccountOfGrainDataSet();
-            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.employeeTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.EmployeeTableAdapter();
             this.idempDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,10 +46,13 @@
             this.postDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.accountOfGrainDataSet = new Elevator.AccountOfGrainDataSet();
+            this.employeeTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.EmployeeTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -157,6 +157,7 @@
             // 
             this.dataGridViewEmployee.AllowUserToAddRows = false;
             this.dataGridViewEmployee.AllowUserToDeleteRows = false;
+            this.dataGridViewEmployee.AllowUserToResizeRows = false;
             this.dataGridViewEmployee.AutoGenerateColumns = false;
             this.dataGridViewEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewEmployee.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
@@ -192,26 +193,13 @@
             this.dataGridViewEmployee.Size = new System.Drawing.Size(601, 104);
             this.dataGridViewEmployee.TabIndex = 54;
             // 
-            // accountOfGrainDataSet
-            // 
-            this.accountOfGrainDataSet.DataSetName = "AccountOfGrainDataSet";
-            this.accountOfGrainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // employeeBindingSource
-            // 
-            this.employeeBindingSource.DataMember = "Employee";
-            this.employeeBindingSource.DataSource = this.accountOfGrainDataSet;
-            // 
-            // employeeTableAdapter
-            // 
-            this.employeeTableAdapter.ClearBeforeFill = true;
-            // 
             // idempDataGridViewTextBoxColumn
             // 
             this.idempDataGridViewTextBoxColumn.DataPropertyName = "id_emp";
             this.idempDataGridViewTextBoxColumn.HeaderText = "id_emp";
             this.idempDataGridViewTextBoxColumn.Name = "idempDataGridViewTextBoxColumn";
             this.idempDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idempDataGridViewTextBoxColumn.Visible = false;
             // 
             // surnameDataGridViewTextBoxColumn
             // 
@@ -247,6 +235,7 @@
             this.loginDataGridViewTextBoxColumn.HeaderText = "login";
             this.loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
             this.loginDataGridViewTextBoxColumn.ReadOnly = true;
+            this.loginDataGridViewTextBoxColumn.Visible = false;
             // 
             // passwordDataGridViewTextBoxColumn
             // 
@@ -254,6 +243,21 @@
             this.passwordDataGridViewTextBoxColumn.HeaderText = "password";
             this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
             this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
+            this.passwordDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataMember = "Employee";
+            this.employeeBindingSource.DataSource = this.accountOfGrainDataSet;
+            // 
+            // accountOfGrainDataSet
+            // 
+            this.accountOfGrainDataSet.DataSetName = "AccountOfGrainDataSet";
+            this.accountOfGrainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // employeeTableAdapter
+            // 
+            this.employeeTableAdapter.ClearBeforeFill = true;
             // 
             // EmployeeForm
             // 
@@ -271,8 +275,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
