@@ -32,7 +32,7 @@ namespace Elevator.AddAndEditForms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-
+            //добавление и изменение
         }
 
         private void rawComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -50,15 +50,16 @@ namespace Elevator.AddAndEditForms
             if (subtypes.Length > 0)
                 subtypeComboBox.Text = subtypeComboBox.Items[0].ToString();
         }
+
         /* private void getTypes()
 {
-    typeComboBox.Items.Clear();
-    string[] types = DAO.getInstance().getTypes(rawComboBox.Text);
-    if (types.Length > 0)
-    {
-        typeComboBox.Items.AddRange(types);
-        typeComboBox.Text = typeComboBox.Items[0].ToString();
-    }
+typeComboBox.Items.Clear();
+string[] types = DAO.getInstance().getTypes(rawComboBox.Text);
+if (types.Length > 0)
+{
+typeComboBox.Items.AddRange(types);
+typeComboBox.Text = typeComboBox.Items[0].ToString();
+}
 }*/
     }
 }
