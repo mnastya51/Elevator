@@ -121,7 +121,18 @@ namespace Elevator.Forms
                     select(change);
                 }
             }
-            catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите запись!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (System.ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Выберите запись!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Невозможно удалить запись! Она используется в других таблицах!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка работы с базой данных!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void rawComboBox_SelectedIndexChanged(object sender, EventArgs e)

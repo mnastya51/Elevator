@@ -59,7 +59,18 @@ namespace Elevator.Forms
                     dataGridViewEmployee.DataSource = DAO.getInstance().selectTable("Employee");
                 }
             }
-            catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите контрагента!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (System.ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Выберите контрагента!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Невозможно удалить запись! Она используется в других таблицах!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка работы с базой данных!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void findButton_Click(object sender, EventArgs e)
