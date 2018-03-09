@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Elevator.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -45,6 +46,11 @@ namespace Elevator.Forms
         private void normsImpurityToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new NormsOfRawForm().ShowDialog();
+        }
+
+        private void contractToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ContarctForm().ShowDialog();
         }
     }
 }

@@ -138,12 +138,14 @@
     <Compile Include="AddAndEditForms\AddSaveForm.Designer.cs">
       <DependentUpon>AddSaveForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AddContractController.cs" />
     <Compile Include="Controllers\AddContractorController.cs" />
     <Compile Include="Controllers\AddEmployeeController.cs" />
     <Compile Include="Controllers\AddImpurityQualityController.cs" />
     <Compile Include="Controllers\AddNormOfRawController.cs" />
     <Compile Include="Controllers\AddNoteController.cs" />
     <Compile Include="Controllers\AddRawController.cs" />
+    <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Controllers\ContractorController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\ImpurityQualityController.cs" />
@@ -151,6 +153,7 @@
     <Compile Include="Controllers\RawController.cs" />
     <Compile Include="Controllers\StorageController.cs" />
     <Compile Include="DAO.cs" />
+    <Compile Include="Model\Contract.cs" />
     <Compile Include="Model\Contractor.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Note.cs" />

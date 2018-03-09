@@ -36,10 +36,11 @@
             this.rawToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.impurityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.normsImpurityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.договорыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.поставкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.анализКачестваToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deliveryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.analysisQualityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.обработкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.хранениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отгрузкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +49,6 @@
             this.прочиеОтчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сменитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.normsImpurityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,12 +115,19 @@
             this.impurityToolStripMenuItem.Text = "Показатели качества";
             this.impurityToolStripMenuItem.Click += new System.EventHandler(this.impurityToolStripMenuItem_Click);
             // 
+            // normsImpurityToolStripMenuItem
+            // 
+            this.normsImpurityToolStripMenuItem.Name = "normsImpurityToolStripMenuItem";
+            this.normsImpurityToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.normsImpurityToolStripMenuItem.Text = "Нормы показателей качества";
+            this.normsImpurityToolStripMenuItem.Click += new System.EventHandler(this.normsImpurityToolStripMenuItem_Click);
+            // 
             // сервисToolStripMenuItem
             // 
             this.сервисToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.договорыToolStripMenuItem,
-            this.поставкаToolStripMenuItem,
-            this.анализКачестваToolStripMenuItem,
+            this.contractToolStripMenuItem,
+            this.deliveryToolStripMenuItem,
+            this.analysisQualityToolStripMenuItem,
             this.обработкаToolStripMenuItem,
             this.хранениеToolStripMenuItem,
             this.отгрузкаToolStripMenuItem});
@@ -128,23 +135,24 @@
             this.сервисToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.сервисToolStripMenuItem.Text = "Сервис";
             // 
-            // договорыToolStripMenuItem
+            // contractToolStripMenuItem
             // 
-            this.договорыToolStripMenuItem.Name = "договорыToolStripMenuItem";
-            this.договорыToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.договорыToolStripMenuItem.Text = "Договоры";
+            this.contractToolStripMenuItem.Name = "contractToolStripMenuItem";
+            this.contractToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.contractToolStripMenuItem.Text = "Договора";
+            this.contractToolStripMenuItem.Click += new System.EventHandler(this.contractToolStripMenuItem_Click);
             // 
-            // поставкаToolStripMenuItem
+            // deliveryToolStripMenuItem
             // 
-            this.поставкаToolStripMenuItem.Name = "поставкаToolStripMenuItem";
-            this.поставкаToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.поставкаToolStripMenuItem.Text = "Поставка";
+            this.deliveryToolStripMenuItem.Name = "deliveryToolStripMenuItem";
+            this.deliveryToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.deliveryToolStripMenuItem.Text = "Поставка";
             // 
-            // анализКачестваToolStripMenuItem
+            // analysisQualityToolStripMenuItem
             // 
-            this.анализКачестваToolStripMenuItem.Name = "анализКачестваToolStripMenuItem";
-            this.анализКачестваToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.анализКачестваToolStripMenuItem.Text = "Анализ качества";
+            this.analysisQualityToolStripMenuItem.Name = "analysisQualityToolStripMenuItem";
+            this.analysisQualityToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.analysisQualityToolStripMenuItem.Text = "Анализ качества";
             // 
             // обработкаToolStripMenuItem
             // 
@@ -198,13 +206,6 @@
             this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.справкаToolStripMenuItem.Text = "Справка";
             // 
-            // normsImpurityToolStripMenuItem
-            // 
-            this.normsImpurityToolStripMenuItem.Name = "normsImpurityToolStripMenuItem";
-            this.normsImpurityToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
-            this.normsImpurityToolStripMenuItem.Text = "Нормы показателей качества";
-            this.normsImpurityToolStripMenuItem.Click += new System.EventHandler(this.normsImpurityToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -233,9 +234,9 @@
         private System.Windows.Forms.ToolStripMenuItem storageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem impurityToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сервисToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem договорыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem поставкаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem анализКачестваToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem contractToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deliveryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem analysisQualityToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem обработкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem хранениеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отгрузкаToolStripMenuItem;

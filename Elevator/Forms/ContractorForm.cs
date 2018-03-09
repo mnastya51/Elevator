@@ -82,12 +82,14 @@ namespace Elevator.Forms
         private void findButton_Click(object sender, EventArgs e)
         {
             dataGridViewContractor.DataSource = controller.findButtonClick(nameContractortextBox.Text);
+            dataGridViewContractor.ClearSelection();
         }
 
         private void btnAllList_Click(object sender, EventArgs e)
         {
             dataGridViewContractor.DataSource = DAO.getInstance().selectTable("Contractor");
             nameContractortextBox.Text = string.Empty;
+            dataGridViewContractor.ClearSelection();
         }
 
     }

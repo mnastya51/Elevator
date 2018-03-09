@@ -22,7 +22,7 @@ namespace Elevator.Forms
             impurities = new LinkedList<string>();
             controller = new NormOfRawController();
             groupComboBox.Text = groupComboBox.Items[0].ToString();
-            string[] imp = DAO.getInstance().getRaw();
+            string[] imp = DAO.getInstance().getNoteToComboBox("name_Raw", "Raw");
             rawComboBox.Items.AddRange(imp);
             if (imp.Length > 0)
                 rawComboBox.Text = rawComboBox.Items[0].ToString();

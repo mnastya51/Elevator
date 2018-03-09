@@ -510,13 +510,13 @@ namespace Elevator
             }               
         }
 
-        public string[] getRaw()
+        public string[] getNoteToComboBox(string column, string contractor)
         {
             LinkedList<string> res = new LinkedList<string>();
             string sqlCommand = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                sqlCommand = string.Format("Select name_Raw from Raw");
+                sqlCommand = string.Format("Select {0} from {1}", column, contractor);
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
                 SqlDataReader reader = command.ExecuteReader();
@@ -565,6 +565,120 @@ namespace Elevator
                 return res.ToArray<string>();
             }
             else return res.ToArray<string>();
+        }
+        public void selectContract(DataGridView dataGridViewContract)
+        {
+            string sqlCommand = string.Empty;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select k.name_contr, c.id_contract, c.date_contr, c.goal From Contract c join Contractor k "+
+                    "on c.id_contractor = k.id_contractor");
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        dataGridViewContract.Rows.Add();
+                        DataGridViewRow row = dataGridViewContract.Rows[c];
+                        row.Cells[0].Value = reader.GetString(0);
+                        row.Cells[1].Value = reader.GetString(1);
+                        row.Cells[2].Value = reader.GetString(2);
+                        row.Cells[3].Value = reader.GetString(3);
+                        c++;
+                    }
+                }
+                reader.Close();
+                connection.Close();
+            }
+        }
+        public bool addContract(string nameContract, string nameContractor, string date, string goal)
+        {
+            string sqlCommand;
+            try
+            {
+                sqlCommand = string.Format("Insert into Contract values((select id_contractor from Contractor where name_contr = '{0}'), '{1}', '{2}', '{3}')",
+                    nameContractor, nameContract, goal, date);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+        }
+        public bool updateContract (string nameContract, string nameContractor, string date, string goal)
+        {
+            string sqlCommand;
+            try
+            {
+                sqlCommand = string.Format("Update Contract Set  date_contr = '{0}', goal = '{1}' where id_contractor = "+
+                    "(select id_contractor from Contractor where name_contr = '{2}') and id_contract = '{3}'",
+                    date, goal, nameContractor, nameContract);
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+        }
+        public void deleteContract(string nameContractor, string nameContract)
+        {
+            string sqlCommand;
+            sqlCommand = string.Format("Delete Contract where id_contractor = (select id_contractor from Contractor where name_contr "+
+                "= '{0}') and id_contract = '{1}' ", nameContractor, nameContract);
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+        public void findContractor(string value, DataGridView dataGridViewContract)
+        {
+            string sqlCommand = string.Empty;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select k.name_contr, c.id_contract, c.date_contr, c.goal From Contract c join Contractor k " +
+                    "on c.id_contractor = k.id_contractor where UPPER(REPLACE(name_contr,' ','')) LIKE(UPPER(REPLACE('{0}',' ','')))",  " %" + value.Trim() + "%");
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        dataGridViewContract.Rows.Add();
+                        DataGridViewRow row = dataGridViewContract.Rows[c];
+                        row.Cells[0].Value = reader.GetString(0);
+                        row.Cells[1].Value = reader.GetString(1);
+                        row.Cells[2].Value = reader.GetString(2);
+                        row.Cells[3].Value = reader.GetString(3);
+                        c++;
+                    }
+                }
+                reader.Close();
+                connection.Close();
+
+            }
         }
     }
 }
