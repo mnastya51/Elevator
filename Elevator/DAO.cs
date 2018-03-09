@@ -680,5 +680,68 @@ namespace Elevator
 
             }
         }
+        public void selectDelivery(string nameTable, string[] columns, DataGridView dataGridViewContract)
+        {
+            string sqlCommand = string.Empty;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select c.name_contr, r.name_raw, t.name_type_raw, s.name_subtype, d.{1}, st.year_crop, "+
+                    "d.{2}, d.{3}, d.{4}, d.{5} From Contractor c join {0} d " +
+                    "on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join Raw r on st.id_NameRaw = "+
+                    "r.id_NameRaw join Subtype_raw s on s.id_subtype = st.id_subtype join Type_raw t on s.id_type = t.id_type",
+                    nameTable, columns[0], columns[1], columns[2], columns[3], columns[4]);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        dataGridViewContract.Rows.Add();
+                        DataGridViewRow row = dataGridViewContract.Rows[c];
+                        row.Cells[0].Value = reader.GetString(0);
+                        row.Cells[1].Value = reader.GetString(1);
+                        row.Cells[2].Value = reader.GetInt32(2);
+                        row.Cells[3].Value = reader.GetInt32(3);
+                        row.Cells[4].Value = reader.GetString(4);
+                        row.Cells[5].Value = reader.GetInt32(5);
+                        row.Cells[6].Value = reader.GetString(6);
+                        row.Cells[7].Value = reader.GetString(7);
+                        row.Cells[8].Value = reader.GetString(8);
+                        row.Cells[9].Value = reader.GetString(9);
+                        c++;
+                    }
+                }
+                reader.Close();
+                connection.Close();
+            }
+        }
+        public string[] getTypeToComboBox(string column, string nameTable, string key, string columnParent, string nameTableParent, string value)
+        {
+            LinkedList<string> res = new LinkedList<string>();
+            string sqlCommand = string.Empty;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select t.{0} from {1} t join {2} p on t.{3} = p.{3} where {4} = '{5}'", 
+                    column, nameTable, nameTableParent, key, columnParent, value);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        string listElement = reader.GetInt32(0).ToString();
+                        res.AddLast(listElement);
+                        c++;
+                    }
+                }
+                reader.Close();
+                connection.Close();
+            }
+            return res.ToArray<string>();
+        }
     }
 }

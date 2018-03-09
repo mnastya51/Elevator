@@ -184,7 +184,7 @@
             this.dataGridViewRaw.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewRaw.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewRaw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewRaw.Size = new System.Drawing.Size(346, 189);
+            this.dataGridViewRaw.Size = new System.Drawing.Size(346, 197);
             this.dataGridViewRaw.TabIndex = 44;
             // 
             // idNameRawDataGridViewTextBoxColumn
@@ -290,7 +290,7 @@
             this.numberclassDataGridViewTextBoxColumn});
             this.dataGridViewClass.DataSource = this.classBindingSource;
             this.dataGridViewClass.EnableHeadersVisualStyles = false;
-            this.dataGridViewClass.Location = new System.Drawing.Point(6, 55);
+            this.dataGridViewClass.Location = new System.Drawing.Point(6, 47);
             this.dataGridViewClass.MultiSelect = false;
             this.dataGridViewClass.Name = "dataGridViewClass";
             this.dataGridViewClass.ReadOnly = true;
@@ -299,7 +299,7 @@
             this.dataGridViewClass.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewClass.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewClass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewClass.Size = new System.Drawing.Size(182, 190);
+            this.dataGridViewClass.Size = new System.Drawing.Size(182, 198);
             this.dataGridViewClass.TabIndex = 44;
             // 
             // idclassDataGridViewTextBoxColumn

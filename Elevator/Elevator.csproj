@@ -140,6 +140,7 @@
     </Compile>
     <Compile Include="Controllers\AddContractController.cs" />
     <Compile Include="Controllers\AddContractorController.cs" />
+    <Compile Include="Controllers\AddDeliveryController.cs" />
     <Compile Include="Controllers\AddEmployeeController.cs" />
     <Compile Include="Controllers\AddImpurityQualityController.cs" />
     <Compile Include="Controllers\AddNormOfRawController.cs" />
@@ -147,6 +148,7 @@
     <Compile Include="Controllers\AddRawController.cs" />
     <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Controllers\ContractorController.cs" />
+    <Compile Include="Controllers\DeliveryController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\ImpurityQualityController.cs" />
     <Compile Include="Controllers\NormOfRawController.cs" />
@@ -155,6 +157,7 @@
     <Compile Include="DAO.cs" />
     <Compile Include="Model\Contract.cs" />
     <Compile Include="Model\Contractor.cs" />
+    <Compile Include="Model\Delivery.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Note.cs" />
     <Compile Include="Model\Raw.cs" />

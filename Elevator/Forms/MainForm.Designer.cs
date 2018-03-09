@@ -147,6 +147,7 @@
             this.deliveryToolStripMenuItem.Name = "deliveryToolStripMenuItem";
             this.deliveryToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.deliveryToolStripMenuItem.Text = "Поставка";
+            this.deliveryToolStripMenuItem.Click += new System.EventHandler(this.deliveryToolStripMenuItem_Click);
             // 
             // analysisQualityToolStripMenuItem
             // 

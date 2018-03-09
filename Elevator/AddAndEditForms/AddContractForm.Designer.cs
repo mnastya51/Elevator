@@ -69,6 +69,7 @@
             // goalTextBox
             // 
             this.goalTextBox.Location = new System.Drawing.Point(148, 115);
+            this.goalTextBox.MaxLength = 20;
             this.goalTextBox.Name = "goalTextBox";
             this.goalTextBox.Size = new System.Drawing.Size(200, 20);
             this.goalTextBox.TabIndex = 4;
@@ -106,6 +107,7 @@
             // 
             this.contactTextBox.BackColor = System.Drawing.Color.Red;
             this.contactTextBox.Location = new System.Drawing.Point(148, 8);
+            this.contactTextBox.MaxLength = 20;
             this.contactTextBox.Name = "contactTextBox";
             this.contactTextBox.Size = new System.Drawing.Size(200, 20);
             this.contactTextBox.TabIndex = 1;
