@@ -9,17 +9,17 @@ namespace Elevator.Controllers
 {
     class NormOfRawController
     {
-        public void addButtonClick(string nameTable, string nameImp,  LinkedList<string> impurities, string norm, string raw, string nameTableNorm)
+        public void addButtonClick(string nameTable, string nameImp,  LinkedList<string> impurities, string norm, string raw, string nameTableNorm, string numberClass)
         {
-            new AddNormOfRawForm(nameTable, nameImp,  impurities, norm, raw, nameTableNorm).ShowDialog();
+            new AddNormOfRawForm(nameTable, nameImp,  impurities, norm, raw, nameTableNorm, numberClass).ShowDialog();
         }
-        public void changeButtonClick(string valueImp, string valueNorm, string nameTable, string raw, string nameImp, string nameNorm)
+        public void changeButtonClick(string valueImp, string valueNorm, string nameTable, string raw, string nameImp, string nameNorm, string numberClass)
         {
-            new AddNormOfRawForm(valueImp, valueNorm, nameTable, raw, nameImp, nameNorm).ShowDialog();
+            new AddNormOfRawForm(valueImp, valueNorm, nameTable, raw, nameImp, nameNorm, numberClass).ShowDialog();
         }
-        public void deleteButtonClick(string nameTable, string nameImp, string valueImp, string raw)
+        public void deleteButtonClick(string nameTable, string nameImp, string valueImp, string raw, string numberClass)
         {
-            DAO.getInstance().deleteNorm(nameTable, nameImp, valueImp, raw);
+            DAO.getInstance().deleteNorm(nameTable, nameImp, valueImp, raw, numberClass);
         }      
     }
 }

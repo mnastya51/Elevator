@@ -51,7 +51,7 @@ namespace Elevator.Controllers
             {
                 if (index.Replace(" ", "").Length > 6)
                 {
-                    MessageBox.Show("Длина индекса должа быть равна 6", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Длина индекса должа быть равна 6!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return Convert.ToInt32(index.Substring(0, index.Length - 1));
                 }
                 return Convert.ToInt32(index);
@@ -74,7 +74,7 @@ namespace Elevator.Controllers
             {
                 if (inn.Replace(" ", "").Length > 12)
                 {
-                    MessageBox.Show("Длина ИНН должа быть равна 12", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Длина ИНН должа быть равна 12!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return Convert.ToInt64(inn.Substring(0, inn.Length - 1));
                 }
                 return Convert.ToInt64(inn);

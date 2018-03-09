@@ -21,7 +21,7 @@ namespace Elevator.Controllers
                     new FormValue<string, string>("login", employee.Login),
                     new FormValue<string, string>("password", employee.Password)))
                 {
-                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Данный логин уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 else return true;
@@ -36,7 +36,7 @@ namespace Elevator.Controllers
                     new FormValue<string, string>("login", employee.Login),
                     new FormValue<string, string>("password", employee.Password)))
                 {
-                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Данный логин уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 else return true;
@@ -50,7 +50,7 @@ namespace Elevator.Controllers
 
         public bool checkSaveForAll(string surname, string name, string secName, string login, string password)
         {
-            return isNotEmpty(surname) && isNotEmpty(name) && isNotEmpty(secName);
+            return isNotEmpty(surname) && isNotEmpty(name) && isNotEmpty(secName) && isNotEmpty(login) && isNotEmpty(password);
         }
 
         public bool isNotEmpty(string text)

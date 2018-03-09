@@ -1,13 +1,7 @@
 ﻿using Elevator.Controllers;
 using Elevator.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Elevator.Forms
@@ -37,6 +31,14 @@ namespace Elevator.Forms
             groupBoxClass.Enabled = false;
             addButtonClass.BackColor = Color.LightGray;
             deleteButtonClass.BackColor = Color.LightGray;
+            groupBoxType.Enabled = false;
+            addTypeButton.BackColor = Color.LightGray;
+            deleteTypeButton.BackColor = Color.LightGray;
+            addSubtypeButton.BackColor = Color.LightGray;
+            deleteSubtypeButton.BackColor = Color.LightGray;
+            dataGridViewType.DataSource = null;
+            dataGridViewClass.DataSource = null;
+            dataGridViewSubtype.DataSource = null;
         }
 
         private void changeButton_Click(object sender, EventArgs e)
@@ -51,10 +53,18 @@ namespace Elevator.Forms
                 dataGridViewRaw.DataSource = DAO.getInstance().selectTable("Raw");
                 dataGridViewRaw.ClearSelection();
             }
-            catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите сырье!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите сырье!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             groupBoxClass.Enabled = false;
             addButtonClass.BackColor = Color.LightGray;
             deleteButtonClass.BackColor = Color.LightGray;
+            groupBoxType.Enabled = false;
+            addTypeButton.BackColor = Color.LightGray;
+            deleteTypeButton.BackColor = Color.LightGray;
+            addSubtypeButton.BackColor = Color.LightGray;
+            deleteSubtypeButton.BackColor = Color.LightGray;
+            dataGridViewType.DataSource = null;
+            dataGridViewClass.DataSource = null;
+            dataGridViewSubtype.DataSource = null;
         }
 
 
@@ -70,12 +80,30 @@ namespace Elevator.Forms
                     controller.deleteButtonClick(dataGridViewRaw.CurrentRow.Cells[0].Value.ToString());
                     dataGridViewRaw.DataSource = DAO.getInstance().selectTable("Raw");
                     dataGridViewRaw.ClearSelection();
+                    groupBoxClass.Enabled = false;
+                    addButtonClass.BackColor = Color.LightGray;
+                    deleteButtonClass.BackColor = Color.LightGray;
+                    groupBoxType.Enabled = false;
+                    addTypeButton.BackColor = Color.LightGray;
+                    deleteTypeButton.BackColor = Color.LightGray;
+                    addSubtypeButton.BackColor = Color.LightGray;
+                    deleteSubtypeButton.BackColor = Color.LightGray;
+                    dataGridViewType.DataSource = null;
+                    dataGridViewClass.DataSource = null;
+                    dataGridViewSubtype.DataSource = null;
                 }
             }
-            catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите сырье!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-            groupBoxClass.Enabled = false;
-            addButtonClass.BackColor = Color.LightGray;
-            deleteButtonClass.BackColor = Color.LightGray;
+            catch (System.ArgumentOutOfRangeException) {
+                MessageBox.Show("Выберите сырье!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Невозможно удалить запись! Она используется в других таблицах!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка работы с базой данных!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dataGridViewRaw_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -121,7 +149,17 @@ namespace Elevator.Forms
                     dataGridViewClass.ClearSelection();
                 }
             }
-            catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите класс!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error); }        
+            catch (System.ArgumentOutOfRangeException) {
+                MessageBox.Show("Выберите класс!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Невозможно удалить запись! Она используется в других таблицах!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка работы с базой данных!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void addTypeButton_Click(object sender, EventArgs e)
@@ -140,13 +178,25 @@ namespace Elevator.Forms
                   "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                   if (dr == DialogResult.OK)
                   {
-                      controller.deleteNoteButtonClick("Type_raw", "id_type", dataGridViewType.CurrentRow.Cells[0].Value.ToString());
-                      dataGridViewType.DataSource = DAO.getInstance().selectTableNote("Type_raw", "id_NameRaw", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
-                      dataGridViewType.ClearSelection();
-                  }
-              }
-              catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите тип!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-              
+                    controller.deleteNoteButtonClick("Type_raw", "id_type", dataGridViewType.CurrentRow.Cells[0].Value.ToString());
+                    dataGridViewType.DataSource = DAO.getInstance().selectTableNote("Type_raw", "id_NameRaw", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+                    dataGridViewType.ClearSelection();
+                    addSubtypeButton.BackColor = Color.LightGray;
+                    deleteSubtypeButton.BackColor = Color.LightGray;
+                    dataGridViewSubtype.DataSource = null;
+                }
+            }
+            catch (System.ArgumentOutOfRangeException) {
+                MessageBox.Show("Выберите тип!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Невозможно удалить запись! Она используется в других таблицах!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка работы с базой данных!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void addSubtypeButton_Click(object sender, EventArgs e)
@@ -160,7 +210,7 @@ namespace Elevator.Forms
         {
             try
             {
-                DataGridViewRow row = dataGridViewType.SelectedRows[0];
+                DataGridViewRow row = dataGridViewSubtype.SelectedRows[0];
                 DialogResult dr = MessageBox.Show("Вы действительно хотите удалить запись?",
                 "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                 if (dr == DialogResult.OK)
@@ -170,7 +220,18 @@ namespace Elevator.Forms
                     dataGridViewSubtype.ClearSelection();
                 }
             }
-            catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите подтип!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (System.ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Выберите подтип!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }        
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Невозможно удалить запись! Она используется в других таблицах!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка работы с базой данных!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void dataGridViewType_CellClick(object sender, DataGridViewCellEventArgs e)
         {

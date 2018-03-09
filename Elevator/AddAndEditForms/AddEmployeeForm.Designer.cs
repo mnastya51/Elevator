@@ -74,6 +74,7 @@
             this.comboBoxPost.Items.AddRange(new object[] {
             "Лаборант",
             "Заведующий лаборатории",
+            "Весовщик",
             "Бухгалтер"});
             this.comboBoxPost.Location = new System.Drawing.Point(115, 143);
             this.comboBoxPost.Name = "comboBoxPost";
@@ -84,6 +85,7 @@
             // 
             this.secnameTextBox.BackColor = System.Drawing.Color.Red;
             this.secnameTextBox.Location = new System.Drawing.Point(115, 104);
+            this.secnameTextBox.MaxLength = 20;
             this.secnameTextBox.Name = "secnameTextBox";
             this.secnameTextBox.Size = new System.Drawing.Size(231, 22);
             this.secnameTextBox.TabIndex = 24;
@@ -93,6 +95,7 @@
             // 
             this.nameTextBox.BackColor = System.Drawing.Color.Red;
             this.nameTextBox.Location = new System.Drawing.Point(115, 63);
+            this.nameTextBox.MaxLength = 20;
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(231, 22);
             this.nameTextBox.TabIndex = 23;
@@ -102,6 +105,7 @@
             // 
             this.surnameTextBox.BackColor = System.Drawing.Color.Red;
             this.surnameTextBox.Location = new System.Drawing.Point(115, 26);
+            this.surnameTextBox.MaxLength = 30;
             this.surnameTextBox.Name = "surnameTextBox";
             this.surnameTextBox.Size = new System.Drawing.Size(231, 22);
             this.surnameTextBox.TabIndex = 22;
@@ -169,20 +173,23 @@
             // 
             // passwordTextBox
             // 
+            this.passwordTextBox.BackColor = System.Drawing.Color.Red;
             this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.passwordTextBox.ForeColor = System.Drawing.Color.Gray;
             this.passwordTextBox.Location = new System.Drawing.Point(114, 60);
-            this.passwordTextBox.MaxLength = 15;
+            this.passwordTextBox.MaxLength = 20;
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(231, 25);
             this.passwordTextBox.TabIndex = 23;
-            this.passwordTextBox.Text = "Пароль";
+            this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
             // 
             // loginTextBox
             // 
+            this.loginTextBox.BackColor = System.Drawing.Color.Red;
             this.loginTextBox.Location = new System.Drawing.Point(115, 26);
+            this.loginTextBox.MaxLength = 20;
             this.loginTextBox.Name = "loginTextBox";
             this.loginTextBox.Size = new System.Drawing.Size(231, 22);
             this.loginTextBox.TabIndex = 22;
@@ -212,12 +219,12 @@
             // 
             // saveButton
             // 
-            this.saveButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.saveButton.BackColor = System.Drawing.Color.Red;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.saveButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.saveButton.Location = new System.Drawing.Point(128, 315);
+            this.saveButton.Location = new System.Drawing.Point(144, 313);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(92, 34);
             this.saveButton.TabIndex = 68;

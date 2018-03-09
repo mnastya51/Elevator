@@ -49,6 +49,7 @@
             // 
             this.textBoxName.BackColor = System.Drawing.Color.Red;
             this.textBoxName.Location = new System.Drawing.Point(151, 9);
+            this.textBoxName.MaxLength = 150;
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(232, 20);
             this.textBoxName.TabIndex = 53;
@@ -67,6 +68,7 @@
             // textBoxSubdivision
             // 
             this.textBoxSubdivision.Location = new System.Drawing.Point(151, 46);
+            this.textBoxSubdivision.MaxLength = 50;
             this.textBoxSubdivision.Name = "textBoxSubdivision";
             this.textBoxSubdivision.Size = new System.Drawing.Size(232, 20);
             this.textBoxSubdivision.TabIndex = 55;
@@ -135,6 +137,7 @@
             // 
             this.richTextBoxYuradress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBoxYuradress.Location = new System.Drawing.Point(151, 83);
+            this.richTextBoxYuradress.MaxLength = 200;
             this.richTextBoxYuradress.Name = "richTextBoxYuradress";
             this.richTextBoxYuradress.Size = new System.Drawing.Size(232, 63);
             this.richTextBoxYuradress.TabIndex = 69;
@@ -145,6 +148,7 @@
             this.richTextBoxFactadress.BackColor = System.Drawing.Color.Red;
             this.richTextBoxFactadress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBoxFactadress.Location = new System.Drawing.Point(151, 165);
+            this.richTextBoxFactadress.MaxLength = 200;
             this.richTextBoxFactadress.Name = "richTextBoxFactadress";
             this.richTextBoxFactadress.Size = new System.Drawing.Size(232, 63);
             this.richTextBoxFactadress.TabIndex = 70;

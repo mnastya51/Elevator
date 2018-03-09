@@ -23,5 +23,9 @@ namespace Elevator.Controllers
         {
             return DAO.getInstance().findRow("Employee", new FormValue<string, string>("surname", value));
         }
+        public void addButtonClick()
+        {
+            new AddEmployeeForm().ShowDialog();
+        }
     }
 }

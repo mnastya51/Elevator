@@ -45,10 +45,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(6, 22);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(6, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 20);
+            this.label1.Size = new System.Drawing.Size(60, 18);
             this.label1.TabIndex = 56;
             this.label1.Text = "Группа:";
             // 
@@ -61,9 +61,9 @@
             "Вредные примеси",
             "Сорные примеси",
             "Зерновые примеси"});
-            this.groupComboBox.Location = new System.Drawing.Point(77, 18);
+            this.groupComboBox.Location = new System.Drawing.Point(77, 20);
             this.groupComboBox.Name = "groupComboBox";
-            this.groupComboBox.Size = new System.Drawing.Size(300, 24);
+            this.groupComboBox.Size = new System.Drawing.Size(203, 24);
             this.groupComboBox.TabIndex = 57;
             // 
             // groupBox1
@@ -74,7 +74,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(489, 62);
+            this.groupBox1.Size = new System.Drawing.Size(404, 62);
             this.groupBox1.TabIndex = 58;
             this.groupBox1.TabStop = false;
             // 
@@ -85,7 +85,7 @@
             this.showButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.showButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.showButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.showButton.Location = new System.Drawing.Point(383, 15);
+            this.showButton.Location = new System.Drawing.Point(299, 16);
             this.showButton.Name = "showButton";
             this.showButton.Size = new System.Drawing.Size(92, 34);
             this.showButton.TabIndex = 67;
@@ -148,7 +148,7 @@
             this.dataGridViewImpurityQuality.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NameColumn});
             this.dataGridViewImpurityQuality.EnableHeadersVisualStyles = false;
-            this.dataGridViewImpurityQuality.Location = new System.Drawing.Point(70, 124);
+            this.dataGridViewImpurityQuality.Location = new System.Drawing.Point(26, 114);
             this.dataGridViewImpurityQuality.MultiSelect = false;
             this.dataGridViewImpurityQuality.Name = "dataGridViewImpurityQuality";
             this.dataGridViewImpurityQuality.ReadOnly = true;
@@ -172,7 +172,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(514, 298);
+            this.ClientSize = new System.Drawing.Size(427, 298);
             this.Controls.Add(this.dataGridViewImpurityQuality);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.addButton);

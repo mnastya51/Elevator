@@ -32,6 +32,7 @@ namespace Elevator.AddAndEditForms
             secnameTextBox.Text = emp.SecName;
             comboBoxPost.Text = emp.Post;
             loginTextBox.Text = emp.Login;
+            passwordTextBox.Text = emp.Password;
             this.Text = "Изменение cотрудника";
             surnameTextBox.BackColor = Color.White;
             nameTextBox.BackColor = Color.White;
@@ -98,7 +99,14 @@ namespace Elevator.AddAndEditForms
 
         private void loginTextBox_TextChanged(object sender, EventArgs e)
         {
-           
+            checkSaveForAll();
+            loginTextBox.BackColor = !AddEmployeeController.isEmpty(loginTextBox.Text.Replace(" ", "")) ? Color.White : Color.Red;
+        }
+
+        private void passwordTextBox_TextChanged(object sender, EventArgs e)
+        {
+            checkSaveForAll();
+            passwordTextBox.BackColor = !AddEmployeeController.isEmpty(passwordTextBox.Text.Replace(" ", "")) ? Color.White : Color.Red;
         }
     }
 }

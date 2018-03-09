@@ -23,7 +23,8 @@ namespace Elevator.AddAndEditForms
         private bool forChange;
         private string valueImp;
         private string nameNorm;
-        public AddNormOfRawForm(string newNameTable, string newNameImp, LinkedList<string> impurities, string newNorm, string newRaw, string newNameTableNorm)
+        private string numberClass;
+        public AddNormOfRawForm(string newNameTable, string newNameImp, LinkedList<string> impurities, string newNorm, string newRaw, string newNameTableNorm, string newNumberClass)
         {       
             InitializeComponent();
             controller = new AddNormOfRawController();
@@ -37,8 +38,9 @@ namespace Elevator.AddAndEditForms
             nameImp = newNameImp;
             nameTableNorm = newNameTableNorm;
             forChange = false;
+            numberClass = newNumberClass;
         }
-        public AddNormOfRawForm(string newValueImp, string valueNorm, string newNameTable, string newRaw, string newNameImp, string newNameNorm)
+        public AddNormOfRawForm(string newValueImp, string valueNorm, string newNameTable, string newRaw, string newNameImp, string newNameNorm, string newNumberClass)
         {
             InitializeComponent();
             controller = new AddNormOfRawController();
@@ -53,20 +55,28 @@ namespace Elevator.AddAndEditForms
             nameNorm = newNameNorm;
             nameTable = newNameTable;
             raw = newRaw;
+            numberClass = newNumberClass;
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
             if (forChange)
             {
-                if (controller.changeClick(valueImp, nameTable, raw, textBoxImpurity.Text, nameImp, nameNorm))
+                if (controller.changeClick(valueImp, nameTable, raw, textBoxImpurity.Text, nameImp, nameNorm, numberClass))
                     this.Close();
             }
             else
             {
-                if (controller.addClick(nameTableNorm, nameImp, impComboBox.Text, norm, raw, textBoxImpurity.Text))
+                if (controller.addClick(nameTableNorm, nameImp, impComboBox.Text, norm, raw, textBoxImpurity.Text, numberClass))
                     this.Close();
             }
         }
-    }
+
+       /*private void impComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        /* {
+            string[] classes = DAO.getInstance().getClasses();
+            impComboBox.Items.AddRange(classes);
+            if (classes.Length > 0)
+                groupComboBox.Text = groupComboBox.Items[0].ToString();*/
+        }
 }

@@ -77,6 +77,7 @@
             // nameContractortextBox
             // 
             this.nameContractortextBox.Location = new System.Drawing.Point(130, 27);
+            this.nameContractortextBox.MaxLength = 150;
             this.nameContractortextBox.Name = "nameContractortextBox";
             this.nameContractortextBox.Size = new System.Drawing.Size(282, 22);
             this.nameContractortextBox.TabIndex = 48;
@@ -85,7 +86,7 @@
             // 
             this.btnAllList.BackColor = System.Drawing.Color.DarkOrange;
             this.btnAllList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAllList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAllList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAllList.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnAllList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAllList.Location = new System.Drawing.Point(525, 23);
@@ -153,7 +154,7 @@
             this.innDataGridViewTextBoxColumn});
             this.dataGridViewContractor.DataSource = this.contractorBindingSource;
             this.dataGridViewContractor.EnableHeadersVisualStyles = false;
-            this.dataGridViewContractor.Location = new System.Drawing.Point(12, 137);
+            this.dataGridViewContractor.Location = new System.Drawing.Point(12, 120);
             this.dataGridViewContractor.MultiSelect = false;
             this.dataGridViewContractor.Name = "dataGridViewContractor";
             this.dataGridViewContractor.ReadOnly = true;
@@ -162,7 +163,7 @@
             this.dataGridViewContractor.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewContractor.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewContractor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContractor.Size = new System.Drawing.Size(824, 152);
+            this.dataGridViewContractor.Size = new System.Drawing.Size(824, 210);
             this.dataGridViewContractor.TabIndex = 43;
             // 
             // idcontractorDataGridViewTextBoxColumn

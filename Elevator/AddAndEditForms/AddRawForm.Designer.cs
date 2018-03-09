@@ -39,6 +39,7 @@
             // 
             this.textBoxGost.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxGost.Location = new System.Drawing.Point(151, 46);
+            this.textBoxGost.MaxLength = 30;
             this.textBoxGost.Name = "textBoxGost";
             this.textBoxGost.Size = new System.Drawing.Size(232, 20);
             this.textBoxGost.TabIndex = 59;
@@ -57,6 +58,7 @@
             // 
             this.textBoxName.BackColor = System.Drawing.Color.Red;
             this.textBoxName.Location = new System.Drawing.Point(151, 9);
+            this.textBoxName.MaxLength = 15;
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(232, 20);
             this.textBoxName.TabIndex = 57;

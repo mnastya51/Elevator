@@ -19,5 +19,17 @@ namespace Elevator.Controllers
             }
             else return true;
         }
+        public bool checkSave(string surname)
+        {
+            return isNotEmpty(surname);
+        }
+        public bool isNotEmpty(string text)
+        {
+            return text.Replace(" ", "").Length > 0;
+        }
+        public static bool isEmpty(string text)
+        {
+            return text == null || text == string.Empty || text.Length == 0;
+        }
     }
 }

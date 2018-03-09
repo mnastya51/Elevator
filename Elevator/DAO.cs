@@ -53,7 +53,7 @@ namespace Elevator
                 }
                 return true;
             }
-            catch
+            catch (SqlException)           
             {
                 return false;
             }
@@ -81,7 +81,7 @@ namespace Elevator
                 }
                 return true;
             }
-            catch
+            catch (SqlException)
             {
                 return false;
             }
@@ -192,7 +192,7 @@ namespace Elevator
                     return max;
                 }
             }
-            catch
+            catch (SqlException)
             {
                 return 0;
             }
@@ -250,20 +250,22 @@ namespace Elevator
                 }
                 return true;
             }
-            catch
+            catch (SqlException)
             {
                 return false;
             }
         }
-        public LinkedList<string> selectNormsTable(string nameTable, string norm, string name_imp, string name_raw, DataGridView dataGridViewNorms)
+        public LinkedList<string> selectNormsTableByRaw(string nameTable, string norm, string nameImp, string nameRaw, DataGridView dataGridViewNorms)
         {
+            if (!isClass(nameRaw))
+                addClass(nameRaw);
             string sqlCommand = string.Empty;
             LinkedList<string> res = new LinkedList<string>();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 sqlCommand = string.Format("Select n.{1}, n.{2} from {0} n join Class c " + 
                     "on c.id_class=n.id_class join Raw r on c.id_NameRaw=r.id_NameRaw " +
-                    "where r.name_raw = '{3}'", nameTable, name_imp, norm, name_raw);
+                    "where r.name_raw = '{3}'", nameTable, nameImp, norm, nameRaw);
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
                 SqlDataReader reader = command.ExecuteReader();
@@ -286,6 +288,69 @@ namespace Elevator
             }
             return res;
         }
+
+        private bool isClass(string raw)
+        {
+            string sqlCommand = string.Empty;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select count(*) From Class c join Raw r on c.id_NameRaw= r.id_NameRaw where " +
+                    "r.name_raw = '{0}'", raw);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                int count = (Int32)command.ExecuteScalar();
+                connection.Close();
+                if (count == 0)
+                    return false;
+                else return true;
+            }
+        }
+
+        private void addClass(string nameRaw)
+        {
+            string sqlCommand;           
+            sqlCommand = string.Format("Insert into Class (id_NameRaw) values((select id_NameRaw from Raw where name_raw = '{0}'))", nameRaw);
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+               connection.Open();
+               SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+               cmd.ExecuteNonQuery();
+               connection.Close();
+            }
+        }
+
+        public LinkedList<string> selectNormsTableByClass(string nameTable, string norm, string nameImp, string nameClass, string nameRaw, DataGridView dataGridViewNorms)
+        {
+            string sqlCommand = string.Empty;
+            LinkedList<string> res = new LinkedList<string>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select n.{1}, n.{2} from {0} n join Class c " +
+                    "on c.id_class=n.id_class join Raw r on r.id_NameRaw = c.id_NameRaw where c.number_class = '{3}' and r.name_raw = '{4}'", 
+                    nameTable, nameImp, norm, nameClass, nameRaw);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        dataGridViewNorms.Rows.Add();
+                        DataGridViewRow row = dataGridViewNorms.Rows[c];
+                        string listElement = reader.GetString(0);
+                        res.AddLast(listElement);
+                        row.Cells[0].Value = listElement;
+                        row.Cells[1].Value = reader.GetString(1);
+                        c++;
+                    }
+                }
+                reader.Close();
+                connection.Close();
+            }
+            return res;
+        }
+
         public string[] getImpurity(string nameTable, string nameImp, LinkedList<string> impurities)
         {
             LinkedList<string> res = new LinkedList<string>();
@@ -318,14 +383,110 @@ namespace Elevator
             }
             return res.ToArray<string>();
         }
-        public bool addNorm(string nameTable, string name_imp, string valImp, string norm, string raw, string value)
+
+        public bool addNorm(string nameTable, string name_imp, string valImp, string norm, string raw, string value, string numberClass)
         {
             string sqlCommand;
-            try
+            if (numberClass != "")
             {
-                sqlCommand = string.Format("Insert into {0} ({1}, id_class, {2}) values('{3}', " +
-                    "(select c.id_class from Class c join Raw r on c.id_NameRaw = r.id_NameRaw where r.name_raw = '{4}'), '{5}')",
-                    nameTable, name_imp, norm, valImp, raw, value);
+                try
+                {
+                    sqlCommand = string.Format("Insert into {0} ({1}, id_class, {2}) values('{3}', " +
+                        "(select c.id_class from Class c join Raw r on c.id_NameRaw = r.id_NameRaw where r.name_raw = '{4}' and c.number_class = {6}), '{5}')",
+                        nameTable, name_imp, norm, valImp, raw, value, numberClass);
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                        cmd.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                    return true;
+                }
+                catch (SqlException)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                try
+                {
+                    sqlCommand = string.Format("Insert into {0} ({1}, id_class, {2}) values('{3}', " +
+                        "(select c.id_class from Class c join Raw r on c.id_NameRaw = r.id_NameRaw where r.name_raw = '{4}'), '{5}')",
+                        nameTable, name_imp, norm, valImp, raw, value);
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                        cmd.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                    return true;
+                }
+                catch (SqlException)
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool changeNorm(string valueImp, string nameTable, string raw, string valueNorm, string nameImp, string nameNorm, string numberClass)
+        {
+            string sqlCommand;
+            if (numberClass != "")
+            {
+                try
+                {
+                    sqlCommand = string.Format("Update {0} Set {1} = '{2}' where {3}='{4}' and " +
+                        "id_class = (select c.id_class from Class c join Raw r on c.id_NameRaw = r.id_NameRaw where r.name_raw ='{5}' and c.number_class = {6})",
+                        nameTable, nameNorm, valueNorm, nameImp, valueImp, raw, numberClass);
+
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                        cmd.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                    return true;
+                }
+                catch (SqlException)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                try
+                {
+                    sqlCommand = string.Format("Update {0} Set {1} = '{2}' where {3}='{4}' and " +
+                        "id_class = (select c.id_class from Class c join Raw r on c.id_NameRaw = r.id_NameRaw where r.name_raw ='{5}')",
+                        nameTable, nameNorm, valueNorm, nameImp, valueImp, raw);
+
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                        cmd.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                    return true;
+                }
+                catch (SqlException)
+                {
+                    return false;
+                }
+            }       
+        }
+        public void deleteNorm(string nameTable, string nameImp, string valueImp, string raw, string numberClass)
+        {
+            string sqlCommand;
+            if (numberClass != "")
+            {
+                sqlCommand = string.Format("Delete {0} where {1}='{2}' and id_class = (select c.id_class from Class c join Raw r " +
+                "on c.id_NameRaw = r.id_NameRaw where r.name_raw ='{3}'  and c.number_class = {4})",
+                nameTable, nameImp, valueImp, raw, numberClass);
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -333,50 +494,77 @@ namespace Elevator
                     cmd.ExecuteNonQuery();
                     connection.Close();
                 }
-                return true;
             }
-            catch
+            else
             {
-                return false;
-            }
-        }
-
-        public bool changeNorm(string valueImp, string nameTable, string raw, string valueNorm, string nameImp, string nameNorm)
-        {
-            string sqlCommand;
-            try
-            {
-                sqlCommand = string.Format("Update {0} Set {1} = '{2}' where {3}='{4}' and " +
-                    "id_class = (select c.id_class from Class c join Raw r on c.id_NameRaw = r.id_NameRaw where r.name_raw ='{5}')", 
-                    nameTable, nameNorm, valueNorm, nameImp, valueImp, raw);
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
-                    cmd.ExecuteNonQuery();
-                    connection.Close();
-                }
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-        public void deleteNorm(string nameTable, string nameImp, string valueImp, string raw)
-        {
-            string sqlCommand;
-            sqlCommand = string.Format("Delete {0} where {1}='{2}' and id_class = (select c.id_class from Class c join Raw r "+
-                "on c.id_NameRaw = r.id_NameRaw where r.name_raw ='{3}')", 
+                sqlCommand = string.Format("Delete {0} where {1}='{2}' and id_class = (select c.id_class from Class c join Raw r " +
+                "on c.id_NameRaw = r.id_NameRaw where r.name_raw ='{3}')",
                 nameTable, nameImp, valueImp, raw);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }               
+        }
+
+        public string[] getRaw()
+        {
+            LinkedList<string> res = new LinkedList<string>();
+            string sqlCommand = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+                sqlCommand = string.Format("Select name_Raw from Raw");
                 connection.Open();
-                SqlCommand cmd = new SqlCommand(sqlCommand, connection);
-                cmd.ExecuteNonQuery();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        string listElement = reader.GetString(0);
+                        res.AddLast(listElement);
+                        c++;
+                    }
+                }
+                reader.Close();
                 connection.Close();
             }
+            return res.ToArray<string>();
+        }
+
+        public string[] getClasses(string raw)
+        {
+            LinkedList<string> res = new LinkedList<string>();
+            if (isClass(raw))
+            {
+                string sqlCommand = string.Empty;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    sqlCommand = string.Format("Select c.number_class from Class c join Raw r on r.id_NameRaw = c.id_NameRaw where " +
+                        "name_raw = '{0}' and c.number_class is not null", raw);
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sqlCommand, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        int c = 0;
+                        while (reader.Read())
+                        {
+                            string listElement = reader.GetInt32(0).ToString();
+                            res.AddLast(listElement);
+                            c++;
+                        }
+                    }
+                    reader.Close();
+                    connection.Close();
+                }
+                return res.ToArray<string>();
+            }
+            else return res.ToArray<string>();
         }
     }
 }

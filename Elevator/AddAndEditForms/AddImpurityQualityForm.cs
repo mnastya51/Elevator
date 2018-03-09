@@ -28,5 +28,12 @@ namespace Elevator.AddAndEditForms
             if (controller.onSaveClick(formValue, textBoxImpurity.Text))
                 this.Close();
         }
+
+        private void textBoxImpurity_TextChanged(object sender, EventArgs e)
+        {
+            saveButton.Enabled = controller.checkSave(textBoxImpurity.Text);
+            saveButton.BackColor = controller.checkSave(textBoxImpurity.Text) ? Color.DarkOrange : Color.Red;
+            textBoxImpurity.BackColor = !AddImpurityQualityController.isEmpty(textBoxImpurity.Text.Replace(" ", "")) ? Color.White : Color.Red;
+        }
     }
 }

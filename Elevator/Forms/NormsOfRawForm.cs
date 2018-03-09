@@ -22,6 +22,10 @@ namespace Elevator.Forms
             impurities = new LinkedList<string>();
             controller = new NormOfRawController();
             groupComboBox.Text = groupComboBox.Items[0].ToString();
+            string[] imp = DAO.getInstance().getRaw();
+            rawComboBox.Items.AddRange(imp);
+            if (imp.Length > 0)
+                rawComboBox.Text = rawComboBox.Items[0].ToString();
         }
 
         private string[] changeComboBox(string nameTable)
@@ -51,6 +55,24 @@ namespace Elevator.Forms
             return new string[] { "", ""};
         }
 
+        private void select(string[] change)
+        {
+            dataGridViewNorms.Rows.Clear();
+            if (comboBoxClass.Text == "")
+            {
+                impurities = DAO.getInstance().selectNormsTableByRaw(change[0], //название таблицы
+                     change[1], change[2], rawComboBox.Text, //поле для заполнение нормы, наим показателя, имя сырья
+                      dataGridViewNorms);
+            }
+            else
+            {
+                impurities = DAO.getInstance().selectNormsTableByClass(change[0], //название таблицы
+                    change[1], change[2], comboBoxClass.Text, rawComboBox.Text,//поле для заполнение нормы, наим показателя, класс, имя сырья
+                     dataGridViewNorms);
+            }
+            dataGridViewNorms.ClearSelection();
+        }
+
         private void showButton_Click(object sender, EventArgs e)
         {
             addButton.Enabled = true;
@@ -59,33 +81,16 @@ namespace Elevator.Forms
             changeButton.BackColor = Color.DarkOrange;
             deleteButton.Enabled = true;
             deleteButton.BackColor = Color.DarkOrange;
-
             string[] change = changeComboBox(groupComboBox.Text);
-
-            dataGridViewNorms.Rows.Clear();
-            impurities = DAO.getInstance().selectNormsTable(change[0], //название таблицы
-                 change[1], change[2], rawComboBox.Text, //поле для заполнение нормы, наим показателя, имя сырья
-                  dataGridViewNorms);
-            dataGridViewNorms.ClearSelection();
-        }
-
-        private void NormsOfRawForm_Load(object sender, EventArgs e)
-        {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "accountOfGrainDataSet.Raw". При необходимости она может быть перемещена или удалена.
-            this.rawTableAdapter.Fill(this.accountOfGrainDataSet.Raw);          
+            select(change);
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
             string[] change = changeComboBox(groupComboBox.Text);
             string[] changeForClick = changeTypeImpComboBox(groupComboBox.Text);
-            controller.addButtonClick(changeForClick[0], changeForClick[1], impurities, change[1], rawComboBox.Text, change[0]);
-           
-            dataGridViewNorms.Rows.Clear();
-            impurities = DAO.getInstance().selectNormsTable(change[0], //название таблицы
-                 change[1], change[2], rawComboBox.Text, //поле для заполнение нормы, наим показателя, имя сырья
-                  dataGridViewNorms);
-            dataGridViewNorms.ClearSelection();
+            controller.addButtonClick(changeForClick[0], changeForClick[1], impurities, change[1], rawComboBox.Text, change[0], comboBoxClass.Text);
+            select(change);
         }
 
         private void changeButton_Click(object sender, EventArgs e)
@@ -96,12 +101,8 @@ namespace Elevator.Forms
                 DataGridViewRow row = dataGridViewNorms.SelectedRows[0];
                 controller.changeButtonClick(Convert.ToString(dataGridViewNorms.CurrentRow.Cells[0].Value),
                     Convert.ToString(dataGridViewNorms.CurrentRow.Cells[1].Value), change[0], 
-                    rawComboBox.Text, change[2], change[1]);
-
-                dataGridViewNorms.Rows.Clear();
-                impurities = DAO.getInstance().selectNormsTable(change[0], //название таблицы
-                     change[1], change[2], rawComboBox.Text, //поле для заполнение нормы, наим показателя, имя сырья
-                      dataGridViewNorms);
+                    rawComboBox.Text, change[2], change[1], comboBoxClass.Text);
+                select(change);
             }
             catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите запись!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
@@ -116,16 +117,42 @@ namespace Elevator.Forms
                 if (dr == DialogResult.OK)
                 {
                     string[] change = changeComboBox(groupComboBox.Text);
-                    controller.deleteButtonClick(change[0], change[2], dataGridViewNorms.CurrentRow.Cells[0].Value.ToString(), rawComboBox.Text);
-
-                   
-                    dataGridViewNorms.Rows.Clear();
-                    impurities = DAO.getInstance().selectNormsTable(change[0], //название таблицы
-                         change[1], change[2], rawComboBox.Text, //поле для заполнение нормы, наим показателя, имя сырья
-                          dataGridViewNorms);
+                    controller.deleteButtonClick(change[0], change[2], dataGridViewNorms.CurrentRow.Cells[0].Value.ToString(), rawComboBox.Text, comboBoxClass.Text);
+                    select(change);
                 }
             }
             catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите запись!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        private void rawComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            getClasses();
+            addButton.Enabled = false;
+            addButton.BackColor = Color.LightGray;
+            changeButton.Enabled = false;
+            changeButton.BackColor = Color.LightGray;
+            deleteButton.Enabled = false;
+            deleteButton.BackColor = Color.LightGray;
+        }
+        private void getClasses()
+        {
+            comboBoxClass.Items.Clear();
+            string[] classes = DAO.getInstance().getClasses(rawComboBox.Text);
+            if (classes.Length > 0)
+            {
+                comboBoxClass.Items.AddRange(classes);
+                comboBoxClass.Text = comboBoxClass.Items[0].ToString();
+            }
+        }
+
+        private void comboBoxClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            addButton.Enabled = false;
+            addButton.BackColor = Color.LightGray;
+            changeButton.Enabled = false;
+            changeButton.BackColor = Color.LightGray;
+            deleteButton.Enabled = false;
+            deleteButton.BackColor = Color.LightGray;
         }
     }
 }

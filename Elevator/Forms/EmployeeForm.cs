@@ -37,7 +37,9 @@ namespace Elevator.Forms
                     Convert.ToString(dataGridViewEmployee.CurrentRow.Cells[1].Value),
                     Convert.ToString(dataGridViewEmployee.CurrentRow.Cells[2].Value),
                     Convert.ToString(dataGridViewEmployee.CurrentRow.Cells[3].Value),
-                    Convert.ToString(dataGridViewEmployee.CurrentRow.Cells[4].Value));
+                    Convert.ToString(dataGridViewEmployee.CurrentRow.Cells[4].Value),
+                    Convert.ToString(dataGridViewEmployee.CurrentRow.Cells[5].Value),
+                    Convert.ToString(dataGridViewEmployee.CurrentRow.Cells[6].Value));
                 controller.changeButtonClick(employee);
                 dataGridViewEmployee.DataSource = DAO.getInstance().selectTable("Employee");
             }
@@ -69,6 +71,12 @@ namespace Elevator.Forms
         {
             dataGridViewEmployee.DataSource = DAO.getInstance().selectTable("Employee");
             surnameTextBox.Text = string.Empty;
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            controller.addButtonClick();
+            dataGridViewEmployee.DataSource = DAO.getInstance().selectTable("Employee");
         }
     }
 }

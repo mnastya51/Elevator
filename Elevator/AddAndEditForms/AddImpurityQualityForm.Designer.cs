@@ -35,7 +35,8 @@
             // 
             // saveButton
             // 
-            this.saveButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.saveButton.BackColor = System.Drawing.Color.Red;
+            this.saveButton.Enabled = false;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.saveButton.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -55,19 +56,22 @@
             this.impurityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.impurityLabel.Location = new System.Drawing.Point(12, 9);
             this.impurityLabel.Name = "impurityLabel";
-            this.impurityLabel.Size = new System.Drawing.Size(105, 20);
+            this.impurityLabel.Size = new System.Drawing.Size(111, 20);
             this.impurityLabel.TabIndex = 71;
-            this.impurityLabel.Text = "Показатель:";
+            this.impurityLabel.Text = "Показатель*:";
             // 
             // textBoxImpurity
             // 
+            this.textBoxImpurity.BackColor = System.Drawing.Color.Red;
             this.textBoxImpurity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxImpurity.Location = new System.Drawing.Point(124, 9);
+            this.textBoxImpurity.MaxLength = 20;
             this.textBoxImpurity.Name = "textBoxImpurity";
             this.textBoxImpurity.Size = new System.Drawing.Size(269, 22);
             this.textBoxImpurity.TabIndex = 73;
+            this.textBoxImpurity.TextChanged += new System.EventHandler(this.textBoxImpurity_TextChanged);
             // 
-            // AddImputityQualityForm
+            // AddImpurityQualityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -76,7 +80,7 @@
             this.Controls.Add(this.textBoxImpurity);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.impurityLabel);
-            this.Name = "AddImputityQualityForm";
+            this.Name = "AddImpurityQualityForm";
             this.Text = "Добавление показателя качества";
             this.ResumeLayout(false);
             this.PerformLayout();
