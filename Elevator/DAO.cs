@@ -743,5 +743,62 @@ namespace Elevator
             }
             return res.ToArray<string>();
         }
+        public string[] getSubtypes(string type, string raw)
+        {
+            LinkedList<string> res = new LinkedList<string>();
+            if (!isSubtypes(type, raw))
+                addSubtype(type, raw);
+            string sqlCommand = string.Empty;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select c.name_subtype from Subtype_raw c join Type_raw t on t.id_type = c.id_type join Raw r "+
+                    "on r.id_NameRaw = t.id_NameRaw where t.name_type_raw = '{0}' and c.name_subtype is not null and r.name_raw = '{1}'", type, raw);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        string listElement = reader.GetInt32(0).ToString();
+                        res.AddLast(listElement);
+                        c++;
+                    }
+                }
+                reader.Close();
+                connection.Close();
+            }
+            return res.ToArray<string>();
+        }      
+        private bool isSubtypes(string type, string raw)
+        {
+            string sqlCommand = string.Empty;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select count(*) From Subtype_raw c join Type_raw  t on c.id_type = t.id_type join Raw r "+
+                    "on r.id_NameRaw = t.id_NameRaw where t.name_type_raw  = {0} and r.name_raw = '{1}'", type, raw);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                int count = (Int32)command.ExecuteScalar();
+                connection.Close();
+                if (count == 0)
+                    return false;
+                else return true;
+            }
+        }
+        private void addSubtype(string nameType, string raw)
+        {
+            string sqlCommand;
+            sqlCommand = string.Format("Insert into Subtype_raw (id_type) values((select t.id_type from Type_raw t join Raw r "+
+                "on r.id_NameRaw = t.id_NameRaw where t.name_type_raw = {0} and r.name_raw = '{1}'))", nameType, raw);
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
     }
 }

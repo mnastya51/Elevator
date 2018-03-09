@@ -32,11 +32,15 @@ namespace Elevator.AddAndEditForms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            //посмотреть в классах и подтипах, когда я добавляю к сырью наим класса, то тот не удаляется наверно (у которого есть только id класса и наим сырья)
             //добавление и изменение
+          //  if ()
         }
 
         private void rawComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            typeComboBox.Items.Clear();
+            subtypeComboBox.Items.Clear();
             string[] types = DAO.getInstance().getTypeToComboBox("name_type_raw", "Type_raw ", "id_NameRaw ", "name_raw ", "Raw", rawComboBox.Text);
             typeComboBox.Items.AddRange(types);
             if (types.Length > 0)
@@ -45,21 +49,13 @@ namespace Elevator.AddAndEditForms
 
         private void typeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string[] subtypes = DAO.getInstance().getTypeToComboBox("name_subtype", "Subtype_raw ", "id_type ", "name_type_raw ", "Type_raw", typeComboBox.Text);
-            subtypeComboBox.Items.AddRange(subtypes);
+            subtypeComboBox.Items.Clear();
+            string[] subtypes = DAO.getInstance().getSubtypes(typeComboBox.Text, rawComboBox.Text);
             if (subtypes.Length > 0)
+            {
+                subtypeComboBox.Items.AddRange(subtypes);
                 subtypeComboBox.Text = subtypeComboBox.Items[0].ToString();
+            }               
         }
-
-        /* private void getTypes()
-{
-typeComboBox.Items.Clear();
-string[] types = DAO.getInstance().getTypes(rawComboBox.Text);
-if (types.Length > 0)
-{
-typeComboBox.Items.AddRange(types);
-typeComboBox.Text = typeComboBox.Items[0].ToString();
-}
-}*/
     }
 }
