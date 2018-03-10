@@ -111,7 +111,7 @@ namespace Elevator.Forms
             groupBoxClass.Enabled = true;
             addButtonClass.BackColor = Color.DarkOrange;
             deleteButtonClass.BackColor = Color.DarkOrange;
-            dataGridViewClass.DataSource = DAO.getInstance().selectTableNote("Class", "id_NameRaw", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+            dataGridViewClass.DataSource = DAO.getInstance().selectTableNoteForClassAndType("Class", "id_NameRaw", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value), "number_class");
             dataGridViewClass.ClearSelection();
 
             groupBoxType.Enabled = true;
@@ -130,8 +130,9 @@ namespace Elevator.Forms
 
         private void addButtonClass_Click(object sender, EventArgs e)
         {
-            controller.addNoteButtonClick("Класс:", Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value), "Class", "number_class", "id_NameRaw");
-            dataGridViewClass.DataSource = DAO.getInstance().selectTableNote("Class", "id_NameRaw ", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+            string[] param = {"Raw","","", };
+            controller.addNoteButtonClick("Класс:", Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value), "Class", "number_class", "id_NameRaw", "id_class");
+            dataGridViewClass.DataSource = DAO.getInstance().selectTableNoteForClassAndType("Class", "id_NameRaw ", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value), "number_class");
             dataGridViewClass.ClearSelection();
         }
 
@@ -145,7 +146,7 @@ namespace Elevator.Forms
                 if (dr == DialogResult.OK)
                 {
                     controller.deleteNoteButtonClick("Class", "id_class", dataGridViewClass.CurrentRow.Cells[0].Value.ToString());
-                    dataGridViewClass.DataSource = DAO.getInstance().selectTableNote("Class", "id_NameRaw", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+                    dataGridViewClass.DataSource = DAO.getInstance().selectTableNoteForClassAndType("Class", "id_NameRaw", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value), "number_class");
                     dataGridViewClass.ClearSelection();
                 }
             }
@@ -164,7 +165,7 @@ namespace Elevator.Forms
 
         private void addTypeButton_Click(object sender, EventArgs e)
         {
-            controller.addNoteButtonClick("Тип:", Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value), "Type_raw", "name_type_raw", "id_NameRaw");
+            controller.addNoteButtonClick("Тип:", Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value), "Type_raw", "name_type_raw", "id_NameRaw", "");
             dataGridViewType.DataSource = DAO.getInstance().selectTableNote("Type_raw", "id_NameRaw", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
             dataGridViewType.ClearSelection();
         }
@@ -201,8 +202,8 @@ namespace Elevator.Forms
 
         private void addSubtypeButton_Click(object sender, EventArgs e)
         {
-            controller.addNoteButtonClick("Подтип:", Convert.ToInt32(dataGridViewType.CurrentRow.Cells[0].Value), "Subtype_raw", "name_subtype", "id_type");
-            dataGridViewSubtype.DataSource = DAO.getInstance().selectTableNote("Subtype_raw", "id_type", Convert.ToString(dataGridViewType.CurrentRow.Cells[0].Value));
+            controller.addNoteButtonClick("Подтип:", Convert.ToInt32(dataGridViewType.CurrentRow.Cells[0].Value), "Subtype_raw", "name_subtype", "id_type", "id_subtype");
+            dataGridViewSubtype.DataSource = DAO.getInstance().selectTableNoteForClassAndType("Subtype_raw", "id_type", Convert.ToString(dataGridViewType.CurrentRow.Cells[0].Value), "name_subtype");
             dataGridViewSubtype.ClearSelection();
         }
 
@@ -216,7 +217,7 @@ namespace Elevator.Forms
                 if (dr == DialogResult.OK)
                 {
                     controller.deleteNoteButtonClick("Subtype_raw", "id_subtype", dataGridViewSubtype.CurrentRow.Cells[0].Value.ToString());
-                    dataGridViewSubtype.DataSource = DAO.getInstance().selectTableNote("Subtype_raw", "id_type", Convert.ToString(dataGridViewType.CurrentRow.Cells[0].Value));
+                    dataGridViewSubtype.DataSource = DAO.getInstance().selectTableNoteForClassAndType("Subtype_raw", "id_type", Convert.ToString(dataGridViewType.CurrentRow.Cells[0].Value), "name_subtype");
                     dataGridViewSubtype.ClearSelection();
                 }
             }
@@ -239,7 +240,7 @@ namespace Elevator.Forms
             deleteSubtypeButton.Enabled = true;
             addSubtypeButton.BackColor = Color.DarkOrange;
             deleteSubtypeButton.BackColor = Color.DarkOrange;
-            dataGridViewSubtype.DataSource = DAO.getInstance().selectTableNote("Subtype_raw", "id_type", Convert.ToString(dataGridViewType.CurrentRow.Cells[0].Value));
+            dataGridViewSubtype.DataSource = DAO.getInstance().selectTableNoteForClassAndType("Subtype_raw", "id_type", Convert.ToString(dataGridViewType.CurrentRow.Cells[0].Value), "name_subtype");
             dataGridViewSubtype.ClearSelection();
         }
     }

@@ -162,6 +162,21 @@ namespace Elevator
                 return table;
             }
         }
+        public DataTable selectTableNoteForClassAndType(string nameTable, string column, string value, string columnNull)
+        {
+            string sqlCommand = string.Empty;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select * From {0} where {1}='{2}' and {3} is not null", nameTable, column, value, columnNull);
+                connection.Open();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlCommand, connection);
+                SqlCommandBuilder builder = new SqlCommandBuilder(dataAdapter);
+                DataTable table = new DataTable();
+                dataAdapter.Fill(table);
+                connection.Close();
+                return table;
+            }
+        }
         public void addStorage(string nameTable, int storage, int value)
         {
             string sqlCommand;
@@ -798,6 +813,42 @@ namespace Elevator
                 SqlCommand cmd = new SqlCommand(sqlCommand, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
+            }
+        }
+        public bool deleteChild(string nameTable, string id, string column, int value, string columnNull)
+        {
+            string sqlCommand = string.Empty;
+           
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select count(*), {4} From {0} where {1} = {2} and {3} is null  group by {4}",
+                    nameTable, column, value, columnNull, id);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int idTable = 0;
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        idTable = reader.GetInt32(1);
+                        c++;
+                    }
+                    try
+                    {
+                        deleteNote(nameTable, new FormValue<string, string>(id, idTable.ToString()));
+                    }
+                    catch (SqlException)
+                    {
+                        return true;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+                return false;         
             }
         }
     }
