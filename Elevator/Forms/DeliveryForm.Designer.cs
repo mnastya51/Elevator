@@ -31,24 +31,19 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.toDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.fromDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.rawComboBox = new System.Windows.Forms.ComboBox();
+            this.rawBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.accountOfGrainDataSet = new Elevator.AccountOfGrainDataSet();
             this.changeButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.filtrGroupBox = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.contractorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contractorRadioButton = new System.Windows.Forms.RadioButton();
             this.rawRadioButton = new System.Windows.Forms.RadioButton();
             this.yearRadioButton = new System.Windows.Forms.RadioButton();
             this.dataGridViewDelivery = new System.Windows.Forms.DataGridView();
-            this.accountOfGrainDataSet = new Elevator.AccountOfGrainDataSet();
-            this.rawBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rawTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.RawTableAdapter();
-            this.contractorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contractorTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.ContractorTableAdapter();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,39 +54,16 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.filtrGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDelivery)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).BeginInit();
+            this.rawTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.RawTableAdapter();
+            this.contractorTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.ContractorTableAdapter();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.rawBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).BeginInit();
+            this.filtrGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDelivery)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // toDateTimePicker
-            // 
-            this.toDateTimePicker.Location = new System.Drawing.Point(355, 21);
-            this.toDateTimePicker.Name = "toDateTimePicker";
-            this.toDateTimePicker.Size = new System.Drawing.Size(159, 22);
-            this.toDateTimePicker.TabIndex = 13;
-            this.toDateTimePicker.Value = new System.DateTime(2018, 3, 8, 0, 0, 0, 0);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(324, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(25, 18);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "по";
-            // 
-            // fromDateTimePicker
-            // 
-            this.fromDateTimePicker.Location = new System.Drawing.Point(156, 19);
-            this.fromDateTimePicker.Name = "fromDateTimePicker";
-            this.fromDateTimePicker.Size = new System.Drawing.Size(159, 22);
-            this.fromDateTimePicker.TabIndex = 11;
-            this.fromDateTimePicker.Value = new System.DateTime(2018, 2, 8, 0, 0, 0, 0);
             // 
             // rawComboBox
             // 
@@ -103,6 +75,16 @@
             this.rawComboBox.Name = "rawComboBox";
             this.rawComboBox.Size = new System.Drawing.Size(159, 24);
             this.rawComboBox.TabIndex = 8;
+            // 
+            // rawBindingSource
+            // 
+            this.rawBindingSource.DataMember = "Raw";
+            this.rawBindingSource.DataSource = this.accountOfGrainDataSet;
+            // 
+            // accountOfGrainDataSet
+            // 
+            this.accountOfGrainDataSet.DataSetName = "AccountOfGrainDataSet";
+            this.accountOfGrainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // changeButton
             // 
@@ -137,11 +119,9 @@
             // 
             // filtrGroupBox
             // 
+            this.filtrGroupBox.Controls.Add(this.numericUpDown1);
             this.filtrGroupBox.Controls.Add(this.button1);
-            this.filtrGroupBox.Controls.Add(this.toDateTimePicker);
             this.filtrGroupBox.Controls.Add(this.rawComboBox);
-            this.filtrGroupBox.Controls.Add(this.label3);
-            this.filtrGroupBox.Controls.Add(this.fromDateTimePicker);
             this.filtrGroupBox.Controls.Add(this.comboBox1);
             this.filtrGroupBox.Controls.Add(this.contractorRadioButton);
             this.filtrGroupBox.Controls.Add(this.rawRadioButton);
@@ -180,6 +160,11 @@
             this.comboBox1.Size = new System.Drawing.Size(159, 24);
             this.comboBox1.TabIndex = 8;
             // 
+            // contractorBindingSource
+            // 
+            this.contractorBindingSource.DataMember = "Contractor";
+            this.contractorBindingSource.DataSource = this.accountOfGrainDataSet;
+            // 
             // contractorRadioButton
             // 
             this.contractorRadioButton.AutoSize = true;
@@ -209,10 +194,10 @@
             this.yearRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.yearRadioButton.Location = new System.Drawing.Point(7, 20);
             this.yearRadioButton.Name = "yearRadioButton";
-            this.yearRadioButton.Size = new System.Drawing.Size(91, 22);
+            this.yearRadioButton.Size = new System.Drawing.Size(133, 22);
             this.yearRadioButton.TabIndex = 0;
             this.yearRadioButton.TabStop = true;
-            this.yearRadioButton.Text = "по дате с";
+            this.yearRadioButton.Text = "по году урожая";
             this.yearRadioButton.UseVisualStyleBackColor = true;
             // 
             // dataGridViewDelivery
@@ -255,29 +240,6 @@
             this.dataGridViewDelivery.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewDelivery.Size = new System.Drawing.Size(891, 239);
             this.dataGridViewDelivery.TabIndex = 62;
-            // 
-            // accountOfGrainDataSet
-            // 
-            this.accountOfGrainDataSet.DataSetName = "AccountOfGrainDataSet";
-            this.accountOfGrainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rawBindingSource
-            // 
-            this.rawBindingSource.DataMember = "Raw";
-            this.rawBindingSource.DataSource = this.accountOfGrainDataSet;
-            // 
-            // rawTableAdapter
-            // 
-            this.rawTableAdapter.ClearBeforeFill = true;
-            // 
-            // contractorBindingSource
-            // 
-            this.contractorBindingSource.DataMember = "Contractor";
-            this.contractorBindingSource.DataSource = this.accountOfGrainDataSet;
-            // 
-            // contractorTableAdapter
-            // 
-            this.contractorTableAdapter.ClearBeforeFill = true;
             // 
             // Column1
             // 
@@ -339,6 +301,36 @@
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
+            // rawTableAdapter
+            // 
+            this.rawTableAdapter.ClearBeforeFill = true;
+            // 
+            // contractorTableAdapter
+            // 
+            this.contractorTableAdapter.ClearBeforeFill = true;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(156, 21);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1960,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(159, 22);
+            this.numericUpDown1.TabIndex = 12;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            2018,
+            0,
+            0,
+            0});
+            // 
             // DeliveryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -352,21 +344,19 @@
             this.Name = "DeliveryForm";
             this.Text = "Поставки";
             this.Load += new System.EventHandler(this.DeliveryForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.rawBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).EndInit();
             this.filtrGroupBox.ResumeLayout(false);
             this.filtrGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDelivery)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rawBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDelivery)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.ComboBox rawComboBox;
-        private System.Windows.Forms.DateTimePicker toDateTimePicker;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker fromDateTimePicker;
         private System.Windows.Forms.Button changeButton;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.GroupBox filtrGroupBox;
@@ -391,5 +381,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
