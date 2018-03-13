@@ -24,7 +24,7 @@ namespace Elevator.Controllers
             }
             else
             {
-                if(DAO.getInstance().updateNote("Raw", new FormValue<string, string>("id_NameRaw ", raw.Id.ToString()),
+                if(!DAO.getInstance().updateNote("Raw", new FormValue<string, string>("id_NameRaw ", raw.Id.ToString()),
                     new FormValue<string, string>("name_raw", raw.Name),
                 new FormValue<string, string>("number_gost  ", raw.Gost)))
                 {

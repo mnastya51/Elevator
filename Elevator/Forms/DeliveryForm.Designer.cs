@@ -37,6 +37,7 @@
             this.changeButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.filtrGroupBox = new System.Windows.Forms.GroupBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.contractorBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -44,6 +45,8 @@
             this.rawRadioButton = new System.Windows.Forms.RadioButton();
             this.yearRadioButton = new System.Windows.Forms.RadioButton();
             this.dataGridViewDelivery = new System.Windows.Forms.DataGridView();
+            this.rawTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.RawTableAdapter();
+            this.contractorTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.ContractorTableAdapter();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,18 +54,13 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rawTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.RawTableAdapter();
-            this.contractorTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.ContractorTableAdapter();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.rawBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).BeginInit();
             this.filtrGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDelivery)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // rawComboBox
@@ -133,6 +131,28 @@
             this.filtrGroupBox.TabIndex = 59;
             this.filtrGroupBox.TabStop = false;
             this.filtrGroupBox.Text = "Фильтрация";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(156, 21);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1960,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(159, 22);
+            this.numericUpDown1.TabIndex = 12;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            2018,
+            0,
+            0,
+            0});
             // 
             // button1
             // 
@@ -225,8 +245,6 @@
             this.Column3,
             this.Column4,
             this.Column5,
-            this.Column8,
-            this.Column7,
             this.Column6});
             this.dataGridViewDelivery.EnableHeadersVisualStyles = false;
             this.dataGridViewDelivery.Location = new System.Drawing.Point(12, 166);
@@ -240,6 +258,14 @@
             this.dataGridViewDelivery.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewDelivery.Size = new System.Drawing.Size(891, 239);
             this.dataGridViewDelivery.TabIndex = 62;
+            // 
+            // rawTableAdapter
+            // 
+            this.rawTableAdapter.ClearBeforeFill = true;
+            // 
+            // contractorTableAdapter
+            // 
+            this.contractorTableAdapter.ClearBeforeFill = true;
             // 
             // Column1
             // 
@@ -283,53 +309,11 @@
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Брутто";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Нетто";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
             // Column6
             // 
-            this.Column6.HeaderText = "Тара";
+            this.Column6.HeaderText = "Вес";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
-            // 
-            // rawTableAdapter
-            // 
-            this.rawTableAdapter.ClearBeforeFill = true;
-            // 
-            // contractorTableAdapter
-            // 
-            this.contractorTableAdapter.ClearBeforeFill = true;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(156, 21);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            5000,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1960,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(159, 22);
-            this.numericUpDown1.TabIndex = 12;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            2018,
-            0,
-            0,
-            0});
             // 
             // DeliveryForm
             // 
@@ -348,9 +332,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).EndInit();
             this.filtrGroupBox.ResumeLayout(false);
             this.filtrGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDelivery)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -371,6 +355,7 @@
         private AccountOfGrainDataSetTableAdapters.RawTableAdapter rawTableAdapter;
         private System.Windows.Forms.BindingSource contractorBindingSource;
         private AccountOfGrainDataSetTableAdapters.ContractorTableAdapter contractorTableAdapter;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
@@ -378,9 +363,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

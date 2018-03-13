@@ -33,7 +33,7 @@ namespace Elevator.Forms
         private void select()
         {
             dataGridViewDelivery.Rows.Clear();
-            string[] columns = {"date_delivery", "type_transport_delivery", "brutto_delivery", "netto_delivery", "tara_delivery"};
+            string[] columns = {"date_delivery", "type_transport_delivery", "weight_delivery"};
             DAO.getInstance().selectDelivery("Delivery", columns, dataGridViewDelivery);
             dataGridViewDelivery.ClearSelection();
         }//добавлять тип, если нет его в подтипе, при добавлении хранения

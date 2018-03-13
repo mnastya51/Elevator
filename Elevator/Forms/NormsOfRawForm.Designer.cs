@@ -223,9 +223,9 @@
             this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelName.Location = new System.Drawing.Point(12, 22);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(101, 18);
+            this.labelName.Size = new System.Drawing.Size(76, 18);
             this.labelName.TabIndex = 54;
-            this.labelName.Text = "Наим. сырья:";
+            this.labelName.Text = "Культура:";
             // 
             // label1
             // 

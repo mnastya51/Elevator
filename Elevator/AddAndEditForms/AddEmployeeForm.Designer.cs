@@ -74,8 +74,8 @@
             this.comboBoxPost.Items.AddRange(new object[] {
             "Лаборант",
             "Заведующий лаборатории",
-            "Весовщик",
-            "Бухгалтер"});
+            "Бухгалтер",
+            "Главный бухгалтер"});
             this.comboBoxPost.Location = new System.Drawing.Point(115, 143);
             this.comboBoxPost.Name = "comboBoxPost";
             this.comboBoxPost.Size = new System.Drawing.Size(231, 24);
@@ -220,6 +220,7 @@
             // saveButton
             // 
             this.saveButton.BackColor = System.Drawing.Color.Red;
+            this.saveButton.Enabled = false;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.saveButton.ForeColor = System.Drawing.SystemColors.Desktop;

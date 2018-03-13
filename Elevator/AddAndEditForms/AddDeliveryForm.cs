@@ -32,9 +32,36 @@ namespace Elevator.AddAndEditForms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            if (delivery == null)
+            {
+                delivery = new Delivery(contractorComboBox.Text,
+                    rawComboBox.Text,
+                    typeComboBox.Text,
+                    subtypeComboBox.Text,
+                    dateTimePicker.Text,
+                    yearNumericUpDown.Text,
+                    transportTextBox.Text,
+                    bruttoTextBox.Text);
+                /*if (controller.onSaveClick(delivery, false))
+                    this.Close();
+                else delivery = null;*/
+            }
+            else
+            {
+              /*  contractor.Name = textBoxName.Text;
+                contractor.Sub = textBoxSubdivision.Text;
+                contractor.YurAdress = richTextBoxYuradress.Text;
+                contractor.FactAdress = richTextBoxFactadress.Text;
+                contractor.Index = textBoxIndex.Text.Replace(" ", "") == String.Empty ? 0 : Convert.ToInt32(textBoxIndex.Text);
+                contractor.Phone = maskedTextBoxPhone.Text;
+                contractor.Inn = textBoxINN.Text;
+                if (controller.onSaveClick(contractor, true))
+                    this.Close();
+                else delivery = null;*/
+            }
             //посмотреть в классах и подтипах, когда я добавляю к сырью наим класса, то тот не удаляется наверно (у которого есть только id класса и наим сырья)
             //добавление и изменение
-          //  if ()
+            //  if ()
         }
 
         private void rawComboBox_SelectedIndexChanged(object sender, EventArgs e)
