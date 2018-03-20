@@ -14,17 +14,17 @@ namespace Elevator.AddAndEditForms
     public partial class AddNoteForm : Form
     {
         private AddNoteController controller;
-        int idNameRaw = 0;
+        string idNameRaw = "";
         string nameTable;
         string column;
         string parentColumn;
-        public Note note;
+        public RawClass rawClass;
         public AddNoteForm()
         {
             InitializeComponent();
             controller = new AddNoteController();
         }
-        public AddNoteForm(string field, int idName, string newNameTable, string newColumn, string parentCol)
+        public AddNoteForm(string field, string idName, string newNameTable, string newColumn, string parentCol)
         {
             InitializeComponent();
             fieldLabel.Text = field;
@@ -37,10 +37,10 @@ namespace Elevator.AddAndEditForms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            note = new Note(Convert.ToInt32(valueTextBox.Value), idNameRaw);
-            if (controller.onSaveClick(note, nameTable, column, parentColumn))
+            rawClass = new RawClass(Convert.ToInt32(valueTextBox.Value), idNameRaw);
+            if (controller.onSaveClick(rawClass, nameTable, column, parentColumn))
                 this.Close();
-            else note = null;
+            else rawClass = null;
         }       
     }
 }

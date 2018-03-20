@@ -159,7 +159,6 @@
     <Compile Include="Model\Contractor.cs" />
     <Compile Include="Model\Delivery.cs" />
     <Compile Include="Model\Employee.cs" />
-    <Compile Include="Model\Note.cs" />
     <Compile Include="Model\Raw.cs" />
     <Compile Include="Forms\AnalysQualityRawForm.cs">
       <SubType>Form</SubType>
@@ -247,6 +246,9 @@
       <DependentUpon>StorageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\FormValue.cs" />
+    <Compile Include="Model\RawClass.cs" />
+    <Compile Include="Model\RawSubtype.cs" />
+    <Compile Include="Model\RawType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddAndEditForms\AddAnalysQualityRawForm.resx">

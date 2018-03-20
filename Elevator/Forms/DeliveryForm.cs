@@ -36,7 +36,7 @@ namespace Elevator.Forms
             string[] columns = {"date_delivery", "type_transport_delivery", "weight_delivery"};
             DAO.getInstance().selectDelivery("Delivery", columns, dataGridViewDelivery);
             dataGridViewDelivery.ClearSelection();
-        }//добавлять тип, если нет его в подтипе, при добавлении хранения
+        }
 
         private void addButton_Click(object sender, EventArgs e)
         {

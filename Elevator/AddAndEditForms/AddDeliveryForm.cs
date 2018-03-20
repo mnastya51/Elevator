@@ -41,10 +41,10 @@ namespace Elevator.AddAndEditForms
                     dateTimePicker.Text,
                     yearNumericUpDown.Text,
                     transportTextBox.Text,
-                    bruttoTextBox.Text);
-                /*if (controller.onSaveClick(delivery, false))
+                    weightTextBox.Text);
+                if (controller.onSaveClick(delivery, false))
                     this.Close();
-                else delivery = null;*/
+                else delivery = null;
             }
             else
             {

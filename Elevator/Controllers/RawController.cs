@@ -23,19 +23,45 @@ namespace Elevator.Controllers
         {
             DAO.getInstance().deleteNote("Raw", new FormValue <string, string>("id_NameRaw", id));
         }
-        public void addNoteButtonClick(string field, int idNameraw, string newNameTable, string newColumn, string parentColumn, string id)
-        {
-            if (id != "" && DAO.getInstance().deleteChild(newNameTable, id, parentColumn, idNameraw, newColumn))
+
+        public void addClassButtonClick(string field, RawClass rawClass)
+        {//"class, number_class", "id_NameRaw", "id_class"
+            if (DAO.getInstance().deleteChild(RawClass.NameTable, RawClass.ClassIdAttr, RawClass.RawIdAttr, Convert.ToInt32(rawClass.RawId), RawClass.ClassNameAttr))
             {
-                MessageBox.Show("Нельзя добавить новую запись, если выбранное сырье (тип) используется в других таблицах!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Нельзя добавить новую запись, если выбранное сырье, не имея классов, используется в других таблицах!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else 
-                new AddNoteForm(field, idNameraw, newNameTable, newColumn, parentColumn).ShowDialog();
+                new AddNoteForm(field, rawClass.RawId, RawClass.NameTable, RawClass.ClassNameAttr, RawClass.RawIdAttr).ShowDialog();
         }
-        
-        public void deleteNoteButtonClick(string nameTable, string column, string id)
+
+        public void addTypeButtonClick(string field, RawType rawType)
         {
-            DAO.getInstance().deleteNote (nameTable, new FormValue<string, string>(column, id));
+             new AddNoteForm(field, rawType.RawId, RawType.NameTable, RawType.TypeNameAttr, RawType.RawIdAttr).ShowDialog();
+        }
+
+        public void addSubtypeButtonClick(string field, RawSubtype rawSubtype)
+        {//"class, number_class", "id_NameRaw", "id_class"
+            if (DAO.getInstance().deleteChild(RawSubtype.NameTable, RawSubtype.SubtypeIdAttr, RawSubtype.TypeIdAttr, rawSubtype.TypeId, RawSubtype.SubtypeNameAttr))
+            {
+                MessageBox.Show("Нельзя добавить новую запись, если выбранный тип, не имея подтипов, используется в других таблицах!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                new AddNoteForm(field, rawSubtype.TypeId, RawSubtype.NameTable, RawSubtype.SubtypeNameAttr, RawSubtype.TypeIdAttr).ShowDialog();
+        }
+
+        public void deleteClassButtonClick(RawClass rawClass)
+        {
+            DAO.getInstance().deleteNote (RawClass.NameTable, new FormValue<string, string>(RawClass.ClassIdAttr, rawClass.ClassId.ToString()));
+        }
+
+        public void deleteTypeButtonClick(RawType rawType)
+        {
+            DAO.getInstance().deleteNote(RawType.NameTable, new FormValue<string, string>(RawType.TypeIdAttr, rawType.TypeId.ToString()));
+        }
+
+        public void deleteSubtypeButtonClick(RawSubtype rawSubtype)
+        {
+            DAO.getInstance().deleteNote(RawSubtype.NameTable, new FormValue<string, string>(RawSubtype.SubtypeIdAttr, rawSubtype.SubtypeId.ToString()));
         }
     }
 }

@@ -111,13 +111,13 @@ namespace Elevator.Forms
             groupBoxClass.Enabled = true;
             addButtonClass.BackColor = Color.DarkOrange;
             deleteButtonClass.BackColor = Color.DarkOrange;
-            dataGridViewClass.DataSource = DAO.getInstance().selectTableNoteForClassAndType("Class", "id_NameRaw", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value), "number_class");
+            dataGridViewClass.DataSource = DAO.getInstance().selectTableNoteForClassAndType(RawClass.NameTable, RawClass.RawIdAttr, Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value), RawClass.ClassNameAttr);
             dataGridViewClass.ClearSelection();
 
             groupBoxType.Enabled = true;
             addTypeButton.BackColor = Color.DarkOrange;
             deleteTypeButton.BackColor = Color.DarkOrange;
-            dataGridViewType.DataSource = DAO.getInstance().selectTableNote("Type_raw", "id_NameRaw", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+            dataGridViewType.DataSource = DAO.getInstance().selectTableNote(RawType.NameTable, RawType.RawIdAttr, Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
             dataGridViewType.ClearSelection();
 
             addSubtypeButton.Enabled = false;
@@ -129,10 +129,10 @@ namespace Elevator.Forms
         }
 
         private void addButtonClass_Click(object sender, EventArgs e)
-        {
-            string[] param = {"Raw","","", };
-            controller.addNoteButtonClick("Класс:", Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value), "Class", "number_class", "id_NameRaw", "id_class");
-            dataGridViewClass.DataSource = DAO.getInstance().selectTableNoteForClassAndType("Class", "id_NameRaw ", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value), "number_class");
+        { //,  "class, number_class", "id_NameRaw", "id_class"
+            RawClass rawClass = new RawClass(Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value));
+            controller.addClassButtonClick("Класс:", rawClass);
+            dataGridViewClass.DataSource = DAO.getInstance().selectTableNoteForClassAndType(RawClass.NameTable, RawClass.RawIdAttr, rawClass.RawId.ToString(), RawClass.ClassNameAttr);
             dataGridViewClass.ClearSelection();
         }
 
@@ -145,8 +145,10 @@ namespace Elevator.Forms
                 "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                 if (dr == DialogResult.OK)
                 {
-                    controller.deleteNoteButtonClick("Class", "id_class", dataGridViewClass.CurrentRow.Cells[0].Value.ToString());
-                    dataGridViewClass.DataSource = DAO.getInstance().selectTableNoteForClassAndType("Class", "id_NameRaw", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value), "number_class");
+                    RawClass rawClass = new RawClass(Convert.ToInt32(dataGridViewClass.CurrentRow.Cells[0].Value));
+                    controller.deleteClassButtonClick(rawClass);
+                    dataGridViewClass.DataSource = DAO.getInstance().selectTableNoteForClassAndType(RawClass.NameTable, RawClass.RawIdAttr, rawClass.RawId.ToString(), RawClass.ClassNameAttr);
+                    dataGridViewClass.ClearSelection();
                     dataGridViewClass.ClearSelection();
                 }
             }
@@ -165,8 +167,9 @@ namespace Elevator.Forms
 
         private void addTypeButton_Click(object sender, EventArgs e)
         {
-            controller.addNoteButtonClick("Тип:", Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value), "Type_raw", "name_type_raw", "id_NameRaw", "");
-            dataGridViewType.DataSource = DAO.getInstance().selectTableNote("Type_raw", "id_NameRaw", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+            RawType rawType = new RawType(Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value));
+            controller.addTypeButtonClick("Тип:", rawType);
+            dataGridViewType.DataSource = DAO.getInstance().selectTableNote(RawType.NameTable, RawType.RawIdAttr, Convert.ToString(rawType.RawId));
             dataGridViewType.ClearSelection();
         }
 
@@ -179,8 +182,9 @@ namespace Elevator.Forms
                   "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                   if (dr == DialogResult.OK)
                   {
-                    controller.deleteNoteButtonClick("Type_raw", "id_type", dataGridViewType.CurrentRow.Cells[0].Value.ToString());
-                    dataGridViewType.DataSource = DAO.getInstance().selectTableNote("Type_raw", "id_NameRaw", Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+                    RawType rawType = new RawType(Convert.ToInt32(dataGridViewType.CurrentRow.Cells[0].Value));
+                    controller.deleteTypeButtonClick(rawType);
+                    dataGridViewType.DataSource = DAO.getInstance().selectTableNote(RawType.NameTable, RawType.RawIdAttr, Convert.ToString(rawType.RawId));
                     dataGridViewType.ClearSelection();
                     addSubtypeButton.BackColor = Color.LightGray;
                     deleteSubtypeButton.BackColor = Color.LightGray;
@@ -202,8 +206,9 @@ namespace Elevator.Forms
 
         private void addSubtypeButton_Click(object sender, EventArgs e)
         {
-            controller.addNoteButtonClick("Подтип:", Convert.ToInt32(dataGridViewType.CurrentRow.Cells[0].Value), "Subtype_raw", "name_subtype", "id_type", "id_subtype");
-            dataGridViewSubtype.DataSource = DAO.getInstance().selectTableNoteForClassAndType("Subtype_raw", "id_type", Convert.ToString(dataGridViewType.CurrentRow.Cells[0].Value), "name_subtype");
+            RawSubtype rawSubtype = new RawSubtype(Convert.ToInt32(dataGridViewType.CurrentRow.Cells[0].Value));
+            controller.addSubtypeButtonClick("Подтип:", rawSubtype);
+            dataGridViewSubtype.DataSource = DAO.getInstance().selectTableNoteForClassAndType(RawSubtype.NameTable, RawSubtype.TypeIdAttr, Convert.ToString(dataGridViewType.CurrentRow.Cells[0].Value), RawSubtype.SubtypeNameAttr);
             dataGridViewSubtype.ClearSelection();
         }
 
@@ -216,8 +221,9 @@ namespace Elevator.Forms
                 "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                 if (dr == DialogResult.OK)
                 {
-                    controller.deleteNoteButtonClick("Subtype_raw", "id_subtype", dataGridViewSubtype.CurrentRow.Cells[0].Value.ToString());
-                    dataGridViewSubtype.DataSource = DAO.getInstance().selectTableNoteForClassAndType("Subtype_raw", "id_type", Convert.ToString(dataGridViewType.CurrentRow.Cells[0].Value), "name_subtype");
+                    RawSubtype rawSubtype = new RawSubtype(Convert.ToInt32(dataGridViewSubtype.CurrentRow.Cells[0].Value));
+                    controller.deleteSubtypeButtonClick(rawSubtype);
+                    dataGridViewSubtype.DataSource = DAO.getInstance().selectTableNoteForClassAndType(RawSubtype.NameTable, RawSubtype.TypeIdAttr, Convert.ToString(dataGridViewType.CurrentRow.Cells[0].Value), RawSubtype.SubtypeNameAttr);
                     dataGridViewSubtype.ClearSelection();
                 }
             }
