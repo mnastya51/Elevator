@@ -34,12 +34,12 @@ namespace Elevator.Forms
         private FormValue<string, string> changeComboBox(string nameTable)
         {
             if (nameTable == "Общие показатели")
-                return new FormValue<string, string>("Type_general_impurities", "name_imp");
+                return new FormValue<string, string>(TypeGeneralLevelOfQuality.NameTable, TypeGeneralLevelOfQuality.NameAttr);
             else if (nameTable == "Вредные примеси")
-                return new FormValue<string, string>("Type_harmful_impurities", "name_harm_imp ");
+                return new FormValue<string, string>(TypeHarmfulLevelOfQuality.NameTable, TypeHarmfulLevelOfQuality.NameAttr);
             else if (nameTable == "Зерновые примеси")
-                return new FormValue<string, string>("Type_grain_impurities", "name_grain_imp"); 
-            else return new FormValue<string, string>("Type_weed_impurities", "name_weed_imp"); 
+                return new FormValue<string, string>(TypeGrainLevelOfQuality.NameTable, TypeGrainLevelOfQuality.NameAttr); 
+            else return new FormValue<string, string>(TypeWeedLevelOfQuality.NameTable, TypeWeedLevelOfQuality.NameAttr); 
         }
         private void showButton_Click(object sender, EventArgs e)
         {
@@ -67,7 +67,6 @@ namespace Elevator.Forms
         {
             try
             {
-                DataGridViewRow row = dataGridViewImpurityQuality.SelectedRows[0];
                 DialogResult dr = MessageBox.Show("Вы действительно хотите удалить запись?",
                 "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                 if (dr == DialogResult.OK)

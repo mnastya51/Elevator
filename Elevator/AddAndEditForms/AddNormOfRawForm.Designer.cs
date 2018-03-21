@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxImpurity = new System.Windows.Forms.TextBox();
+            this.textBoxNorm = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.normLabel = new System.Windows.Forms.Label();
             this.impComboBox = new System.Windows.Forms.ComboBox();
             this.labelName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBoxImpurity
+            // textBoxNorm
             // 
-            this.textBoxImpurity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxImpurity.Location = new System.Drawing.Point(123, 46);
-            this.textBoxImpurity.MaxLength = 5;
-            this.textBoxImpurity.Name = "textBoxImpurity";
-            this.textBoxImpurity.Size = new System.Drawing.Size(256, 22);
-            this.textBoxImpurity.TabIndex = 76;
+            this.textBoxNorm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxNorm.Location = new System.Drawing.Point(123, 46);
+            this.textBoxNorm.MaxLength = 5;
+            this.textBoxNorm.Name = "textBoxNorm";
+            this.textBoxNorm.Size = new System.Drawing.Size(256, 22);
+            this.textBoxNorm.TabIndex = 76;
             // 
             // saveButton
             // 
@@ -98,7 +98,7 @@
             this.ClientSize = new System.Drawing.Size(393, 136);
             this.Controls.Add(this.impComboBox);
             this.Controls.Add(this.labelName);
-            this.Controls.Add(this.textBoxImpurity);
+            this.Controls.Add(this.textBoxNorm);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.normLabel);
             this.Name = "AddNormOfRawForm";
@@ -110,7 +110,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBoxImpurity;
+        private System.Windows.Forms.TextBox textBoxNorm;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Label normLabel;
         private System.Windows.Forms.ComboBox impComboBox;

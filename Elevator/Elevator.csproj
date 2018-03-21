@@ -155,10 +155,19 @@
     <Compile Include="Controllers\RawController.cs" />
     <Compile Include="Controllers\StorageController.cs" />
     <Compile Include="DAO.cs" />
+    <Compile Include="Model\AbstractTypeLevelOfQuality.cs" />
+    <Compile Include="Model\AbstractQualityLevelNorm.cs" />
+    <Compile Include="Model\AbstractStorage.cs" />
     <Compile Include="Model\Contract.cs" />
     <Compile Include="Model\Contractor.cs" />
     <Compile Include="Model\Delivery.cs" />
     <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\GrainLevelOfQualityNorm.cs" />
+    <Compile Include="Model\HarmfulLevelOfQualityNorm.cs" />
+    <Compile Include="Model\TypeGeneralLevelOfQuality.cs" />
+    <Compile Include="Model\GeneralLevelOfQualityNorm.cs" />
+    <Compile Include="Model\TypeGrainLevelOfQuality.cs" />
+    <Compile Include="Model\TypeHarmfulLevelOfQuality.cs" />
     <Compile Include="Model\Raw.cs" />
     <Compile Include="Forms\AnalysQualityRawForm.cs">
       <SubType>Form</SubType>
@@ -249,6 +258,10 @@
     <Compile Include="Model\RawClass.cs" />
     <Compile Include="Model\RawSubtype.cs" />
     <Compile Include="Model\RawType.cs" />
+    <Compile Include="Model\Silage.cs" />
+    <Compile Include="Model\Store.cs" />
+    <Compile Include="Model\TypeWeedLevelOfQuality.cs" />
+    <Compile Include="Model\WeedLevelOfQualityNorm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddAndEditForms\AddAnalysQualityRawForm.resx">

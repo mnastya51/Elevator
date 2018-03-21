@@ -31,12 +31,12 @@ namespace Elevator.Forms
         private string[] changeComboBox(string nameTable)
         {
             if (nameTable == "Общие показатели")
-                return new string[] {"Norm_general_impurities", "norm_imp", "name_imp"};
+                return new string[] {GeneralLevelOfQualityNorm.NameTable, GeneralLevelOfQualityNorm.NormAttr, GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr};
             else if (nameTable == "Вредные примеси")
-                return new string[] {"Norm_harmful_impurities", "norm_harm_imp", "name_harm_imp" };
+                return new string[] {HarmfulLevelOfQualityNorm.NameTable, HarmfulLevelOfQualityNorm.NormAttr, HarmfulLevelOfQualityNorm.TypeOfLevelQualityAttr};
             else if (nameTable == "Зерновые примеси")
-                return new string[] {"Norm_grain_impurities", "norm_grain_imp", "name_grain_imp " };
-            else return new string[] {"Norm_weed_impurities", "norm_weed_imp", "name_weed_imp" };
+                return new string[] {GrainLevelOfQualityNorm.NameTable, GrainLevelOfQualityNorm.NormAttr,GrainLevelOfQualityNorm.TypeOfLevelQualityAttr};
+            else return new string[] {WeedLevelOfQualityNorm.NameTable, WeedLevelOfQualityNorm.NormAttr, WeedLevelOfQualityNorm.TypeOfLevelQualityAttr};
         }
 
         private string[] changeTypeImpComboBox(string nameTable)
@@ -87,10 +87,27 @@ namespace Elevator.Forms
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            string[] change = changeComboBox(groupComboBox.Text);
-            string[] changeForClick = changeTypeImpComboBox(groupComboBox.Text);
+             string[] change = changeComboBox(groupComboBox.Text);
+            /*string[] changeForClick = changeTypeImpComboBox(groupComboBox.Text);
             controller.addButtonClick(changeForClick[0], changeForClick[1], impurities, change[1], rawComboBox.Text, change[0], comboBoxClass.Text);
+            select(change);*/
+            switch (groupComboBox.Text)
+            {
+                case "Общие показатели":
+                    controller.addButtonClick(new GeneralLevelOfQualityNorm(rawComboBox.Text, comboBoxClass.Text), impurities);
+                    break;
+                case "Вредные примеси":
+                    controller.addButtonClick(new HarmfulLevelOfQualityNorm(rawComboBox.Text, comboBoxClass.Text), impurities);
+                    break;
+                case "Зерновые примеси":
+                    controller.addButtonClick(new GrainLevelOfQualityNorm(rawComboBox.Text, comboBoxClass.Text), impurities);
+                    break;
+                case "Сорные примеси":
+                    controller.addButtonClick(new WeedLevelOfQualityNorm(rawComboBox.Text, comboBoxClass.Text), impurities);
+                    break;
+            }
             select(change);
+
         }
 
         private void changeButton_Click(object sender, EventArgs e)

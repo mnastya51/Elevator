@@ -1,4 +1,5 @@
 ﻿using Elevator.Controllers;
+using Elevator.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,16 +25,18 @@ namespace Elevator.Forms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            controller.onSaveClick("Store", Convert.ToInt32(storeNumericUpDown.Value), store, "numb_store");
-            controller.onSaveClick("Silage", Convert.ToInt32(silageNumericUpDown.Value), silage, "numb_silage");
+            Store storeClass = new Store(Convert.ToInt32(storeNumericUpDown.Value));
+            Silage silageClass = new Silage(Convert.ToInt32(silageNumericUpDown.Value));
+            controller.onSaveClick(storeClass, store);
+            controller.onSaveClick(silageClass, silage);
             this.Close();
         }
 
         private void StorageForm_Load(object sender, EventArgs e)
         {
-            storeNumericUpDown.Value = controller.getStorage("Store", "numb_store");
+            storeNumericUpDown.Value = controller.getStorage(Store.NameTable, Store.CountAttr);
             store = Convert.ToInt32(storeNumericUpDown.Value);
-            silageNumericUpDown.Value = controller.getStorage("Silage", "numb_silage");
+            silageNumericUpDown.Value = controller.getStorage(Silage.NameTable, Silage.CountAttr);
             silage = Convert.ToInt32(silageNumericUpDown.Value);
         }
     }
