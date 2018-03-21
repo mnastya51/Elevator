@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Elevator.Model
 {
-   public class RawClass
+   public class RawClass//string RawId, но  int ClassId. конструктор перегружен. добиться работоспособности
     {
         public int ClassId { get; set; }
         public string RawId { get; set; }
@@ -28,14 +28,16 @@ namespace Elevator.Model
             this.RawId = rawId;
         }
 
-        public RawClass(int className)
-        {
-            this.ClassName = className;
-        }
 
         public RawClass(int className, string rawId)
         {
             this.ClassName = className;
+            this.RawId = rawId;
+        }
+
+        public RawClass(string rawId, int classId)
+        {
+            this.ClassId = classId;
             this.RawId = rawId;
         }
     }

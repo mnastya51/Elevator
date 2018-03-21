@@ -28,9 +28,16 @@ namespace Elevator.Model
             this.RawId = rawId;
         }
 
+
         public RawType(int typeName, string rawId)
         {
             this.TypeName = typeName;
+            this.RawId = rawId;
+        }
+
+        public RawType(string rawId, int typeId)
+        {
+            this.TypeId = typeId;
             this.RawId = rawId;
         }
     }

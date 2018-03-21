@@ -41,12 +41,12 @@ namespace Elevator.Controllers
 
         public void addSubtypeButtonClick(string field, RawSubtype rawSubtype)
         {//"class, number_class", "id_NameRaw", "id_class"
-            if (DAO.getInstance().deleteChild(RawSubtype.NameTable, RawSubtype.SubtypeIdAttr, RawSubtype.TypeIdAttr, rawSubtype.TypeId, RawSubtype.SubtypeNameAttr))
+            if (DAO.getInstance().deleteChild(RawSubtype.NameTable, RawSubtype.SubtypeIdAttr, RawSubtype.TypeIdAttr, Convert.ToInt32(rawSubtype.TypeId), RawSubtype.SubtypeNameAttr))
             {
                 MessageBox.Show("Нельзя добавить новую запись, если выбранный тип, не имея подтипов, используется в других таблицах!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-                new AddNoteForm(field, rawSubtype.TypeId, RawSubtype.NameTable, RawSubtype.SubtypeNameAttr, RawSubtype.TypeIdAttr).ShowDialog();
+                new AddNoteForm(field, rawSubtype.TypeId.ToString(), RawSubtype.NameTable, RawSubtype.SubtypeNameAttr, RawSubtype.TypeIdAttr).ShowDialog();
         }
 
         public void deleteClassButtonClick(RawClass rawClass)

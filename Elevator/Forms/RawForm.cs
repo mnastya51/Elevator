@@ -130,9 +130,9 @@ namespace Elevator.Forms
 
         private void addButtonClass_Click(object sender, EventArgs e)
         { //,  "class, number_class", "id_NameRaw", "id_class"
-            RawClass rawClass = new RawClass(Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value));
+            RawClass rawClass = new RawClass(dataGridViewRaw.CurrentRow.Cells[0].Value.ToString());
             controller.addClassButtonClick("Класс:", rawClass);
-            dataGridViewClass.DataSource = DAO.getInstance().selectTableNoteForClassAndType(RawClass.NameTable, RawClass.RawIdAttr, rawClass.RawId.ToString(), RawClass.ClassNameAttr);
+            dataGridViewClass.DataSource = DAO.getInstance().selectTableNoteForClassAndType(RawClass.NameTable, RawClass.RawIdAttr, rawClass.RawId, RawClass.ClassNameAttr);
             dataGridViewClass.ClearSelection();
         }
 
@@ -140,14 +140,13 @@ namespace Elevator.Forms
         {
             try
             {
-                DataGridViewRow row = dataGridViewClass.SelectedRows[0];
                 DialogResult dr = MessageBox.Show("Вы действительно хотите удалить запись?",
                 "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                 if (dr == DialogResult.OK)
                 {
-                    RawClass rawClass = new RawClass(Convert.ToInt32(dataGridViewClass.CurrentRow.Cells[0].Value));
+                    RawClass rawClass = new RawClass(dataGridViewRaw.CurrentRow.Cells[0].Value.ToString(), Convert.ToInt32(dataGridViewClass.CurrentRow.Cells[0].Value));
                     controller.deleteClassButtonClick(rawClass);
-                    dataGridViewClass.DataSource = DAO.getInstance().selectTableNoteForClassAndType(RawClass.NameTable, RawClass.RawIdAttr, rawClass.RawId.ToString(), RawClass.ClassNameAttr);
+                    dataGridViewClass.DataSource = DAO.getInstance().selectTableNoteForClassAndType(RawClass.NameTable, RawClass.RawIdAttr, rawClass.RawId, RawClass.ClassNameAttr);
                     dataGridViewClass.ClearSelection();
                     dataGridViewClass.ClearSelection();
                 }
@@ -167,7 +166,7 @@ namespace Elevator.Forms
 
         private void addTypeButton_Click(object sender, EventArgs e)
         {
-            RawType rawType = new RawType(Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value));
+            RawType rawType = new RawType(dataGridViewRaw.CurrentRow.Cells[0].Value.ToString());
             controller.addTypeButtonClick("Тип:", rawType);
             dataGridViewType.DataSource = DAO.getInstance().selectTableNote(RawType.NameTable, RawType.RawIdAttr, Convert.ToString(rawType.RawId));
             dataGridViewType.ClearSelection();
@@ -177,12 +176,11 @@ namespace Elevator.Forms
         {
               try
               {
-                  DataGridViewRow row = dataGridViewType.SelectedRows[0];
                   DialogResult dr = MessageBox.Show("Вы действительно хотите удалить запись?",
                   "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                   if (dr == DialogResult.OK)
                   {
-                    RawType rawType = new RawType(Convert.ToInt32(dataGridViewType.CurrentRow.Cells[0].Value));
+                    RawType rawType = new RawType(dataGridViewRaw.CurrentRow.Cells[0].Value.ToString(), Convert.ToInt32(dataGridViewType.CurrentRow.Cells[0].Value));
                     controller.deleteTypeButtonClick(rawType);
                     dataGridViewType.DataSource = DAO.getInstance().selectTableNote(RawType.NameTable, RawType.RawIdAttr, Convert.ToString(rawType.RawId));
                     dataGridViewType.ClearSelection();
@@ -206,9 +204,9 @@ namespace Elevator.Forms
 
         private void addSubtypeButton_Click(object sender, EventArgs e)
         {
-            RawSubtype rawSubtype = new RawSubtype(Convert.ToInt32(dataGridViewType.CurrentRow.Cells[0].Value));
+            RawSubtype rawSubtype = new RawSubtype(Convert.ToString(dataGridViewType.CurrentRow.Cells[0].Value));
             controller.addSubtypeButtonClick("Подтип:", rawSubtype);
-            dataGridViewSubtype.DataSource = DAO.getInstance().selectTableNoteForClassAndType(RawSubtype.NameTable, RawSubtype.TypeIdAttr, Convert.ToString(dataGridViewType.CurrentRow.Cells[0].Value), RawSubtype.SubtypeNameAttr);
+            dataGridViewSubtype.DataSource = DAO.getInstance().selectTableNoteForClassAndType(RawSubtype.NameTable, RawSubtype.TypeIdAttr, Convert.ToString(rawSubtype.TypeId), RawSubtype.SubtypeNameAttr);
             dataGridViewSubtype.ClearSelection();
         }
 
@@ -216,14 +214,13 @@ namespace Elevator.Forms
         {
             try
             {
-                DataGridViewRow row = dataGridViewSubtype.SelectedRows[0];
                 DialogResult dr = MessageBox.Show("Вы действительно хотите удалить запись?",
                 "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                 if (dr == DialogResult.OK)
                 {
-                    RawSubtype rawSubtype = new RawSubtype(Convert.ToInt32(dataGridViewSubtype.CurrentRow.Cells[0].Value));
+                    RawSubtype rawSubtype = new RawSubtype(Convert.ToString(dataGridViewType.CurrentRow.Cells[0].Value), Convert.ToInt32(dataGridViewSubtype.CurrentRow.Cells[0].Value));
                     controller.deleteSubtypeButtonClick(rawSubtype);
-                    dataGridViewSubtype.DataSource = DAO.getInstance().selectTableNoteForClassAndType(RawSubtype.NameTable, RawSubtype.TypeIdAttr, Convert.ToString(dataGridViewType.CurrentRow.Cells[0].Value), RawSubtype.SubtypeNameAttr);
+                    dataGridViewSubtype.DataSource = DAO.getInstance().selectTableNoteForClassAndType(RawSubtype.NameTable, RawSubtype.TypeIdAttr, Convert.ToString(rawSubtype.TypeId), RawSubtype.SubtypeNameAttr);
                     dataGridViewSubtype.ClearSelection();
                 }
             }
