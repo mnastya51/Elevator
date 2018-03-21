@@ -15,7 +15,13 @@ namespace Elevator.Model
         public GeneralLevelOfQualityNorm(string norm) : base(norm)
         {
         }
-        public GeneralLevelOfQualityNorm(string raw, string classRaw) : base(raw, classRaw)
+        public GeneralLevelOfQualityNorm(string raw, int classRaw) : base(raw, classRaw)
+        {
+        }
+        public GeneralLevelOfQualityNorm(string typeImp, string norm, string raw, int classRaw) : base(typeImp, norm, raw, classRaw)
+        {
+        }
+        public GeneralLevelOfQualityNorm(string typeImp, string raw, int classRaw) : base(typeImp, raw, classRaw)
         {
         }
     }

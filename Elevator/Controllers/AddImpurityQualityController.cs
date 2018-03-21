@@ -19,9 +19,9 @@ namespace Elevator.Controllers
             }
             else return true;
         }
-        public bool checkSave(string surname)
+        public bool checkSave(string name)
         {
-            return isNotEmpty(surname);
+            return isNotEmpty(name);
         }
         public bool isNotEmpty(string text)
         {

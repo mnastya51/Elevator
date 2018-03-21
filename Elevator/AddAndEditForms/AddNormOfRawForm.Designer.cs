@@ -37,16 +37,19 @@
             // 
             // textBoxNorm
             // 
+            this.textBoxNorm.BackColor = System.Drawing.Color.LightBlue;
             this.textBoxNorm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxNorm.Location = new System.Drawing.Point(123, 46);
             this.textBoxNorm.MaxLength = 5;
             this.textBoxNorm.Name = "textBoxNorm";
             this.textBoxNorm.Size = new System.Drawing.Size(256, 22);
             this.textBoxNorm.TabIndex = 76;
+            this.textBoxNorm.TextChanged += new System.EventHandler(this.textBoxNorm_TextChanged);
             // 
             // saveButton
             // 
-            this.saveButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.saveButton.BackColor = System.Drawing.Color.LightBlue;
+            this.saveButton.Enabled = false;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.saveButton.ForeColor = System.Drawing.SystemColors.Desktop;

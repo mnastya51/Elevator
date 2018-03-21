@@ -15,7 +15,13 @@ namespace Elevator.Model
         public HarmfulLevelOfQualityNorm(string norm) : base(norm)
         {
         }
-        public HarmfulLevelOfQualityNorm(string raw, string classRaw) : base(raw, classRaw)
+        public HarmfulLevelOfQualityNorm(string raw, int classRaw) : base(raw, classRaw)
+        {
+        }
+        public HarmfulLevelOfQualityNorm(string typeImp, string norm, string raw, int classRaw) : base(typeImp, norm, raw, classRaw)
+        {
+        }
+        public HarmfulLevelOfQualityNorm(string typeImp, string raw, int classRaw) : base(typeImp, raw, classRaw)
         {
         }
     }

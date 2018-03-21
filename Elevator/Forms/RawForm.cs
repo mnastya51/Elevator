@@ -140,6 +140,7 @@ namespace Elevator.Forms
         {
             try
             {
+                DataGridViewRow row = dataGridViewClass.SelectedRows[0];
                 DialogResult dr = MessageBox.Show("Вы действительно хотите удалить запись?",
                 "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                 if (dr == DialogResult.OK)
@@ -176,7 +177,8 @@ namespace Elevator.Forms
         {
               try
               {
-                  DialogResult dr = MessageBox.Show("Вы действительно хотите удалить запись?",
+                DataGridViewRow row = dataGridViewType.SelectedRows[0];
+                DialogResult dr = MessageBox.Show("Вы действительно хотите удалить запись?",
                   "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                   if (dr == DialogResult.OK)
                   {
@@ -214,6 +216,7 @@ namespace Elevator.Forms
         {
             try
             {
+                DataGridViewRow row = dataGridViewSubtype.SelectedRows[0];
                 DialogResult dr = MessageBox.Show("Вы действительно хотите удалить запись?",
                 "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                 if (dr == DialogResult.OK)

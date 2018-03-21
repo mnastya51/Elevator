@@ -24,7 +24,7 @@ namespace Elevator.AddAndEditForms
         private string nameTable;
         private string nameImp;
         private string nameTableNorm;*/
-        private bool forChange;
+        private bool forChange = false;
        /* private string valueImp;
         private string nameNorm;
         private string numberClass;*/
@@ -44,83 +44,144 @@ namespace Elevator.AddAndEditForms
              forChange = false;
              numberClass = newNumberClass;
          }*/
-        public AddNormOfRawForm(GeneralLevelOfQualityNorm newGeneralLevelOfQualityNorm, LinkedList<string> impurities)
+        public AddNormOfRawForm(GeneralLevelOfQualityNorm newGeneralLevelOfQualityNorm, string[] impurities)
         {
             InitializeComponent();
             controller = new AddNormOfRawController();
-            string[] imp = DAO.getInstance().getImpurity(TypeGeneralLevelOfQuality.NameTable, GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr, impurities);
-            impComboBox.Items.AddRange(imp);
-            if (imp.Length > 0)
-                impComboBox.Text = impComboBox.Items[0].ToString();
+            //string[] imp = DAO.getInstance().getImpurity(TypeGeneralLevelOfQuality.NameTable, GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr, impurities);
+            impComboBox.Items.AddRange(impurities);
+            impComboBox.Text = impComboBox.Items[0].ToString();   
             generalLevelOfQualityNorm = newGeneralLevelOfQualityNorm;
-            /* norm = GeneralLevelOfQualityNorm.NormAttr;
-             raw = generalLevelOfQualityNorm.Raw;
-             nameTable = TypeGeneralLevelOfQuality.NameTable;
-             nameImp = GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr;
-             nameTableNorm = GeneralLevelOfQualityNorm.NameTable;
-             forChange = false;
-             numberClass = generalLevelOfQualityNorm.ClassRaw;*/
         }
 
-        public AddNormOfRawForm(HarmfulLevelOfQualityNorm newharmfulLevelOfQualityNorm, LinkedList<string> impurities)
+        public AddNormOfRawForm(HarmfulLevelOfQualityNorm newharmfulLevelOfQualityNorm, string[] impurities)
         {
             InitializeComponent();
-            controller = new AddNormOfRawController();
-            string[] imp = DAO.getInstance().getImpurity(TypeHarmfulLevelOfQuality.NameTable, HarmfulLevelOfQualityNorm.TypeOfLevelQualityAttr, impurities);
-            impComboBox.Items.AddRange(imp);
-            if (imp.Length > 0)
-                impComboBox.Text = impComboBox.Items[0].ToString();
+            controller = new AddNormOfRawController();          
+            impComboBox.Items.AddRange(impurities);
+            impComboBox.Text = impComboBox.Items[0].ToString();
             harmfulLevelOfQualityNorm = newharmfulLevelOfQualityNorm;
         }
 
-        public AddNormOfRawForm(WeedLevelOfQualityNorm newWeedLevelOfQualityNorm, LinkedList<string> impurities)
+        public AddNormOfRawForm(WeedLevelOfQualityNorm newWeedLevelOfQualityNorm, string[] impurities)
         {
             InitializeComponent();
             controller = new AddNormOfRawController();
-            string[] imp = DAO.getInstance().getImpurity(TypeWeedLevelOfQuality.NameTable, WeedLevelOfQualityNorm.TypeOfLevelQualityAttr, impurities);
-            impComboBox.Items.AddRange(imp);
-            if (imp.Length > 0)
-                impComboBox.Text = impComboBox.Items[0].ToString();
+            impComboBox.Items.AddRange(impurities);           
+            impComboBox.Text = impComboBox.Items[0].ToString();
             weedLevelOfQualityNorm = newWeedLevelOfQualityNorm;
         }
 
-        public AddNormOfRawForm(GrainLevelOfQualityNorm newGrainLevelOfQualityNorm, LinkedList<string> impurities)
+        public AddNormOfRawForm(GrainLevelOfQualityNorm newGrainLevelOfQualityNorm, string[] impurities)
         {
             InitializeComponent();
-            controller = new AddNormOfRawController();
-            string[] imp = DAO.getInstance().getImpurity(TypeGrainLevelOfQuality.NameTable, GrainLevelOfQualityNorm.TypeOfLevelQualityAttr, impurities);
-            impComboBox.Items.AddRange(imp);
-            if (imp.Length > 0)
-                impComboBox.Text = impComboBox.Items[0].ToString();
+            controller = new AddNormOfRawController();         
+            impComboBox.Items.AddRange(impurities);
+            impComboBox.Text = impComboBox.Items[0].ToString();
             grainLevelOfQualityNorm = newGrainLevelOfQualityNorm;
         }
 
-        public AddNormOfRawForm(string newValueImp, string valueNorm, string newNameTable, string newRaw, string newNameImp, string newNameNorm, string newNumberClass)
+        /* public AddNormOfRawForm(string newValueImp, string valueNorm, string newNameTable, string newRaw, string newNameImp, string newNameNorm, string newNumberClass)
+         {
+             InitializeComponent();
+             controller = new AddNormOfRawController();
+             this.Text = "Изменение показателя качества";
+             impComboBox.Items.Add(newValueImp);
+             impComboBox.Text = newValueImp;
+             impComboBox.Enabled = false;
+             textBoxNorm.Text = valueNorm;
+             forChange = true;
+            /* nameImp = newNameImp;
+             valueImp = newValueImp;
+             nameNorm = newNameNorm;
+             nameTable = newNameTable;
+             raw = newRaw;
+             numberClass = newNumberClass;
+         }*/
+
+        public AddNormOfRawForm(GeneralLevelOfQualityNorm newGeneralLevelOfQualityNorm, bool change)
         {
             InitializeComponent();
             controller = new AddNormOfRawController();
-            this.Text = "Изменение показателя качества";
-            impComboBox.Items.Add(newValueImp);
-            impComboBox.Text = newValueImp;
+            this.Text = "Изменение общего показателя качества";
+            impComboBox.Items.Add(newGeneralLevelOfQualityNorm.TypeImp);
+            impComboBox.Text = newGeneralLevelOfQualityNorm.TypeImp;
             impComboBox.Enabled = false;
-            textBoxNorm.Text = valueNorm;
-            forChange = true;
-           /* nameImp = newNameImp;
-            valueImp = newValueImp;
-            nameNorm = newNameNorm;
-            nameTable = newNameTable;
-            raw = newRaw;
-            numberClass = newNumberClass;*/
+            textBoxNorm.Text = newGeneralLevelOfQualityNorm.Norm;
+            generalLevelOfQualityNorm = newGeneralLevelOfQualityNorm;
+            forChange = change;            
+         }
+
+        public AddNormOfRawForm(HarmfulLevelOfQualityNorm newharmfulLevelOfQualityNorm, bool change)
+        {
+            InitializeComponent();
+            controller = new AddNormOfRawController();
+            this.Text = "Изменение вредного показателя качества";
+            impComboBox.Items.Add(newharmfulLevelOfQualityNorm.TypeImp);
+            impComboBox.Text = newharmfulLevelOfQualityNorm.TypeImp;
+            impComboBox.Enabled = false;
+            textBoxNorm.Text = newharmfulLevelOfQualityNorm.Norm;
+            forChange = change;
+            harmfulLevelOfQualityNorm = newharmfulLevelOfQualityNorm;
+        }
+
+        public AddNormOfRawForm (WeedLevelOfQualityNorm newWeedLevelOfQualityNorm, bool change)
+        {
+            InitializeComponent();
+            controller = new AddNormOfRawController();
+            this.Text = "Изменение сорного показателя качества";
+            impComboBox.Items.Add(newWeedLevelOfQualityNorm.TypeImp);
+            impComboBox.Text = newWeedLevelOfQualityNorm.TypeImp;
+            impComboBox.Enabled = false;
+            textBoxNorm.Text = newWeedLevelOfQualityNorm.Norm;
+            forChange = change;
+            weedLevelOfQualityNorm = newWeedLevelOfQualityNorm;
+        }
+
+        public AddNormOfRawForm(GrainLevelOfQualityNorm newGrainLevelOfQualityNorm, bool change)
+        {
+            InitializeComponent();
+            controller = new AddNormOfRawController();
+            this.Text = "Изменение зернового показателя качества";
+            impComboBox.Items.Add(newGrainLevelOfQualityNorm.TypeImp);
+            impComboBox.Text = newGrainLevelOfQualityNorm.TypeImp;
+            impComboBox.Enabled = false;
+            textBoxNorm.Text = newGrainLevelOfQualityNorm.Norm;
+            forChange = change;
+            grainLevelOfQualityNorm = newGrainLevelOfQualityNorm;
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
             if (forChange)
-            {// if (controller.changeClick(valueImp, nameTable, raw, textBoxImpurity.Text, nameImp, nameNorm, numberClass))
-                generalLevelOfQualityNorm.Norm = textBoxNorm.Text;
-                //if (controller.changeClick(generalLevelOfQualityNorm))
+                switch (this.Text)
+                {
+                    case "Изменение общего показателя качества":
+                        generalLevelOfQualityNorm.Norm = textBoxNorm.Text;
+                        if (controller.changeClick(generalLevelOfQualityNorm))
+                            this.Close();
+                        break;
+                    case "Изменение вредного показателя качества":
+                        harmfulLevelOfQualityNorm.Norm = textBoxNorm.Text;
+                        if (controller.changeClick(harmfulLevelOfQualityNorm))
+                            this.Close();
+                        break;
+                    case "Изменение сорного показателя качества":
+                        weedLevelOfQualityNorm.Norm = textBoxNorm.Text;
+                        if (controller.changeClick(weedLevelOfQualityNorm))
+                            this.Close();
+                        break;
+                    case "Изменение зернового показателя качества":
+                        grainLevelOfQualityNorm.Norm = textBoxNorm.Text;
+                        if (controller.changeClick(grainLevelOfQualityNorm))
+                            this.Close();
+                        break;
+                }
+            // if (controller.changeClick(valueImp, nameTable, raw, textBoxImpurity.Text, nameImp, nameNorm, numberClass))
+               
+                 //if (controller.changeClick(generalLevelOfQualityNorm))
                  //   this.Close();
-            }
+            
             else
             {// if (controller.addClick(nameTableNorm, nameImp, impComboBox.Text, norm, raw, textBoxImpurity.Text, numberClass))
                 if (generalLevelOfQualityNorm != null)
@@ -154,12 +215,19 @@ namespace Elevator.AddAndEditForms
             }
         }
 
-       /* private void impComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void textBoxNorm_TextChanged(object sender, EventArgs e)
         {
-            string[] classes = DAO.getInstance().getClasses();
-            impComboBox.Items.AddRange(classes);
-            if (classes.Length > 0)
-                groupComboBox.Text = groupComboBox.Items[0].ToString();
-        }*/
+            saveButton.Enabled = controller.checkSave(textBoxNorm.Text);
+            saveButton.BackColor = controller.checkSave(textBoxNorm.Text) ? Color.DarkOrange : Color.LightBlue;
+            textBoxNorm.BackColor = !AddImpurityQualityController.isEmpty(textBoxNorm.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
+        }
+
+         /*private void impComboBox_SelectedIndexChanged(object sender, EventArgs e)
+         {
+             string[] classes = DAO.getInstance().getClasses();
+             impComboBox.Items.AddRange(classes);
+             if (classes.Length > 0)
+                 groupComboBox.Text = groupComboBox.Items[0].ToString();
+         }*/
     }
-}
+    }

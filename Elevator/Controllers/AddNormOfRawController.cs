@@ -24,7 +24,7 @@ namespace Elevator.Controllers
         {
             if (!DAO.getInstance().addNorm(GeneralLevelOfQualityNorm.NameTable, GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr,
                 generalLevelOfQualityNorm.TypeImp, GeneralLevelOfQualityNorm.NormAttr, generalLevelOfQualityNorm.Raw,
-                 generalLevelOfQualityNorm.Norm, generalLevelOfQualityNorm.ClassRaw))
+                 generalLevelOfQualityNorm.Norm, Convert.ToString(generalLevelOfQualityNorm.ClassRaw)))
             {
                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -36,7 +36,7 @@ namespace Elevator.Controllers
         {
             if (!DAO.getInstance().addNorm(HarmfulLevelOfQualityNorm.NameTable, HarmfulLevelOfQualityNorm.TypeOfLevelQualityAttr,
                 harmfulLevelOfQualityNorm.TypeImp, HarmfulLevelOfQualityNorm.NormAttr, harmfulLevelOfQualityNorm.Raw,
-                 harmfulLevelOfQualityNorm.Norm, harmfulLevelOfQualityNorm.ClassRaw))
+                 harmfulLevelOfQualityNorm.Norm, Convert.ToString(harmfulLevelOfQualityNorm.ClassRaw)))
             {
                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -48,7 +48,7 @@ namespace Elevator.Controllers
         {
             if (!DAO.getInstance().addNorm(WeedLevelOfQualityNorm.NameTable, WeedLevelOfQualityNorm.TypeOfLevelQualityAttr,
                 weedLevelOfQualityNorm.TypeImp, WeedLevelOfQualityNorm.NormAttr, weedLevelOfQualityNorm.Raw,
-                 weedLevelOfQualityNorm.Norm, weedLevelOfQualityNorm.ClassRaw))
+                 weedLevelOfQualityNorm.Norm, Convert.ToString(weedLevelOfQualityNorm.ClassRaw)))
             {
                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -60,7 +60,7 @@ namespace Elevator.Controllers
         {
             if (!DAO.getInstance().addNorm(GrainLevelOfQualityNorm.NameTable, GrainLevelOfQualityNorm.TypeOfLevelQualityAttr,
                 grainLevelOfQualityNorm.TypeImp, GrainLevelOfQualityNorm.NormAttr, grainLevelOfQualityNorm.Raw,
-                 grainLevelOfQualityNorm.Norm, grainLevelOfQualityNorm.ClassRaw))
+                 grainLevelOfQualityNorm.Norm, Convert.ToString(grainLevelOfQualityNorm.ClassRaw)))
             {
                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -68,8 +68,7 @@ namespace Elevator.Controllers
             else return true;
         }
 
-        //здесь
-       /* public bool changeClick(GeneralLevelOfQualityNorm generalLevelOfQualityNorm)
+       /* public bool changeClick(string valueImp, string nameTable, string raw, string valueNorm, string nameImp, string nameNorm, string numberClass)
         {
             if (!DAO.getInstance().changeNorm(valueImp, nameTable, raw, valueNorm, nameImp, nameNorm, numberClass))
             {
@@ -79,14 +78,64 @@ namespace Elevator.Controllers
             else return true;
         }*/
 
-        public bool changeClick(string valueImp, string nameTable, string raw, string valueNorm, string nameImp, string nameNorm, string numberClass)
+        public bool changeClick(GeneralLevelOfQualityNorm generalLevelOfQualityNorm)
         {
-            if (!DAO.getInstance().changeNorm(valueImp, nameTable, raw, valueNorm, nameImp, nameNorm, numberClass))
+            if (!DAO.getInstance().changeNorm(generalLevelOfQualityNorm.TypeImp, GeneralLevelOfQualityNorm.NameTable,
+                generalLevelOfQualityNorm.Raw, generalLevelOfQualityNorm.Norm, GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr, 
+                GeneralLevelOfQualityNorm.NormAttr, generalLevelOfQualityNorm.ClassRaw.ToString()))
             {
                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else return true;
+        }
+
+        public bool changeClick(HarmfulLevelOfQualityNorm harmfulLevelOfQualityNorm)
+        {
+            if (!DAO.getInstance().changeNorm(harmfulLevelOfQualityNorm.TypeImp, HarmfulLevelOfQualityNorm.NameTable,
+                harmfulLevelOfQualityNorm.Raw, harmfulLevelOfQualityNorm.Norm, HarmfulLevelOfQualityNorm.TypeOfLevelQualityAttr,
+                HarmfulLevelOfQualityNorm.NormAttr, harmfulLevelOfQualityNorm.ClassRaw.ToString()))
+            {
+                MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else return true;
+        }
+
+        public bool changeClick(WeedLevelOfQualityNorm weedLevelOfQualityNorm)
+        {
+            if (!DAO.getInstance().changeNorm(weedLevelOfQualityNorm.TypeImp, WeedLevelOfQualityNorm.NameTable,
+                weedLevelOfQualityNorm.Raw, weedLevelOfQualityNorm.Norm, WeedLevelOfQualityNorm.TypeOfLevelQualityAttr,
+                WeedLevelOfQualityNorm.NormAttr, weedLevelOfQualityNorm.ClassRaw.ToString()))
+            {
+                MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else return true;
+        }
+
+        public bool changeClick(GrainLevelOfQualityNorm grainLevelOfQualityNorm)
+        {
+            if (!DAO.getInstance().changeNorm(grainLevelOfQualityNorm.TypeImp, GrainLevelOfQualityNorm.NameTable,
+                grainLevelOfQualityNorm.Raw, grainLevelOfQualityNorm.Norm, GrainLevelOfQualityNorm.TypeOfLevelQualityAttr,
+                GrainLevelOfQualityNorm.NormAttr, grainLevelOfQualityNorm.ClassRaw.ToString()))
+            {
+                MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else return true;
+        }
+        public bool checkSave(string name)
+        {
+            return isNotEmpty(name);
+        }
+        public bool isNotEmpty(string text)
+        {
+            return text.Replace(" ", "").Length > 0;
+        }
+        public static bool isEmpty(string text)
+        {
+            return text == null || text == string.Empty || text.Length == 0;
         }
     }
 }

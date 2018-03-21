@@ -15,7 +15,13 @@ namespace Elevator.Model
         public WeedLevelOfQualityNorm(string norm) : base(norm)
         {
         }
-        public WeedLevelOfQualityNorm(string raw, string classRaw) : base(raw, classRaw)
+        public WeedLevelOfQualityNorm(string raw, int classRaw) : base(raw, classRaw)
+        {
+        }
+        public WeedLevelOfQualityNorm(string typeImp, string norm, string raw, int classRaw) : base(typeImp, norm, raw, classRaw)
+        {
+        }
+        public WeedLevelOfQualityNorm(string typeImp, string raw, int classRaw) : base(typeImp, raw, classRaw)
         {
         }
     }

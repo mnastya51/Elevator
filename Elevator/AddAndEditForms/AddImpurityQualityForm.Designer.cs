@@ -35,7 +35,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.BackColor = System.Drawing.Color.Red;
+            this.saveButton.BackColor = System.Drawing.Color.LightBlue;
             this.saveButton.Enabled = false;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -62,7 +62,7 @@
             // 
             // textBoxImpurity
             // 
-            this.textBoxImpurity.BackColor = System.Drawing.Color.Red;
+            this.textBoxImpurity.BackColor = System.Drawing.Color.LightBlue;
             this.textBoxImpurity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxImpurity.Location = new System.Drawing.Point(124, 9);
             this.textBoxImpurity.MaxLength = 20;
