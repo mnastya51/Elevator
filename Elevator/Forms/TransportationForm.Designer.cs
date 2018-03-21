@@ -1,6 +1,6 @@
 ﻿namespace Elevator.Forms
 {
-    partial class DeliveryForm
+    partial class TransportationForm
     {
         /// <summary>
         /// Required designer variable.

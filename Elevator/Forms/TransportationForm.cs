@@ -1,4 +1,5 @@
 ﻿using Elevator.Controllers;
+using Elevator.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,10 +12,10 @@ using System.Windows.Forms;
 
 namespace Elevator.Forms
 {
-    public partial class DeliveryForm : Form
+    public partial class TransportationForm : Form
     {
         private DeliveryController controller;
-        public DeliveryForm()
+        public TransportationForm()
         {
             InitializeComponent();
             controller = new DeliveryController();
@@ -33,8 +34,8 @@ namespace Elevator.Forms
         private void select()
         {
             dataGridViewDelivery.Rows.Clear();
-            string[] columns = {"date_delivery", "type_transport_delivery", "weight_delivery"};
-            DAO.getInstance().selectDelivery("Delivery", columns, dataGridViewDelivery);
+            string[] columns = { Delivery.DateAttr, Delivery.TransportAttr, Delivery.WeightAttr};
+            DAO.getInstance().selectTransportation(Delivery.NameTable, columns, dataGridViewDelivery);
             dataGridViewDelivery.ClearSelection();
         }
 

@@ -14,10 +14,14 @@ namespace Elevator.Controllers
         {
             if (!forChange)
             {
-                if (!DAO.getInstance().addDelivery("Delivery", delivery.Contractor, delivery.Raw, delivery.Type, delivery.Subtype,                
+                /*if (!DAO.getInstance().addDelivery("Delivery", delivery.Contractor, delivery.Raw, delivery.Type, delivery.Subtype,                
                     new FormValue<string, string>("date_delivery ", delivery.Date), delivery.Year,
                     new FormValue<string, string>("type_transport_delivery ", delivery.Transport),
-                    new FormValue<string, string>("weight_delivery ", delivery.Weight)))
+                    new FormValue<string, string>("weight_delivery ", delivery.Weight)))*/
+                if (!DAO.getInstance().addDelivery(delivery.Id, Delivery.NameTable, delivery.Contractor,
+                new FormValue<string, string>(Delivery.DateAttr, delivery.Date),
+                new FormValue<string, string>(Delivery.TransportAttr, delivery.Transport),
+                new FormValue<string, string>(Delivery.WeightAttr, delivery.Weight)))
                 {
                     MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;

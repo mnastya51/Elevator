@@ -55,7 +55,7 @@ namespace Elevator.Forms
 
         private void deliveryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new DeliveryForm().ShowDialog();
+            new TransportationForm().ShowDialog();
         }
     }
 }
