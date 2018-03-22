@@ -918,7 +918,7 @@ namespace Elevator
             string sqlCommand;
             try
             {                
-                //добавление в деливери
+                //добавление в поставку или отгрузку
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     sqlCommand = string.Format("Insert into {0} (id_contractor, id_raw, {1}, {2}, {3}) values (" +
@@ -946,7 +946,7 @@ namespace Elevator
             {
                 if (isTypesForStorage(raw))
                 {
-                    if (isSubtypesForStorage(type, raw))//добавление в Storage, еще сделать в Delivery
+                    if (isSubtypesForStorage(type, raw))
                     {
                         sqlCommand = string.Format("Insert into Storage (year_crop, id_subtype, weight, id_NameRaw) " +
                        "values('{0}'," +
@@ -1068,16 +1068,16 @@ namespace Elevator
             }
         }
 
-        public void changeTransportation(int id, string contractor, FormValue<string, string> date, FormValue<string, string> transport, FormValue<string, string> weight)
+        public void changeTransportation(string nameTable, int id, string contractor, FormValue<string, string> date, FormValue<string, string> transport, FormValue<string, string> weight)
         {
             string sqlCommand;
             try
             {
-                sqlCommand = string.Format("Update Delivery set {5} = '{0}', " +
+                sqlCommand = string.Format("Update {8} set {5} = '{0}', " +
                        "{6} = '{1}', {7} = '{2}', " +
                        "id_contractor = (select id_contractor from Contractor where name_contr = '{3}') " +
                        "where id_raw = {4}", transport.getValue(), weight.getValue(), date.getValue(), contractor, id,
-                       transport.getKey(), weight.getKey(), date.getKey());
+                       transport.getKey(), weight.getKey(), date.getKey(), nameTable);
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {

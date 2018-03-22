@@ -21,6 +21,13 @@ namespace Elevator.Forms
             controller = new TransportationController();
             select();
         }
+        public TransportationForm(string title)
+        {
+            InitializeComponent();
+            this.Text = title;
+            controller = new TransportationController();
+            select();
+        }
 
         private void DeliveryForm_Load(object sender, EventArgs e)
         {
@@ -34,15 +41,25 @@ namespace Elevator.Forms
         private void select()
         {
             dataGridViewDelivery.Rows.Clear();
-            string[] columns = { Delivery.DateAttr, Delivery.TransportAttr, Delivery.WeightAttr};
-            DAO.getInstance().selectTransportation(Delivery.NameTable, columns, dataGridViewDelivery);
+            if (this.Text == "Поставка")
+            {              
+                string[] columns = { Delivery.DateAttr, Delivery.TransportAttr, Delivery.WeightAttr };
+                DAO.getInstance().selectTransportation(Delivery.NameTable, columns, dataGridViewDelivery);              
+            }
+            else
+            {
+                string[] columns = { Shipment.DateAttr, Shipment.TransportAttr, Shipment.WeightAttr };
+                DAO.getInstance().selectTransportation(Shipment.NameTable, columns, dataGridViewDelivery);
+            }
             dataGridViewDelivery.ClearSelection();
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            controller.addButtonClick();
-            select();
+            if (this.Text == "Поставка")
+                controller.addButtonClick();
+            else controller.addButtonClick("shipment");//!!!возможно при отгрузке из хранения надо удалять будет
+            select();                
         }
 
         private void changeButton_Click(object sender, EventArgs e)
@@ -55,11 +72,22 @@ namespace Elevator.Forms
                     Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[3].Value),
                     Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[4].Value),
                     Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[6].Value));
-                Delivery delivery = new Delivery(Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[1].Value),
+                if (this.Text == "Поставка")
+                {
+                    Delivery delivery = new Delivery(Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[1].Value),
                     Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[5].Value),
                     Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[7].Value),
                     Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[8].Value));
-                controller.changeButtonClick(storage, delivery);
+                    controller.changeButtonClick(storage, delivery);
+                }
+                else
+                {
+                    Shipment shipment = new Shipment(Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[1].Value),
+                  Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[5].Value),
+                  Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[7].Value),
+                  Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[8].Value));
+                    controller.changeButtonClick(storage, shipment);
+                }
                 select();
                 //int idRaw = DAO.getInstance().changeStorage(storage.IdRaw, storage.Raw, storage.Type, storage.Subtype,
                 //    storage.Year);

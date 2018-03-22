@@ -1,6 +1,6 @@
 ﻿namespace Elevator.AddAndEditForms
 {
-    partial class AddDeliveryForm
+    partial class AddTransportationForm
     {
         /// <summary>
         /// Required designer variable.

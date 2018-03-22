@@ -45,8 +45,6 @@
             this.rawRadioButton = new System.Windows.Forms.RadioButton();
             this.yearRadioButton = new System.Windows.Forms.RadioButton();
             this.dataGridViewDelivery = new System.Windows.Forms.DataGridView();
-            this.rawTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.RawTableAdapter();
-            this.contractorTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.ContractorTableAdapter();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +54,8 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rawTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.RawTableAdapter();
+            this.contractorTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.ContractorTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.rawBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).BeginInit();
             this.filtrGroupBox.SuspendLayout();
@@ -262,14 +262,6 @@
             this.dataGridViewDelivery.Size = new System.Drawing.Size(891, 239);
             this.dataGridViewDelivery.TabIndex = 62;
             // 
-            // rawTableAdapter
-            // 
-            this.rawTableAdapter.ClearBeforeFill = true;
-            // 
-            // contractorTableAdapter
-            // 
-            this.contractorTableAdapter.ClearBeforeFill = true;
-            // 
             // Column7
             // 
             this.Column7.HeaderText = "Column7";
@@ -324,6 +316,14 @@
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
+            // rawTableAdapter
+            // 
+            this.rawTableAdapter.ClearBeforeFill = true;
+            // 
+            // contractorTableAdapter
+            // 
+            this.contractorTableAdapter.ClearBeforeFill = true;
+            // 
             // TransportationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -335,7 +335,7 @@
             this.Controls.Add(this.changeButton);
             this.Controls.Add(this.addButton);
             this.Name = "TransportationForm";
-            this.Text = "Поставки";
+            this.Text = "Поставка";
             this.Load += new System.EventHandler(this.DeliveryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rawBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).EndInit();

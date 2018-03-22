@@ -57,5 +57,10 @@ namespace Elevator.Forms
         {
             new TransportationForm().ShowDialog();
         }
+
+        private void отгрузкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new TransportationForm("Отгрузка").ShowDialog();
+        }
     }
 }

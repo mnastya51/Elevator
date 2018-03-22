@@ -90,11 +90,11 @@
     <Compile Include="AddAndEditForms\AddContractorForm.Designer.cs">
       <DependentUpon>AddContractorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddAndEditForms\AddDeliveryForm.cs">
+    <Compile Include="AddAndEditForms\AddTransportationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddAndEditForms\AddDeliveryForm.Designer.cs">
-      <DependentUpon>AddDeliveryForm.cs</DependentUpon>
+    <Compile Include="AddAndEditForms\AddTransportationForm.Designer.cs">
+      <DependentUpon>AddTransportationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AddAndEditForms\AddDryForm.cs">
       <SubType>Form</SubType>
@@ -140,7 +140,7 @@
     </Compile>
     <Compile Include="Controllers\AddContractController.cs" />
     <Compile Include="Controllers\AddContractorController.cs" />
-    <Compile Include="Controllers\AddDeliveryController.cs" />
+    <Compile Include="Controllers\AddTransportationController.cs" />
     <Compile Include="Controllers\AddEmployeeController.cs" />
     <Compile Include="Controllers\AddImpurityQualityController.cs" />
     <Compile Include="Controllers\AddNormOfRawController.cs" />
@@ -279,8 +279,8 @@
     <EmbeddedResource Include="AddAndEditForms\AddContractorForm.resx">
       <DependentUpon>AddContractorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddAndEditForms\AddDeliveryForm.resx">
-      <DependentUpon>AddDeliveryForm.cs</DependentUpon>
+    <EmbeddedResource Include="AddAndEditForms\AddTransportationForm.resx">
+      <DependentUpon>AddTransportationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddAndEditForms\AddDryForm.resx">
       <DependentUpon>AddDryForm.cs</DependentUpon>

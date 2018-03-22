@@ -172,6 +172,7 @@
             this.отгрузкаToolStripMenuItem.Name = "отгрузкаToolStripMenuItem";
             this.отгрузкаToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.отгрузкаToolStripMenuItem.Text = "Отгрузка";
+            this.отгрузкаToolStripMenuItem.Click += new System.EventHandler(this.отгрузкаToolStripMenuItem_Click);
             // 
             // отчетыToolStripMenuItem
             // 

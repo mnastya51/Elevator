@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Elevator.Controllers
 {
-    class AddDeliveryController
+    class AddTransportationController
     {
         public bool onSaveClick(Delivery delivery, bool forChange)
         {
@@ -50,10 +50,34 @@ namespace Elevator.Controllers
         {
             DAO.getInstance().changeStorage(storage.IdRaw, storage.Raw, storage.Type, storage.Subtype,
             storage.Year);
-            DAO.getInstance().changeTransportation(delivery.Id, delivery.Contractor,
+            DAO.getInstance().changeTransportation(Delivery.NameTable, delivery.Id, delivery.Contractor,
                  new FormValue<string, string>(Delivery.TransportAttr,delivery.Transport),
                  new FormValue<string, string>(Delivery.WeightAttr, delivery.Weight),
                  new FormValue<string, string>(Delivery.DateAttr, delivery.Date));
+        }
+
+        public void changeStorage(Storage storage, Shipment shipment)
+        {
+            DAO.getInstance().changeStorage(storage.IdRaw, storage.Raw, storage.Type, storage.Subtype,
+            storage.Year);
+            DAO.getInstance().changeTransportation(Shipment.NameTable, shipment.Id, shipment.Contractor,
+                 new FormValue<string, string>(Shipment.TransportAttr, shipment.Transport),
+                 new FormValue<string, string>(Shipment.WeightAttr, shipment.Weight),
+                 new FormValue<string, string>(Shipment.DateAttr, shipment.Date));
+        }
+
+        public bool onSaveClick(Shipment shipment, bool forChange)
+        {
+            if (!DAO.getInstance().addTransportation(shipment.Id, Shipment.NameTable, shipment.Contractor,
+            new FormValue<string, string>(Shipment.DateAttr, shipment.Date),
+            new FormValue<string, string>(Shipment.TransportAttr, shipment.Transport),
+            new FormValue<string, string>(Shipment.WeightAttr, shipment.Weight)))
+            {
+                MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else return true;
+
         }
     }     
 }
