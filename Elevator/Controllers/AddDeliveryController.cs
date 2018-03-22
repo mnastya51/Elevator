@@ -18,7 +18,7 @@ namespace Elevator.Controllers
                     new FormValue<string, string>("date_delivery ", delivery.Date), delivery.Year,
                     new FormValue<string, string>("type_transport_delivery ", delivery.Transport),
                     new FormValue<string, string>("weight_delivery ", delivery.Weight)))*/
-                if (!DAO.getInstance().addDelivery(delivery.Id, Delivery.NameTable, delivery.Contractor,
+                if (!DAO.getInstance().addTransportation(delivery.Id, Delivery.NameTable, delivery.Contractor,
                 new FormValue<string, string>(Delivery.DateAttr, delivery.Date),
                 new FormValue<string, string>(Delivery.TransportAttr, delivery.Transport),
                 new FormValue<string, string>(Delivery.WeightAttr, delivery.Weight)))
@@ -45,6 +45,15 @@ namespace Elevator.Controllers
                     return false;
                 }
                 else return true;*/
+        }
+        public void changeStorage(Storage storage, Delivery delivery)
+        {
+            DAO.getInstance().changeStorage(storage.IdRaw, storage.Raw, storage.Type, storage.Subtype,
+            storage.Year);
+            DAO.getInstance().changeTransportation(delivery.Id, delivery.Contractor,
+                 new FormValue<string, string>(Delivery.TransportAttr,delivery.Transport),
+                 new FormValue<string, string>(Delivery.WeightAttr, delivery.Weight),
+                 new FormValue<string, string>(Delivery.DateAttr, delivery.Date));
         }
     }     
 }

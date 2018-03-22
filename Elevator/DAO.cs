@@ -700,7 +700,7 @@ namespace Elevator
             string sqlCommand = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                sqlCommand = string.Format("Select c.name_contr, r.name_raw, t.name_type_raw, s.name_subtype, d.{1}, st.year_crop, "+
+                sqlCommand = string.Format("Select d.id_raw, c.name_contr, r.name_raw, t.name_type_raw, s.name_subtype, d.{1}, st.year_crop, " +
                     "d.{2}, d.{3} From Contractor c join {0} d " +
                     "on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join Raw r on st.id_NameRaw = "+
                     "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join Type_raw t on s.id_type = t.id_type",
@@ -715,20 +715,21 @@ namespace Elevator
                     {
                         dataGridViewContract.Rows.Add();
                         DataGridViewRow row = dataGridViewContract.Rows[c];
-                        row.Cells[0].Value = reader.GetString(0);
-                        row.Cells[1].Value = reader.GetString(1);                       
+                        row.Cells[0].Value = reader.GetInt32(0);
+                        row.Cells[1].Value = reader.GetString(1);
+                        row.Cells[2].Value = reader.GetString(2);                       
                         try
                         {
-                            row.Cells[2].Value = reader.GetInt32(2);
                             row.Cells[3].Value = reader.GetInt32(3);
+                            row.Cells[4].Value = reader.GetInt32(4);
                         }
                         catch
                         {
                         }
-                        row.Cells[4].Value = reader.GetString(4);
-                        row.Cells[5].Value = reader.GetInt32(5);
-                        row.Cells[6].Value = reader.GetString(6);
+                        row.Cells[5].Value = reader.GetString(5);
+                        row.Cells[6].Value = reader.GetInt32(6);
                         row.Cells[7].Value = reader.GetString(7);
+                        row.Cells[8].Value = reader.GetString(8);
                         c++;
                     }
                 }
@@ -911,7 +912,7 @@ namespace Elevator
                  return false;
              }
          }*/
-        public bool addDelivery(int idRaw, string nameTable, string contractor,
+        public bool addTransportation(int idRaw, string nameTable, string contractor,
                     FormValue<string, string> date, FormValue<string, string> transport, FormValue<string, string> weight)
         {
             string sqlCommand;
@@ -1026,5 +1027,69 @@ namespace Elevator
                 else return true;
             }
         }
+        public void changeStorage(int idRaw, string raw, string type, string subtype, string year)
+        {
+            string sqlCommand;
+            try
+            {
+                if (isTypesForStorage(raw))
+                {
+                    if (isSubtypesForStorage(type, raw))//есть тип и подтип
+                    {
+                        sqlCommand = string.Format("Update Storage set id_NameRaw = (select id_NameRaw from Raw where name_raw = '{0}'), " +
+                       "id_subtype = (select s.id_subtype from Subtype_raw s join Type_raw t on s.id_type = t. id_type join Raw r on " +
+                       "r.id_NameRaw = t.id_NameRaw where s.name_subtype = '{1}' and t.name_type_raw = '{2}'  and r.name_raw = '{0}'), "+
+                       "year_crop = {3} where id_raw = {4}", raw, subtype, type, year, idRaw);
+                    }
+                    else//есть тип
+                    {
+                        sqlCommand = string.Format("Update Storage set id_NameRaw = (select id_NameRaw from Raw where name_raw = '{0}'), " +
+                       "id_subtype = (select s.id_subtype from Subtype_raw s join Type_raw t on s.id_type = t. id_type join Raw r on " +
+                             "r.id_NameRaw = t.id_NameRaw where  t.name_type_raw = '{1}'  and r.name_raw = '{0}'), " +
+                       "year_crop = {2} where id_raw = {3}", raw, type, year, idRaw);
+                    }
+                }
+                else//нет типа
+                {
+                    sqlCommand = string.Format("Update Storage set id_NameRaw = (select id_NameRaw from Raw where name_raw = '{0}'), "+
+                        "id_subtype = null, " +
+                       "year_crop = {1} where id_raw = {2}", raw, year, idRaw);
+                }
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }                
+            }
+            catch (SqlException)
+            {               
+            }
+        }
+
+        public void changeTransportation(int id, string contractor, FormValue<string, string> date, FormValue<string, string> transport, FormValue<string, string> weight)
+        {
+            string sqlCommand;
+            try
+            {
+                sqlCommand = string.Format("Update Delivery set {5} = '{0}', " +
+                       "{6} = '{1}', {7} = '{2}', " +
+                       "id_contractor = (select id_contractor from Contractor where name_contr = '{3}') " +
+                       "where id_raw = {4}", transport.getValue(), weight.getValue(), date.getValue(), contractor, id,
+                       transport.getKey(), weight.getKey(), date.getKey());
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+            catch (SqlException)
+            {
+            }
+        }        
     }
 }

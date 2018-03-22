@@ -148,7 +148,7 @@
     <Compile Include="Controllers\AddRawController.cs" />
     <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Controllers\ContractorController.cs" />
-    <Compile Include="Controllers\DeliveryController.cs" />
+    <Compile Include="Controllers\TransportationController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\ImpurityQualityController.cs" />
     <Compile Include="Controllers\NormOfRawController.cs" />

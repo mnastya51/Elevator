@@ -1,4 +1,5 @@
 ﻿using Elevator.AddAndEditForms;
+using Elevator.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace Elevator.Controllers
 {
-    class DeliveryController
+    class TransportationController
     {
         public void addButtonClick()
         {
             new AddDeliveryForm().ShowDialog();
         }
-        /*public void changeButtonClick(Contract contract)
+        public void changeButtonClick(Storage storage, Delivery delivery)
         {
-            new AddContractForm(contract).ShowDialog();
-        }*/
+            new AddDeliveryForm(storage, delivery).ShowDialog();
+        }
     }
 }

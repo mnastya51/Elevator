@@ -15,7 +15,10 @@ namespace Elevator.AddAndEditForms
     public partial class AddDeliveryForm : Form
     {
         private AddDeliveryController controller;
-        public Delivery delivery;
+        private Delivery delivery;
+        private Storage storage;
+        private bool loadFormType = true;
+        private bool loadFormSubtype = true;
         public AddDeliveryForm()
         {
             InitializeComponent();
@@ -28,6 +31,24 @@ namespace Elevator.AddAndEditForms
             rawComboBox.Items.AddRange(raw);
             if (raw.Length > 0)
                 rawComboBox.Text = rawComboBox.Items[0].ToString();
+        }
+
+        public AddDeliveryForm(Storage newStorage, Delivery newDelivery)
+        {
+            InitializeComponent();
+            controller = new AddDeliveryController();
+            string[] contractor = DAO.getInstance().getNoteToComboBox("name_contr", "Contractor");
+            contractorComboBox.Items.AddRange(contractor);
+            contractorComboBox.Text = newDelivery.Contractor;
+            string[] raw = DAO.getInstance().getNoteToComboBox("name_raw ", "Raw");
+            storage = newStorage;
+            rawComboBox.Items.AddRange(raw);
+            rawComboBox.Text = newStorage.Raw;
+            transportTextBox.Text = newDelivery.Transport;
+            weightTextBox.Text = newDelivery.Weight;
+            dateTimePicker.Text = newDelivery.Date;
+            delivery = newDelivery;
+            yearNumericUpDown.Text = newStorage.Year;
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -55,16 +76,20 @@ namespace Elevator.AddAndEditForms
             }
             else
             {
-              /*  contractor.Name = textBoxName.Text;
-                contractor.Sub = textBoxSubdivision.Text;
-                contractor.YurAdress = richTextBoxYuradress.Text;
-                contractor.FactAdress = richTextBoxFactadress.Text;
-                contractor.Index = textBoxIndex.Text.Replace(" ", "") == String.Empty ? 0 : Convert.ToInt32(textBoxIndex.Text);
-                contractor.Phone = maskedTextBoxPhone.Text;
-                contractor.Inn = textBoxINN.Text;
-                if (controller.onSaveClick(contractor, true))
-                    this.Close();
-                else delivery = null;*/
+                Storage st = new Storage(storage.IdRaw, rawComboBox.Text, typeComboBox.Text, subtypeComboBox.Text, yearNumericUpDown.Text);
+                Delivery del = new Delivery(storage.IdRaw, contractorComboBox.Text, dateTimePicker.Text, transportTextBox.Text, weightTextBox.Text);
+                controller.changeStorage(st, del);
+                this.Close();
+                /*  contractor.Name = textBoxName.Text;
+                  contractor.Sub = textBoxSubdivision.Text;
+                  contractor.YurAdress = richTextBoxYuradress.Text;
+                  contractor.FactAdress = richTextBoxFactadress.Text;
+                  contractor.Index = textBoxIndex.Text.Replace(" ", "") == String.Empty ? 0 : Convert.ToInt32(textBoxIndex.Text);
+                  contractor.Phone = maskedTextBoxPhone.Text;
+                  contractor.Inn = textBoxINN.Text;
+                  if (controller.onSaveClick(contractor, true))
+                      this.Close();
+                  else delivery = null;*/
             }
             //посмотреть в классах и подтипах, когда я добавляю к сырью наим класса, то тот не удаляется наверно (у которого есть только id класса и наим сырья)
             //добавление и изменение
@@ -77,7 +102,12 @@ namespace Elevator.AddAndEditForms
             subtypeComboBox.Items.Clear();
             string[] types = DAO.getInstance().getTypeToComboBox("name_type_raw", "Type_raw ", "id_NameRaw ", "name_raw ", "Raw", rawComboBox.Text);
             typeComboBox.Items.AddRange(types);
-            if (types.Length > 0)
+            if (loadFormType && storage != null)
+            {
+                typeComboBox.Text = storage.Type;
+                loadFormType = false;
+            }
+            else if (types.Length > 0)
                 typeComboBox.Text = typeComboBox.Items[0].ToString();
         }
 
@@ -85,6 +115,11 @@ namespace Elevator.AddAndEditForms
         {
             subtypeComboBox.Items.Clear();
             string[] subtypes = DAO.getInstance().getSubtypes(typeComboBox.Text, rawComboBox.Text);
+            if (loadFormSubtype && storage != null)
+            {
+                subtypeComboBox.Text = storage.Subtype;
+                loadFormSubtype = false;
+            }
             if (subtypes.Length > 0)
             {
                 subtypeComboBox.Items.AddRange(subtypes);

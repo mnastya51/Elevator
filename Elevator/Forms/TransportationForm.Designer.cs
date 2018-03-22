@@ -47,6 +47,7 @@
             this.dataGridViewDelivery = new System.Windows.Forms.DataGridView();
             this.rawTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.RawTableAdapter();
             this.contractorTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.ContractorTableAdapter();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -98,6 +99,7 @@
             this.changeButton.Text = "Изменить";
             this.changeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.changeButton.UseVisualStyleBackColor = false;
+            this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
             // 
             // addButton
             // 
@@ -238,6 +240,7 @@
             this.dataGridViewDelivery.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewDelivery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDelivery.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column7,
             this.Column1,
             this.Column2,
             this.Column9,
@@ -266,6 +269,12 @@
             // contractorTableAdapter
             // 
             this.contractorTableAdapter.ClearBeforeFill = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Column7";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // Column1
             // 
@@ -315,7 +324,7 @@
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
-            // DeliveryForm
+            // TransportationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -325,7 +334,7 @@
             this.Controls.Add(this.filtrGroupBox);
             this.Controls.Add(this.changeButton);
             this.Controls.Add(this.addButton);
-            this.Name = "DeliveryForm";
+            this.Name = "TransportationForm";
             this.Text = "Поставки";
             this.Load += new System.EventHandler(this.DeliveryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rawBindingSource)).EndInit();
@@ -356,6 +365,7 @@
         private System.Windows.Forms.BindingSource contractorBindingSource;
         private AccountOfGrainDataSetTableAdapters.ContractorTableAdapter contractorTableAdapter;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
