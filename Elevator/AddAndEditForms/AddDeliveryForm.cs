@@ -34,9 +34,12 @@ namespace Elevator.AddAndEditForms
         {
             if (delivery == null)
             {
-                Storage storage = new Storage(rawComboBox.Text, typeComboBox.Text, subtypeComboBox.Text, yearNumericUpDown.Text);
-                int idRaw = DAO.getInstance().addStorage(storage.Raw, storage.Type, storage.Subtype, storage.Year);
-                delivery = new Delivery(idRaw, contractorComboBox.Text, dateTimePicker.Text, transportTextBox.Text, weightTextBox.Text);
+                Storage storage = new Storage(rawComboBox.Text, typeComboBox.Text, subtypeComboBox.Text, 
+                    yearNumericUpDown.Text);
+                int idRaw = DAO.getInstance().addStorage(storage.Raw, storage.Type, storage.Subtype, 
+                    storage.Year);
+                delivery = new Delivery(idRaw, contractorComboBox.Text, dateTimePicker.Text,
+                    transportTextBox.Text, weightTextBox.Text);
                 if (controller.onSaveClick(delivery, false))
                     this.Close();
                 else delivery = null;

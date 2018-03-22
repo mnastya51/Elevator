@@ -165,6 +165,7 @@
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\GrainLevelOfQualityNorm.cs" />
     <Compile Include="Model\HarmfulLevelOfQualityNorm.cs" />
+    <Compile Include="Model\Shipment.cs" />
     <Compile Include="Model\Storage.cs" />
     <Compile Include="Model\TypeGeneralLevelOfQuality.cs" />
     <Compile Include="Model\GeneralLevelOfQualityNorm.cs" />

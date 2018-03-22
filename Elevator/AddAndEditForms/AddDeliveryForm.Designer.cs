@@ -201,6 +201,7 @@
             // 
             // contractorComboBox
             // 
+            this.contractorComboBox.BackColor = System.Drawing.SystemColors.Window;
             this.contractorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.contractorComboBox.FormattingEnabled = true;
             this.contractorComboBox.Location = new System.Drawing.Point(159, 12);

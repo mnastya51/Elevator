@@ -703,7 +703,7 @@ namespace Elevator
                 sqlCommand = string.Format("Select c.name_contr, r.name_raw, t.name_type_raw, s.name_subtype, d.{1}, st.year_crop, "+
                     "d.{2}, d.{3} From Contractor c join {0} d " +
                     "on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join Raw r on st.id_NameRaw = "+
-                    "r.id_NameRaw join Subtype_raw s on s.id_subtype = st.id_subtype join Type_raw t on s.id_type = t.id_type",
+                    "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join Type_raw t on s.id_type = t.id_type",
                     nameTable, columns[0], columns[1], columns[2]);
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
@@ -716,9 +716,15 @@ namespace Elevator
                         dataGridViewContract.Rows.Add();
                         DataGridViewRow row = dataGridViewContract.Rows[c];
                         row.Cells[0].Value = reader.GetString(0);
-                        row.Cells[1].Value = reader.GetString(1);
-                        row.Cells[2].Value = reader.GetInt32(2);
-                        row.Cells[3].Value = reader.GetInt32(3);
+                        row.Cells[1].Value = reader.GetString(1);                       
+                        try
+                        {
+                            row.Cells[2].Value = reader.GetInt32(2);
+                            row.Cells[3].Value = reader.GetInt32(3);
+                        }
+                        catch
+                        {
+                        }
                         row.Cells[4].Value = reader.GetString(4);
                         row.Cells[5].Value = reader.GetInt32(5);
                         row.Cells[6].Value = reader.GetString(6);
@@ -914,12 +920,14 @@ namespace Elevator
                 //добавление в деливери
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    sqlCommand = string.Format("Insert into {0} (id_contractor, id_raw, {0}, {1}, {2}) values (" +
-                        "select id_contractor from)",
-                        nameTable, transport.getKey(), weight.getKey(), date.getKey());
+                    sqlCommand = string.Format("Insert into {0} (id_contractor, id_raw, {1}, {2}, {3}) values (" +
+                        "(select id_contractor from Contractor where name_contr = '{4}'), {5}, '{6}', '{7}', '{8}')",
+                        nameTable, transport.getKey(), weight.getKey(), date.getKey(), contractor, idRaw,
+                        transport.getValue(), weight.getValue(), date.getValue());
                     connection.Open();
                     SqlCommand command = new SqlCommand(sqlCommand, connection);
-                   // int idRaw = (Int32)command.ExecuteScalar();
+                    command.ExecuteNonQuery();
+                    connection.Close();
                 }
                 return true;
             }
@@ -935,23 +943,33 @@ namespace Elevator
             int idRaw;
             try
             {
-                if (isSubtypes(type, raw))//добавление в Storage, еще сделать в Delivery
+                if (isTypesForStorage(raw))
                 {
-                    sqlCommand = string.Format("Insert into Storage (year_crop, id_subtype, weight, id_NameRaw) " +
-                   "values({0}," +
-                   "(select s.id_subtype from Subtype_raw s join Type_raw t on s.id_type = t. id_type join Raw r on " +
-                   "r.id_NameRaw = t.id_NameRaw where s.name_subtype = {1} and t.name_type_raw = {2}  and r.name_raw = '{3}'), " +
-                   "0, " +
-                   "(select id_NameRaw from Raw where name_raw = '{3}'))", year, subtype, type, raw);
+                    if (isSubtypesForStorage(type, raw))//добавление в Storage, еще сделать в Delivery
+                    {
+                        sqlCommand = string.Format("Insert into Storage (year_crop, id_subtype, weight, id_NameRaw) " +
+                       "values('{0}'," +
+                       "(select s.id_subtype from Subtype_raw s join Type_raw t on s.id_type = t. id_type join Raw r on " +
+                       "r.id_NameRaw = t.id_NameRaw where s.name_subtype = '{1}' and t.name_type_raw = '{2}'  and r.name_raw = '{3}'), " +
+                       "0, " +
+                       "(select id_NameRaw from Raw where name_raw = '{3}'))", year, subtype, type, raw);
+                    }
+                    else
+                    {
+                        sqlCommand = string.Format("Insert into Storage (year_crop, id_subtype, weight, id_NameRaw)" +
+                            "values('{0}'," +
+                            "(select s.id_subtype from Subtype_raw s join Type_raw t on s.id_type = t. id_type join Raw r on " +
+                             "r.id_NameRaw = t.id_NameRaw where  t.name_type_raw = '{1}'  and r.name_raw = '{2}'), " +
+                             "0, " +
+                             "(select id_NameRaw from Raw where name_raw = '{2}'))", year, type, raw);
+                    }
                 }
                 else
                 {
-                    sqlCommand = string.Format("Insert into Storage (year_crop, id_subtype, weight, id_NameRaw, id_class)" +
-                        "values({0}," +
-                        "(select s.id_subtype from Subtype_raw s join Type_raw t on s.id_type = t. id_type Raw r on " +
-                         "r.id_NameRaw = t.id_NameRaw where  t.name_type_raw = {2}  and r.name_raw = '{3}'), " +
+                    sqlCommand = string.Format("Insert into Storage (year_crop, weight, id_NameRaw)" +
+                        "values('{0}'," +
                          "0, " +
-                         "(select id_NameRaw from Raw where name_raw = '{3}'))", year, type, raw);
+                         "(select id_NameRaw from Raw where name_raw = '{1}'))", year, raw);
                 }
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -973,6 +991,39 @@ namespace Elevator
             catch (SqlException)
             {
                 return 0;
+            }
+        }
+        private bool isSubtypesForStorage(string type, string raw)//есть подтипы у типа
+        {
+            string sqlCommand = string.Empty;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select count(*) From Subtype_raw c join Type_raw  t on c.id_type = t.id_type join Raw r " +
+                    "on r.id_NameRaw = t.id_NameRaw where t.name_type_raw  = {0} and r.name_raw = '{1}' "+
+                    "and c.name_subtype is not null", type, raw);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                int count = (Int32)command.ExecuteScalar();
+                connection.Close();
+                if (count == 0)
+                    return false;
+                else return true;
+            }
+        }
+        private bool isTypesForStorage(string raw)//есть типы у сырья
+        {
+            string sqlCommand = string.Empty;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select count(*) From Type_raw  t join Raw r " +
+                    "on r.id_NameRaw = t.id_NameRaw where r.name_raw = '{0}' ", raw);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                int count = (Int32)command.ExecuteScalar();
+                connection.Close();
+                if (count == 0)
+                    return false;
+                else return true;
             }
         }
     }
