@@ -1,6 +1,6 @@
 ﻿namespace Elevator.Forms
 {
-    partial class ImpurityQualityForm
+    partial class LevelOfQualityForm
     {
         /// <summary>
         /// Required designer variable.

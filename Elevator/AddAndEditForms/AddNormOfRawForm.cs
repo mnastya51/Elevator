@@ -219,7 +219,7 @@ namespace Elevator.AddAndEditForms
         {
             saveButton.Enabled = controller.checkSave(textBoxNorm.Text);
             saveButton.BackColor = controller.checkSave(textBoxNorm.Text) ? Color.DarkOrange : Color.LightBlue;
-            textBoxNorm.BackColor = !AddImpurityQualityController.isEmpty(textBoxNorm.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
+            textBoxNorm.BackColor = !AddlevelOfQualityController.isEmpty(textBoxNorm.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
         }
 
          /*private void impComboBox_SelectedIndexChanged(object sender, EventArgs e)

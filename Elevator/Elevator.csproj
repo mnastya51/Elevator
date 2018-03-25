@@ -108,11 +108,11 @@
     <Compile Include="AddAndEditForms\AddEmployeeForm.Designer.cs">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddAndEditForms\AddImpurityQualityForm.cs">
+    <Compile Include="AddAndEditForms\AddLevelOfQualityForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddAndEditForms\AddImpurityQualityForm.Designer.cs">
-      <DependentUpon>AddImpurityQualityForm.cs</DependentUpon>
+    <Compile Include="AddAndEditForms\AddLevelOfQualityForm.Designer.cs">
+      <DependentUpon>AddLevelOfQualityForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AddAndEditForms\AddNormOfRawForm.cs">
       <SubType>Form</SubType>
@@ -142,7 +142,7 @@
     <Compile Include="Controllers\AddContractorController.cs" />
     <Compile Include="Controllers\AddTransportationController.cs" />
     <Compile Include="Controllers\AddEmployeeController.cs" />
-    <Compile Include="Controllers\AddImpurityQualityController.cs" />
+    <Compile Include="Controllers\AddlevelOfQualityController.cs" />
     <Compile Include="Controllers\AddNormOfRawController.cs" />
     <Compile Include="Controllers\AddNoteController.cs" />
     <Compile Include="Controllers\AddRawController.cs" />
@@ -150,10 +150,10 @@
     <Compile Include="Controllers\ContractorController.cs" />
     <Compile Include="Controllers\TransportationController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
-    <Compile Include="Controllers\ImpurityQualityController.cs" />
+    <Compile Include="Controllers\LevelOfQualityController.cs" />
     <Compile Include="Controllers\NormOfRawController.cs" />
     <Compile Include="Controllers\RawController.cs" />
-    <Compile Include="Controllers\StorageController.cs" />
+    <Compile Include="Controllers\StoragePlaceController.cs" />
     <Compile Include="DAO.cs" />
     <Compile Include="Model\AbstractTransportation.cs" />
     <Compile Include="Model\AbstractTypeLevelOfQuality.cs" />
@@ -209,11 +209,11 @@
       <DependentUpon>EmployeeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\ImpurityQuality.cs" />
-    <Compile Include="Forms\ImpurityQualityForm.cs">
+    <Compile Include="Forms\LevelOfQualityForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ImpurityQualityForm.Designer.cs">
-      <DependentUpon>ImpurityQualityForm.cs</DependentUpon>
+    <Compile Include="Forms\LevelOfQualityForm.Designer.cs">
+      <DependentUpon>LevelOfQualityForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -245,19 +245,20 @@
     <Compile Include="Forms\ReportForm.Designer.cs">
       <DependentUpon>ReportForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SaveForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\SaveForm.Designer.cs">
-      <DependentUpon>SaveForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\StorageForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\StorageForm.Designer.cs">
       <DependentUpon>StorageForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\FormValue.cs" />
+    <Compile Include="Forms\StoragePlaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StoragePlaceForm.Designer.cs">
+      <DependentUpon>StoragePlaceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\FilterUtils.cs" />
+    <Compile Include="Utils\FormValue.cs" />
     <Compile Include="Model\RawClass.cs" />
     <Compile Include="Model\RawSubtype.cs" />
     <Compile Include="Model\RawType.cs" />
@@ -288,8 +289,8 @@
     <EmbeddedResource Include="AddAndEditForms\AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddAndEditForms\AddImpurityQualityForm.resx">
-      <DependentUpon>AddImpurityQualityForm.cs</DependentUpon>
+    <EmbeddedResource Include="AddAndEditForms\AddLevelOfQualityForm.resx">
+      <DependentUpon>AddLevelOfQualityForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddAndEditForms\AddNormOfRawForm.resx">
       <DependentUpon>AddNormOfRawForm.cs</DependentUpon>
@@ -321,8 +322,8 @@
     <EmbeddedResource Include="Forms\EmployeeForm.resx">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ImpurityQualityForm.resx">
-      <DependentUpon>ImpurityQualityForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\LevelOfQualityForm.resx">
+      <DependentUpon>LevelOfQualityForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -339,11 +340,11 @@
     <EmbeddedResource Include="Forms\ReportForm.resx">
       <DependentUpon>ReportForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SaveForm.resx">
-      <DependentUpon>SaveForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\StorageForm.resx">
       <DependentUpon>StorageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StoragePlaceForm.resx">
+      <DependentUpon>StoragePlaceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

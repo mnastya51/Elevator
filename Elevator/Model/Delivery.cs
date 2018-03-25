@@ -12,12 +12,12 @@ namespace Elevator.Model
         public const string DateAttr = "date_delivery";
         public const string TransportAttr = "type_transport_delivery";
         public const string WeightAttr = "weight_delivery";
-        public Delivery(int id, string contractor, string date, string transport,string weight) : 
-            base(id, contractor, date, transport, weight)
+        public Delivery(int id, string contractor, string subdivision, string date, string transport,string weight) : 
+            base(id, contractor, subdivision, date, transport, weight)
         {
         }
-        public Delivery(string contractor, string date, string transport,string weight) : 
-            base(contractor, date, transport, weight)
+        public Delivery(string contractor, string subdivision, string date, string transport,string weight) : 
+            base(contractor, subdivision, date, transport, weight)
         {
         }
     }

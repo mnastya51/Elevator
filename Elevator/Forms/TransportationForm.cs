@@ -1,5 +1,6 @@
 ﻿using Elevator.Controllers;
 using Elevator.Model;
+using Elevator.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,15 +28,6 @@ namespace Elevator.Forms
             this.Text = title;
             controller = new TransportationController();
             select();
-        }
-
-        private void DeliveryForm_Load(object sender, EventArgs e)
-        {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "accountOfGrainDataSet.Contractor". При необходимости она может быть перемещена или удалена.
-            this.contractorTableAdapter.Fill(this.accountOfGrainDataSet.Contractor);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "accountOfGrainDataSet.Raw". При необходимости она может быть перемещена или удалена.
-            this.rawTableAdapter.Fill(this.accountOfGrainDataSet.Raw);
-
         }
 
         private void select()
@@ -68,24 +60,26 @@ namespace Elevator.Forms
             {
                 DataGridViewRow row = dataGridViewDelivery.SelectedRows[0];
                 Storage storage = new Storage(Convert.ToInt32(dataGridViewDelivery.CurrentRow.Cells[0].Value),
-                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[2].Value),
                     Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[3].Value),
                     Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[4].Value),
-                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[6].Value));
+                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[5].Value),
+                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[7].Value));
                 if (this.Text == "Поставка")
                 {
                     Delivery delivery = new Delivery(Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[1].Value),
-                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[5].Value),
-                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[7].Value),
-                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[8].Value));
+                        Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[2].Value),
+                        Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[6].Value),
+                        Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[8].Value),
+                        Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[9].Value));
                     controller.changeButtonClick(storage, delivery);
                 }
                 else
                 {
                     Shipment shipment = new Shipment(Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[1].Value),
-                  Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[5].Value),
-                  Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[7].Value),
-                  Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[8].Value));
+                        Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[2].Value),
+                        Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[6].Value),
+                        Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[8].Value),
+                        Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[9].Value));
                     controller.changeButtonClick(storage, shipment);
                 }
                 select();
@@ -100,6 +94,19 @@ namespace Elevator.Forms
             catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите запись!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Error); }
            
             select();
+        }
+
+        private void findButton_Click(object sender, EventArgs e)
+        {
+            dataGridViewDelivery.Rows.Clear();
+            string[] columns = { Delivery.DateAttr, Delivery.TransportAttr, Delivery.WeightAttr };
+            FilterUtils.FilterFormatter filterFormatter = new FilterUtils.FilterFormatter();
+            filterFormatter.addValueWithRegisters("year_crop", yearNumericUpDown.Text);
+            filterFormatter.addValueWithRegisters("name_raw", rawTextBox.Text);
+            filterFormatter.addValueWithRegisters("name_contr", contractorTextBox.Text);
+            string command = filterFormatter.getFormattedRequestForDelivery(Delivery.NameTable, columns);
+            DAO.getInstance().findTransportation(command, dataGridViewDelivery);
+            dataGridViewDelivery.ClearSelection();
         }
     }
 }

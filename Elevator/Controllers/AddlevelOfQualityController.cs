@@ -8,7 +8,7 @@ using Elevator.Model;
 
 namespace Elevator.Controllers
 {
-    class AddImpurityQualityController
+    class AddlevelOfQualityController
     {
         public bool onSaveClick(FormValue<string, string> formValue, string value)
         {

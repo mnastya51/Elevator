@@ -35,12 +35,12 @@ namespace Elevator.Forms
 
         private void storageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new StorageForm().ShowDialog();
+            new StoragePlac1Form().ShowDialog();
         }
 
         private void impurityToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new ImpurityQualityForm().ShowDialog();
+            new LevelOfQualityForm().ShowDialog();
         }
 
         private void normsImpurityToolStripMenuItem_Click(object sender, EventArgs e)

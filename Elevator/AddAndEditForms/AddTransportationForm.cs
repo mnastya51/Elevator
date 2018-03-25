@@ -24,7 +24,7 @@ namespace Elevator.AddAndEditForms
         {
             InitializeComponent();
             controller = new AddTransportationController();
-            string[] contractor = DAO.getInstance().getNoteToComboBox("name_contr", "Contractor");
+            string[] contractor = DAO.getInstance().getNoteToComboBox("name_contr", "Contractor");//выводить неповторяющиеся записи
             contractorComboBox.Items.AddRange(contractor);
             if (contractor.Length > 0)
                 contractorComboBox.Text = contractorComboBox.Items[0].ToString();
@@ -89,7 +89,7 @@ namespace Elevator.AddAndEditForms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (this.Text == "Добавление поставки")
+            if (this.Text == "Добавление поставки" || this.Text == "Изменение поставки")
             {
                 if (delivery == null)
                 {
@@ -97,7 +97,7 @@ namespace Elevator.AddAndEditForms
                         yearNumericUpDown.Text);
                     int idRaw = DAO.getInstance().addStorage(storage.Raw, storage.Type, storage.Subtype,
                         storage.Year);
-                    delivery = new Delivery(idRaw, contractorComboBox.Text, dateTimePicker.Text,
+                    delivery = new Delivery(idRaw, contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text,
                         transportTextBox.Text, weightTextBox.Text);
                     if (controller.onSaveClick(delivery, false))
                         this.Close();
@@ -115,7 +115,7 @@ namespace Elevator.AddAndEditForms
                 else
                 {
                     Storage st = new Storage(storage.IdRaw, rawComboBox.Text, typeComboBox.Text, subtypeComboBox.Text, yearNumericUpDown.Text);
-                    Delivery del = new Delivery(storage.IdRaw, contractorComboBox.Text, dateTimePicker.Text, transportTextBox.Text, weightTextBox.Text);
+                    Delivery del = new Delivery(storage.IdRaw, contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text, transportTextBox.Text, weightTextBox.Text);
                     controller.changeStorage(st, del);
                     this.Close();
                     /*  contractor.Name = textBoxName.Text;
@@ -138,7 +138,7 @@ namespace Elevator.AddAndEditForms
                         yearNumericUpDown.Text);
                     int idRaw = DAO.getInstance().addStorage(storage.Raw, storage.Type, storage.Subtype,
                         storage.Year);
-                   shipment = new Shipment(idRaw, contractorComboBox.Text, dateTimePicker.Text,
+                   shipment = new Shipment(idRaw, contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text,
                         transportTextBox.Text, weightTextBox.Text);
                     if (controller.onSaveClick(shipment, false))
                         this.Close();
@@ -147,7 +147,7 @@ namespace Elevator.AddAndEditForms
                 else
                 {
                     Storage st = new Storage(storage.IdRaw, rawComboBox.Text, typeComboBox.Text, subtypeComboBox.Text, yearNumericUpDown.Text);
-                    Shipment sh = new Shipment(storage.IdRaw, contractorComboBox.Text, dateTimePicker.Text, transportTextBox.Text, weightTextBox.Text);
+                    Shipment sh = new Shipment(storage.IdRaw, contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text, transportTextBox.Text, weightTextBox.Text);
                     controller.changeStorage(st, sh);
                     this.Close();
                 }
@@ -183,6 +183,19 @@ namespace Elevator.AddAndEditForms
                 subtypeComboBox.Items.AddRange(subtypes);
                 subtypeComboBox.Text = subtypeComboBox.Items[0].ToString();
             }               
+        }
+
+        private void contractorComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            subdivisionComboBox.Items.Clear();
+            string[] subdivisions = DAO.getInstance().getSubdivisionToComboBox(contractorComboBox.Text);
+            subdivisionComboBox.Items.AddRange(subdivisions);
+            if (delivery != null)
+            {
+                subdivisionComboBox.Text = delivery.Subdivision;
+            }
+            else if (subdivisions.Length > 0)
+                subdivisionComboBox.Text = subdivisionComboBox.Items[0].ToString();
         }
     }
 }

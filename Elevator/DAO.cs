@@ -525,13 +525,39 @@ namespace Elevator
             }               
         }
 
-        public string[] getNoteToComboBox(string column, string contractor)
+        public string[] getNoteToComboBox(string column, string value)
         {
             LinkedList<string> res = new LinkedList<string>();
             string sqlCommand = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                sqlCommand = string.Format("Select {0} from {1}", column, contractor);
+                sqlCommand = string.Format("Select distinct {0} from {1}", column, value);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        string listElement = reader.GetString(0);
+                        res.AddLast(listElement);
+                        c++;
+                    }
+                }
+                reader.Close();
+                connection.Close();
+            }
+            return res.ToArray<string>();
+        }
+
+        public string[] getSubdivisionToComboBox(string contractor)
+        {
+            LinkedList<string> res = new LinkedList<string>();
+            string sqlCommand = string.Empty;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select subdivision from Contractor where name_contr = '{0}'", contractor);
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
                 SqlDataReader reader = command.ExecuteReader();
@@ -700,7 +726,7 @@ namespace Elevator
             string sqlCommand = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                sqlCommand = string.Format("Select d.id_raw, c.name_contr, r.name_raw, t.name_type_raw, s.name_subtype, d.{1}, st.year_crop, " +
+                sqlCommand = string.Format("Select d.id_raw, c.name_contr, c.subdivision, r.name_raw, t.name_type_raw, s.name_subtype, d.{1}, st.year_crop, " +
                     "d.{2}, d.{3} From Contractor c join {0} d " +
                     "on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join Raw r on st.id_NameRaw = "+
                     "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join Type_raw t on s.id_type = t.id_type",
@@ -717,19 +743,20 @@ namespace Elevator
                         DataGridViewRow row = dataGridViewContract.Rows[c];
                         row.Cells[0].Value = reader.GetInt32(0);
                         row.Cells[1].Value = reader.GetString(1);
-                        row.Cells[2].Value = reader.GetString(2);                       
+                        row.Cells[2].Value = reader.GetString(2);
+                        row.Cells[3].Value = reader.GetString(3);
                         try
                         {
-                            row.Cells[3].Value = reader.GetInt32(3);
                             row.Cells[4].Value = reader.GetInt32(4);
+                            row.Cells[5].Value = reader.GetInt32(5);
                         }
                         catch
                         {
                         }
-                        row.Cells[5].Value = reader.GetString(5);
-                        row.Cells[6].Value = reader.GetInt32(6);
-                        row.Cells[7].Value = reader.GetString(7);
+                        row.Cells[6].Value = reader.GetString(6);
+                        row.Cells[7].Value = reader.GetInt32(7);
                         row.Cells[8].Value = reader.GetString(8);
+                        row.Cells[9].Value = reader.GetString(9);
                         c++;
                     }
                 }
@@ -912,7 +939,7 @@ namespace Elevator
                  return false;
              }
          }*/
-        public bool addTransportation(int idRaw, string nameTable, string contractor,
+        public bool addTransportation(int idRaw, string nameTable, string contractor, string subdivision,
                     FormValue<string, string> date, FormValue<string, string> transport, FormValue<string, string> weight)
         {
             string sqlCommand;
@@ -922,9 +949,9 @@ namespace Elevator
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     sqlCommand = string.Format("Insert into {0} (id_contractor, id_raw, {1}, {2}, {3}) values (" +
-                        "(select id_contractor from Contractor where name_contr = '{4}'), {5}, '{6}', '{7}', '{8}')",
+                        "(select id_contractor from Contractor where name_contr = '{4}' and subdivision = '{9}'), {5}, '{6}', '{7}', '{8}')",
                         nameTable, transport.getKey(), weight.getKey(), date.getKey(), contractor, idRaw,
-                        transport.getValue(), weight.getValue(), date.getValue());
+                        transport.getValue(), weight.getValue(), date.getValue(), subdivision);
                     connection.Open();
                     SqlCommand command = new SqlCommand(sqlCommand, connection);
                     command.ExecuteNonQuery();
@@ -1068,16 +1095,16 @@ namespace Elevator
             }
         }
 
-        public void changeTransportation(string nameTable, int id, string contractor, FormValue<string, string> date, FormValue<string, string> transport, FormValue<string, string> weight)
+        public void changeTransportation(string nameTable, int id, string contractor, string subdivision, FormValue<string, string> date, FormValue<string, string> transport, FormValue<string, string> weight)
         {
             string sqlCommand;
             try
             {
                 sqlCommand = string.Format("Update {8} set {5} = '{0}', " +
                        "{6} = '{1}', {7} = '{2}', " +
-                       "id_contractor = (select id_contractor from Contractor where name_contr = '{3}') " +
+                       "id_contractor = (select id_contractor from Contractor where name_contr = '{3}' and subdivision = '{9}') " +
                        "where id_raw = {4}", transport.getValue(), weight.getValue(), date.getValue(), contractor, id,
-                       transport.getKey(), weight.getKey(), date.getKey(), nameTable);
+                       transport.getKey(), weight.getKey(), date.getKey(), nameTable, subdivision);
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -1090,6 +1117,43 @@ namespace Elevator
             catch (SqlException)
             {
             }
-        }        
+        }
+        public void findTransportation(string sqlCommand, DataGridView dataGridViewContract)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {               
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        dataGridViewContract.Rows.Add();
+                        DataGridViewRow row = dataGridViewContract.Rows[c];
+                        row.Cells[0].Value = reader.GetInt32(0);
+                        row.Cells[1].Value = reader.GetString(1);
+                        row.Cells[2].Value = reader.GetString(2);
+                        row.Cells[3].Value = reader.GetString(3);
+                        try
+                        {
+                            row.Cells[4].Value = reader.GetInt32(4);
+                            row.Cells[5].Value = reader.GetInt32(5);
+                        }
+                        catch
+                        {
+                        }
+                        row.Cells[6].Value = reader.GetString(6);
+                        row.Cells[7].Value = reader.GetInt32(7);
+                        row.Cells[8].Value = reader.GetString(8);
+                        row.Cells[9].Value = reader.GetString(9);
+                        c++;
+                    }
+                }
+                reader.Close();
+                connection.Close();
+            }
+        }
     }
 }

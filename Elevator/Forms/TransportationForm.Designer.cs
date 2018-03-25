@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.rawComboBox = new System.Windows.Forms.ComboBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.rawBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.accountOfGrainDataSet = new Elevator.AccountOfGrainDataSet();
             this.changeButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.filtrGroupBox = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbName = new System.Windows.Forms.Label();
+            this.btnAllList = new System.Windows.Forms.Button();
+            this.yearNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.findButton = new System.Windows.Forms.Button();
             this.contractorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contractorRadioButton = new System.Windows.Forms.RadioButton();
-            this.rawRadioButton = new System.Windows.Forms.RadioButton();
-            this.yearRadioButton = new System.Windows.Forms.RadioButton();
             this.dataGridViewDelivery = new System.Windows.Forms.DataGridView();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,24 +56,15 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rawTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.RawTableAdapter();
             this.contractorTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.ContractorTableAdapter();
+            this.rawTextBox = new System.Windows.Forms.TextBox();
+            this.contractorTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.rawBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).BeginInit();
             this.filtrGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDelivery)).BeginInit();
             this.SuspendLayout();
-            // 
-            // rawComboBox
-            // 
-            this.rawComboBox.DataSource = this.rawBindingSource;
-            this.rawComboBox.DisplayMember = "name_raw";
-            this.rawComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.rawComboBox.FormattingEnabled = true;
-            this.rawComboBox.Location = new System.Drawing.Point(156, 49);
-            this.rawComboBox.Name = "rawComboBox";
-            this.rawComboBox.Size = new System.Drawing.Size(159, 24);
-            this.rawComboBox.TabIndex = 8;
             // 
             // rawBindingSource
             // 
@@ -92,7 +83,7 @@
             this.changeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.changeButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.changeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.changeButton.Location = new System.Drawing.Point(106, 132);
+            this.changeButton.Location = new System.Drawing.Point(106, 80);
             this.changeButton.Name = "changeButton";
             this.changeButton.Size = new System.Drawing.Size(88, 28);
             this.changeButton.TabIndex = 48;
@@ -108,7 +99,7 @@
             this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addButton.Location = new System.Drawing.Point(12, 132);
+            this.addButton.Location = new System.Drawing.Point(12, 80);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(88, 28);
             this.addButton.TabIndex = 47;
@@ -119,108 +110,109 @@
             // 
             // filtrGroupBox
             // 
-            this.filtrGroupBox.Controls.Add(this.numericUpDown1);
-            this.filtrGroupBox.Controls.Add(this.button1);
-            this.filtrGroupBox.Controls.Add(this.rawComboBox);
-            this.filtrGroupBox.Controls.Add(this.comboBox1);
-            this.filtrGroupBox.Controls.Add(this.contractorRadioButton);
-            this.filtrGroupBox.Controls.Add(this.rawRadioButton);
-            this.filtrGroupBox.Controls.Add(this.yearRadioButton);
+            this.filtrGroupBox.Controls.Add(this.contractorTextBox);
+            this.filtrGroupBox.Controls.Add(this.rawTextBox);
+            this.filtrGroupBox.Controls.Add(this.label2);
+            this.filtrGroupBox.Controls.Add(this.label1);
+            this.filtrGroupBox.Controls.Add(this.lbName);
+            this.filtrGroupBox.Controls.Add(this.btnAllList);
+            this.filtrGroupBox.Controls.Add(this.yearNumericUpDown);
+            this.filtrGroupBox.Controls.Add(this.findButton);
             this.filtrGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.filtrGroupBox.Location = new System.Drawing.Point(12, 12);
             this.filtrGroupBox.Name = "filtrGroupBox";
-            this.filtrGroupBox.Size = new System.Drawing.Size(891, 114);
+            this.filtrGroupBox.Size = new System.Drawing.Size(1040, 65);
             this.filtrGroupBox.TabIndex = 59;
             this.filtrGroupBox.TabStop = false;
-            this.filtrGroupBox.Text = "Фильтрация";
+            this.filtrGroupBox.Text = "Поиск";
             // 
-            // numericUpDown1
+            // label2
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(156, 21);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(271, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 18);
+            this.label2.TabIndex = 65;
+            this.label2.Text = "Сырье:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(6, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 18);
+            this.label1.TabIndex = 64;
+            this.label1.Text = "Год урожая:";
+            // 
+            // lbName
+            // 
+            this.lbName.AutoSize = true;
+            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbName.ForeColor = System.Drawing.Color.Black;
+            this.lbName.Location = new System.Drawing.Point(500, 25);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(91, 18);
+            this.lbName.TabIndex = 63;
+            this.lbName.Text = "Контрагент:";
+            // 
+            // btnAllList
+            // 
+            this.btnAllList.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnAllList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAllList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAllList.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnAllList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAllList.Location = new System.Drawing.Point(850, 20);
+            this.btnAllList.Name = "btnAllList";
+            this.btnAllList.Size = new System.Drawing.Size(182, 28);
+            this.btnAllList.TabIndex = 13;
+            this.btnAllList.Text = "Вывести полный список";
+            this.btnAllList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAllList.UseVisualStyleBackColor = false;
+            // 
+            // yearNumericUpDown
+            // 
+            this.yearNumericUpDown.Location = new System.Drawing.Point(106, 25);
+            this.yearNumericUpDown.Maximum = new decimal(new int[] {
             5000,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1960,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(159, 22);
-            this.numericUpDown1.TabIndex = 12;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.yearNumericUpDown.Name = "yearNumericUpDown";
+            this.yearNumericUpDown.Size = new System.Drawing.Size(159, 22);
+            this.yearNumericUpDown.TabIndex = 12;
+            this.yearNumericUpDown.Tag = "1960";
+            this.yearNumericUpDown.UseWaitCursor = true;
+            this.yearNumericUpDown.Value = new decimal(new int[] {
             2018,
             0,
             0,
             0});
             // 
-            // button1
+            // findButton
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkOrange;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(327, 77);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 28);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Найти";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DataSource = this.contractorBindingSource;
-            this.comboBox1.DisplayMember = "name_contr";
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(156, 80);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(159, 24);
-            this.comboBox1.TabIndex = 8;
+            this.findButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.findButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.findButton.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.findButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.findButton.Location = new System.Drawing.Point(762, 20);
+            this.findButton.Name = "findButton";
+            this.findButton.Size = new System.Drawing.Size(82, 28);
+            this.findButton.TabIndex = 11;
+            this.findButton.Text = "Найти";
+            this.findButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.findButton.UseVisualStyleBackColor = false;
+            this.findButton.Click += new System.EventHandler(this.findButton_Click);
             // 
             // contractorBindingSource
             // 
             this.contractorBindingSource.DataMember = "Contractor";
             this.contractorBindingSource.DataSource = this.accountOfGrainDataSet;
-            // 
-            // contractorRadioButton
-            // 
-            this.contractorRadioButton.AutoSize = true;
-            this.contractorRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.contractorRadioButton.Location = new System.Drawing.Point(6, 80);
-            this.contractorRadioButton.Name = "contractorRadioButton";
-            this.contractorRadioButton.Size = new System.Drawing.Size(143, 22);
-            this.contractorRadioButton.TabIndex = 2;
-            this.contractorRadioButton.Text = "по контрагентам";
-            this.contractorRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // rawRadioButton
-            // 
-            this.rawRadioButton.AutoSize = true;
-            this.rawRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rawRadioButton.Location = new System.Drawing.Point(7, 49);
-            this.rawRadioButton.Name = "rawRadioButton";
-            this.rawRadioButton.Size = new System.Drawing.Size(93, 22);
-            this.rawRadioButton.TabIndex = 1;
-            this.rawRadioButton.Text = "по сырью";
-            this.rawRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // yearRadioButton
-            // 
-            this.yearRadioButton.AutoSize = true;
-            this.yearRadioButton.Checked = true;
-            this.yearRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.yearRadioButton.Location = new System.Drawing.Point(7, 20);
-            this.yearRadioButton.Name = "yearRadioButton";
-            this.yearRadioButton.Size = new System.Drawing.Size(133, 22);
-            this.yearRadioButton.TabIndex = 0;
-            this.yearRadioButton.TabStop = true;
-            this.yearRadioButton.Text = "по году урожая";
-            this.yearRadioButton.UseVisualStyleBackColor = true;
             // 
             // dataGridViewDelivery
             // 
@@ -230,18 +222,19 @@
             this.dataGridViewDelivery.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDelivery.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.dataGridViewDelivery.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewDelivery.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewDelivery.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewDelivery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDelivery.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column7,
             this.Column1,
+            this.Column8,
             this.Column2,
             this.Column9,
             this.Column10,
@@ -250,16 +243,16 @@
             this.Column5,
             this.Column6});
             this.dataGridViewDelivery.EnableHeadersVisualStyles = false;
-            this.dataGridViewDelivery.Location = new System.Drawing.Point(12, 166);
+            this.dataGridViewDelivery.Location = new System.Drawing.Point(12, 114);
             this.dataGridViewDelivery.MultiSelect = false;
             this.dataGridViewDelivery.Name = "dataGridViewDelivery";
             this.dataGridViewDelivery.ReadOnly = true;
             this.dataGridViewDelivery.RowHeadersVisible = false;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewDelivery.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewDelivery.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewDelivery.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewDelivery.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDelivery.Size = new System.Drawing.Size(891, 239);
+            this.dataGridViewDelivery.Size = new System.Drawing.Size(1040, 291);
             this.dataGridViewDelivery.TabIndex = 62;
             // 
             // Column7
@@ -267,12 +260,19 @@
             this.Column7.HeaderText = "Column7";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
+            this.Column7.Visible = false;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Контрагент";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Подразделение";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // Column2
             // 
@@ -324,24 +324,37 @@
             // 
             this.contractorTableAdapter.ClearBeforeFill = true;
             // 
+            // rawTextBox
+            // 
+            this.rawTextBox.Location = new System.Drawing.Point(335, 23);
+            this.rawTextBox.Name = "rawTextBox";
+            this.rawTextBox.Size = new System.Drawing.Size(159, 22);
+            this.rawTextBox.TabIndex = 66;
+            // 
+            // contractorTextBox
+            // 
+            this.contractorTextBox.Location = new System.Drawing.Point(597, 24);
+            this.contractorTextBox.Name = "contractorTextBox";
+            this.contractorTextBox.Size = new System.Drawing.Size(159, 22);
+            this.contractorTextBox.TabIndex = 67;
+            // 
             // TransportationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(915, 417);
+            this.ClientSize = new System.Drawing.Size(1064, 417);
             this.Controls.Add(this.dataGridViewDelivery);
             this.Controls.Add(this.filtrGroupBox);
             this.Controls.Add(this.changeButton);
             this.Controls.Add(this.addButton);
             this.Name = "TransportationForm";
             this.Text = "Поставка";
-            this.Load += new System.EventHandler(this.DeliveryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rawBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).EndInit();
             this.filtrGroupBox.ResumeLayout(false);
             this.filtrGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDelivery)).EndInit();
             this.ResumeLayout(false);
@@ -349,24 +362,20 @@
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox rawComboBox;
         private System.Windows.Forms.Button changeButton;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.GroupBox filtrGroupBox;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.RadioButton contractorRadioButton;
-        private System.Windows.Forms.RadioButton rawRadioButton;
-        private System.Windows.Forms.RadioButton yearRadioButton;
+        private System.Windows.Forms.Button findButton;
         private System.Windows.Forms.DataGridView dataGridViewDelivery;
         private AccountOfGrainDataSet accountOfGrainDataSet;
         private System.Windows.Forms.BindingSource rawBindingSource;
         private AccountOfGrainDataSetTableAdapters.RawTableAdapter rawTableAdapter;
         private System.Windows.Forms.BindingSource contractorBindingSource;
         private AccountOfGrainDataSetTableAdapters.ContractorTableAdapter contractorTableAdapter;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown yearNumericUpDown;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
@@ -374,5 +383,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.Button btnAllList;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbName;
+        private System.Windows.Forms.TextBox contractorTextBox;
+        private System.Windows.Forms.TextBox rawTextBox;
     }
 }

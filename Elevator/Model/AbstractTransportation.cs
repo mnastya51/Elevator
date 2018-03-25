@@ -10,24 +10,27 @@ namespace Elevator.Model
     {
         public int Id { get; set; }
         public string Contractor { get; set; }
+        public string Subdivision { get; set; }
         public string Transport { get; set; }
         public string Weight { get; set; }
         public string Date { get; set; }
 
-        public AbstractTransportation(int id, string contractor, string date, string transport, string weight)
+        public AbstractTransportation(int id, string contractor, string subdivision, string date, string transport, string weight)
         {
             this.Id = id;
             this.Transport = transport;
             this.Weight = weight;
             this.Date = date;
-            this.Contractor = contractor;        
+            this.Contractor = contractor;
+            this.Subdivision = subdivision;
         }
-        public AbstractTransportation(string contractor,string date, string transport, string weight)
+        public AbstractTransportation(string contractor, string subdivision, string date, string transport, string weight)
         {
             this.Transport = transport;
             this.Weight = weight;
             this.Date = date;
             this.Contractor = contractor;
+            this.Subdivision = subdivision;
         }
     }
 }

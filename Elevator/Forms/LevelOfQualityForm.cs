@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace Elevator.Forms
 {
-    public partial class ImpurityQualityForm : Form
+    public partial class LevelOfQualityForm : Form
     {
-        private ImpurityQualityController controller;
-        public ImpurityQualityForm()
+        private LevelOfQualityController controller;
+        public LevelOfQualityForm()
         {
             InitializeComponent();
-            controller = new ImpurityQualityController();
+            controller = new LevelOfQualityController();
             groupComboBox.SelectedIndexChanged += groupComboBox_SelectedIndexChanged;
             groupComboBox.Text = groupComboBox.Items[0].ToString();
         }

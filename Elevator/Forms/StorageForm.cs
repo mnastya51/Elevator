@@ -1,6 +1,4 @@
-﻿using Elevator.Controllers;
-using Elevator.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,30 +12,11 @@ namespace Elevator.Forms
 {
     public partial class StorageForm : Form
     {
-        private StorageController controller;
-        private int store;
-        private int silage;
         public StorageForm()
         {
             InitializeComponent();
-            controller = new StorageController();
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
-        {
-            Store storeClass = new Store(Convert.ToInt32(storeNumericUpDown.Value));
-            Silage silageClass = new Silage(Convert.ToInt32(silageNumericUpDown.Value));
-            controller.onSaveClick(storeClass, store);
-            controller.onSaveClick(silageClass, silage);
-            this.Close();
-        }
 
-        private void StorageForm_Load(object sender, EventArgs e)
-        {
-            storeNumericUpDown.Value = controller.getStorage(Store.NameTable, Store.CountAttr);
-            store = Convert.ToInt32(storeNumericUpDown.Value);
-            silageNumericUpDown.Value = controller.getStorage(Silage.NameTable, Silage.CountAttr);
-            silage = Convert.ToInt32(silageNumericUpDown.Value);
-        }
     }
 }

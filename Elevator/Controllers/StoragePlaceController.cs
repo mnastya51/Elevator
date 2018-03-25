@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Elevator.Controllers
 {
-    class StorageController
+    class StoragePlaceController
     {//string nameTable, int value, int storage, string nameStorage
         public void onSaveClick(Store store, int storage)
         {

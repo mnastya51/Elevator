@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Elevator.Controllers
 {
-    class ImpurityQualityController
+    class LevelOfQualityController
     {
         public void addButtonClick(FormValue<string, string> formValue)
         {
-            new AddImpurityQualityForm(formValue).ShowDialog();
+            new AddLevelOfQualityForm(formValue).ShowDialog();
         }
         public void deleteButtonClick(FormValue<string, string> formValue, string id)
         {

@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace Elevator.AddAndEditForms
 {
-    public partial class AddImpurityQualityForm : Form
+    public partial class AddLevelOfQualityForm : Form
     {
         private FormValue<string, string> formValue;
-        private AddImpurityQualityController controller;
-        public AddImpurityQualityForm(FormValue<string, string> newFormValue)
+        private AddlevelOfQualityController controller;
+        public AddLevelOfQualityForm(FormValue<string, string> newFormValue)
         {
             InitializeComponent();
-            controller = new AddImpurityQualityController();
+            controller = new AddlevelOfQualityController();
             formValue = newFormValue;
         }
 
@@ -33,7 +33,7 @@ namespace Elevator.AddAndEditForms
         {
             saveButton.Enabled = controller.checkSave(textBoxImpurity.Text);
             saveButton.BackColor = controller.checkSave(textBoxImpurity.Text) ? Color.DarkOrange : Color.LightBlue;
-            textBoxImpurity.BackColor = !AddImpurityQualityController.isEmpty(textBoxImpurity.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
+            textBoxImpurity.BackColor = !AddlevelOfQualityController.isEmpty(textBoxImpurity.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
         }
     }
 }

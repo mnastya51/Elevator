@@ -1,6 +1,6 @@
 ﻿namespace Elevator.AddAndEditForms
 {
-    partial class AddImpurityQualityForm
+    partial class AddLevelOfQualityForm
     {
         /// <summary>
         /// Required designer variable.

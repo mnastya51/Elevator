@@ -19,6 +19,7 @@ namespace Elevator.Controllers
                     new FormValue<string, string>("type_transport_delivery ", delivery.Transport),
                     new FormValue<string, string>("weight_delivery ", delivery.Weight)))*/
                 if (!DAO.getInstance().addTransportation(delivery.Id, Delivery.NameTable, delivery.Contractor,
+                    delivery.Subdivision,
                 new FormValue<string, string>(Delivery.DateAttr, delivery.Date),
                 new FormValue<string, string>(Delivery.TransportAttr, delivery.Transport),
                 new FormValue<string, string>(Delivery.WeightAttr, delivery.Weight)))
@@ -51,6 +52,7 @@ namespace Elevator.Controllers
             DAO.getInstance().changeStorage(storage.IdRaw, storage.Raw, storage.Type, storage.Subtype,
             storage.Year);
             DAO.getInstance().changeTransportation(Delivery.NameTable, delivery.Id, delivery.Contractor,
+                delivery.Subdivision,
                  new FormValue<string, string>(Delivery.TransportAttr,delivery.Transport),
                  new FormValue<string, string>(Delivery.WeightAttr, delivery.Weight),
                  new FormValue<string, string>(Delivery.DateAttr, delivery.Date));
@@ -61,6 +63,7 @@ namespace Elevator.Controllers
             DAO.getInstance().changeStorage(storage.IdRaw, storage.Raw, storage.Type, storage.Subtype,
             storage.Year);
             DAO.getInstance().changeTransportation(Shipment.NameTable, shipment.Id, shipment.Contractor,
+                shipment.Subdivision,
                  new FormValue<string, string>(Shipment.TransportAttr, shipment.Transport),
                  new FormValue<string, string>(Shipment.WeightAttr, shipment.Weight),
                  new FormValue<string, string>(Shipment.DateAttr, shipment.Date));
@@ -69,6 +72,7 @@ namespace Elevator.Controllers
         public bool onSaveClick(Shipment shipment, bool forChange)
         {
             if (!DAO.getInstance().addTransportation(shipment.Id, Shipment.NameTable, shipment.Contractor,
+                shipment.Subdivision,
             new FormValue<string, string>(Shipment.DateAttr, shipment.Date),
             new FormValue<string, string>(Shipment.TransportAttr, shipment.Transport),
             new FormValue<string, string>(Shipment.WeightAttr, shipment.Weight)))
