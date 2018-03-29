@@ -1158,5 +1158,34 @@ namespace Elevator
                 connection.Close();
             }
         }
+        public void selectRaw(DataGridView dataGridView)
+        {
+            string sqlCommand = string.Empty;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select d.id_raw, c.name_contr, r.name_raw, d.date_delivery From Contractor c join Delivery d " +
+                    "on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join Raw r on st.id_NameRaw = " +
+                    "r.id_NameRaw");
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        dataGridView.Rows.Add();
+                        DataGridViewRow row = dataGridView.Rows[c];
+                        row.Cells[0].Value = reader.GetInt32(0);
+                        row.Cells[1].Value = reader.GetString(1);
+                        row.Cells[2].Value = reader.GetString(2);
+                        row.Cells[3].Value = reader.GetString(3);                       
+                        c++;
+                    }
+                }
+                reader.Close();
+                connection.Close();
+            }
+        }
     }
 }

@@ -62,5 +62,10 @@ namespace Elevator.Forms
         {
             new TransportationForm("Отгрузка").ShowDialog();
         }
+
+        private void analysisQualityToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new AnalysQualityRawForm().ShowDialog();
+        }
     }
 }

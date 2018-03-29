@@ -249,5 +249,10 @@ namespace Elevator.Forms
             dataGridViewSubtype.DataSource = DAO.getInstance().selectTableNoteForClassAndType("Subtype_raw", "id_type", Convert.ToString(dataGridViewType.CurrentRow.Cells[0].Value), "name_subtype");
             dataGridViewSubtype.ClearSelection();
         }
+
+        private void dataGridViewRaw_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -41,14 +41,15 @@
             this.contractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deliveryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analysisQualityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.обработкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.хранениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.processingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отгрузкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.карточкаАнализаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.прочиеОтчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сменитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataAnalysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,8 +129,9 @@
             this.contractToolStripMenuItem,
             this.deliveryToolStripMenuItem,
             this.analysisQualityToolStripMenuItem,
-            this.обработкаToolStripMenuItem,
-            this.хранениеToolStripMenuItem,
+            this.dataAnalysToolStripMenuItem,
+            this.processingToolStripMenuItem,
+            this.saveToolStripMenuItem,
             this.отгрузкаToolStripMenuItem});
             this.сервисToolStripMenuItem.Name = "сервисToolStripMenuItem";
             this.сервисToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
@@ -138,39 +140,40 @@
             // contractToolStripMenuItem
             // 
             this.contractToolStripMenuItem.Name = "contractToolStripMenuItem";
-            this.contractToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.contractToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.contractToolStripMenuItem.Text = "Договора";
             this.contractToolStripMenuItem.Click += new System.EventHandler(this.contractToolStripMenuItem_Click);
             // 
             // deliveryToolStripMenuItem
             // 
             this.deliveryToolStripMenuItem.Name = "deliveryToolStripMenuItem";
-            this.deliveryToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.deliveryToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.deliveryToolStripMenuItem.Text = "Поставка";
             this.deliveryToolStripMenuItem.Click += new System.EventHandler(this.deliveryToolStripMenuItem_Click);
             // 
             // analysisQualityToolStripMenuItem
             // 
             this.analysisQualityToolStripMenuItem.Name = "analysisQualityToolStripMenuItem";
-            this.analysisQualityToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.analysisQualityToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.analysisQualityToolStripMenuItem.Text = "Анализ качества";
+            this.analysisQualityToolStripMenuItem.Click += new System.EventHandler(this.analysisQualityToolStripMenuItem_Click);
             // 
-            // обработкаToolStripMenuItem
+            // processingToolStripMenuItem
             // 
-            this.обработкаToolStripMenuItem.Name = "обработкаToolStripMenuItem";
-            this.обработкаToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.обработкаToolStripMenuItem.Text = "Обработка";
+            this.processingToolStripMenuItem.Name = "processingToolStripMenuItem";
+            this.processingToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.processingToolStripMenuItem.Text = "Обработка";
             // 
-            // хранениеToolStripMenuItem
+            // saveToolStripMenuItem
             // 
-            this.хранениеToolStripMenuItem.Name = "хранениеToolStripMenuItem";
-            this.хранениеToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.хранениеToolStripMenuItem.Text = "Хранение";
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.saveToolStripMenuItem.Text = "Хранение";
             // 
             // отгрузкаToolStripMenuItem
             // 
             this.отгрузкаToolStripMenuItem.Name = "отгрузкаToolStripMenuItem";
-            this.отгрузкаToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.отгрузкаToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.отгрузкаToolStripMenuItem.Text = "Отгрузка";
             this.отгрузкаToolStripMenuItem.Click += new System.EventHandler(this.отгрузкаToolStripMenuItem_Click);
             // 
@@ -208,6 +211,12 @@
             this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.справкаToolStripMenuItem.Text = "Справка";
             // 
+            // dataAnalysToolStripMenuItem
+            // 
+            this.dataAnalysToolStripMenuItem.Name = "dataAnalysToolStripMenuItem";
+            this.dataAnalysToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.dataAnalysToolStripMenuItem.Text = "Даты анализа хранилищ";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -239,8 +248,8 @@
         private System.Windows.Forms.ToolStripMenuItem contractToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deliveryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem analysisQualityToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem обработкаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem хранениеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem processingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отгрузкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отчетыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem карточкаАнализаToolStripMenuItem;
@@ -248,5 +257,6 @@
         private System.Windows.Forms.ToolStripMenuItem сменитьПользователяToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem normsImpurityToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dataAnalysToolStripMenuItem;
     }
 }

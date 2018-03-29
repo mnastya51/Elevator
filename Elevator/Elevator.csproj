@@ -146,6 +146,7 @@
     <Compile Include="Controllers\AddNormOfRawController.cs" />
     <Compile Include="Controllers\AddNoteController.cs" />
     <Compile Include="Controllers\AddRawController.cs" />
+    <Compile Include="Controllers\AnalysQualityRawController.cs" />
     <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Controllers\ContractorController.cs" />
     <Compile Include="Controllers\TransportationController.cs" />
@@ -155,6 +156,7 @@
     <Compile Include="Controllers\RawController.cs" />
     <Compile Include="Controllers\StoragePlaceController.cs" />
     <Compile Include="DAO.cs" />
+    <Compile Include="Model\AbstractLevelOfQuality.cs" />
     <Compile Include="Model\AbstractTransportation.cs" />
     <Compile Include="Model\AbstractTypeLevelOfQuality.cs" />
     <Compile Include="Model\AbstractQualityLevelNorm.cs" />
@@ -163,6 +165,7 @@
     <Compile Include="Model\Contractor.cs" />
     <Compile Include="Model\Delivery.cs" />
     <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\GeneralLevelOfQuality.cs" />
     <Compile Include="Model\GrainLevelOfQualityNorm.cs" />
     <Compile Include="Model\HarmfulLevelOfQualityNorm.cs" />
     <Compile Include="Model\Shipment.cs" />
@@ -257,6 +260,7 @@
     <Compile Include="Forms\StoragePlaceForm.Designer.cs">
       <DependentUpon>StoragePlaceForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\WeedLevelOfQuality.cs" />
     <Compile Include="Utils\FilterUtils.cs" />
     <Compile Include="Utils\FormValue.cs" />
     <Compile Include="Model\RawClass.cs" />
