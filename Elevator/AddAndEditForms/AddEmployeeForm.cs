@@ -76,37 +76,37 @@ namespace Elevator.AddAndEditForms
         private void checkSaveForAll()
         {
             saveButton.Enabled = controller.checkSaveForAll(surnameTextBox.Text, nameTextBox.Text, secnameTextBox.Text, loginTextBox.Text, passwordTextBox.Text);
-            saveButton.BackColor = controller.checkSaveForAll(surnameTextBox.Text, nameTextBox.Text, secnameTextBox.Text, loginTextBox.Text, passwordTextBox.Text) ? Color.DarkOrange : Color.Red;
+            saveButton.BackColor = controller.checkSaveForAll(surnameTextBox.Text, nameTextBox.Text, secnameTextBox.Text, loginTextBox.Text, passwordTextBox.Text) ? Color.DarkOrange : Color.LightBlue;
         }
 
         private void surnameTextBox_TextChanged(object sender, EventArgs e)
         {
             checkSaveForAll();
-            surnameTextBox.BackColor = !AddEmployeeController.isEmpty(surnameTextBox.Text.Replace(" ", "")) ? Color.White : Color.Red;
+            surnameTextBox.BackColor = !AddEmployeeController.isEmpty(surnameTextBox.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
         }
 
         private void nameTextBox_TextChanged(object sender, EventArgs e)
         {
             checkSaveForAll();
-            nameTextBox.BackColor = !AddEmployeeController.isEmpty(nameTextBox.Text.Replace(" ", "")) ? Color.White : Color.Red;
+            nameTextBox.BackColor = !AddEmployeeController.isEmpty(nameTextBox.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
         }
 
         private void secnameTextBox_TextChanged(object sender, EventArgs e)
         {
             checkSaveForAll();
-            secnameTextBox.BackColor = !AddEmployeeController.isEmpty(secnameTextBox.Text.Replace(" ", "")) ? Color.White : Color.Red;
+            secnameTextBox.BackColor = !AddEmployeeController.isEmpty(secnameTextBox.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
         }
 
         private void loginTextBox_TextChanged(object sender, EventArgs e)
         {
             checkSaveForAll();
-            loginTextBox.BackColor = !AddEmployeeController.isEmpty(loginTextBox.Text.Replace(" ", "")) ? Color.White : Color.Red;
+            loginTextBox.BackColor = !AddEmployeeController.isEmpty(loginTextBox.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
         }
 
         private void passwordTextBox_TextChanged(object sender, EventArgs e)
         {
             checkSaveForAll();
-            passwordTextBox.BackColor = !AddEmployeeController.isEmpty(passwordTextBox.Text.Replace(" ", "")) ? Color.White : Color.Red;
+            passwordTextBox.BackColor = !AddEmployeeController.isEmpty(passwordTextBox.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
         }
     }
 }

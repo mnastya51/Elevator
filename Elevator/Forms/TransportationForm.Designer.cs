@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.rawBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.accountOfGrainDataSet = new Elevator.AccountOfGrainDataSet();
             this.changeButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.filtrGroupBox = new System.Windows.Forms.GroupBox();
+            this.contractorTextBox = new System.Windows.Forms.TextBox();
+            this.rawTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbName = new System.Windows.Forms.Label();
@@ -56,8 +58,6 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rawTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.RawTableAdapter();
             this.contractorTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.ContractorTableAdapter();
-            this.rawTextBox = new System.Windows.Forms.TextBox();
-            this.contractorTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.rawBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).BeginInit();
             this.filtrGroupBox.SuspendLayout();
@@ -126,6 +126,20 @@
             this.filtrGroupBox.TabStop = false;
             this.filtrGroupBox.Text = "Поиск";
             // 
+            // contractorTextBox
+            // 
+            this.contractorTextBox.Location = new System.Drawing.Point(597, 24);
+            this.contractorTextBox.Name = "contractorTextBox";
+            this.contractorTextBox.Size = new System.Drawing.Size(159, 22);
+            this.contractorTextBox.TabIndex = 67;
+            // 
+            // rawTextBox
+            // 
+            this.rawTextBox.Location = new System.Drawing.Point(335, 23);
+            this.rawTextBox.Name = "rawTextBox";
+            this.rawTextBox.Size = new System.Drawing.Size(159, 22);
+            this.rawTextBox.TabIndex = 66;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -173,6 +187,7 @@
             this.btnAllList.Text = "Вывести полный список";
             this.btnAllList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAllList.UseVisualStyleBackColor = false;
+            this.btnAllList.Click += new System.EventHandler(this.btnAllList_Click);
             // 
             // yearNumericUpDown
             // 
@@ -222,14 +237,14 @@
             this.dataGridViewDelivery.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDelivery.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.dataGridViewDelivery.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewDelivery.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewDelivery.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewDelivery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDelivery.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column7,
@@ -248,8 +263,8 @@
             this.dataGridViewDelivery.Name = "dataGridViewDelivery";
             this.dataGridViewDelivery.ReadOnly = true;
             this.dataGridViewDelivery.RowHeadersVisible = false;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewDelivery.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewDelivery.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewDelivery.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewDelivery.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewDelivery.Size = new System.Drawing.Size(1040, 291);
@@ -323,20 +338,6 @@
             // contractorTableAdapter
             // 
             this.contractorTableAdapter.ClearBeforeFill = true;
-            // 
-            // rawTextBox
-            // 
-            this.rawTextBox.Location = new System.Drawing.Point(335, 23);
-            this.rawTextBox.Name = "rawTextBox";
-            this.rawTextBox.Size = new System.Drawing.Size(159, 22);
-            this.rawTextBox.TabIndex = 66;
-            // 
-            // contractorTextBox
-            // 
-            this.contractorTextBox.Location = new System.Drawing.Point(597, 24);
-            this.contractorTextBox.Name = "contractorTextBox";
-            this.contractorTextBox.Size = new System.Drawing.Size(159, 22);
-            this.contractorTextBox.TabIndex = 67;
             // 
             // TransportationForm
             // 

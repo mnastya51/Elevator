@@ -15,9 +15,9 @@ namespace Elevator.AddAndEditForms
             InitializeComponent();
             controller = new AddContractController();
             string[] contractor = DAO.getInstance().getNoteToComboBox("name_contr", "Contractor");
-            contactorComboBox.Items.AddRange(contractor);
+            contractorComboBox.Items.AddRange(contractor);
             if (contractor.Length > 0)
-                contactorComboBox.Text = contactorComboBox.Items[0].ToString();
+                contractorComboBox.Text = contractorComboBox.Items[0].ToString();
         }
         public AddContractForm(Contract contr)
         {
@@ -25,11 +25,12 @@ namespace Elevator.AddAndEditForms
             controller = new AddContractController();
             contract = contr;
             contactTextBox.Text = contr.NameContract;
-            contactorComboBox.Items.Add(contr.NameContractor);
-            contactorComboBox.Text = contactorComboBox.Items[0].ToString();
+            contractorComboBox.Items.Add(contr.NameContractor);
+            contractorComboBox.Text = contractorComboBox.Items[0].ToString();
             dateTimePicker.Text = contr.Date;
             goalTextBox.Text = contr.Goal;
-            contactorComboBox.Enabled = false;
+            contractorComboBox.Enabled = false;
+            subdivisionComboBox.Enabled = false;
             contactTextBox.Enabled = false;
             this.Text = "Изменение контрагента";
             contactTextBox.BackColor = Color.White;
@@ -42,7 +43,8 @@ namespace Elevator.AddAndEditForms
         {
             if (contract == null)
             {
-                contract = new Contract(contactorComboBox.Text,
+                contract = new Contract(contractorComboBox.Text,
+                    subdivisionComboBox.Text,
                     contactTextBox.Text,
                     dateTimePicker.Text,
                     goalTextBox.Text);
@@ -53,7 +55,7 @@ namespace Elevator.AddAndEditForms
             else
             {
                 contract.NameContract = contactTextBox.Text;
-                contract.NameContractor = contactorComboBox.Text;
+                contract.NameContractor = contractorComboBox.Text;
                 contract.Date = dateTimePicker.Text;
                 contract.Goal = goalTextBox.Text;            
                 if (controller.onSaveClick(contract, true))
@@ -65,8 +67,21 @@ namespace Elevator.AddAndEditForms
         private void contactTextBox_TextChanged(object sender, EventArgs e)
         {
             saveButton.Enabled = controller.checkSave(contactTextBox.Text);
-            saveButton.BackColor = controller.checkSave(contactTextBox.Text) ? Color.DarkOrange : Color.Red;
-            contactTextBox.BackColor = !AddContractController.isEmpty(contactTextBox.Text.Replace(" ", "")) ? Color.White : Color.Red;
+            saveButton.BackColor = controller.checkSave(contactTextBox.Text) ? Color.DarkOrange : Color.LightBlue;
+            contactTextBox.BackColor = !AddContractController.isEmpty(contactTextBox.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
+        }
+
+        private void contactorComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            subdivisionComboBox.Items.Clear();
+            string[] subdivisions = DAO.getInstance().getSubdivisionToComboBox(contractorComboBox.Text);
+            subdivisionComboBox.Items.AddRange(subdivisions);
+            if (contract != null)
+            {
+                subdivisionComboBox.Text = contract.Subdivision;
+            }
+            else if (subdivisions.Length > 0)
+                subdivisionComboBox.Text = subdivisionComboBox.Items[0].ToString();
         }
     }
 }

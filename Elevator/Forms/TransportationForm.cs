@@ -99,13 +99,30 @@ namespace Elevator.Forms
         private void findButton_Click(object sender, EventArgs e)
         {
             dataGridViewDelivery.Rows.Clear();
-            string[] columns = { Delivery.DateAttr, Delivery.TransportAttr, Delivery.WeightAttr };
             FilterUtils.FilterFormatter filterFormatter = new FilterUtils.FilterFormatter();
             filterFormatter.addValueWithRegisters("year_crop", yearNumericUpDown.Text);
             filterFormatter.addValueWithRegisters("name_raw", rawTextBox.Text);
             filterFormatter.addValueWithRegisters("name_contr", contractorTextBox.Text);
-            string command = filterFormatter.getFormattedRequestForDelivery(Delivery.NameTable, columns);
+            string command = "";
+            if (this.Text == "Поставка")
+            {
+                string[] columns = { Delivery.DateAttr, Delivery.TransportAttr, Delivery.WeightAttr };
+                command = filterFormatter.getFormattedRequestForTransportation(Delivery.NameTable, columns);
+            }
+            else
+            {
+                string[] columns = { Shipment.DateAttr, Shipment.TransportAttr, Shipment.WeightAttr };
+                command = filterFormatter.getFormattedRequestForTransportation(Shipment.NameTable, columns);
+            }
             DAO.getInstance().findTransportation(command, dataGridViewDelivery);
+            dataGridViewDelivery.ClearSelection();
+        }
+
+        private void btnAllList_Click(object sender, EventArgs e)
+        {
+            select();
+            rawTextBox.Text = string.Empty;
+            contractorTextBox.Text = string.Empty;
             dataGridViewDelivery.ClearSelection();
         }
     }

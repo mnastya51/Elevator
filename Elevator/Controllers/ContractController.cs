@@ -19,9 +19,9 @@ namespace Elevator.Controllers
         {
             new AddContractForm(contract).ShowDialog();
         }
-        public void deleteButtonClick(string nameContractor, string nameContract)
+        public void deleteButtonClick(string nameContractor, string subdivision, string nameContract)
         {
-            DAO.getInstance().deleteContract(nameContractor, nameContract);
+            DAO.getInstance().deleteContract(nameContractor, subdivision, nameContract);
         }
         public void findButtonClick(string value, DataGridView dataGridViewContract)
         {

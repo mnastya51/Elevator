@@ -37,8 +37,8 @@ namespace Elevator.AddAndEditForms
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
             saveButton.Enabled = controller.checkSave(textBoxName.Text);
-            saveButton.BackColor = controller.checkSave(textBoxName.Text) ? Color.DarkOrange : Color.Red;
-            textBoxName.BackColor = !AddRawController.isEmpty(textBoxName.Text.Replace(" ", "")) ? Color.White : Color.Red;
+            saveButton.BackColor = controller.checkSave(textBoxName.Text) ? Color.DarkOrange : Color.LightBlue;
+            textBoxName.BackColor = !AddRawController.isEmpty(textBoxName.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
         }
 
         private void saveButton_Click(object sender, EventArgs e)

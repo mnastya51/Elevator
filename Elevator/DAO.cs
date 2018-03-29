@@ -612,7 +612,7 @@ namespace Elevator
             string sqlCommand = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                sqlCommand = string.Format("Select k.name_contr, c.id_contract, c.date_contr, c.goal From Contract c join Contractor k "+
+                sqlCommand = string.Format("Select k.name_contr, k.subdivision, c.id_contract, c.date_contr, c.goal From Contract c join Contractor k "+
                     "on c.id_contractor = k.id_contractor");
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
@@ -628,6 +628,7 @@ namespace Elevator
                         row.Cells[1].Value = reader.GetString(1);
                         row.Cells[2].Value = reader.GetString(2);
                         row.Cells[3].Value = reader.GetString(3);
+                        row.Cells[4].Value = reader.GetString(4);
                         c++;
                     }
                 }
@@ -635,13 +636,14 @@ namespace Elevator
                 connection.Close();
             }
         }
-        public bool addContract(string nameContract, string nameContractor, string date, string goal)
+        public bool addContract(string nameContract, string nameContractor, string subdivision, string date, string goal)
         {
             string sqlCommand;
             try
             {
-                sqlCommand = string.Format("Insert into Contract values((select id_contractor from Contractor where name_contr = '{0}'), '{1}', '{2}', '{3}')",
-                    nameContractor, nameContract, goal, date);
+                sqlCommand = string.Format("Insert into Contract values((select id_contractor from Contractor where "+
+                    "name_contr = '{0}' and subdivision = '{4}'), '{1}', '{2}', '{3}')",
+                    nameContractor, nameContract, goal, date, subdivision);
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -656,14 +658,14 @@ namespace Elevator
                 return false;
             }
         }
-        public bool updateContract (string nameContract, string nameContractor, string date, string goal)
+        public bool updateContract (string nameContract, string nameContractor, string subdivision, string date, string goal)
         {
             string sqlCommand;
             try
             {
                 sqlCommand = string.Format("Update Contract Set  date_contr = '{0}', goal = '{1}' where id_contractor = "+
-                    "(select id_contractor from Contractor where name_contr = '{2}') and id_contract = '{3}'",
-                    date, goal, nameContractor, nameContract);
+                    "(select id_contractor from Contractor where name_contr = '{2}' and subdivision = '{4}') and id_contract = '{3}'",
+                    date, goal, nameContractor, nameContract, subdivision);
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -679,11 +681,11 @@ namespace Elevator
                 return false;
             }
         }
-        public void deleteContract(string nameContractor, string nameContract)
+        public void deleteContract(string nameContractor, string subdivision, string nameContract)
         {
             string sqlCommand;
             sqlCommand = string.Format("Delete Contract where id_contractor = (select id_contractor from Contractor where name_contr "+
-                "= '{0}') and id_contract = '{1}' ", nameContractor, nameContract);
+                "= '{0}' and subdivision = '{2}') and id_contract = '{1}' ", nameContractor, nameContract, subdivision);
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -697,7 +699,7 @@ namespace Elevator
             string sqlCommand = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                sqlCommand = string.Format("Select k.name_contr, c.id_contract, c.date_contr, c.goal From Contract c join Contractor k " +
+                sqlCommand = string.Format("Select k.name_contr, k.subdivision, c.id_contract, c.date_contr, c.goal From Contract c join Contractor k " +
                     "on c.id_contractor = k.id_contractor where UPPER(REPLACE(name_contr,' ','')) LIKE(UPPER(REPLACE('{0}',' ','')))",  " %" + value.Trim() + "%");
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
@@ -713,6 +715,7 @@ namespace Elevator
                         row.Cells[1].Value = reader.GetString(1);
                         row.Cells[2].Value = reader.GetString(2);
                         row.Cells[3].Value = reader.GetString(3);
+                        row.Cells[4].Value = reader.GetString(4);
                         c++;
                     }
                 }

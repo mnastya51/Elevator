@@ -33,7 +33,7 @@ namespace Elevator.Utils
                 values.Add(string.Format(" {0} = '{1}'", key, value));
             }
 
-            public string getFormattedRequestForDelivery(string nameTable, string[] columns)
+            public string getFormattedRequestForTransportation(string nameTable, string[] columns)
             {
                 string res = string.Format("Select d.id_raw, c.name_contr, c.subdivision, r.name_raw, t.name_type_raw, s.name_subtype, d.{1}, st.year_crop, " +
                     "d.{2}, d.{3} From Contractor c join {0} d " +

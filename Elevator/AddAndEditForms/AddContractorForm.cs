@@ -77,15 +77,15 @@ namespace Elevator.AddAndEditForms
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
             saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text);
-            saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text) ? Color.DarkOrange : Color.Red;
-            textBoxName.BackColor = !AddContractorController.isEmpty(textBoxName.Text.Replace(" ", "")) ? Color.White : Color.Red;
+            saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text) ? Color.DarkOrange : Color.LightBlue;
+            textBoxName.BackColor = !AddContractorController.isEmpty(textBoxName.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
         }
 
         private void richTextBoxFactadress_TextChanged(object sender, EventArgs e)
         {
             saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text);
-            saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text) ? Color.DarkOrange : Color.Red;
-            richTextBoxFactadress.BackColor = !AddContractorController.isEmpty(richTextBoxFactadress.Text.Replace(" ", "")) ? Color.White : Color.Red;
+            saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text) ? Color.DarkOrange : Color.LightBlue;
+            richTextBoxFactadress.BackColor = !AddContractorController.isEmpty(richTextBoxFactadress.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
         }
 
         private void textBoxIndex_TextChanged(object sender, EventArgs e)
@@ -101,8 +101,8 @@ namespace Elevator.AddAndEditForms
             }
             textBoxIndex.SelectionStart = textBoxIndex.Text.Length;
             saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text);
-            saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text) ? Color.DarkOrange : Color.Red;
-            textBoxIndex.BackColor = controller.checkSaveForIndex(textBoxIndex.Text) ? Color.White : Color.Red;
+            saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text) ? Color.DarkOrange : Color.LightBlue;
+            textBoxIndex.BackColor = controller.checkSaveForIndex(textBoxIndex.Text) ? Color.White : Color.LightBlue;
         }
 
 
@@ -119,15 +119,15 @@ namespace Elevator.AddAndEditForms
             }
             textBoxINN.SelectionStart = textBoxINN.Text.Length;
             saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text);
-            saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text) ? Color.DarkOrange : Color.Red;
-            textBoxINN.BackColor = controller.checkSaveForInn(textBoxINN.Text) ? Color.White : Color.Red;
+            saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text) ? Color.DarkOrange : Color.LightBlue;
+            textBoxINN.BackColor = controller.checkSaveForInn(textBoxINN.Text) ? Color.White : Color.LightBlue;
         }
 
         private void maskedTextBoxPhone_TextChanged(object sender, EventArgs e)
         {
-            maskedTextBoxPhone.BackColor = controller.checkPhone(maskedTextBoxPhone.Text) ? Color.White : Color.Red;
+            maskedTextBoxPhone.BackColor = controller.checkPhone(maskedTextBoxPhone.Text) ? Color.White : Color.LightBlue;
             saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text);
-            saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text) ? Color.DarkOrange : Color.Red;
+            saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text) ? Color.DarkOrange : Color.LightBlue;
         }
         private void maskedTextBoxPhone_GotFocus(object sender, EventArgs e)
         {

@@ -43,7 +43,8 @@ namespace Elevator.Forms
                 Contract contract = new Contract(Convert.ToString(dataGridViewContract.CurrentRow.Cells[0].Value),
                     Convert.ToString(dataGridViewContract.CurrentRow.Cells[1].Value),
                     Convert.ToString(dataGridViewContract.CurrentRow.Cells[2].Value),
-                    Convert.ToString(dataGridViewContract.CurrentRow.Cells[3].Value));              
+                    Convert.ToString(dataGridViewContract.CurrentRow.Cells[3].Value),
+                    Convert.ToString(dataGridViewContract.CurrentRow.Cells[4].Value));              
                 controller.changeButtonClick(contract);
                 select();
             }
@@ -59,7 +60,9 @@ namespace Elevator.Forms
                 "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                 if (dr == DialogResult.OK)
                 {
-                    controller.deleteButtonClick(dataGridViewContract.CurrentRow.Cells[0].Value.ToString(), dataGridViewContract.CurrentRow.Cells[1].Value.ToString());
+                    controller.deleteButtonClick(dataGridViewContract.CurrentRow.Cells[0].Value.ToString(), 
+                        dataGridViewContract.CurrentRow.Cells[1].Value.ToString(),
+                        dataGridViewContract.CurrentRow.Cells[2].Value.ToString());
                     select();
                 }
             }

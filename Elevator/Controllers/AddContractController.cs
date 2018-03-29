@@ -14,7 +14,7 @@ namespace Elevator.Controllers
         {
             if (!forChange)
             {
-                if (!DAO.getInstance().addContract(contract.NameContract, contract.NameContractor, contract.Date, contract.Goal))
+                if (!DAO.getInstance().addContract(contract.NameContract, contract.NameContractor, contract.Subdivision, contract.Date, contract.Goal))
                 {
                     MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
@@ -23,7 +23,7 @@ namespace Elevator.Controllers
             }
             else
             {              
-                if (!DAO.getInstance().updateContract(contract.NameContract, contract.NameContractor, contract.Date, contract.Goal))
+                if (!DAO.getInstance().updateContract(contract.NameContract, contract.NameContractor, contract.Subdivision, contract.Date, contract.Goal))
                 {
                     MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;

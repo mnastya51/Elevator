@@ -10,6 +10,7 @@ namespace Elevator.Model
     {
         public int IdConractor { get; set; }
         public string NameContractor { get; set; }
+        public string Subdivision { get; set; }
         public string Date { get; set; }
         public string Goal { get; set; }
         public string NameContract { get; set; }
@@ -17,12 +18,13 @@ namespace Elevator.Model
         public Contract()
         {
         }
-        public Contract(string nameContractor, string nameContract, string date, string goal)
+        public Contract(string nameContractor, string subdivision, string nameContract, string date, string goal)
         {
             this.NameContract = nameContract;
             this.Date = date;
             this.NameContractor = nameContractor;
             this.Goal = goal;
+            this.Subdivision = subdivision;
         }
     }
 }

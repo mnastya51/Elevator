@@ -83,7 +83,7 @@
             // 
             // secnameTextBox
             // 
-            this.secnameTextBox.BackColor = System.Drawing.Color.Red;
+            this.secnameTextBox.BackColor = System.Drawing.Color.LightBlue;
             this.secnameTextBox.Location = new System.Drawing.Point(115, 104);
             this.secnameTextBox.MaxLength = 20;
             this.secnameTextBox.Name = "secnameTextBox";
@@ -93,7 +93,7 @@
             // 
             // nameTextBox
             // 
-            this.nameTextBox.BackColor = System.Drawing.Color.Red;
+            this.nameTextBox.BackColor = System.Drawing.Color.LightBlue;
             this.nameTextBox.Location = new System.Drawing.Point(115, 63);
             this.nameTextBox.MaxLength = 20;
             this.nameTextBox.Name = "nameTextBox";
@@ -103,7 +103,7 @@
             // 
             // surnameTextBox
             // 
-            this.surnameTextBox.BackColor = System.Drawing.Color.Red;
+            this.surnameTextBox.BackColor = System.Drawing.Color.LightBlue;
             this.surnameTextBox.Location = new System.Drawing.Point(115, 26);
             this.surnameTextBox.MaxLength = 30;
             this.surnameTextBox.Name = "surnameTextBox";
@@ -173,7 +173,7 @@
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.BackColor = System.Drawing.Color.Red;
+            this.passwordTextBox.BackColor = System.Drawing.Color.LightBlue;
             this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.passwordTextBox.ForeColor = System.Drawing.Color.Gray;
@@ -187,7 +187,7 @@
             // 
             // loginTextBox
             // 
-            this.loginTextBox.BackColor = System.Drawing.Color.Red;
+            this.loginTextBox.BackColor = System.Drawing.Color.LightBlue;
             this.loginTextBox.Location = new System.Drawing.Point(115, 26);
             this.loginTextBox.MaxLength = 20;
             this.loginTextBox.Name = "loginTextBox";
@@ -219,7 +219,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.BackColor = System.Drawing.Color.Red;
+            this.saveButton.BackColor = System.Drawing.Color.LightBlue;
             this.saveButton.Enabled = false;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));

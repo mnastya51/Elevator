@@ -56,7 +56,7 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.BackColor = System.Drawing.Color.Red;
+            this.textBoxName.BackColor = System.Drawing.Color.LightBlue;
             this.textBoxName.Location = new System.Drawing.Point(151, 9);
             this.textBoxName.MaxLength = 15;
             this.textBoxName.Name = "textBoxName";
@@ -76,7 +76,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.BackColor = System.Drawing.Color.Red;
+            this.saveButton.BackColor = System.Drawing.Color.LightBlue;
             this.saveButton.Enabled = false;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
