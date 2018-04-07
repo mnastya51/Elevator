@@ -108,5 +108,27 @@ namespace Elevator.AddAndEditForms
             checkSaveForAll();
             passwordTextBox.BackColor = !AddEmployeeController.isEmpty(passwordTextBox.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
         }
+
+        private void keyPress(KeyPressEventArgs e)
+        {
+            char l = e.KeyChar;
+            if (l != '\b' && (l < 'А' || l > 'я'))
+                e.Handled = true;
+        }
+
+        private void surnameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPress(e);
+        }
+
+        private void nameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPress(e);
+        }
+
+        private void secnameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            keyPress(e);
+        }
     }
 }

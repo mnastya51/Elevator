@@ -138,6 +138,7 @@
     <Compile Include="AddAndEditForms\AddSaveForm.Designer.cs">
       <DependentUpon>AddSaveForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AddAnalysQualityRawController.cs" />
     <Compile Include="Controllers\AddContractController.cs" />
     <Compile Include="Controllers\AddContractorController.cs" />
     <Compile Include="Controllers\AddTransportationController.cs" />
@@ -166,7 +167,9 @@
     <Compile Include="Model\Delivery.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\GeneralLevelOfQuality.cs" />
+    <Compile Include="Model\GrainLevelOfQuality.cs" />
     <Compile Include="Model\GrainLevelOfQualityNorm.cs" />
+    <Compile Include="Model\HarmfulLevelOfQuality.cs" />
     <Compile Include="Model\HarmfulLevelOfQualityNorm.cs" />
     <Compile Include="Model\Shipment.cs" />
     <Compile Include="Model\Storage.cs" />

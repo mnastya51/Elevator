@@ -14,6 +14,11 @@ namespace Elevator.Model
         public string Subtype { get; set; }
         public string Year { get; set; }
 
+        public Storage(string raw)
+        {
+            this.Raw = raw;
+        }
+
         public Storage(string raw, string type, string subtype, string year)
         {
             this.Raw = raw;

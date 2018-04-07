@@ -132,14 +132,14 @@ namespace Elevator.AddAndEditForms
             }
             else
             {
-                if(shipment == null)
+                if (shipment == null)
                 {
                     Storage storage = new Storage(rawComboBox.Text, typeComboBox.Text, subtypeComboBox.Text,
                         yearNumericUpDown.Text);
                     int idRaw = DAO.getInstance().addStorage(storage.Raw, storage.Type, storage.Subtype,
                         storage.Year);
-                   shipment = new Shipment(idRaw, contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text,
-                        transportTextBox.Text, weightTextBox.Text);
+                    shipment = new Shipment(idRaw, contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text,
+                         transportTextBox.Text, weightTextBox.Text);
                     if (controller.onSaveClick(shipment, false))
                         this.Close();
                     else shipment = null;
@@ -182,7 +182,7 @@ namespace Elevator.AddAndEditForms
             {
                 subtypeComboBox.Items.AddRange(subtypes);
                 subtypeComboBox.Text = subtypeComboBox.Items[0].ToString();
-            }               
+            }
         }
 
         private void contractorComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -196,6 +196,13 @@ namespace Elevator.AddAndEditForms
             }
             else if (subdivisions.Length > 0)
                 subdivisionComboBox.Text = subdivisionComboBox.Items[0].ToString();
+        }
+
+        private void weightTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char l = e.KeyChar;
+            if (l != '\b' && l != '.' && (l < '0' || l > '9'))
+                e.Handled = true;
         }
     }
 }

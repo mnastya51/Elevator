@@ -222,12 +222,12 @@ namespace Elevator.AddAndEditForms
             textBoxNorm.BackColor = !AddlevelOfQualityController.isEmpty(textBoxNorm.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
         }
 
-         /*private void impComboBox_SelectedIndexChanged(object sender, EventArgs e)
-         {
-             string[] classes = DAO.getInstance().getClasses();
-             impComboBox.Items.AddRange(classes);
-             if (classes.Length > 0)
-                 groupComboBox.Text = groupComboBox.Items[0].ToString();
-         }*/
+        /*private void impComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string[] classes = DAO.getInstance().getClasses();
+            impComboBox.Items.AddRange(classes);
+            if (classes.Length > 0)
+                groupComboBox.Text = groupComboBox.Items[0].ToString();
+        }*/
     }
     }

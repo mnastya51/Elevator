@@ -35,5 +35,12 @@ namespace Elevator.AddAndEditForms
             saveButton.BackColor = controller.checkSave(textBoxImpurity.Text) ? Color.DarkOrange : Color.LightBlue;
             textBoxImpurity.BackColor = !AddlevelOfQualityController.isEmpty(textBoxImpurity.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
         }
+
+        private void textBoxImpurity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char l = e.KeyChar;
+            if (l != '\b' && (l < 'А' || l > 'я'))
+                e.Handled = true;
+        }
     }
 }

@@ -185,7 +185,7 @@
             this.dataGridViewRaw.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewRaw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewRaw.Size = new System.Drawing.Size(346, 197);
-            this.dataGridViewRaw.TabIndex = 44;        
+            this.dataGridViewRaw.TabIndex = 44;
             // 
             // idNameRawDataGridViewTextBoxColumn
             // 

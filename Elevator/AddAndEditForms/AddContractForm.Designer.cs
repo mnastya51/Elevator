@@ -75,6 +75,7 @@
             this.goalTextBox.Name = "goalTextBox";
             this.goalTextBox.Size = new System.Drawing.Size(200, 20);
             this.goalTextBox.TabIndex = 5;
+            this.goalTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.goalTextBox_KeyPress);
             // 
             // label2
             // 

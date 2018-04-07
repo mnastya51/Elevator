@@ -70,8 +70,9 @@
             this.textBoxImpurity.Size = new System.Drawing.Size(269, 22);
             this.textBoxImpurity.TabIndex = 73;
             this.textBoxImpurity.TextChanged += new System.EventHandler(this.textBoxImpurity_TextChanged);
+            this.textBoxImpurity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxImpurity_KeyPress);
             // 
-            // AddImpurityQualityForm
+            // AddLevelOfQualityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -80,7 +81,7 @@
             this.Controls.Add(this.textBoxImpurity);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.impurityLabel);
-            this.Name = "AddImpurityQualityForm";
+            this.Name = "AddLevelOfQualityForm";
             this.Text = "Добавление показателя качества";
             this.ResumeLayout(false);
             this.PerformLayout();

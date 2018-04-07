@@ -26,6 +26,7 @@ namespace Elevator
             }
             return instance;
         }
+
         public bool addNote(string nameTable, params FormValue<string, string>[] values)
         {
             string sqlCommand;
@@ -759,7 +760,7 @@ namespace Elevator
                         row.Cells[6].Value = reader.GetString(6);
                         row.Cells[7].Value = reader.GetInt32(7);
                         row.Cells[8].Value = reader.GetString(8);
-                        row.Cells[9].Value = reader.GetString(9);
+                        row.Cells[9].Value = reader.GetFloat(9);
                         c++;
                     }
                 }
@@ -1187,5 +1188,100 @@ namespace Elevator
                 connection.Close();
             }
         }
-    }
+        public LinkedList<string> selectAnalysQuality(string nameTableType, string typeAttr, string nameTableValue, string valueAttr, string idRaw, DataGridView dataGridViewAnalys)
+        {
+            string sqlCommand = string.Empty;
+            LinkedList<string> res = new LinkedList<string>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select s.id_raw, t.{0}, v.{1} From {2} t join {3} v " +
+                    "on t.{0} = v.{0} join Storage s on v.id_raw = s.id_raw where s.id_raw = {4} ",
+                    typeAttr, valueAttr, nameTableType, nameTableValue, idRaw);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        dataGridViewAnalys.Rows.Add();
+                        DataGridViewRow row = dataGridViewAnalys.Rows[c];
+                        row.Cells[0].Value = reader.GetInt32(0);
+                        string listElement = reader.GetString(1);
+                        res.AddLast(listElement);
+                        row.Cells[1].Value = listElement;
+                        row.Cells[2].Value = reader.GetString(2);
+                        c++;
+                    }
+                }
+                reader.Close();
+                connection.Close();
+            }
+            return res;
+        }
+        public string[] selectTypeAndSubtype(string idRaw)
+        {
+            string[] typeAndSubtype = new string [2];
+            string sqlCommand = string.Empty;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select t.name_type_raw, s.name_subtype From Subtype_raw s join Storage st " +
+                    " on st.id_subtype = s.id_subtype join Type_raw t " +
+                    "on t.id_type = s.id_type where st.id_raw = {0} ", idRaw);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        try
+                        {
+                            typeAndSubtype[0] = reader.GetInt32(0).ToString();
+                        }
+                        catch
+                        {
+                            typeAndSubtype[0] = "";
+                        }
+                        try
+                        {
+                            typeAndSubtype[1] = reader.GetInt32(1).ToString();
+                        }
+                        catch
+                        {
+                            typeAndSubtype[1] = "";
+                        }
+                        c++;
+                    }
+                }
+                reader.Close();
+                connection.Close();
+            }
+            return typeAndSubtype;
+        }
+        public bool addValuesImpurities(string nameTableValue, string nameAttrType, string valueAttr, string idRaw,
+            string levelQuality, string value)
+        {
+            string sqlCommand;
+            try
+            {
+                sqlCommand = string.Format("Insert into {0} ({1}, id_raw, {2}) values('{3}', {4}, '{5}')",
+                    nameTableValue, nameAttrType, valueAttr, levelQuality, idRaw, value);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+        }
+    }   
 }

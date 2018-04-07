@@ -90,6 +90,7 @@
             this.secnameTextBox.Size = new System.Drawing.Size(231, 22);
             this.secnameTextBox.TabIndex = 24;
             this.secnameTextBox.TextChanged += new System.EventHandler(this.secnameTextBox_TextChanged);
+            this.secnameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.secnameTextBox_KeyPress);
             // 
             // nameTextBox
             // 
@@ -100,6 +101,7 @@
             this.nameTextBox.Size = new System.Drawing.Size(231, 22);
             this.nameTextBox.TabIndex = 23;
             this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
+            this.nameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameTextBox_KeyPress);
             // 
             // surnameTextBox
             // 
@@ -110,6 +112,7 @@
             this.surnameTextBox.Size = new System.Drawing.Size(231, 22);
             this.surnameTextBox.TabIndex = 22;
             this.surnameTextBox.TextChanged += new System.EventHandler(this.surnameTextBox_TextChanged);
+            this.surnameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.surnameTextBox_KeyPress);
             // 
             // labelPost
             // 

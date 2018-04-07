@@ -18,5 +18,10 @@ namespace Elevator.Model
             this.IdRaw = idRaw;
             this.Value = value;
         }
+
+        public AbstractLevelOfQuality(string idRaw)
+        {
+            this.IdRaw = idRaw;
+        }
     }
 }

@@ -64,10 +64,11 @@
             // weightTextBox
             // 
             this.weightTextBox.Location = new System.Drawing.Point(159, 334);
-            this.weightTextBox.MaxLength = 20;
+            this.weightTextBox.MaxLength = 10;
             this.weightTextBox.Name = "weightTextBox";
             this.weightTextBox.Size = new System.Drawing.Size(231, 20);
             this.weightTextBox.TabIndex = 8;
+            this.weightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.weightTextBox_KeyPress);
             // 
             // yearNumericUpDown
             // 

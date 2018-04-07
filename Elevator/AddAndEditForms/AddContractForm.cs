@@ -83,5 +83,12 @@ namespace Elevator.AddAndEditForms
             else if (subdivisions.Length > 0)
                 subdivisionComboBox.Text = subdivisionComboBox.Items[0].ToString();
         }
+
+        private void goalTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char l = e.KeyChar;
+            if (l != '\b' && (l < 'А' || l > 'я'))
+                e.Handled = true;
+        }
     }
 }
