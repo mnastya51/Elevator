@@ -45,6 +45,7 @@
             this.textBoxNorm.Size = new System.Drawing.Size(256, 22);
             this.textBoxNorm.TabIndex = 76;
             this.textBoxNorm.TextChanged += new System.EventHandler(this.textBoxNorm_TextChanged);
+            this.textBoxNorm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNorm_KeyPress);
             // 
             // saveButton
             // 

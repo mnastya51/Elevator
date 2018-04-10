@@ -49,7 +49,7 @@
             // 
             this.impurityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.impurityComboBox.FormattingEnabled = true;
-            this.impurityComboBox.Location = new System.Drawing.Point(159, 11);
+            this.impurityComboBox.Location = new System.Drawing.Point(135, 11);
             this.impurityComboBox.Name = "impurityComboBox";
             this.impurityComboBox.Size = new System.Drawing.Size(200, 21);
             this.impurityComboBox.TabIndex = 63;
@@ -67,11 +67,12 @@
             // valueTextBox
             // 
             this.valueTextBox.BackColor = System.Drawing.Color.LightBlue;
-            this.valueTextBox.Location = new System.Drawing.Point(159, 47);
+            this.valueTextBox.Location = new System.Drawing.Point(135, 47);
             this.valueTextBox.Name = "valueTextBox";
             this.valueTextBox.Size = new System.Drawing.Size(200, 20);
             this.valueTextBox.TabIndex = 65;
             this.valueTextBox.TextChanged += new System.EventHandler(this.valueTextBox_TextChanged);
+            this.valueTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.valueTextBox_KeyPress);
             // 
             // saveButton
             // 
@@ -95,7 +96,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(371, 129);
+            this.ClientSize = new System.Drawing.Size(357, 129);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.valueTextBox);
             this.Controls.Add(this.label5);

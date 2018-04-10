@@ -15,13 +15,13 @@ namespace Elevator.Model
         public GrainLevelOfQualityNorm(string norm) : base(norm)
         {
         }
-        public GrainLevelOfQualityNorm(string raw, int classRaw) : base(raw, classRaw)
+        public GrainLevelOfQualityNorm(string raw, string classRaw) : base(raw, classRaw)
         {
         }
-        public GrainLevelOfQualityNorm(string typeImp, string norm, string raw, int classRaw) : base(typeImp, norm, raw, classRaw)
+        public GrainLevelOfQualityNorm(string typeImp, string norm, string raw, string classRaw) : base(typeImp, norm, raw, classRaw)
         {
         }
-        public GrainLevelOfQualityNorm(string typeImp, string raw, int classRaw) : base(typeImp, raw, classRaw)
+        public GrainLevelOfQualityNorm(string typeImp, string raw, string classRaw) : base(typeImp, raw, classRaw)
         {
         }
     }

@@ -295,7 +295,7 @@ namespace Elevator
                         string listElement = reader.GetString(0);
                         res.AddLast(listElement);
                         row.Cells[0].Value = listElement;
-                        row.Cells[1].Value = reader.GetString(1);
+                        row.Cells[1].Value = reader.GetFloat(1);
                         c++;
                     }
                 }
@@ -357,7 +357,7 @@ namespace Elevator
                         string listElement = reader.GetString(0);
                         res.AddLast(listElement);
                         row.Cells[0].Value = listElement;
-                        row.Cells[1].Value = reader.GetString(1);
+                        row.Cells[1].Value = reader.GetFloat(1);
                         c++;
                     }
                 }
@@ -1211,7 +1211,7 @@ namespace Elevator
                         string listElement = reader.GetString(1);
                         res.AddLast(listElement);
                         row.Cells[1].Value = listElement;
-                        row.Cells[2].Value = reader.GetString(2);
+                        row.Cells[2].Value = reader.GetFloat(2);
                         c++;
                     }
                 }

@@ -222,6 +222,13 @@ namespace Elevator.AddAndEditForms
             textBoxNorm.BackColor = !AddlevelOfQualityController.isEmpty(textBoxNorm.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
         }
 
+        private void textBoxNorm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char l = e.KeyChar;
+            if (l != '\b' && l != '.' && (l < '0' || l > '9'))
+                e.Handled = true;
+        }
+
         /*private void impComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             string[] classes = DAO.getInstance().getClasses();
@@ -230,4 +237,4 @@ namespace Elevator.AddAndEditForms
                 groupComboBox.Text = groupComboBox.Items[0].ToString();
         }*/
     }
-    }
+}
