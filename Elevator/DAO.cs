@@ -1283,5 +1283,54 @@ namespace Elevator
                 return false;
             }
         }
-    }   
+       
+        
+        public bool changeQuality(string idRaw, string nameTable, string levelQuality, string value, string valueAttr, string levelQualityAttr)
+        {
+            string sqlCommand;
+            try
+            {
+                sqlCommand = string.Format("Update {0} Set {1} = {2} where id_raw ={3} and " +
+                    "{4} = '{5}'",
+                    nameTable, valueAttr, value, idRaw, levelQualityAttr, levelQuality);
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+        }
+        public void findRawOnAnalysQuality(string sqlCommand, DataGridView dataGridView)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        dataGridView.Rows.Add();
+                        DataGridViewRow row = dataGridView.Rows[c];
+                        row.Cells[0].Value = reader.GetInt32(0);
+                        row.Cells[1].Value = reader.GetString(1);
+                        row.Cells[2].Value = reader.GetString(2);
+                        row.Cells[3].Value = reader.GetString(3);                        
+                        c++;
+                    }
+                }
+                reader.Close();               
+            }
+        }
+    }                          
 }

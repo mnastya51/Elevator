@@ -62,6 +62,54 @@ namespace Elevator.Controllers
             }
             else return true;
         }
+
+        public bool changeClick(GeneralLevelOfQuality generalLevelOfQuality)
+        {
+            if (!DAO.getInstance().changeQuality(generalLevelOfQuality.IdRaw, GeneralLevelOfQuality.NameTable,
+                generalLevelOfQuality.LevelQuality, generalLevelOfQuality.Value, GeneralLevelOfQuality.ValueAttr,
+                TypeGeneralLevelOfQuality.NameAttr))
+            {
+                MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else return true;
+        }
+
+        public bool changeClick(HarmfulLevelOfQuality harmfulLevelOfQuality)
+        {
+            if (!DAO.getInstance().changeQuality(harmfulLevelOfQuality.IdRaw, HarmfulLevelOfQuality.NameTable,
+                harmfulLevelOfQuality.LevelQuality, harmfulLevelOfQuality.Value, HarmfulLevelOfQuality.ValueAttr,
+                TypeHarmfulLevelOfQuality.NameAttr))
+            {
+                MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else return true;
+        }
+
+        public bool changeClick(WeedLevelOfQuality weedLevelOfQuality)
+        {
+            if (!DAO.getInstance().changeQuality(weedLevelOfQuality.IdRaw, WeedLevelOfQuality.NameTable,
+                weedLevelOfQuality.LevelQuality, weedLevelOfQuality.Value, WeedLevelOfQuality.ValueAttr,
+                TypeWeedLevelOfQuality.NameAttr))
+            {
+                MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else return true;
+        }
+
+        public bool changeClick(GrainLevelOfQuality grainLevelOfQuality)
+        {
+            if (!DAO.getInstance().changeQuality(grainLevelOfQuality.IdRaw, GrainLevelOfQuality.NameTable,
+                grainLevelOfQuality.LevelQuality, grainLevelOfQuality.Value, GrainLevelOfQuality.ValueAttr,
+                TypeGrainLevelOfQuality.NameAttr))
+            {
+                MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else return true;
+        }
     }
 }
 

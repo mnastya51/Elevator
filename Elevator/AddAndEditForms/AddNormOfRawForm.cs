@@ -154,34 +154,37 @@ namespace Elevator.AddAndEditForms
         private void saveButton_Click(object sender, EventArgs e)
         {
             if (forChange)
+            {
+                string norm = textBoxNorm.Text.Trim().Replace(",", ".");
                 switch (this.Text)
                 {
                     case "Изменение общего показателя качества":
-                        generalLevelOfQualityNorm.Norm = textBoxNorm.Text;
+                        generalLevelOfQualityNorm.Norm = norm;
                         if (controller.changeClick(generalLevelOfQualityNorm))
                             this.Close();
                         break;
                     case "Изменение вредного показателя качества":
-                        harmfulLevelOfQualityNorm.Norm = textBoxNorm.Text;
+                        harmfulLevelOfQualityNorm.Norm = norm;
                         if (controller.changeClick(harmfulLevelOfQualityNorm))
                             this.Close();
                         break;
                     case "Изменение сорного показателя качества":
-                        weedLevelOfQualityNorm.Norm = textBoxNorm.Text;
+                        weedLevelOfQualityNorm.Norm = norm;
                         if (controller.changeClick(weedLevelOfQualityNorm))
                             this.Close();
                         break;
                     case "Изменение зернового показателя качества":
-                        grainLevelOfQualityNorm.Norm = textBoxNorm.Text;
+                        grainLevelOfQualityNorm.Norm = norm;
                         if (controller.changeClick(grainLevelOfQualityNorm))
                             this.Close();
                         break;
                 }
+            }
             // if (controller.changeClick(valueImp, nameTable, raw, textBoxImpurity.Text, nameImp, nameNorm, numberClass))
-               
-                 //if (controller.changeClick(generalLevelOfQualityNorm))
-                 //   this.Close();
-            
+
+            //if (controller.changeClick(generalLevelOfQualityNorm))
+            //   this.Close();
+
             else
             {// if (controller.addClick(nameTableNorm, nameImp, impComboBox.Text, norm, raw, textBoxImpurity.Text, numberClass))
                 if (generalLevelOfQualityNorm != null)
@@ -191,7 +194,7 @@ namespace Elevator.AddAndEditForms
                     if (controller.addClick(generalLevelOfQualityNorm))
                         this.Close();
                 }
-                else if(harmfulLevelOfQualityNorm != null)
+                else if (harmfulLevelOfQualityNorm != null)
                 {
                     harmfulLevelOfQualityNorm.Norm = textBoxNorm.Text;
                     harmfulLevelOfQualityNorm.TypeImp = impComboBox.Text;

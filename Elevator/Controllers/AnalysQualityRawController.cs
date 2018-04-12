@@ -41,5 +41,25 @@ namespace Elevator.Controllers
                 new AddAnalysQualityRawForm(weedLevelOfQuality, imp).ShowDialog();
             else MessageBox.Show("У всех показателей качества определено значение!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+        public void changeButtonClick(GeneralLevelOfQuality generalLevelOfQuality, bool forChange)
+        {
+            new AddAnalysQualityRawForm(generalLevelOfQuality, forChange).ShowDialog();
+        }
+
+        public void changeButtonClick(HarmfulLevelOfQuality hurmfulLevelOfQuality, bool forChange)
+        {
+            new AddAnalysQualityRawForm(hurmfulLevelOfQuality, forChange).ShowDialog();
+        }
+
+        public void changeButtonClick(GrainLevelOfQuality grainLevelOfQuality, bool forChange)
+        {
+            new AddAnalysQualityRawForm(grainLevelOfQuality, forChange).ShowDialog();
+        }
+
+        public void changeButtonClick(WeedLevelOfQuality weedLevelOfQuality, bool forChange)
+        {
+            new AddAnalysQualityRawForm(weedLevelOfQuality, forChange).ShowDialog();
+        }
+
     }
 }

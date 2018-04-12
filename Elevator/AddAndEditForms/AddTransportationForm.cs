@@ -89,6 +89,7 @@ namespace Elevator.AddAndEditForms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            string weight = weightTextBox.Text.Trim().Replace(",", ".");
             if (this.Text == "Добавление поставки" || this.Text == "Изменение поставки")
             {
                 if (delivery == null)
@@ -98,7 +99,7 @@ namespace Elevator.AddAndEditForms
                     int idRaw = DAO.getInstance().addStorage(storage.Raw, storage.Type, storage.Subtype,
                         storage.Year);
                     delivery = new Delivery(idRaw, contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text,
-                        transportTextBox.Text, weightTextBox.Text);
+                        transportTextBox.Text, weight);
                     if (controller.onSaveClick(delivery, false))
                         this.Close();
                     else delivery = null;
@@ -115,7 +116,7 @@ namespace Elevator.AddAndEditForms
                 else
                 {
                     Storage st = new Storage(storage.IdRaw, rawComboBox.Text, typeComboBox.Text, subtypeComboBox.Text, yearNumericUpDown.Text);
-                    Delivery del = new Delivery(storage.IdRaw, contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text, transportTextBox.Text, weightTextBox.Text);
+                    Delivery del = new Delivery(storage.IdRaw, contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text, transportTextBox.Text, weight);
                     controller.changeStorage(st, del);
                     this.Close();
                     /*  contractor.Name = textBoxName.Text;
@@ -139,7 +140,7 @@ namespace Elevator.AddAndEditForms
                     int idRaw = DAO.getInstance().addStorage(storage.Raw, storage.Type, storage.Subtype,
                         storage.Year);
                     shipment = new Shipment(idRaw, contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text,
-                         transportTextBox.Text, weightTextBox.Text);
+                         transportTextBox.Text, weight);
                     if (controller.onSaveClick(shipment, false))
                         this.Close();
                     else shipment = null;
@@ -147,7 +148,7 @@ namespace Elevator.AddAndEditForms
                 else
                 {
                     Storage st = new Storage(storage.IdRaw, rawComboBox.Text, typeComboBox.Text, subtypeComboBox.Text, yearNumericUpDown.Text);
-                    Shipment sh = new Shipment(storage.IdRaw, contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text, transportTextBox.Text, weightTextBox.Text);
+                    Shipment sh = new Shipment(storage.IdRaw, contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text, transportTextBox.Text, weight);
                     controller.changeStorage(st, sh);
                     this.Close();
                 }

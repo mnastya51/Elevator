@@ -61,32 +61,85 @@ namespace Elevator.AddAndEditForms
             grainLevelOfQuality = newGrainLevelOfQuality;
         }
 
+        public AddAnalysQualityRawForm(GeneralLevelOfQuality newGeneralLevelOfQuality, bool change)
+        {
+            InitializeComponent();
+            controller = new AddAnalysQualityRawController();
+            this.Text = "Изменение общего показателя качества";
+            impurityComboBox.Items.Add(newGeneralLevelOfQuality.LevelQuality);
+            impurityComboBox.Text = newGeneralLevelOfQuality.LevelQuality;
+            impurityComboBox.Enabled = false;
+            valueTextBox.Text = newGeneralLevelOfQuality.Value;
+            generalLevelOfQuality = newGeneralLevelOfQuality;
+            forChange = change;
+        }
+
+        public AddAnalysQualityRawForm(HarmfulLevelOfQuality newharmfulLevelOfQuality, bool change)
+        {
+            InitializeComponent();
+            controller = new AddAnalysQualityRawController();
+            this.Text = "Изменение вредного показателя качества";
+            impurityComboBox.Items.Add(newharmfulLevelOfQuality.LevelQuality);
+            impurityComboBox.Text = newharmfulLevelOfQuality.LevelQuality;
+            impurityComboBox.Enabled = false;
+            valueTextBox.Text = newharmfulLevelOfQuality.Value;
+            forChange = change;
+            harmfulLevelOfQuality = newharmfulLevelOfQuality;
+        }
+
+        public AddAnalysQualityRawForm(WeedLevelOfQuality newWeedLevelOfQuality, bool change)
+        {
+            InitializeComponent();
+            controller = new AddAnalysQualityRawController();
+            this.Text = "Изменение сорного показателя качества";
+            impurityComboBox.Items.Add(newWeedLevelOfQuality.LevelQuality);
+            impurityComboBox.Text = newWeedLevelOfQuality.LevelQuality;
+            impurityComboBox.Enabled = false;
+            valueTextBox.Text = newWeedLevelOfQuality.Value;
+            forChange = change;
+            weedLevelOfQuality = newWeedLevelOfQuality;
+        }
+
+        public AddAnalysQualityRawForm(GrainLevelOfQuality newGrainLevelOfQuality, bool change)
+        {
+            InitializeComponent();
+            controller = new AddAnalysQualityRawController();
+            this.Text = "Изменение зернового показателя качества";
+            impurityComboBox.Items.Add(newGrainLevelOfQuality.LevelQuality);
+            impurityComboBox.Text = newGrainLevelOfQuality.LevelQuality;
+            impurityComboBox.Enabled = false;
+            valueTextBox.Text = newGrainLevelOfQuality.Value;
+            forChange = change;
+            grainLevelOfQuality = newGrainLevelOfQuality;
+        }
+
         private void saveButton_Click(object sender, EventArgs e)
         {
             if (forChange)
             {
+                string value = valueTextBox.Text.Trim().Replace(",", ".");
                 switch (this.Text)
                 {
                     case "Изменение общего показателя качества":
-                        /* generalLevelOfQualityNorm.Norm = textBoxNorm.Text;
-                         if (controller.changeClick(generalLevelOfQualityNorm))
-                             this.Close();*/
+                        generalLevelOfQuality.Value = value;
+                        if (controller.changeClick(generalLevelOfQuality))
+                            this.Close();
                         break;
-                        /*   case "Изменение вредного показателя качества":
-                               harmfulLevelOfQualityNorm.Norm = textBoxNorm.Text;
-                               if (controller.changeClick(harmfulLevelOfQualityNorm))
-                                   this.Close();
-                               break;
-                           case "Изменение сорного показателя качества":
-                               weedLevelOfQualityNorm.Norm = textBoxNorm.Text;
-                               if (controller.changeClick(weedLevelOfQualityNorm))
-                                   this.Close();
-                               break;
-                           case "Изменение зернового показателя качества":
-                               grainLevelOfQualityNorm.Norm = textBoxNorm.Text;
-                               if (controller.changeClick(grainLevelOfQualityNorm))
-                                   this.Close();
-                               break;*/
+                    case "Изменение вредного показателя качества":
+                        harmfulLevelOfQuality.Value = value;
+                        if (controller.changeClick(harmfulLevelOfQuality))
+                            this.Close();
+                        break;
+                    case "Изменение сорного показателя качества":
+                        weedLevelOfQuality.Value = value;
+                        if (controller.changeClick(weedLevelOfQuality))
+                            this.Close();
+                        break;
+                    case "Изменение зернового показателя качества":
+                        grainLevelOfQuality.Value = value;
+                        if (controller.changeClick(grainLevelOfQuality))
+                            this.Close();
+                        break;
                 }
             }
             else

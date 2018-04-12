@@ -1,5 +1,6 @@
 ﻿using Elevator.Controllers;
 using Elevator.Model;
+using Elevator.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -96,6 +97,56 @@ namespace Elevator.Forms
                     break;
             }
             selectAnalys(change);
+        }
+
+        private void changeButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataGridViewRow row = dataGridViewAnalys.SelectedRows[0];
+                switch (groupComboBox.Text)
+                {
+                    case "Общие показатели":
+                        GeneralLevelOfQuality generalLevelOfQualityNorm = new GeneralLevelOfQuality(Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[1].Value),
+                            Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[0].Value), Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[2].Value));
+                        controller.changeButtonClick(generalLevelOfQualityNorm, true);
+                        break;
+                    case "Вредные примеси":
+                        HarmfulLevelOfQuality harmfulLevelOfQuality = new HarmfulLevelOfQuality(Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[1].Value),
+                            Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[0].Value), Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[2].Value));
+                        controller.changeButtonClick(harmfulLevelOfQuality, true);
+                        break;
+                    case "Сорные примеси":
+                        WeedLevelOfQuality weedLevelOfQuality = new WeedLevelOfQuality(Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[1].Value),
+                            Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[0].Value), Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[2].Value));
+                        controller.changeButtonClick(weedLevelOfQuality, true);
+                        break;
+                    case "Зерновые примеси":
+                        GrainLevelOfQuality grainLevelOfQuality = new GrainLevelOfQuality(Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[1].Value),
+                            Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[0].Value), Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[2].Value));
+                        controller.changeButtonClick(grainLevelOfQuality, true);
+                        break;
+                }
+                selectAnalys(changeComboBox(groupComboBox.Text));
+            }
+            catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите запись!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        private void findButton_Click(object sender, EventArgs e)
+        {
+            dataGridViewRaw.Rows.Clear();
+            FilterUtils.FilterFormatter filterFormatter = new FilterUtils.FilterFormatter();
+            filterFormatter.addValue("date_delivery", dateTimePicker.Text);
+            filterFormatter.addValueWithRegisters("name_raw", rawTextBox.Text);
+            filterFormatter.addValueWithRegisters("name_contr", contractorTextBox.Text);         
+            string command = filterFormatter.getFormattedRequestForAnalysQuality();           
+            DAO.getInstance().findRawOnAnalysQuality(command, dataGridViewRaw);
+            dataGridViewRaw.ClearSelection();
+        }
+
+        private void btnAllList_Click(object sender, EventArgs e)
+        {
+            select();
         }
     }
 }
