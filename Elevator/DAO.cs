@@ -271,7 +271,7 @@ namespace Elevator
                 return false;
             }
         }
-        public LinkedList<string> selectNormsTableByRaw(string nameTable, string norm, string nameImp, string nameRaw, DataGridView dataGridViewNorms)
+        public LinkedList<string> selectNormsTableByRaw(string nameTable, string norm, string nameImp, string nameRaw, DataGridView dataGridViewNorms, string isMin)
         {
             if (!isClass(nameRaw))
                 addClass(nameRaw);
@@ -279,9 +279,14 @@ namespace Elevator
             LinkedList<string> res = new LinkedList<string>();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                sqlCommand = string.Format("Select n.{1}, n.{2} from {0} n join Class c " + 
+                if (isMin != "-1")
+                    sqlCommand = string.Format("Select n.{1}, n.{2}, n.{4} from {0} n join Class c " + 
                     "on c.id_class=n.id_class join Raw r on c.id_NameRaw=r.id_NameRaw " +
-                    "where r.name_raw = '{3}'", nameTable, nameImp, norm, nameRaw);
+                    "where r.name_raw = '{3}'", nameTable, nameImp, norm, nameRaw, isMin);
+                else
+                    sqlCommand = string.Format("Select n.{1}, n.{2} from {0} n join Class c " +
+                   "on c.id_class=n.id_class join Raw r on c.id_NameRaw=r.id_NameRaw " +
+                   "where r.name_raw = '{3}'", nameTable, nameImp, norm, nameRaw);
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
                 SqlDataReader reader = command.ExecuteReader();
@@ -296,6 +301,11 @@ namespace Elevator
                         res.AddLast(listElement);
                         row.Cells[0].Value = listElement;
                         row.Cells[1].Value = reader.GetFloat(1);
+                        try
+                        {
+                            row.Cells[2].Value = reader.GetBoolean(2);
+                        }
+                        catch { }
                         c++;
                     }
                 }
@@ -335,15 +345,20 @@ namespace Elevator
             }
         }
 
-        public LinkedList<string> selectNormsTableByClass(string nameTable, string norm, string nameImp, string nameClass, string nameRaw, DataGridView dataGridViewNorms)
+        public LinkedList<string> selectNormsTableByClass(string nameTable, string norm, string nameImp, string nameClass, string nameRaw, DataGridView dataGridViewNorms, string isMin)
         {
             string sqlCommand = string.Empty;
             LinkedList<string> res = new LinkedList<string>();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                sqlCommand = string.Format("Select n.{1}, n.{2} from {0} n join Class c " +
+                if(isMin != "-1")
+                    sqlCommand = string.Format("Select n.{1}, n.{2}, n.{5} from {0} n join Class c " +
                     "on c.id_class=n.id_class join Raw r on r.id_NameRaw = c.id_NameRaw where c.number_class = '{3}' and r.name_raw = '{4}'", 
-                    nameTable, nameImp, norm, nameClass, nameRaw);
+                    nameTable, nameImp, norm, nameClass, nameRaw, isMin);
+                else
+                    sqlCommand = string.Format("Select n.{1}, n.{2} from {0} n join Class c " +
+                   "on c.id_class=n.id_class join Raw r on r.id_NameRaw = c.id_NameRaw where c.number_class = '{3}' and r.name_raw = '{4}'",
+                   nameTable, nameImp, norm, nameClass, nameRaw);
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
                 SqlDataReader reader = command.ExecuteReader();
@@ -358,6 +373,11 @@ namespace Elevator
                         res.AddLast(listElement);
                         row.Cells[0].Value = listElement;
                         row.Cells[1].Value = reader.GetFloat(1);
+                        try
+                        {
+                            row.Cells[2].Value = reader.GetBoolean(2);
+                        }
+                        catch { }
                         c++;
                     }
                 }
@@ -447,7 +467,56 @@ namespace Elevator
             }
         }
 
-        public bool changeNorm(string valueImp, string nameTable, string raw, string valueNorm, string nameImp, string nameNorm, string numberClass)
+        public bool addNormGeneral(string nameTable, string name_imp, string valImp, string norm, string raw, 
+            string value, string numberClass, bool isMin, string isMinAttr)
+        {
+            string sqlCommand;
+            if (numberClass != "")
+            {
+                try
+                {
+                    sqlCommand = string.Format("Insert into {0} ({1}, id_class, {2}, {7}) values('{3}', " +
+                        "(select c.id_class from Class c join Raw r on c.id_NameRaw = r.id_NameRaw where "+
+                        "r.name_raw = '{4}' and c.number_class = {6}), '{5}', '{8}')",
+                        nameTable, name_imp, norm, valImp, raw, value, numberClass, isMinAttr, isMin);
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return true;
+                }
+                catch (SqlException)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                try
+                {
+                    sqlCommand = string.Format("Insert into {0} ({1}, id_class, {2}, {6}) values('{3}', " +
+                        "(select c.id_class from Class c join Raw r on c.id_NameRaw = r.id_NameRaw where "+
+                        "r.name_raw = '{4}'), '{5}', '{7}')",
+                        nameTable, name_imp, norm, valImp, raw, value, isMinAttr, isMin);
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return true;
+                }
+                catch (SqlException)
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool changeNorm(string valueImp, string nameTable, string raw, string valueNorm, string nameImp, 
+            string nameNorm, string numberClass)
         {
             string sqlCommand;
             if (numberClass != "")
@@ -455,7 +524,8 @@ namespace Elevator
                 try
                 {
                     sqlCommand = string.Format("Update {0} Set {1} = '{2}' where {3}='{4}' and " +
-                        "id_class = (select c.id_class from Class c join Raw r on c.id_NameRaw = r.id_NameRaw where r.name_raw ='{5}' and c.number_class = {6})",
+                        "id_class = (select c.id_class from Class c join Raw r on c.id_NameRaw = "+
+                        " r.id_NameRaw where r.name_raw ='{5}' and c.number_class = {6})",
                         nameTable, nameNorm, valueNorm, nameImp, valueImp, raw, numberClass);
 
                     using (SqlConnection connection = new SqlConnection(connectionString))
@@ -495,6 +565,59 @@ namespace Elevator
                 }
             }       
         }
+
+        public bool changeNormGeneral(string valueImp, string nameTable, string raw, string valueNorm, string nameImp,
+           string nameNorm, string numberClass, bool isMin, string isMinAttr)
+        {
+            string sqlCommand;
+            if (numberClass != "")
+            {
+                try
+                {
+                    sqlCommand = string.Format("Update {0} Set {1} = '{2}', {7} = '{8}' where {3}='{4}' and " +
+                        "id_class = (select c.id_class from Class c join Raw r on c.id_NameRaw = "+
+                        "r.id_NameRaw where r.name_raw ='{5}' and c.number_class = {6})",
+                        nameTable, nameNorm, valueNorm, nameImp, valueImp, raw, numberClass, isMinAttr, isMin);
+
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                        cmd.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                    return true;
+                }
+                catch (SqlException)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                try
+                {
+                    sqlCommand = string.Format("Update {0} Set {1} = '{2}', {6} = '{7}' where {3}='{4}' and " +
+                        "id_class = (select c.id_class from Class c join Raw r on c.id_NameRaw = "+
+                        "r.id_NameRaw where r.name_raw ='{5}')",
+                        nameTable, nameNorm, valueNorm, nameImp, valueImp, raw, isMinAttr, isMin);
+
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                        cmd.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                    return true;
+                }
+                catch (SqlException)
+                {
+                    return false;
+                }
+            }
+        }
+
         public void deleteNorm(string nameTable, string nameImp, string valueImp, string raw, string numberClass)
         {
             string sqlCommand;
@@ -1308,7 +1431,7 @@ namespace Elevator
                 return false;
             }
         }
-        public void findRawOnAnalysQuality(string sqlCommand, DataGridView dataGridView)
+        public void findRaw(string sqlCommand, DataGridView dataGridView)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

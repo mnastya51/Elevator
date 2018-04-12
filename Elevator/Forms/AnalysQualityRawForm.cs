@@ -139,8 +139,8 @@ namespace Elevator.Forms
             filterFormatter.addValue("date_delivery", dateTimePicker.Text);
             filterFormatter.addValueWithRegisters("name_raw", rawTextBox.Text);
             filterFormatter.addValueWithRegisters("name_contr", contractorTextBox.Text);         
-            string command = filterFormatter.getFormattedRequestForAnalysQuality();           
-            DAO.getInstance().findRawOnAnalysQuality(command, dataGridViewRaw);
+            string command = filterFormatter.getFormattedRequestForFindRaw();           
+            DAO.getInstance().findRaw(command, dataGridViewRaw);
             dataGridViewRaw.ClearSelection();
         }
 

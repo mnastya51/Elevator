@@ -90,6 +90,12 @@
     <Compile Include="AddAndEditForms\AddContractorForm.Designer.cs">
       <DependentUpon>AddContractorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddAndEditForms\AddNormOfGeneralLevelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAndEditForms\AddNormOfGeneralLevelForm.Designer.cs">
+      <DependentUpon>AddNormOfGeneralLevelForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddAndEditForms\AddTransportationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,12 @@
     <Compile Include="Controllers\RawController.cs" />
     <Compile Include="Controllers\StoragePlaceController.cs" />
     <Compile Include="DAO.cs" />
+    <Compile Include="Forms\DateAnalysForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DateAnalysForm.Designer.cs">
+      <DependentUpon>DateAnalysForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\AbstractLevelOfQuality.cs" />
     <Compile Include="Model\AbstractTransportation.cs" />
     <Compile Include="Model\AbstractTypeLevelOfQuality.cs" />
@@ -287,6 +299,9 @@
     <EmbeddedResource Include="AddAndEditForms\AddContractorForm.resx">
       <DependentUpon>AddContractorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddAndEditForms\AddNormOfGeneralLevelForm.resx">
+      <DependentUpon>AddNormOfGeneralLevelForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddAndEditForms\AddTransportationForm.resx">
       <DependentUpon>AddTransportationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -322,6 +337,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ContractorForm.resx">
       <DependentUpon>ContractorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DateAnalysForm.resx">
+      <DependentUpon>DateAnalysForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TransportationForm.resx">
       <DependentUpon>TransportationForm.cs</DependentUpon>

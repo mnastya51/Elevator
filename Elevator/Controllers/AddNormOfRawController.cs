@@ -22,9 +22,10 @@ namespace Elevator.Controllers
 
         public bool addClick(GeneralLevelOfQualityNorm generalLevelOfQualityNorm)
         {
-            if (!DAO.getInstance().addNorm(GeneralLevelOfQualityNorm.NameTable, GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr,
+            if (!DAO.getInstance().addNormGeneral(GeneralLevelOfQualityNorm.NameTable, GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr,
                 generalLevelOfQualityNorm.TypeImp, GeneralLevelOfQualityNorm.NormAttr, generalLevelOfQualityNorm.Raw,
-                 generalLevelOfQualityNorm.Norm, Convert.ToString(generalLevelOfQualityNorm.ClassRaw)))
+                 generalLevelOfQualityNorm.Norm, Convert.ToString(generalLevelOfQualityNorm.ClassRaw),
+                 generalLevelOfQualityNorm.Isminimum, GeneralLevelOfQualityNorm.IsminimumAttr))
             {
                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -80,9 +81,10 @@ namespace Elevator.Controllers
 
         public bool changeClick(GeneralLevelOfQualityNorm generalLevelOfQualityNorm)
         {
-            if (!DAO.getInstance().changeNorm(generalLevelOfQualityNorm.TypeImp, GeneralLevelOfQualityNorm.NameTable,
+            if (!DAO.getInstance().changeNormGeneral(generalLevelOfQualityNorm.TypeImp, GeneralLevelOfQualityNorm.NameTable,
                 generalLevelOfQualityNorm.Raw, generalLevelOfQualityNorm.Norm, GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr, 
-                GeneralLevelOfQualityNorm.NormAttr, generalLevelOfQualityNorm.ClassRaw.ToString()))
+                GeneralLevelOfQualityNorm.NormAttr, generalLevelOfQualityNorm.ClassRaw.ToString(), 
+                generalLevelOfQualityNorm.Isminimum, GeneralLevelOfQualityNorm.IsminimumAttr))
             {
                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;

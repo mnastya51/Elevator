@@ -48,7 +48,7 @@ namespace Elevator.Utils
                 }
                 return res;
             }
-            public string getFormattedRequestForAnalysQuality()
+            public string getFormattedRequestForFindRaw()
             {
                 string res = string.Format("Select st.id_raw, c.name_contr, r.name_raw, d.date_delivery From Contractor c join Delivery d " +
                     "on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join Raw r on st.id_NameRaw = " +

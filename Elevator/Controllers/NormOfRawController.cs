@@ -19,7 +19,7 @@ namespace Elevator.Controllers
         {
             string[] imp = DAO.getInstance().getImpurity(TypeGeneralLevelOfQuality.NameTable, GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr, impurities);
             if (imp.Length > 0)
-                new AddNormOfRawForm(generalLevelOfQualityNorm, imp).ShowDialog();
+                new AddNormOfGeneralLevelForm(generalLevelOfQualityNorm, imp).ShowDialog();
             else MessageBox.Show("У всех показателей качества определена норма!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         public void addButtonClick(HarmfulLevelOfQualityNorm hurmfulLevelOfQualityNorm, LinkedList<string> impurities)
@@ -50,7 +50,7 @@ namespace Elevator.Controllers
 
         public void changeButtonClick(GeneralLevelOfQualityNorm generalLevelOfQualityNorm, bool forChange)
         {
-            new AddNormOfRawForm(generalLevelOfQualityNorm, forChange).ShowDialog();
+            new AddNormOfGeneralLevelForm(generalLevelOfQualityNorm, forChange).ShowDialog();
         }
 
         public void changeButtonClick(HarmfulLevelOfQualityNorm hurmfulLevelOfQualityNorm, bool forChange)

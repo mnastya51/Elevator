@@ -356,11 +356,11 @@
             this.defineClassButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.defineClassButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.defineClassButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.defineClassButton.Location = new System.Drawing.Point(299, 12);
+            this.defineClassButton.Location = new System.Drawing.Point(283, 12);
             this.defineClassButton.Name = "defineClassButton";
-            this.defineClassButton.Size = new System.Drawing.Size(153, 28);
+            this.defineClassButton.Size = new System.Drawing.Size(169, 28);
             this.defineClassButton.TabIndex = 53;
-            this.defineClassButton.Text = "Определить класс";
+            this.defineClassButton.Text = "Проверить состояние";
             this.defineClassButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.defineClassButton.UseVisualStyleBackColor = false;
             // 

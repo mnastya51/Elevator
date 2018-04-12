@@ -31,8 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewNorms = new System.Windows.Forms.DataGridView();
-            this.Impurity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Norm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteButton = new System.Windows.Forms.Button();
             this.changeButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
@@ -44,6 +42,9 @@
             this.groupComboBox = new System.Windows.Forms.ComboBox();
             this.labelName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.Impurity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Norm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNorms)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +68,8 @@
             this.dataGridViewNorms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewNorms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Impurity,
-            this.Norm});
+            this.Norm,
+            this.Column1});
             this.dataGridViewNorms.EnableHeadersVisualStyles = false;
             this.dataGridViewNorms.Location = new System.Drawing.Point(12, 157);
             this.dataGridViewNorms.MultiSelect = false;
@@ -80,18 +82,6 @@
             this.dataGridViewNorms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewNorms.Size = new System.Drawing.Size(456, 163);
             this.dataGridViewNorms.TabIndex = 67;
-            // 
-            // Impurity
-            // 
-            this.Impurity.HeaderText = "Показатель";
-            this.Impurity.Name = "Impurity";
-            this.Impurity.ReadOnly = true;
-            // 
-            // Norm
-            // 
-            this.Norm.HeaderText = "Норма";
-            this.Norm.Name = "Norm";
-            this.Norm.ReadOnly = true;
             // 
             // deleteButton
             // 
@@ -184,7 +174,7 @@
             this.showButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.showButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.showButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.showButton.Location = new System.Drawing.Point(348, 51);
+            this.showButton.Location = new System.Drawing.Point(348, 54);
             this.showButton.Name = "showButton";
             this.showButton.Size = new System.Drawing.Size(90, 34);
             this.showButton.TabIndex = 67;
@@ -238,6 +228,25 @@
             this.label1.TabIndex = 56;
             this.label1.Text = "Группа:";
             // 
+            // Impurity
+            // 
+            this.Impurity.HeaderText = "Показатель";
+            this.Impurity.Name = "Impurity";
+            this.Impurity.ReadOnly = true;
+            // 
+            // Norm
+            // 
+            this.Norm.HeaderText = "Норма";
+            this.Norm.Name = "Norm";
+            this.Norm.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "IsMin";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
             // NormsOfRawForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,9 +279,10 @@
         private System.Windows.Forms.ComboBox groupComboBox;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Impurity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Norm;
         private System.Windows.Forms.ComboBox comboBoxClass;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Impurity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Norm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

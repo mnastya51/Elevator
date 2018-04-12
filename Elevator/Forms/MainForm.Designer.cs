@@ -41,6 +41,7 @@
             this.contractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deliveryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analysisQualityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataAnalysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отгрузкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +50,6 @@
             this.прочиеОтчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сменитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataAnalysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -158,6 +158,13 @@
             this.analysisQualityToolStripMenuItem.Text = "Анализ качества";
             this.analysisQualityToolStripMenuItem.Click += new System.EventHandler(this.analysisQualityToolStripMenuItem_Click);
             // 
+            // dataAnalysToolStripMenuItem
+            // 
+            this.dataAnalysToolStripMenuItem.Name = "dataAnalysToolStripMenuItem";
+            this.dataAnalysToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.dataAnalysToolStripMenuItem.Text = "Даты анализа хранилищ";
+            this.dataAnalysToolStripMenuItem.Click += new System.EventHandler(this.dataAnalysToolStripMenuItem_Click);
+            // 
             // processingToolStripMenuItem
             // 
             this.processingToolStripMenuItem.Name = "processingToolStripMenuItem";
@@ -210,12 +217,6 @@
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
             this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.справкаToolStripMenuItem.Text = "Справка";
-            // 
-            // dataAnalysToolStripMenuItem
-            // 
-            this.dataAnalysToolStripMenuItem.Name = "dataAnalysToolStripMenuItem";
-            this.dataAnalysToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.dataAnalysToolStripMenuItem.Text = "Даты анализа хранилищ";
             // 
             // MainForm
             // 

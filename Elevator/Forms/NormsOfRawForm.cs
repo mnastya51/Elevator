@@ -31,7 +31,7 @@ namespace Elevator.Forms
         private string[] changeComboBox(string nameTable)
         {
             if (nameTable == "Общие показатели")
-                return new string[] {GeneralLevelOfQualityNorm.NameTable, GeneralLevelOfQualityNorm.NormAttr, GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr};
+                return new string[] {GeneralLevelOfQualityNorm.NameTable, GeneralLevelOfQualityNorm.NormAttr, GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr, GeneralLevelOfQualityNorm .IsminimumAttr};
             else if (nameTable == "Вредные примеси")
                 return new string[] {HarmfulLevelOfQualityNorm.NameTable, HarmfulLevelOfQualityNorm.NormAttr, HarmfulLevelOfQualityNorm.TypeOfLevelQualityAttr};
             else if (nameTable == "Зерновые примеси")
@@ -58,17 +58,20 @@ namespace Elevator.Forms
         private void select(string[] change)
         {
             dataGridViewNorms.Rows.Clear();
+            string isMin = "-1";
+            try  { isMin = change[3];}
+            catch { }
             if (comboBoxClass.Text == "")
             {
                 impurities = DAO.getInstance().selectNormsTableByRaw(change[0], //название таблицы
                      change[1], change[2], rawComboBox.Text, //поле для заполнение нормы, наим показателя, имя сырья
-                      dataGridViewNorms);
+                      dataGridViewNorms, isMin);
             }
             else
             {
                 impurities = DAO.getInstance().selectNormsTableByClass(change[0], //название таблицы
                     change[1], change[2], comboBoxClass.Text, rawComboBox.Text,//поле для заполнение нормы, наим показателя, класс, имя сырья
-                     dataGridViewNorms);
+                     dataGridViewNorms, isMin);
             }
             dataGridViewNorms.ClearSelection();
         }
@@ -120,7 +123,7 @@ namespace Elevator.Forms
                 {
                     case "Общие показатели":
                         GeneralLevelOfQualityNorm generalLevelOfQualityNorm = new GeneralLevelOfQualityNorm(Convert.ToString(dataGridViewNorms.CurrentRow.Cells[0].Value),
-                            Convert.ToString(dataGridViewNorms.CurrentRow.Cells[1].Value), rawComboBox.Text, comboBoxClass.Text);
+                            Convert.ToString(dataGridViewNorms.CurrentRow.Cells[1].Value), rawComboBox.Text, comboBoxClass.Text, Convert.ToBoolean(dataGridViewNorms.CurrentRow.Cells[2].Value));
                         controller.changeButtonClick(generalLevelOfQualityNorm, true);
                       /*  controller.changeButtonClick(Convert.ToString(dataGridViewNorms.CurrentRow.Cells[0].Value),
                     Convert.ToString(dataGridViewNorms.CurrentRow.Cells[1].Value), change[0],

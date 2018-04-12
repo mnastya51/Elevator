@@ -15,7 +15,6 @@ namespace Elevator.AddAndEditForms
     public partial class AddNormOfRawForm : Form
     {
         private AddNormOfRawController controller;
-        private GeneralLevelOfQualityNorm generalLevelOfQualityNorm;
         private HarmfulLevelOfQualityNorm harmfulLevelOfQualityNorm;
         private WeedLevelOfQualityNorm weedLevelOfQualityNorm;
         private GrainLevelOfQualityNorm grainLevelOfQualityNorm;
@@ -44,7 +43,7 @@ namespace Elevator.AddAndEditForms
              forChange = false;
              numberClass = newNumberClass;
          }*/
-        public AddNormOfRawForm(GeneralLevelOfQualityNorm newGeneralLevelOfQualityNorm, string[] impurities)
+       /* public AddNormOfRawForm(GeneralLevelOfQualityNorm newGeneralLevelOfQualityNorm, string[] impurities)
         {
             InitializeComponent();
             controller = new AddNormOfRawController();
@@ -52,7 +51,7 @@ namespace Elevator.AddAndEditForms
             impComboBox.Items.AddRange(impurities);
             impComboBox.Text = impComboBox.Items[0].ToString();   
             generalLevelOfQualityNorm = newGeneralLevelOfQualityNorm;
-        }
+        }*/
 
         public AddNormOfRawForm(HarmfulLevelOfQualityNorm newharmfulLevelOfQualityNorm, string[] impurities)
         {
@@ -99,7 +98,7 @@ namespace Elevator.AddAndEditForms
              numberClass = newNumberClass;
          }*/
 
-        public AddNormOfRawForm(GeneralLevelOfQualityNorm newGeneralLevelOfQualityNorm, bool change)
+        /*public AddNormOfRawForm(GeneralLevelOfQualityNorm newGeneralLevelOfQualityNorm, bool change)
         {
             InitializeComponent();
             controller = new AddNormOfRawController();
@@ -110,7 +109,7 @@ namespace Elevator.AddAndEditForms
             textBoxNorm.Text = newGeneralLevelOfQualityNorm.Norm;
             generalLevelOfQualityNorm = newGeneralLevelOfQualityNorm;
             forChange = change;            
-         }
+         }*/
 
         public AddNormOfRawForm(HarmfulLevelOfQualityNorm newharmfulLevelOfQualityNorm, bool change)
         {
@@ -158,11 +157,11 @@ namespace Elevator.AddAndEditForms
                 string norm = textBoxNorm.Text.Trim().Replace(",", ".");
                 switch (this.Text)
                 {
-                    case "Изменение общего показателя качества":
+                    /*case "Изменение общего показателя качества":
                         generalLevelOfQualityNorm.Norm = norm;
                         if (controller.changeClick(generalLevelOfQualityNorm))
                             this.Close();
-                        break;
+                        break;*/
                     case "Изменение вредного показателя качества":
                         harmfulLevelOfQualityNorm.Norm = norm;
                         if (controller.changeClick(harmfulLevelOfQualityNorm))
@@ -187,14 +186,14 @@ namespace Elevator.AddAndEditForms
 
             else
             {// if (controller.addClick(nameTableNorm, nameImp, impComboBox.Text, norm, raw, textBoxImpurity.Text, numberClass))
-                if (generalLevelOfQualityNorm != null)
+               /* if (generalLevelOfQualityNorm != null)
                 {
                     generalLevelOfQualityNorm.Norm = textBoxNorm.Text;
                     generalLevelOfQualityNorm.TypeImp = impComboBox.Text;
                     if (controller.addClick(generalLevelOfQualityNorm))
                         this.Close();
-                }
-                else if (harmfulLevelOfQualityNorm != null)
+                }*/
+                if (harmfulLevelOfQualityNorm != null)
                 {
                     harmfulLevelOfQualityNorm.Norm = textBoxNorm.Text;
                     harmfulLevelOfQualityNorm.TypeImp = impComboBox.Text;

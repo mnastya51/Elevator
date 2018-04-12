@@ -67,5 +67,10 @@ namespace Elevator.Forms
         {
             new AnalysQualityRawForm().ShowDialog();
         }
+
+        private void dataAnalysToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

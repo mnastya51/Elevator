@@ -12,10 +12,14 @@ namespace Elevator.Model
         public string Raw { get; set; }
         public string ClassRaw { get; set; }
         public string TypeImp { get; set; }
+
+        public AbstractQualityLevelNorm() { }
+
         public AbstractQualityLevelNorm(string norm)
         {
             this.Norm = norm;
         }
+
         public AbstractQualityLevelNorm(string raw, string classRaw)
         {
             this.Raw = raw;
