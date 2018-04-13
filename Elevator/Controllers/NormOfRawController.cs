@@ -74,23 +74,23 @@ namespace Elevator.Controllers
         } */
         public void deleteButtonClick(GeneralLevelOfQualityNorm generalLevelOfQualityNorm)
         {
-            DAO.getInstance().deleteNorm(GeneralLevelOfQualityNorm.NameTable, GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr,
-                generalLevelOfQualityNorm.TypeImp, generalLevelOfQualityNorm.Raw, generalLevelOfQualityNorm.ClassRaw.ToString());
+            DAO.getInstance().deleteNorm(GeneralLevelOfQualityNorm.NameTable, GeneralLevelOfQualityNorm.IdAttr,
+                generalLevelOfQualityNorm.Id);
         }
         public void deleteButtonClick(HarmfulLevelOfQualityNorm hurmfulLevelOfQualityNorm)
         {
-            DAO.getInstance().deleteNorm(HarmfulLevelOfQualityNorm.NameTable, HarmfulLevelOfQualityNorm.TypeOfLevelQualityAttr,
-                hurmfulLevelOfQualityNorm.TypeImp, hurmfulLevelOfQualityNorm.Raw, hurmfulLevelOfQualityNorm.ClassRaw.ToString());
+            DAO.getInstance().deleteNorm(HarmfulLevelOfQualityNorm.NameTable, HarmfulLevelOfQualityNorm.IdAttr,
+                hurmfulLevelOfQualityNorm.Id);
         }
         public void deleteButtonClick(WeedLevelOfQualityNorm weedLevelOfQualityNorm)
         {
-            DAO.getInstance().deleteNorm(WeedLevelOfQualityNorm.NameTable, WeedLevelOfQualityNorm.TypeOfLevelQualityAttr,
-                weedLevelOfQualityNorm.TypeImp, weedLevelOfQualityNorm.Raw, weedLevelOfQualityNorm.ClassRaw.ToString());
+            DAO.getInstance().deleteNorm(WeedLevelOfQualityNorm.NameTable, WeedLevelOfQualityNorm.IdAttr,
+                weedLevelOfQualityNorm.Id);
         }
         public void deleteButtonClick(GrainLevelOfQualityNorm grainLevelOfQualityNorm)
         {
-            DAO.getInstance().deleteNorm(GrainLevelOfQualityNorm.NameTable, GrainLevelOfQualityNorm.TypeOfLevelQualityAttr,
-                grainLevelOfQualityNorm.TypeImp, grainLevelOfQualityNorm.Raw, grainLevelOfQualityNorm.ClassRaw.ToString());
+            DAO.getInstance().deleteNorm(GrainLevelOfQualityNorm.NameTable, GrainLevelOfQualityNorm.IdAttr,
+                grainLevelOfQualityNorm.Id);
         }
     }
 }

@@ -19,7 +19,8 @@ namespace Elevator.AddAndEditForms
         private string type;
         private string subtype;
         private bool forChange = false;
-        public AddNormOfGeneralLevelForm(GeneralLevelOfQualityNorm newGeneralLevelOfQualityNorm, string[] impurities, string newType, string newSubtype)
+        public AddNormOfGeneralLevelForm(GeneralLevelOfQualityNorm newGeneralLevelOfQualityNorm,
+            string[] impurities, string newType, string newSubtype)
         {
             InitializeComponent();
             controller = new AddNormOfRawController();          
@@ -30,7 +31,8 @@ namespace Elevator.AddAndEditForms
             subtype = newSubtype;
         }
 
-        public AddNormOfGeneralLevelForm(GeneralLevelOfQualityNorm newGeneralLevelOfQualityNorm, bool change)
+        public AddNormOfGeneralLevelForm(GeneralLevelOfQualityNorm newGeneralLevelOfQualityNorm,
+            bool change)
         {
             InitializeComponent();
             controller = new AddNormOfRawController();

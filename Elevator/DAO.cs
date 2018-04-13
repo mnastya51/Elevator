@@ -599,117 +599,14 @@ namespace Elevator
             }
         }       
 
-        public bool changeNorm(string valueImp, string nameTable, string raw, string valueNorm, string nameImp, 
-            string nameNorm, string numberClass)
+        public bool changeNorm(string nameTable, string idAttr, string valueNorm, string id,
+           string nameNorm)
         {
             string sqlCommand;
-            if (numberClass != "")
+            try
             {
-                try
-                {
-                    sqlCommand = string.Format("Update {0} Set {1} = '{2}' where {3}='{4}' and " +
-                        "id_class = (select c.id_class from Class c join Raw r on c.id_NameRaw = "+
-                        " r.id_NameRaw where r.name_raw ='{5}' and c.number_class = {6})",
-                        nameTable, nameNorm, valueNorm, nameImp, valueImp, raw, numberClass);
-
-                    using (SqlConnection connection = new SqlConnection(connectionString))
-                    {
-                        connection.Open();
-                        SqlCommand cmd = new SqlCommand(sqlCommand, connection);
-                        cmd.ExecuteNonQuery();
-                        connection.Close();
-                    }
-                    return true;
-                }
-                catch (SqlException)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                try
-                {
-                    sqlCommand = string.Format("Update {0} Set {1} = '{2}' where {3}='{4}' and " +
-                        "id_class = (select c.id_class from Class c join Raw r on c.id_NameRaw = r.id_NameRaw where r.name_raw ='{5}')",
-                        nameTable, nameNorm, valueNorm, nameImp, valueImp, raw);
-
-                    using (SqlConnection connection = new SqlConnection(connectionString))
-                    {
-                        connection.Open();
-                        SqlCommand cmd = new SqlCommand(sqlCommand, connection);
-                        cmd.ExecuteNonQuery();
-                        connection.Close();
-                    }
-                    return true;
-                }
-                catch (SqlException)
-                {
-                    return false;
-                }
-            }       
-        }
-
-        public bool changeNormGeneral(string valueImp, string nameTable, string raw, string valueNorm, string nameImp,
-           string nameNorm, string numberClass, bool isMin, string isMinAttr)
-        {
-            string sqlCommand;
-            if (numberClass != "")
-            {
-                try
-                {
-                    sqlCommand = string.Format("Update {0} Set {1} = '{2}', {7} = '{8}' where {3}='{4}' and " +
-                        "id_class = (select c.id_class from Class c join Raw r on c.id_NameRaw = "+
-                        "r.id_NameRaw where r.name_raw ='{5}' and c.number_class = {6})",
-                        nameTable, nameNorm, valueNorm, nameImp, valueImp, raw, numberClass, isMinAttr, isMin);
-
-                    using (SqlConnection connection = new SqlConnection(connectionString))
-                    {
-                        connection.Open();
-                        SqlCommand cmd = new SqlCommand(sqlCommand, connection);
-                        cmd.ExecuteNonQuery();
-                        connection.Close();
-                    }
-                    return true;
-                }
-                catch (SqlException)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                try
-                {
-                    sqlCommand = string.Format("Update {0} Set {1} = '{2}', {6} = '{7}' where {3}='{4}' and " +
-                        "id_class = (select c.id_class from Class c join Raw r on c.id_NameRaw = "+
-                        "r.id_NameRaw where r.name_raw ='{5}')",
-                        nameTable, nameNorm, valueNorm, nameImp, valueImp, raw, isMinAttr, isMin);
-
-                    using (SqlConnection connection = new SqlConnection(connectionString))
-                    {
-                        connection.Open();
-                        SqlCommand cmd = new SqlCommand(sqlCommand, connection);
-                        cmd.ExecuteNonQuery();
-                        connection.Close();
-                    }
-                    return true;
-                }
-                catch (SqlException)
-                {
-                    return false;
-                }
-            }
-        }
-
-        public void deleteNorm(string nameTable, string nameImp, string valueImp, string raw, string numberClass)
-        {
-            string sqlCommand;
-            if (numberClass != "")
-            {
-                sqlCommand = string.Format("Delete {0} where {1}='{2}' and id_class = (select c.id_class from Class c join Raw r " +
-                "on c.id_NameRaw = r.id_NameRaw where r.name_raw ='{3}'  and c.number_class = {4})",
-                nameTable, nameImp, valueImp, raw, numberClass);
+                sqlCommand = string.Format("Update {0} Set {1} = '{2}' where {3}='{4}'",
+                nameTable, nameNorm, valueNorm, idAttr, id);
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -717,21 +614,49 @@ namespace Elevator
                     cmd.ExecuteNonQuery();
                     connection.Close();
                 }
+                return true;
             }
-            else
+            catch (SqlException)
             {
-                sqlCommand = string.Format("Delete {0} where {1}='{2}' and id_class = (select c.id_class from Class c join Raw r " +
-                "on c.id_NameRaw = r.id_NameRaw where r.name_raw ='{3}')",
-                nameTable, nameImp, valueImp, raw);
+                return false;
+            }                     
+        }
+
+        public bool changeNormGeneral(string nameTable, string idAttr, string valueNorm, string id,
+           string nameNorm, bool isMin, string isMinAttr)
+        {
+            string sqlCommand;
+            try
+            {
+               sqlCommand = string.Format("Update {0} Set {1} = '{2}', {5} = '{6}' where {3}='{4}'",
+                    nameTable, nameNorm, valueNorm, idAttr, id, isMinAttr, isMin);               
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     SqlCommand cmd = new SqlCommand(sqlCommand, connection);
                     cmd.ExecuteNonQuery();
-                    connection.Close();
                 }
-            }               
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
+
+        public void deleteNorm(string nameTable, string idAttr, string id)
+        {
+            string sqlCommand;
+            sqlCommand = string.Format("Delete {0} where {1}='{2}'",
+            nameTable, idAttr, id);
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }                       
 
         public string[] getNoteToComboBox(string column, string value)
         {

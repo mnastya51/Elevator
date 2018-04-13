@@ -22,7 +22,7 @@ namespace Elevator.Model
         public GrainLevelOfQualityNorm(string typeImp, string norm, string raw, string classRaw) : base(typeImp, norm, raw, classRaw)
         {
         }
-        public GrainLevelOfQualityNorm(string typeImp, string raw, string classRaw) : base(typeImp, raw, classRaw)
+        public GrainLevelOfQualityNorm(string typeImp, string norm, string id) : base(typeImp, norm, id)
         {
         }
     }

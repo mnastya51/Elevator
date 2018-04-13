@@ -126,27 +126,27 @@ namespace Elevator.Forms
                 switch (groupComboBox.Text)
                 {
                     case "Общие показатели":
-                        GeneralLevelOfQualityNorm generalLevelOfQualityNorm = new GeneralLevelOfQualityNorm(Convert.ToString(dataGridViewNorms.CurrentRow.Cells[0].Value),
-                            Convert.ToString(dataGridViewNorms.CurrentRow.Cells[1].Value), rawComboBox.Text, comboBoxClass.Text, Convert.ToBoolean(dataGridViewNorms.CurrentRow.Cells[2].Value));
+                        GeneralLevelOfQualityNorm generalLevelOfQualityNorm = new GeneralLevelOfQualityNorm(Convert.ToString(dataGridViewNorms.CurrentRow.Cells[1].Value),
+                            Convert.ToString(dataGridViewNorms.CurrentRow.Cells[2].Value), Convert.ToString(dataGridViewNorms.CurrentRow.Cells[0].Value), Convert.ToBoolean(dataGridViewNorms.CurrentRow.Cells[3].Value));
                         controller.changeButtonClick(generalLevelOfQualityNorm, true);
                       /*  controller.changeButtonClick(Convert.ToString(dataGridViewNorms.CurrentRow.Cells[0].Value),
                     Convert.ToString(dataGridViewNorms.CurrentRow.Cells[1].Value), change[0],
                     rawComboBox.Text, change[2], change[1], comboBoxClass.Text);*/
                         break;
                     case "Вредные примеси":
-                        HarmfulLevelOfQualityNorm harmfulLevelOfQualityNorm = new HarmfulLevelOfQualityNorm(Convert.ToString(dataGridViewNorms.CurrentRow.Cells[0].Value),
-                            Convert.ToString(dataGridViewNorms.CurrentRow.Cells[1].Value), rawComboBox.Text, comboBoxClass.Text);
+                        HarmfulLevelOfQualityNorm harmfulLevelOfQualityNorm = new HarmfulLevelOfQualityNorm(Convert.ToString(dataGridViewNorms.CurrentRow.Cells[1].Value),
+                            Convert.ToString(dataGridViewNorms.CurrentRow.Cells[2].Value), Convert.ToString(dataGridViewNorms.CurrentRow.Cells[0].Value));
                         controller.changeButtonClick(harmfulLevelOfQualityNorm, true);                   
                         break;
                     case "Сорные примеси":
-                        WeedLevelOfQualityNorm weedLevelOfQualityNorm = new WeedLevelOfQualityNorm(Convert.ToString(dataGridViewNorms.CurrentRow.Cells[0].Value),
-                            Convert.ToString(dataGridViewNorms.CurrentRow.Cells[1].Value), rawComboBox.Text,comboBoxClass.Text);
+                        WeedLevelOfQualityNorm weedLevelOfQualityNorm = new WeedLevelOfQualityNorm(Convert.ToString(dataGridViewNorms.CurrentRow.Cells[1].Value),
+                            Convert.ToString(dataGridViewNorms.CurrentRow.Cells[2].Value), Convert.ToString(dataGridViewNorms.CurrentRow.Cells[0].Value));
                         controller.changeButtonClick(weedLevelOfQualityNorm, true);
                         break;
                     case "Зерновые примеси":
-                        GrainLevelOfQualityNorm grainLevelOfQualityNorm = new GrainLevelOfQualityNorm(Convert.ToString(dataGridViewNorms.CurrentRow.Cells[0].Value),
-                            Convert.ToString(dataGridViewNorms.CurrentRow.Cells[1].Value), rawComboBox.Text, comboBoxClass.Text);
-                        controller.changeButtonClick(grainLevelOfQualityNorm, true);
+                        GrainLevelOfQualityNorm grainLevelOfQualityNorm = new GrainLevelOfQualityNorm(Convert.ToString(dataGridViewNorms.CurrentRow.Cells[1].Value),
+                            Convert.ToString(dataGridViewNorms.CurrentRow.Cells[2].Value), Convert.ToString(dataGridViewNorms.CurrentRow.Cells[0].Value));
+                       controller.changeButtonClick(grainLevelOfQualityNorm, true);
                         break;
                 }                              
                 select(change);
@@ -169,16 +169,16 @@ namespace Elevator.Forms
                         case "Общие показатели":
                             //  string[] change = changeComboBox(groupComboBox.Text);
                             //controller.deleteButtonClick(change[0], change[2], dataGridViewNorms.CurrentRow.Cells[0].Value.ToString(), rawComboBox.Text, comboBoxClass.Text);*/                           
-                            controller.deleteButtonClick(new GeneralLevelOfQualityNorm(dataGridViewNorms.CurrentRow.Cells[0].Value.ToString(), rawComboBox.Text, comboBoxClass.Text));
+                            controller.deleteButtonClick(new GeneralLevelOfQualityNorm(dataGridViewNorms.CurrentRow.Cells[0].Value.ToString()));
                             break;
                         case "Вредные примеси":
-                            controller.deleteButtonClick(new HarmfulLevelOfQualityNorm(dataGridViewNorms.CurrentRow.Cells[0].Value.ToString(), rawComboBox.Text, comboBoxClass.Text));
+                            controller.deleteButtonClick(new HarmfulLevelOfQualityNorm(dataGridViewNorms.CurrentRow.Cells[0].Value.ToString()));
                             break;
                         case "Сорные примеси":
-                            controller.deleteButtonClick(new WeedLevelOfQualityNorm(dataGridViewNorms.CurrentRow.Cells[0].Value.ToString(), rawComboBox.Text, comboBoxClass.Text));
+                            controller.deleteButtonClick(new WeedLevelOfQualityNorm(dataGridViewNorms.CurrentRow.Cells[0].Value.ToString()));
                             break;
                         case "Зерновые примеси":                         
-                            controller.deleteButtonClick(new GrainLevelOfQualityNorm(dataGridViewNorms.CurrentRow.Cells[0].Value.ToString(), rawComboBox.Text, comboBoxClass.Text));
+                            controller.deleteButtonClick(new GrainLevelOfQualityNorm(dataGridViewNorms.CurrentRow.Cells[0].Value.ToString()));
                             break;
                     }
                     select(change);

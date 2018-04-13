@@ -81,9 +81,9 @@ namespace Elevator.Controllers
 
         public bool changeClick(GeneralLevelOfQualityNorm generalLevelOfQualityNorm)
         {
-            if (!DAO.getInstance().changeNormGeneral(generalLevelOfQualityNorm.TypeImp, GeneralLevelOfQualityNorm.NameTable,
-                generalLevelOfQualityNorm.Raw, generalLevelOfQualityNorm.Norm, GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr, 
-                GeneralLevelOfQualityNorm.NormAttr, generalLevelOfQualityNorm.ClassRaw.ToString(), 
+            if (!DAO.getInstance().changeNormGeneral(GeneralLevelOfQualityNorm.NameTable,
+                GeneralLevelOfQualityNorm.IdAttr, generalLevelOfQualityNorm.Norm,
+                generalLevelOfQualityNorm.Id, GeneralLevelOfQualityNorm.NormAttr,
                 generalLevelOfQualityNorm.Isminimum, GeneralLevelOfQualityNorm.IsminimumAttr))
             {
                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -94,9 +94,9 @@ namespace Elevator.Controllers
 
         public bool changeClick(HarmfulLevelOfQualityNorm harmfulLevelOfQualityNorm)
         {
-            if (!DAO.getInstance().changeNorm(harmfulLevelOfQualityNorm.TypeImp, HarmfulLevelOfQualityNorm.NameTable,
-                harmfulLevelOfQualityNorm.Raw, harmfulLevelOfQualityNorm.Norm, HarmfulLevelOfQualityNorm.TypeOfLevelQualityAttr,
-                HarmfulLevelOfQualityNorm.NormAttr, harmfulLevelOfQualityNorm.ClassRaw.ToString()))
+            if (!DAO.getInstance().changeNorm(HarmfulLevelOfQualityNorm.NameTable,
+                HarmfulLevelOfQualityNorm.IdAttr, harmfulLevelOfQualityNorm.Norm,
+                harmfulLevelOfQualityNorm.Id, HarmfulLevelOfQualityNorm.NormAttr))
             {
                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -106,9 +106,9 @@ namespace Elevator.Controllers
 
         public bool changeClick(WeedLevelOfQualityNorm weedLevelOfQualityNorm)
         {
-            if (!DAO.getInstance().changeNorm(weedLevelOfQualityNorm.TypeImp, WeedLevelOfQualityNorm.NameTable,
-                weedLevelOfQualityNorm.Raw, weedLevelOfQualityNorm.Norm, WeedLevelOfQualityNorm.TypeOfLevelQualityAttr,
-                WeedLevelOfQualityNorm.NormAttr, weedLevelOfQualityNorm.ClassRaw.ToString()))
+            if (!DAO.getInstance().changeNorm(WeedLevelOfQualityNorm.NameTable,
+                WeedLevelOfQualityNorm.IdAttr, weedLevelOfQualityNorm.Norm,
+                weedLevelOfQualityNorm.Id, WeedLevelOfQualityNorm.NormAttr))
             {
                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -118,9 +118,9 @@ namespace Elevator.Controllers
 
         public bool changeClick(GrainLevelOfQualityNorm grainLevelOfQualityNorm)
         {
-            if (!DAO.getInstance().changeNorm(grainLevelOfQualityNorm.TypeImp, GrainLevelOfQualityNorm.NameTable,
-                grainLevelOfQualityNorm.Raw, grainLevelOfQualityNorm.Norm, GrainLevelOfQualityNorm.TypeOfLevelQualityAttr,
-                GrainLevelOfQualityNorm.NormAttr, grainLevelOfQualityNorm.ClassRaw.ToString()))
+            if (!DAO.getInstance().changeNorm(GrainLevelOfQualityNorm.NameTable,
+                GrainLevelOfQualityNorm.IdAttr, grainLevelOfQualityNorm.Norm,
+                grainLevelOfQualityNorm.Id, GrainLevelOfQualityNorm.NormAttr))
             {
                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;

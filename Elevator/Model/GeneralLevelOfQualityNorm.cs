@@ -15,7 +15,7 @@ namespace Elevator.Model
         public const string IsminimumAttr = "is_minimum";
         public const string IdAttr = "id_norm_general";
         public bool Isminimum { get; set; }
-        public GeneralLevelOfQualityNorm(string norm) : base(norm)
+        public GeneralLevelOfQualityNorm(string id) : base(id)
         {
         }
         public GeneralLevelOfQualityNorm(string raw, string classRaw) : base(raw, classRaw)
@@ -27,11 +27,10 @@ namespace Elevator.Model
         public GeneralLevelOfQualityNorm(string typeImp, string raw, string classRaw) : base(typeImp, raw, classRaw)
         {
         }
-        public GeneralLevelOfQualityNorm(string typeImp, string norm, string raw, string classRaw, bool Isminimum)
+        public GeneralLevelOfQualityNorm(string typeImp, string norm, string id, bool Isminimum)
         {
             this.TypeImp = typeImp;
-            this.Raw = raw;
-            this.ClassRaw = classRaw;
+            this.Id = id;
             this.Isminimum = Isminimum;
             this.Norm = norm;
         }
