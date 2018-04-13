@@ -271,7 +271,8 @@ namespace Elevator
                 return false;
             }
         }
-        public LinkedList<string> selectNormsTableByRaw(string nameTable, string norm, string nameImp, string nameRaw, DataGridView dataGridViewNorms, string isMin)
+        public LinkedList<string> selectNormsTableByRaw(string nameTable, string norm, string nameImp,
+            string nameRaw, DataGridView dataGridViewNorms, string isMin, string idAttr)
         {
             if (!isClass(nameRaw))
                 addClass(nameRaw);
@@ -280,13 +281,13 @@ namespace Elevator
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 if (isMin != "-1")
-                    sqlCommand = string.Format("Select n.{1}, n.{2}, n.{4} from {0} n join Class c " + 
+                    sqlCommand = string.Format("Select n.{5}, n.{1}, n.{2}, n.{4} from {0} n join Class c " + 
                     "on c.id_class=n.id_class join Raw r on c.id_NameRaw=r.id_NameRaw " +
-                    "where r.name_raw = '{3}'", nameTable, nameImp, norm, nameRaw, isMin);
+                    "where r.name_raw = '{3}'", nameTable, nameImp, norm, nameRaw, isMin, idAttr);
                 else
-                    sqlCommand = string.Format("Select n.{1}, n.{2} from {0} n join Class c " +
+                    sqlCommand = string.Format("Select n.{4}, n.{1}, n.{2} from {0} n join Class c " +
                    "on c.id_class=n.id_class join Raw r on c.id_NameRaw=r.id_NameRaw " +
-                   "where r.name_raw = '{3}'", nameTable, nameImp, norm, nameRaw);
+                   "where r.name_raw = '{3}'", nameTable, nameImp, norm, nameRaw, idAttr);
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
                 SqlDataReader reader = command.ExecuteReader();
@@ -297,13 +298,62 @@ namespace Elevator
                     {
                         dataGridViewNorms.Rows.Add();
                         DataGridViewRow row = dataGridViewNorms.Rows[c];
-                        string listElement = reader.GetString(0);
+                        row.Cells[0].Value = reader.GetInt32(0);
+                        string listElement = reader.GetString(1);
                         res.AddLast(listElement);
-                        row.Cells[0].Value = listElement;
-                        row.Cells[1].Value = reader.GetFloat(1);
+                        row.Cells[1].Value = listElement;
+                        row.Cells[2].Value = reader.GetFloat(2);
                         try
                         {
-                            row.Cells[2].Value = reader.GetBoolean(2);
+                            row.Cells[3].Value = reader.GetBoolean(3);
+                        }
+                        catch { }
+                        c++;
+                    }
+                }
+                reader.Close();
+                connection.Close();
+            }
+            return res;
+        }
+
+        public LinkedList<string> selectNormsTableByType(string nameTable, string norm, string nameImp,
+            string nameRaw, DataGridView dataGridViewNorms, string isMin, string idAttr, string type)
+        {
+            if (!isSubtypes(type, nameRaw))//подтипа у типа нет
+                    addSubtype(type, nameRaw);//добавляем в табл подтипов, если типа нет в подтипах
+            string sqlCommand = string.Empty;
+            LinkedList<string> res = new LinkedList<string>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                if (isMin != "-1")
+                    sqlCommand = string.Format("Select n.{5}, n.{1}, n.{2}, n.{4} from {0} n join Subtype_raw c " +
+                    "on c.id_subtype=n.id_subtype join Type_raw r on c.id_type=r.id_type join Raw t on t.id_NameRaw "+
+                    "= r.id_NameRaw where t.name_raw = '{6}' and " +
+                    "r.name_type_raw = '{3}'", nameTable, nameImp, norm, type, isMin, idAttr, nameRaw);
+                else
+                    sqlCommand = string.Format("Select n.{4}, n.{1}, n.{2} from {0} n join Subtype_raw c " +
+                   "on c.id_subtype=n.id_subtype join Type_raw r on c.id_type=r.id_type join Raw t on t.id_NameRaw " +
+                    "= r.id_NameRaw where t.name_raw = '{5}' and " +
+                   "r.name_type_raw = '{3}'", nameTable, nameImp, norm, type, idAttr, nameRaw);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        dataGridViewNorms.Rows.Add();
+                        DataGridViewRow row = dataGridViewNorms.Rows[c];
+                        row.Cells[0].Value = reader.GetInt32(0);
+                        string listElement = reader.GetString(1);
+                        res.AddLast(listElement);
+                        row.Cells[1].Value = listElement;
+                        row.Cells[2].Value = reader.GetFloat(2);
+                        try
+                        {
+                            row.Cells[3].Value = reader.GetBoolean(3);
                         }
                         catch { }
                         c++;
@@ -345,20 +395,20 @@ namespace Elevator
             }
         }
 
-        public LinkedList<string> selectNormsTableByClass(string nameTable, string norm, string nameImp, string nameClass, string nameRaw, DataGridView dataGridViewNorms, string isMin)
+        public LinkedList<string> selectNormsTableByClass(string nameTable, string norm, string nameImp, string nameClass, string nameRaw, DataGridView dataGridViewNorms, string isMin, string idAttr)
         {
             string sqlCommand = string.Empty;
             LinkedList<string> res = new LinkedList<string>();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 if(isMin != "-1")
-                    sqlCommand = string.Format("Select n.{1}, n.{2}, n.{5} from {0} n join Class c " +
+                    sqlCommand = string.Format("Select n.{6}, n.{1}, n.{2}, n.{5} from {0} n join Class c " +
                     "on c.id_class=n.id_class join Raw r on r.id_NameRaw = c.id_NameRaw where c.number_class = '{3}' and r.name_raw = '{4}'", 
-                    nameTable, nameImp, norm, nameClass, nameRaw, isMin);
+                    nameTable, nameImp, norm, nameClass, nameRaw, isMin, idAttr);
                 else
-                    sqlCommand = string.Format("Select n.{1}, n.{2} from {0} n join Class c " +
+                    sqlCommand = string.Format("Select n.{5}, n.{1}, n.{2} from {0} n join Class c " +
                    "on c.id_class=n.id_class join Raw r on r.id_NameRaw = c.id_NameRaw where c.number_class = '{3}' and r.name_raw = '{4}'",
-                   nameTable, nameImp, norm, nameClass, nameRaw);
+                   nameTable, nameImp, norm, nameClass, nameRaw, idAttr);
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
                 SqlDataReader reader = command.ExecuteReader();
@@ -369,13 +419,61 @@ namespace Elevator
                     {
                         dataGridViewNorms.Rows.Add();
                         DataGridViewRow row = dataGridViewNorms.Rows[c];
-                        string listElement = reader.GetString(0);
-                        res.AddLast(listElement);
-                        row.Cells[0].Value = listElement;
-                        row.Cells[1].Value = reader.GetFloat(1);
+                        row.Cells[0].Value = reader.GetInt32(0);
+                        string listElement = reader.GetString(1);
+                        res.AddLast(listElement);                      
+                        row.Cells[1].Value = listElement;
+                        row.Cells[2].Value = reader.GetFloat(2);
                         try
                         {
-                            row.Cells[2].Value = reader.GetBoolean(2);
+                            row.Cells[3].Value = reader.GetBoolean(3);
+                        }
+                        catch { }
+                        c++;
+                    }
+                }
+                reader.Close();
+                connection.Close();
+            }
+            return res;
+        }
+
+        public LinkedList<string> selectNormsTableBySubtype(string nameTable, string norm,
+            string nameImp, string nameSubtype, string nameType, DataGridView dataGridViewNorms, 
+            string isMin, string idAttr, string raw)
+        {
+            string sqlCommand = string.Empty;
+            LinkedList<string> res = new LinkedList<string>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                if (isMin != "-1")
+                    sqlCommand = string.Format("Select n.{6}, n.{1}, n.{2}, n.{5} from {0} n join Subtype_raw c " +
+                    "on c.id_subtype=n.id_subtype join Type_raw r on r.id_type = c.id_type join Raw t "+
+                    "on t.id_NameRaw = r.id_NameRaw where c.name_subtype = '{3}' and r.name_type_raw = '{4}' and t.name_raw = '{7}'",
+                    nameTable, nameImp, norm, nameSubtype, nameType, isMin, idAttr, raw);
+                else
+                    sqlCommand = string.Format("Select n.{5}, n.{1}, n.{2} from {0} n join Subtype_raw c " +
+                   "on c.id_subtype=n.id_subtype join Type_raw r on r.id_type = c.id_type join Raw t " +
+                   "on t.id_NameRaw = r.id_NameRaw where c.name_subtype = '{3}' and r.name_type_raw = '{4}' and t.name_raw = '{6}'",
+                   nameTable, nameImp, norm, nameSubtype, nameType, idAttr, raw);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        dataGridViewNorms.Rows.Add();
+                        DataGridViewRow row = dataGridViewNorms.Rows[c];
+                        row.Cells[0].Value = reader.GetInt32(0);
+                        string listElement = reader.GetString(1);
+                        res.AddLast(listElement);
+                        row.Cells[1].Value = listElement;
+                        row.Cells[2].Value = reader.GetFloat(2);
+                        try
+                        {
+                            row.Cells[3].Value = reader.GetBoolean(3);
                         }
                         catch { }
                         c++;
@@ -420,100 +518,86 @@ namespace Elevator
             return res.ToArray<string>();
         }
 
-        public bool addNorm(string nameTable, string name_imp, string valImp, string norm, string raw, string value, string numberClass)
+        public bool addNorm(string nameTable, string name_imp, string valImp, string norm, string raw, 
+            string value, string numberClass, string type, string subtype)
         {
-            string sqlCommand;
-            if (numberClass != "")
+            string sqlCommand = "";
+            try
             {
-                try
-                {
-                    sqlCommand = string.Format("Insert into {0} ({1}, id_class, {2}) values('{3}', " +
+                if (numberClass != "")//есть класс
+                     sqlCommand = string.Format("Insert into {0} ({1}, id_class, {2}) values('{3}', " +
                         "(select c.id_class from Class c join Raw r on c.id_NameRaw = r.id_NameRaw where r.name_raw = '{4}' and c.number_class = {6}), '{5}')",
                         nameTable, name_imp, norm, valImp, raw, value, numberClass);
-                    using (SqlConnection connection = new SqlConnection(connectionString))
-                    {
-                        connection.Open();
-                        SqlCommand cmd = new SqlCommand(sqlCommand, connection);
-                        cmd.ExecuteNonQuery();
-                        connection.Close();
-                    }
-                    return true;
-                }
-                catch (SqlException)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                try
-                {
+                else if(type == "")//нет типа и подтипа
                     sqlCommand = string.Format("Insert into {0} ({1}, id_class, {2}) values('{3}', " +
                         "(select c.id_class from Class c join Raw r on c.id_NameRaw = r.id_NameRaw where r.name_raw = '{4}'), '{5}')",
                         nameTable, name_imp, norm, valImp, raw, value);
-                    using (SqlConnection connection = new SqlConnection(connectionString))
-                    {
-                        connection.Open();
-                        SqlCommand cmd = new SqlCommand(sqlCommand, connection);
-                        cmd.ExecuteNonQuery();
-                        connection.Close();
-                    }
-                    return true;
-                }
-                catch (SqlException)
+                else if(subtype == "")//нет подтипа
+                    sqlCommand = string.Format("Insert into {0} ({1}, {2}, id_subtype) values('{3}', " +
+                        "'{5}', "+
+                        "(select c.id_subtype from Subtype_raw c join Type_raw r on c.id_type = r.id_type join Raw t on t.id_NameRaw = r.id_NameRaw where t.name_raw = '{4}' and r.name_type_raw = '{6}'))",
+                        nameTable, name_imp, norm, valImp, raw, value, type);//есть подтип
+                else sqlCommand = string.Format("Insert into {0} ({1}, {2}, id_subtype) values('{3}', " +
+                       "'{5}', " +
+                       "(select c.id_subtype from Subtype_raw c join Type_raw r on c.id_type = r.id_type "+
+                       "join Raw t on t.id_NameRaw = r.id_NameRaw where t.name_raw = '{4}' and "+
+                       "r.name_type_raw = '{6}' and c.name_subtype = '{7}'))",
+                       nameTable, name_imp, norm, valImp, raw, value, type, subtype);
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    return false;
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
                 }
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
             }
         }
 
-        public bool addNormGeneral(string nameTable, string name_imp, string valImp, string norm, string raw, 
-            string value, string numberClass, bool isMin, string isMinAttr)
+        public bool addNormGeneral(string nameTable, string name_imp, string valImp, string norm, string raw,
+            string value, string numberClass, bool isMin, string isMinAttr, string type, string subtype)
         {
-            string sqlCommand;
-            if (numberClass != "")
+            string sqlCommand = "";
+
+            try
             {
-                try
-                {
+                if (numberClass != "")
                     sqlCommand = string.Format("Insert into {0} ({1}, id_class, {2}, {7}) values('{3}', " +
-                        "(select c.id_class from Class c join Raw r on c.id_NameRaw = r.id_NameRaw where "+
+                        "(select c.id_class from Class c join Raw r on c.id_NameRaw = r.id_NameRaw where " +
                         "r.name_raw = '{4}' and c.number_class = {6}), '{5}', '{8}')",
                         nameTable, name_imp, norm, valImp, raw, value, numberClass, isMinAttr, isMin);
-                    using (SqlConnection connection = new SqlConnection(connectionString))
-                    {
-                        connection.Open();
-                        SqlCommand cmd = new SqlCommand(sqlCommand, connection);
-                        cmd.ExecuteNonQuery();
-                    }
-                    return true;
-                }
-                catch (SqlException)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                try
-                {
+                else if (type == "")//нет типа и подтипа
                     sqlCommand = string.Format("Insert into {0} ({1}, id_class, {2}, {6}) values('{3}', " +
-                        "(select c.id_class from Class c join Raw r on c.id_NameRaw = r.id_NameRaw where "+
+                    "(select c.id_class from Class c join Raw r on c.id_NameRaw = r.id_NameRaw where " +
                         "r.name_raw = '{4}'), '{5}', '{7}')",
                         nameTable, name_imp, norm, valImp, raw, value, isMinAttr, isMin);
-                    using (SqlConnection connection = new SqlConnection(connectionString))
-                    {
-                        connection.Open();
-                        SqlCommand cmd = new SqlCommand(sqlCommand, connection);
-                        cmd.ExecuteNonQuery();
-                    }
-                    return true;
-                }
-                catch (SqlException)
+                else if (subtype == "")//нет подтипа
+                    sqlCommand = string.Format("Insert into {0} ({1}, {2}, {6}, id_subtype) values('{3}', " +
+                        "'{5}', '{7}', " +
+                        "(select c.id_subtype from Subtype_raw c join Type_raw r on c.id_type = r.id_type join Raw t on t.id_NameRaw = r.id_NameRaw where t.name_raw = '{4}' and r.name_type_raw = '{8}'))",
+                        nameTable, name_imp, norm, valImp, raw, value, isMinAttr, isMin, type);//есть подтип
+                else sqlCommand = string.Format("Insert into {0} ({1}, {2}, {6}, id_subtype) values('{3}', " +
+                       "'{5}', '{7}', " +
+                       "(select c.id_subtype from Subtype_raw c join Type_raw r on c.id_type = r.id_type " +
+                       "join Raw t on t.id_NameRaw = r.id_NameRaw where t.name_raw = '{4}' and " +
+                       "r.name_type_raw = '{8}' and c.name_subtype = '{9}'))",
+                       nameTable, name_imp, norm, valImp, raw, value, isMinAttr, isMin, type, subtype);
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    return false;
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
                 }
+                return true;
             }
-        }
+            catch (SqlException)
+            {
+                return false;
+            }
+        }       
 
         public bool changeNorm(string valueImp, string nameTable, string raw, string valueNorm, string nameImp, 
             string nameNorm, string numberClass)

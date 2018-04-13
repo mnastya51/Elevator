@@ -148,5 +148,10 @@ namespace Elevator.Forms
         {
             select();
         }
+
+        private void defineClassButton_Click(object sender, EventArgs e)
+        {
+         //   if(typeLabel.Text !)
+        }
     }
 }

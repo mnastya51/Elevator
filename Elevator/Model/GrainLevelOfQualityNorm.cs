@@ -12,6 +12,7 @@ namespace Elevator.Model
         public const string NormAttr = "norm_grain_imp";
         public const string ClassIdAttr = "id_class";
         public const string TypeOfLevelQualityAttr = "name_grain_imp";
+        public const string IdAttr = "id_norm_grain";
         public GrainLevelOfQualityNorm(string norm) : base(norm)
         {
         }

@@ -12,6 +12,7 @@ namespace Elevator.Model
         public const string NormAttr = "norm_weed_imp";
         public const string ClassIdAttr = "id_class";
         public const string TypeOfLevelQualityAttr = "name_weed_imp";
+        public const string IdAttr = "id_norm_weed";
         public WeedLevelOfQualityNorm(string norm) : base(norm)
         {
         }

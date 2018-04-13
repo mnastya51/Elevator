@@ -42,6 +42,11 @@
             this.groupComboBox = new System.Windows.Forms.ComboBox();
             this.labelName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.typeComboBox = new System.Windows.Forms.ComboBox();
+            this.subtypeComboBox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Impurity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Norm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,11 +72,12 @@
             this.dataGridViewNorms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewNorms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewNorms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column2,
             this.Impurity,
             this.Norm,
             this.Column1});
             this.dataGridViewNorms.EnableHeadersVisualStyles = false;
-            this.dataGridViewNorms.Location = new System.Drawing.Point(12, 157);
+            this.dataGridViewNorms.Location = new System.Drawing.Point(12, 156);
             this.dataGridViewNorms.MultiSelect = false;
             this.dataGridViewNorms.Name = "dataGridViewNorms";
             this.dataGridViewNorms.ReadOnly = true;
@@ -80,7 +86,7 @@
             this.dataGridViewNorms.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewNorms.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewNorms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewNorms.Size = new System.Drawing.Size(456, 163);
+            this.dataGridViewNorms.Size = new System.Drawing.Size(693, 201);
             this.dataGridViewNorms.TabIndex = 67;
             // 
             // deleteButton
@@ -133,6 +139,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.subtypeComboBox);
+            this.groupBox1.Controls.Add(this.typeComboBox);
             this.groupBox1.Controls.Add(this.comboBoxClass);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.showButton);
@@ -143,7 +153,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(456, 104);
+            this.groupBox1.Size = new System.Drawing.Size(693, 104);
             this.groupBox1.TabIndex = 63;
             this.groupBox1.TabStop = false;
             // 
@@ -151,7 +161,7 @@
             // 
             this.comboBoxClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxClass.FormattingEnabled = true;
-            this.comboBoxClass.Location = new System.Drawing.Point(348, 19);
+            this.comboBoxClass.Location = new System.Drawing.Point(586, 17);
             this.comboBoxClass.Name = "comboBoxClass";
             this.comboBoxClass.Size = new System.Drawing.Size(90, 24);
             this.comboBoxClass.TabIndex = 69;
@@ -161,7 +171,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(287, 21);
+            this.label2.Location = new System.Drawing.Point(525, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 18);
             this.label2.TabIndex = 68;
@@ -174,7 +184,7 @@
             this.showButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.showButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.showButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.showButton.Location = new System.Drawing.Point(348, 54);
+            this.showButton.Location = new System.Drawing.Point(586, 51);
             this.showButton.Name = "showButton";
             this.showButton.Size = new System.Drawing.Size(90, 34);
             this.showButton.TabIndex = 67;
@@ -228,6 +238,53 @@
             this.label1.TabIndex = 56;
             this.label1.Text = "Группа:";
             // 
+            // typeComboBox
+            // 
+            this.typeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.typeComboBox.FormattingEnabled = true;
+            this.typeComboBox.Location = new System.Drawing.Point(357, 19);
+            this.typeComboBox.Name = "typeComboBox";
+            this.typeComboBox.Size = new System.Drawing.Size(162, 24);
+            this.typeComboBox.TabIndex = 70;
+            this.typeComboBox.SelectedIndexChanged += new System.EventHandler(this.typeComboBox_SelectedIndexChanged);
+            // 
+            // subtypeComboBox
+            // 
+            this.subtypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.subtypeComboBox.FormattingEnabled = true;
+            this.subtypeComboBox.Location = new System.Drawing.Point(357, 61);
+            this.subtypeComboBox.Name = "subtypeComboBox";
+            this.subtypeComboBox.Size = new System.Drawing.Size(162, 24);
+            this.subtypeComboBox.TabIndex = 71;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(287, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 18);
+            this.label3.TabIndex = 72;
+            this.label3.Text = "Тип:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(287, 62);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 18);
+            this.label4.TabIndex = 73;
+            this.label4.Text = "Подтип:";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "id";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
             // Impurity
             // 
             this.Impurity.HeaderText = "Показатель";
@@ -252,7 +309,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(484, 332);
+            this.ClientSize = new System.Drawing.Size(725, 369);
             this.Controls.Add(this.dataGridViewNorms);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.changeButton);
@@ -281,6 +338,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxClass;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox typeComboBox;
+        private System.Windows.Forms.ComboBox subtypeComboBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Impurity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Norm;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;

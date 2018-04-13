@@ -12,6 +12,7 @@ namespace Elevator.Model
         public const string NormAttr = "norm_harm_imp";
         public const string ClassIdAttr = "id_class";
         public const string TypeOfLevelQualityAttr = "name_harm_imp";
+        public const string IdAttr = "id_norm_harmful";
         public HarmfulLevelOfQualityNorm(string norm) : base(norm)
         {
         }

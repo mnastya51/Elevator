@@ -16,14 +16,18 @@ namespace Elevator.AddAndEditForms
     {
         private AddNormOfRawController controller;
         private GeneralLevelOfQualityNorm generalLevelOfQualityNorm;
+        private string type;
+        private string subtype;
         private bool forChange = false;
-        public AddNormOfGeneralLevelForm(GeneralLevelOfQualityNorm newGeneralLevelOfQualityNorm, string[] impurities)
+        public AddNormOfGeneralLevelForm(GeneralLevelOfQualityNorm newGeneralLevelOfQualityNorm, string[] impurities, string newType, string newSubtype)
         {
             InitializeComponent();
             controller = new AddNormOfRawController();          
             impComboBox.Items.AddRange(impurities);
             impComboBox.Text = impComboBox.Items[0].ToString();
             generalLevelOfQualityNorm = newGeneralLevelOfQualityNorm;
+            type = newType;
+            subtype = newSubtype;
         }
 
         public AddNormOfGeneralLevelForm(GeneralLevelOfQualityNorm newGeneralLevelOfQualityNorm, bool change)
@@ -63,7 +67,7 @@ namespace Elevator.AddAndEditForms
                     generalLevelOfQualityNorm.Isminimum = false;
                 generalLevelOfQualityNorm.Norm = textBoxNorm.Text;
                 generalLevelOfQualityNorm.TypeImp = impComboBox.Text;
-                if (controller.addClick(generalLevelOfQualityNorm))
+                if (controller.addClick(generalLevelOfQualityNorm, type, subtype))
                     this.Close();
             }                           
         }

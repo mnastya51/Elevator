@@ -13,6 +13,7 @@ namespace Elevator.Model
         public const string ClassIdAttr = "id_class";
         public const string TypeOfLevelQualityAttr = "name_imp";
         public const string IsminimumAttr = "is_minimum";
+        public const string IdAttr = "id_norm_general";
         public bool Isminimum { get; set; }
         public GeneralLevelOfQualityNorm(string norm) : base(norm)
         {

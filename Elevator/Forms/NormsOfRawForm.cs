@@ -31,12 +31,12 @@ namespace Elevator.Forms
         private string[] changeComboBox(string nameTable)
         {
             if (nameTable == "Общие показатели")
-                return new string[] {GeneralLevelOfQualityNorm.NameTable, GeneralLevelOfQualityNorm.NormAttr, GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr, GeneralLevelOfQualityNorm .IsminimumAttr};
+                return new string[] {GeneralLevelOfQualityNorm.NameTable, GeneralLevelOfQualityNorm.NormAttr, GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr, GeneralLevelOfQualityNorm.IdAttr, GeneralLevelOfQualityNorm .IsminimumAttr};
             else if (nameTable == "Вредные примеси")
-                return new string[] {HarmfulLevelOfQualityNorm.NameTable, HarmfulLevelOfQualityNorm.NormAttr, HarmfulLevelOfQualityNorm.TypeOfLevelQualityAttr};
+                return new string[] {HarmfulLevelOfQualityNorm.NameTable, HarmfulLevelOfQualityNorm.NormAttr, HarmfulLevelOfQualityNorm.TypeOfLevelQualityAttr, HarmfulLevelOfQualityNorm .IdAttr};
             else if (nameTable == "Зерновые примеси")
-                return new string[] {GrainLevelOfQualityNorm.NameTable, GrainLevelOfQualityNorm.NormAttr,GrainLevelOfQualityNorm.TypeOfLevelQualityAttr};
-            else return new string[] {WeedLevelOfQualityNorm.NameTable, WeedLevelOfQualityNorm.NormAttr, WeedLevelOfQualityNorm.TypeOfLevelQualityAttr};
+                return new string[] {GrainLevelOfQualityNorm.NameTable, GrainLevelOfQualityNorm.NormAttr,GrainLevelOfQualityNorm.TypeOfLevelQualityAttr, GrainLevelOfQualityNorm .IdAttr};
+            else return new string[] {WeedLevelOfQualityNorm.NameTable, WeedLevelOfQualityNorm.NormAttr, WeedLevelOfQualityNorm.TypeOfLevelQualityAttr, WeedLevelOfQualityNorm.IdAttr};
         }
 
         private string[] changeTypeImpComboBox(string nameTable)
@@ -59,20 +59,24 @@ namespace Elevator.Forms
         {
             dataGridViewNorms.Rows.Clear();
             string isMin = "-1";
-            try  { isMin = change[3];}
+            try  { isMin = change[4];}
             catch { }
-            if (comboBoxClass.Text == "")
-            {
-                impurities = DAO.getInstance().selectNormsTableByRaw(change[0], //название таблицы
-                     change[1], change[2], rawComboBox.Text, //поле для заполнение нормы, наим показателя, имя сырья
-                      dataGridViewNorms, isMin);
-            }
-            else
-            {
+            if (comboBoxClass.Text != "")
                 impurities = DAO.getInstance().selectNormsTableByClass(change[0], //название таблицы
-                    change[1], change[2], comboBoxClass.Text, rawComboBox.Text,//поле для заполнение нормы, наим показателя, класс, имя сырья
-                     dataGridViewNorms, isMin);
-            }
+                   change[1], change[2], comboBoxClass.Text, rawComboBox.Text,//поле для заполнение нормы, наим показателя, класс, имя сырья
+                    dataGridViewNorms, isMin, change[3]);
+            else if(typeComboBox.Text == "")
+                impurities = DAO.getInstance().selectNormsTableByRaw(change[0], //название таблицы
+                             change[1], change[2], rawComboBox.Text, //поле для заполнение нормы, наим показателя, имя сырья
+                              dataGridViewNorms, isMin, change[3]);
+            else if (subtypeComboBox.Text == "")
+                impurities = DAO.getInstance().selectNormsTableByType(change[0],
+                             change[1], change[2], rawComboBox.Text,
+                              dataGridViewNorms, isMin, change[3], typeComboBox.Text);
+            else
+                impurities = DAO.getInstance().selectNormsTableBySubtype(change[0],
+                             change[1], change[2], subtypeComboBox.Text, typeComboBox.Text,
+                              dataGridViewNorms, isMin, change[3], rawComboBox.Text);               
             dataGridViewNorms.ClearSelection();
         }
 
@@ -97,16 +101,16 @@ namespace Elevator.Forms
             switch (groupComboBox.Text)
             {
                 case "Общие показатели":
-                    controller.addButtonClick(new GeneralLevelOfQualityNorm(rawComboBox.Text, comboBoxClass.Text), impurities);
+                    controller.addButtonClick(new GeneralLevelOfQualityNorm(rawComboBox.Text, comboBoxClass.Text), impurities, typeComboBox.Text, subtypeComboBox.Text);
                     break;
                 case "Вредные примеси":                   
-                    controller.addButtonClick(new HarmfulLevelOfQualityNorm(rawComboBox.Text, comboBoxClass.Text), impurities);
+                    controller.addButtonClick(new HarmfulLevelOfQualityNorm(rawComboBox.Text, comboBoxClass.Text), impurities, typeComboBox.Text, subtypeComboBox.Text);
                     break;
                 case "Зерновые примеси":
-                    controller.addButtonClick(new GrainLevelOfQualityNorm(rawComboBox.Text, comboBoxClass.Text), impurities);
+                    controller.addButtonClick(new GrainLevelOfQualityNorm(rawComboBox.Text, comboBoxClass.Text), impurities, typeComboBox.Text, subtypeComboBox.Text);
                     break;
                 case "Сорные примеси":
-                    controller.addButtonClick(new WeedLevelOfQualityNorm(rawComboBox.Text, comboBoxClass.Text), impurities);
+                    controller.addButtonClick(new WeedLevelOfQualityNorm(rawComboBox.Text, comboBoxClass.Text), impurities, typeComboBox.Text, subtypeComboBox.Text);
                     break;
             }
             select(change);
@@ -203,7 +207,12 @@ namespace Elevator.Forms
             changeButton.Enabled = false;
             changeButton.BackColor = Color.LightGray;
             deleteButton.Enabled = false;
-            deleteButton.BackColor = Color.LightGray;
+            deleteButton.BackColor = Color.LightGray; typeComboBox.Items.Clear();
+            subtypeComboBox.Items.Clear();
+            string[] types = DAO.getInstance().getTypeToComboBox("name_type_raw", "Type_raw ", "id_NameRaw ", "name_raw ", "Raw", rawComboBox.Text);
+            typeComboBox.Items.AddRange(types);
+            if (types.Length > 0)
+                typeComboBox.Text = typeComboBox.Items[0].ToString();
         }
         private void getClasses()
         {
@@ -234,6 +243,17 @@ namespace Elevator.Forms
             changeButton.BackColor = Color.LightGray;
             deleteButton.Enabled = false;
             deleteButton.BackColor = Color.LightGray;
+        }
+
+        private void typeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            subtypeComboBox.Items.Clear();
+            string[] subtypes = DAO.getInstance().getSubtypes(typeComboBox.Text, rawComboBox.Text);
+            if (subtypes.Length > 0)
+            {
+                subtypeComboBox.Items.AddRange(subtypes);
+                subtypeComboBox.Text = subtypeComboBox.Items[0].ToString();
+            }
         }
     }
 }

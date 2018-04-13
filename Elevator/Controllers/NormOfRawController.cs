@@ -15,32 +15,32 @@ namespace Elevator.Controllers
         {
             new AddNormOfRawForm(nameTable, nameImp,  impurities, norm, raw, nameTableNorm, numberClass).ShowDialog();
         }*/
-        public void addButtonClick(GeneralLevelOfQualityNorm generalLevelOfQualityNorm, LinkedList<string> impurities)
+        public void addButtonClick(GeneralLevelOfQualityNorm generalLevelOfQualityNorm, LinkedList<string> impurities, string type, string subtype)
         {
             string[] imp = DAO.getInstance().getImpurity(TypeGeneralLevelOfQuality.NameTable, GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr, impurities);
             if (imp.Length > 0)
-                new AddNormOfGeneralLevelForm(generalLevelOfQualityNorm, imp).ShowDialog();
+                new AddNormOfGeneralLevelForm(generalLevelOfQualityNorm, imp, type, subtype).ShowDialog();
             else MessageBox.Show("У всех показателей качества определена норма!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        public void addButtonClick(HarmfulLevelOfQualityNorm hurmfulLevelOfQualityNorm, LinkedList<string> impurities)
+        public void addButtonClick(HarmfulLevelOfQualityNorm hurmfulLevelOfQualityNorm, LinkedList<string> impurities, string type, string subtype)
         {
             string[] imp = DAO.getInstance().getImpurity(TypeHarmfulLevelOfQuality.NameTable, HarmfulLevelOfQualityNorm.TypeOfLevelQualityAttr, impurities);
             if(imp.Length > 0)
-                new AddNormOfRawForm(hurmfulLevelOfQualityNorm, imp).ShowDialog();
+                new AddNormOfRawForm(hurmfulLevelOfQualityNorm, imp, type, subtype).ShowDialog();
             else  MessageBox.Show("У всех показателей качества определена норма!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        public void addButtonClick(GrainLevelOfQualityNorm grainLevelOfQualityNorm, LinkedList<string> impurities)
+        public void addButtonClick(GrainLevelOfQualityNorm grainLevelOfQualityNorm, LinkedList<string> impurities, string type, string subtype)
         {
             string[] imp = DAO.getInstance().getImpurity(TypeGrainLevelOfQuality.NameTable, GrainLevelOfQualityNorm.TypeOfLevelQualityAttr, impurities);
             if (imp.Length > 0)
-                new AddNormOfRawForm(grainLevelOfQualityNorm, imp).ShowDialog();
+                new AddNormOfRawForm(grainLevelOfQualityNorm, imp, type, subtype).ShowDialog();
             else MessageBox.Show("У всех показателей качества определена норма!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        public void addButtonClick(WeedLevelOfQualityNorm weedLevelOfQualityNorm, LinkedList<string> impurities)
+        public void addButtonClick(WeedLevelOfQualityNorm weedLevelOfQualityNorm, LinkedList<string> impurities, string type, string subtype)
         {
             string[] imp = DAO.getInstance().getImpurity(TypeWeedLevelOfQuality.NameTable, WeedLevelOfQualityNorm.TypeOfLevelQualityAttr, impurities);
             if (imp.Length > 0)
-                new AddNormOfRawForm(weedLevelOfQualityNorm, imp).ShowDialog();
+                new AddNormOfRawForm(weedLevelOfQualityNorm, imp, type, subtype).ShowDialog();
             else MessageBox.Show("У всех показателей качества определена норма!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         /*public void changeButtonClick(string valueImp, string valueNorm, string nameTable, string raw, string nameImp, string nameNorm, string numberClass)

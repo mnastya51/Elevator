@@ -18,11 +18,13 @@ namespace Elevator.AddAndEditForms
         private HarmfulLevelOfQualityNorm harmfulLevelOfQualityNorm;
         private WeedLevelOfQualityNorm weedLevelOfQualityNorm;
         private GrainLevelOfQualityNorm grainLevelOfQualityNorm;
-       /* private string norm;
-        private string raw;
-        private string nameTable;
-        private string nameImp;
-        private string nameTableNorm;*/
+        private string type;
+        private string subtype;
+        /* private string norm;
+         private string raw;
+         private string nameTable;
+         private string nameImp;
+         private string nameTableNorm;*/
         private bool forChange = false;
        /* private string valueImp;
         private string nameNorm;
@@ -53,31 +55,37 @@ namespace Elevator.AddAndEditForms
             generalLevelOfQualityNorm = newGeneralLevelOfQualityNorm;
         }*/
 
-        public AddNormOfRawForm(HarmfulLevelOfQualityNorm newharmfulLevelOfQualityNorm, string[] impurities)
+        public AddNormOfRawForm(HarmfulLevelOfQualityNorm newharmfulLevelOfQualityNorm, string[] impurities, string newType, string newSubtype)
         {
             InitializeComponent();
             controller = new AddNormOfRawController();          
             impComboBox.Items.AddRange(impurities);
             impComboBox.Text = impComboBox.Items[0].ToString();
             harmfulLevelOfQualityNorm = newharmfulLevelOfQualityNorm;
+            type = newType;
+            subtype = newSubtype;
         }
 
-        public AddNormOfRawForm(WeedLevelOfQualityNorm newWeedLevelOfQualityNorm, string[] impurities)
+        public AddNormOfRawForm(WeedLevelOfQualityNorm newWeedLevelOfQualityNorm, string[] impurities, string newType, string newSubtype)
         {
             InitializeComponent();
             controller = new AddNormOfRawController();
             impComboBox.Items.AddRange(impurities);           
             impComboBox.Text = impComboBox.Items[0].ToString();
             weedLevelOfQualityNorm = newWeedLevelOfQualityNorm;
+            type = newType;
+            subtype = newSubtype;
         }
 
-        public AddNormOfRawForm(GrainLevelOfQualityNorm newGrainLevelOfQualityNorm, string[] impurities)
+        public AddNormOfRawForm(GrainLevelOfQualityNorm newGrainLevelOfQualityNorm, string[] impurities, string newType, string newSubtype)
         {
             InitializeComponent();
             controller = new AddNormOfRawController();         
             impComboBox.Items.AddRange(impurities);
             impComboBox.Text = impComboBox.Items[0].ToString();
             grainLevelOfQualityNorm = newGrainLevelOfQualityNorm;
+            type = newType;
+            subtype = newSubtype;
         }
 
         /* public AddNormOfRawForm(string newValueImp, string valueNorm, string newNameTable, string newRaw, string newNameImp, string newNameNorm, string newNumberClass)
@@ -197,21 +205,21 @@ namespace Elevator.AddAndEditForms
                 {
                     harmfulLevelOfQualityNorm.Norm = textBoxNorm.Text;
                     harmfulLevelOfQualityNorm.TypeImp = impComboBox.Text;
-                    if (controller.addClick(harmfulLevelOfQualityNorm))
+                    if (controller.addClick(harmfulLevelOfQualityNorm, type, subtype))
                         this.Close();
                 }
                 else if (weedLevelOfQualityNorm != null)
                 {
                     weedLevelOfQualityNorm.Norm = textBoxNorm.Text;
                     weedLevelOfQualityNorm.TypeImp = impComboBox.Text;
-                    if (controller.addClick(weedLevelOfQualityNorm))
+                    if (controller.addClick(weedLevelOfQualityNorm, type, subtype))
                         this.Close();
                 }
                 else if (grainLevelOfQualityNorm != null)
                 {
                     grainLevelOfQualityNorm.Norm = textBoxNorm.Text;
                     grainLevelOfQualityNorm.TypeImp = impComboBox.Text;
-                    if (controller.addClick(grainLevelOfQualityNorm))
+                    if (controller.addClick(grainLevelOfQualityNorm, type, subtype))
                         this.Close();
                 }
             }

@@ -20,12 +20,12 @@ namespace Elevator.Controllers
             else return true;
         }*/
 
-        public bool addClick(GeneralLevelOfQualityNorm generalLevelOfQualityNorm)
+        public bool addClick(GeneralLevelOfQualityNorm generalLevelOfQualityNorm, string type, string subtype)
         {
             if (!DAO.getInstance().addNormGeneral(GeneralLevelOfQualityNorm.NameTable, GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr,
                 generalLevelOfQualityNorm.TypeImp, GeneralLevelOfQualityNorm.NormAttr, generalLevelOfQualityNorm.Raw,
                  generalLevelOfQualityNorm.Norm, Convert.ToString(generalLevelOfQualityNorm.ClassRaw),
-                 generalLevelOfQualityNorm.Isminimum, GeneralLevelOfQualityNorm.IsminimumAttr))
+                 generalLevelOfQualityNorm.Isminimum, GeneralLevelOfQualityNorm.IsminimumAttr, type, subtype))
             {
                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -33,11 +33,11 @@ namespace Elevator.Controllers
             else return true;
         }
 
-        public bool addClick(HarmfulLevelOfQualityNorm harmfulLevelOfQualityNorm)
+        public bool addClick(HarmfulLevelOfQualityNorm harmfulLevelOfQualityNorm, string type, string subtype)
         {
             if (!DAO.getInstance().addNorm(HarmfulLevelOfQualityNorm.NameTable, HarmfulLevelOfQualityNorm.TypeOfLevelQualityAttr,
                 harmfulLevelOfQualityNorm.TypeImp, HarmfulLevelOfQualityNorm.NormAttr, harmfulLevelOfQualityNorm.Raw,
-                 harmfulLevelOfQualityNorm.Norm, Convert.ToString(harmfulLevelOfQualityNorm.ClassRaw)))
+                 harmfulLevelOfQualityNorm.Norm, Convert.ToString(harmfulLevelOfQualityNorm.ClassRaw), type, subtype))
             {
                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -45,11 +45,11 @@ namespace Elevator.Controllers
             else return true;
         }
 
-        public bool addClick(WeedLevelOfQualityNorm weedLevelOfQualityNorm)
+        public bool addClick(WeedLevelOfQualityNorm weedLevelOfQualityNorm, string type, string subtype)
         {
             if (!DAO.getInstance().addNorm(WeedLevelOfQualityNorm.NameTable, WeedLevelOfQualityNorm.TypeOfLevelQualityAttr,
                 weedLevelOfQualityNorm.TypeImp, WeedLevelOfQualityNorm.NormAttr, weedLevelOfQualityNorm.Raw,
-                 weedLevelOfQualityNorm.Norm, Convert.ToString(weedLevelOfQualityNorm.ClassRaw)))
+                 weedLevelOfQualityNorm.Norm, Convert.ToString(weedLevelOfQualityNorm.ClassRaw), type, subtype))
             {
                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -57,11 +57,11 @@ namespace Elevator.Controllers
             else return true;
         }
 
-        public bool addClick(GrainLevelOfQualityNorm grainLevelOfQualityNorm)
+        public bool addClick(GrainLevelOfQualityNorm grainLevelOfQualityNorm, string type, string subtype)
         {
             if (!DAO.getInstance().addNorm(GrainLevelOfQualityNorm.NameTable, GrainLevelOfQualityNorm.TypeOfLevelQualityAttr,
                 grainLevelOfQualityNorm.TypeImp, GrainLevelOfQualityNorm.NormAttr, grainLevelOfQualityNorm.Raw,
-                 grainLevelOfQualityNorm.Norm, Convert.ToString(grainLevelOfQualityNorm.ClassRaw)))
+                 grainLevelOfQualityNorm.Norm, Convert.ToString(grainLevelOfQualityNorm.ClassRaw), type, subtype))
             {
                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
