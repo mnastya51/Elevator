@@ -890,8 +890,14 @@ namespace Elevator
                         {
                         }
                         row.Cells[6].Value = reader.GetString(6);
-                        row.Cells[7].Value = reader.GetInt32(7);
-                        row.Cells[8].Value = reader.GetString(8);
+                        row.Cells[7].Value = reader.GetInt32(7);                        
+                        try
+                        {
+                            row.Cells[8].Value = reader.GetString(8); 
+                        }
+                        catch
+                        {
+                        }
                         row.Cells[9].Value = reader.GetFloat(9);
                         c++;
                     }
@@ -1076,22 +1082,54 @@ namespace Elevator
              }
          }*/
         public bool addTransportation(int idRaw, string nameTable, string contractor, string subdivision,
-                    FormValue<string, string> date, FormValue<string, string> transport, FormValue<string, string> weight)
+                    FormValue<string, string> date, FormValue<string, string> transport, FormValue<string, string> weight,
+                    string raw, string type, string subtype, string year)
         {
-            string sqlCommand;
+            string sqlcommandStorage;
+            if (isTypesForStorage(raw))
+            {
+                if (isSubtypesForStorage(type, raw))
+                {
+                    sqlcommandStorage = string.Format("Insert into Storage (year_crop, id_subtype, weight, id_NameRaw) " +
+                   "values('{0}'," +
+                   "(select s.id_subtype from Subtype_raw s join Type_raw t on s.id_type = t. id_type join Raw r on " +
+                   "r.id_NameRaw = t.id_NameRaw where s.name_subtype = '{1}' and t.name_type_raw = '{2}'  and r.name_raw = '{3}'), " +
+                   "0, " +
+                   "(select id_NameRaw from Raw where name_raw = '{3}'))", year, subtype, type, raw);
+                }
+                else
+                {
+                    sqlcommandStorage = string.Format("Insert into Storage (year_crop, id_subtype, weight, id_NameRaw)" +
+                        "values('{0}'," +
+                        "(select s.id_subtype from Subtype_raw s join Type_raw t on s.id_type = t. id_type join Raw r on " +
+                         "r.id_NameRaw = t.id_NameRaw where  t.name_type_raw = '{1}'  and r.name_raw = '{2}'), " +
+                         "0, " +
+                         "(select id_NameRaw from Raw where name_raw = '{2}'))", year, type, raw);
+                }
+            }
+            else
+            {
+                sqlcommandStorage = string.Format("Insert into Storage (year_crop, weight, id_NameRaw)" +
+                    "values('{0}'," +
+                     "0, " +
+                     "(select id_NameRaw from Raw where name_raw = '{1}'))", year, raw);
+            }
             try
             {                
                 //добавление в поставку или отгрузку
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    sqlCommand = string.Format("Insert into {0} (id_contractor, id_raw, {1}, {2}, {3}) values (" +
-                        "(select id_contractor from Contractor where name_contr = '{4}' and subdivision = '{9}'), {5}, '{6}', '{7}', '{8}')",
-                        nameTable, transport.getKey(), weight.getKey(), date.getKey(), contractor, idRaw,
-                        transport.getValue(), weight.getValue(), date.getValue(), subdivision);
+                    string sqlCommand = string.Format("set xact_abort on; "+
+                        " begin tran;"+
+                        "{0};"+
+                        "Insert into {1} (id_contractor, id_raw, {2}, {3}, {4}) values (" +
+                        "(select id_contractor from Contractor where name_contr = '{5}' and subdivision = '{9}'), " +
+                        "(select max(id_raw) From Storage), '{6}', '{7}', '{8}');"+
+                        "commit tran;", sqlcommandStorage, nameTable, transport.getKey(), weight.getKey(), date.getKey(), 
+                        contractor, transport.getValue(), weight.getValue(), date.getValue(), subdivision);
                     connection.Open();
                     SqlCommand command = new SqlCommand(sqlCommand, connection);
                     command.ExecuteNonQuery();
-                    connection.Close();
                 }
                 return true;
             }
@@ -1101,7 +1139,7 @@ namespace Elevator
             }
         }
 
-        public int addStorage(string raw, string type, string subtype, string year)
+       /* public int addStorage(string raw, string type, string subtype, string year)
         {
             string sqlCommand;
             int idRaw;
@@ -1156,7 +1194,7 @@ namespace Elevator
             {
                 return 0;
             }
-        }
+        }*/
         private bool isSubtypesForStorage(string type, string raw)//есть подтипы у типа
         {
             string sqlCommand = string.Empty;
@@ -1168,7 +1206,6 @@ namespace Elevator
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
                 int count = (Int32)command.ExecuteScalar();
-                connection.Close();
                 if (count == 0)
                     return false;
                 else return true;
@@ -1190,23 +1227,27 @@ namespace Elevator
                 else return true;
             }
         }
-        public void changeStorage(int idRaw, string raw, string type, string subtype, string year)
+       
+        public bool changeTransportation(string nameTable, int id, string contractor, string subdivision,
+            FormValue<string, string> date, FormValue<string, string> transport,
+            FormValue<string, string> weight, int idRaw, string raw, string type, string subtype, 
+            string year)
         {
-            string sqlCommand;
+            string sqlCommandStorage;
             try
             {
                 if (isTypesForStorage(raw))
                 {
                     if (isSubtypesForStorage(type, raw))//есть тип и подтип
                     {
-                        sqlCommand = string.Format("Update Storage set id_NameRaw = (select id_NameRaw from Raw where name_raw = '{0}'), " +
+                        sqlCommandStorage = string.Format("Update Storage set id_NameRaw = (select id_NameRaw from Raw where name_raw = '{0}'), " +
                        "id_subtype = (select s.id_subtype from Subtype_raw s join Type_raw t on s.id_type = t. id_type join Raw r on " +
-                       "r.id_NameRaw = t.id_NameRaw where s.name_subtype = '{1}' and t.name_type_raw = '{2}'  and r.name_raw = '{0}'), "+
+                       "r.id_NameRaw = t.id_NameRaw where s.name_subtype = '{1}' and t.name_type_raw = '{2}'  and r.name_raw = '{0}'), " +
                        "year_crop = {3} where id_raw = {4}", raw, subtype, type, year, idRaw);
                     }
                     else//есть тип
                     {
-                        sqlCommand = string.Format("Update Storage set id_NameRaw = (select id_NameRaw from Raw where name_raw = '{0}'), " +
+                        sqlCommandStorage = string.Format("Update Storage set id_NameRaw = (select id_NameRaw from Raw where name_raw = '{0}'), " +
                        "id_subtype = (select s.id_subtype from Subtype_raw s join Type_raw t on s.id_type = t. id_type join Raw r on " +
                              "r.id_NameRaw = t.id_NameRaw where  t.name_type_raw = '{1}'  and r.name_raw = '{0}'), " +
                        "year_crop = {2} where id_raw = {3}", raw, type, year, idRaw);
@@ -1214,32 +1255,19 @@ namespace Elevator
                 }
                 else//нет типа
                 {
-                    sqlCommand = string.Format("Update Storage set id_NameRaw = (select id_NameRaw from Raw where name_raw = '{0}'), "+
+                    sqlCommandStorage = string.Format("Update Storage set id_NameRaw = (select id_NameRaw from Raw where name_raw = '{0}'), " +
                         "id_subtype = null, " +
                        "year_crop = {1} where id_raw = {2}", raw, year, idRaw);
                 }
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
-                    cmd.ExecuteNonQuery();
-                    connection.Close();
-                }                
-            }
-            catch (SqlException)
-            {               
-            }
-        }
-
-        public void changeTransportation(string nameTable, int id, string contractor, string subdivision, FormValue<string, string> date, FormValue<string, string> transport, FormValue<string, string> weight)
-        {
-            string sqlCommand;
-            try
-            {
-                sqlCommand = string.Format("Update {8} set {5} = '{0}', " +
-                       "{6} = '{1}', {7} = '{2}', " +
-                       "id_contractor = (select id_contractor from Contractor where name_contr = '{3}' and subdivision = '{9}') " +
-                       "where id_raw = {4}", transport.getValue(), weight.getValue(), date.getValue(), contractor, id,
+                string sqlCommand = string.Format("set xact_abort on; "+
+                        " begin tran;" +
+                        "{0};" + 
+                        "Update {9} set {6} = '{1}', " +
+                       "{7} = '{2}', {8} = '{3}', " +
+                       "id_contractor = (select id_contractor from Contractor where name_contr = '{4}' and subdivision = '{10}') " +
+                       "where id_raw = {5};" +
+                       "commit tran;", sqlCommandStorage, transport.getValue(), weight.getValue(),
+                       date.getValue(), contractor, idRaw,
                        transport.getKey(), weight.getKey(), date.getKey(), nameTable, subdivision);
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -1247,11 +1275,12 @@ namespace Elevator
                     connection.Open();
                     SqlCommand cmd = new SqlCommand(sqlCommand, connection);
                     cmd.ExecuteNonQuery();
-                    connection.Close();
                 }
+                return true;
             }
             catch (SqlException)
             {
+                return false;
             }
         }
         public void findTransportation(string sqlCommand, DataGridView dataGridViewContract)

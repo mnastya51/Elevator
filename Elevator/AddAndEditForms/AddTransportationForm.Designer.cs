@@ -63,11 +63,13 @@
             // 
             // weightTextBox
             // 
+            this.weightTextBox.BackColor = System.Drawing.Color.LightBlue;
             this.weightTextBox.Location = new System.Drawing.Point(159, 334);
             this.weightTextBox.MaxLength = 10;
             this.weightTextBox.Name = "weightTextBox";
             this.weightTextBox.Size = new System.Drawing.Size(231, 20);
             this.weightTextBox.TabIndex = 8;
+            this.weightTextBox.TextChanged += new System.EventHandler(this.weightTextBox_TextChanged);
             this.weightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.weightTextBox_KeyPress);
             // 
             // yearNumericUpDown
@@ -165,6 +167,7 @@
             // 
             // dateTimePicker
             // 
+            this.dateTimePicker.CustomFormat = "dd.MM.yyyy HH:mm";
             this.dateTimePicker.Location = new System.Drawing.Point(159, 216);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(231, 20);
@@ -226,7 +229,8 @@
             // 
             // saveButton
             // 
-            this.saveButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.saveButton.BackColor = System.Drawing.Color.LightBlue;
+            this.saveButton.Enabled = false;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.saveButton.ForeColor = System.Drawing.SystemColors.Desktop;

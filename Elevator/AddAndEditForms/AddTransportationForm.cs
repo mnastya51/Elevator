@@ -23,6 +23,7 @@ namespace Elevator.AddAndEditForms
         public AddTransportationForm()
         {
             InitializeComponent();
+            dateTimePicker.Format = DateTimePickerFormat.Custom;
             controller = new AddTransportationController();
             string[] contractor = DAO.getInstance().getNoteToComboBox("name_contr", "Contractor");//выводить неповторяющиеся записи
             contractorComboBox.Items.AddRange(contractor);
@@ -37,6 +38,7 @@ namespace Elevator.AddAndEditForms
         public AddTransportationForm(string text)
         {
             InitializeComponent();
+            dateTimePicker.Format = DateTimePickerFormat.Custom;
             this.Text = "Добавление отгрузки";
             controller = new AddTransportationController();
             string[] contractor = DAO.getInstance().getNoteToComboBox("name_contr", "Contractor");
@@ -52,6 +54,7 @@ namespace Elevator.AddAndEditForms
         public AddTransportationForm(Storage newStorage, Delivery newDelivery)
         {
             InitializeComponent();
+            dateTimePicker.Format = DateTimePickerFormat.Custom;
             this.Text = "Изменение поставки";
             controller = new AddTransportationController();
             string[] contractor = DAO.getInstance().getNoteToComboBox("name_contr", "Contractor");
@@ -71,6 +74,7 @@ namespace Elevator.AddAndEditForms
         public AddTransportationForm(Storage newStorage, Shipment newShipment)
         {
             InitializeComponent();
+            dateTimePicker.Format = DateTimePickerFormat.Custom;
             this.Text = "Изменение отгрузки";
             controller = new AddTransportationController();
             string[] contractor = DAO.getInstance().getNoteToComboBox("name_contr", "Contractor");
@@ -95,40 +99,27 @@ namespace Elevator.AddAndEditForms
                 if (delivery == null)
                 {
                     Storage storage = new Storage(rawComboBox.Text, typeComboBox.Text, subtypeComboBox.Text,
-                        yearNumericUpDown.Text);
-                    int idRaw = DAO.getInstance().addStorage(storage.Raw, storage.Type, storage.Subtype,
-                        storage.Year);
-                    delivery = new Delivery(idRaw, contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text,
+                        yearNumericUpDown.Text);                 
+                    delivery = new Delivery(contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text,
                         transportTextBox.Text, weight);
-                    if (controller.onSaveClick(delivery, false))
+                    if (controller.onSaveClick(delivery, storage, false))
                         this.Close();
-                    else delivery = null;
-                    /*delivery = new Delivery(contractorComboBox.Text,
-                       rawComboBox.Text, typeComboBox.Text, subtypeComboBox.Text
-                        dateTimePicker.Text,
-                       yearNumericUpDown.Text
-                        transportTextBox.Text,
-                        weightTextBox.Text);
-                    if (controller.onSaveClick(delivery, false))
-                        this.Close();
-                    else delivery = null;*/
+                    else {
+                        delivery = null;
+                        storage = null;
+                    } 
                 }
                 else
                 {
                     Storage st = new Storage(storage.IdRaw, rawComboBox.Text, typeComboBox.Text, subtypeComboBox.Text, yearNumericUpDown.Text);
-                    Delivery del = new Delivery(storage.IdRaw, contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text, transportTextBox.Text, weight);
-                    controller.changeStorage(st, del);
-                    this.Close();
-                    /*  contractor.Name = textBoxName.Text;
-                      contractor.Sub = textBoxSubdivision.Text;
-                      contractor.YurAdress = richTextBoxYuradress.Text;
-                      contractor.FactAdress = richTextBoxFactadress.Text;
-                      contractor.Index = textBoxIndex.Text.Replace(" ", "") == String.Empty ? 0 : Convert.ToInt32(textBoxIndex.Text);
-                      contractor.Phone = maskedTextBoxPhone.Text;
-                      contractor.Inn = textBoxINN.Text;
-                      if (controller.onSaveClick(contractor, true))
-                          this.Close();
-                      else delivery = null;*/
+                    Delivery del = new Delivery(delivery.Id, contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text, transportTextBox.Text, weight);
+                    if (controller.onSaveClick(del, storage, true))
+                        this.Close();
+                    else
+                    {
+                        del = null;
+                        st = null;
+                    }
                 }
             }
             else
@@ -137,20 +128,23 @@ namespace Elevator.AddAndEditForms
                 {
                     Storage storage = new Storage(rawComboBox.Text, typeComboBox.Text, subtypeComboBox.Text,
                         yearNumericUpDown.Text);
-                    int idRaw = DAO.getInstance().addStorage(storage.Raw, storage.Type, storage.Subtype,
-                        storage.Year);
-                    shipment = new Shipment(idRaw, contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text,
+                    shipment = new Shipment(contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text,
                          transportTextBox.Text, weight);
-                    if (controller.onSaveClick(shipment, false))
+                    if (controller.onSaveClick(shipment, storage, false))
                         this.Close();
-                    else shipment = null;
+                    else { shipment = null; storage = null; } 
                 }
                 else
                 {
                     Storage st = new Storage(storage.IdRaw, rawComboBox.Text, typeComboBox.Text, subtypeComboBox.Text, yearNumericUpDown.Text);
                     Shipment sh = new Shipment(storage.IdRaw, contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text, transportTextBox.Text, weight);
-                    controller.changeStorage(st, sh);
-                    this.Close();
+                    if (controller.onSaveClick(sh, st, true))
+                        this.Close();
+                    else
+                    {
+                        st = null;
+                        sh = null;
+                    }
                 }
             }
         }
@@ -204,6 +198,13 @@ namespace Elevator.AddAndEditForms
             char l = e.KeyChar;
             if (l != '\b' && l != '.' && (l < '0' || l > '9'))
                 e.Handled = true;
+        }
+
+        private void weightTextBox_TextChanged(object sender, EventArgs e)
+        {
+            saveButton.Enabled = controller.checkSave(weightTextBox.Text);
+            saveButton.BackColor = controller.checkSave(weightTextBox.Text) ? Color.DarkOrange : Color.LightBlue;
+            weightTextBox.BackColor = !AddRawController.isEmpty(weightTextBox.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
         }
     }
 }
