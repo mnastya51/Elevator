@@ -1525,20 +1525,56 @@ namespace Elevator
                     }
                 }
                 reader.Close();
-                connection.Close();
             }
             return formValue;
         }
 
-        public bool isMaximum(string idRaw, string type, string nameImp)
+        public LinkedList<FormValue<string, string>> defineStateForClass(string idRaw, string classRaw, string normAttr, string nameTable,
+            string nameAttr)
+        {
+            string sqlCommand = string.Empty;
+            LinkedList<FormValue<string, string>> formValue = new LinkedList<FormValue<string, string>>();
+                sqlCommand = string.Format("Select {3}, {0} From {1} c where  id_class = (select id_class from "+
+                    "Class where id_NameRaw = (select st.id_NameRaw from Raw st join Storage s on st.id_NameRaw "+
+                    "= s.id_NameRaw where s.id_raw = {2}) and number_class = {4}) ", normAttr,
+                    nameTable, idRaw, nameAttr, classRaw);
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        formValue.AddLast(new FormValue<string, string>(reader.GetString(0), reader.GetFloat(1).ToString()));
+                        c++;
+                    }
+                }
+                reader.Close();
+            }
+            return formValue;
+        }
+
+        public bool isMaximum(string idRaw, string type, string classRaw, string nameImp)
         {
             string sqlCommand = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                if(type != string.Empty)
-                sqlCommand = string.Format("Select is_minimum From Norm_general_impurities c where  id_class is Null and id_subtype = (select st.id_subtype " +
-                    "from Subtype_raw st join Storage s on st.id_subtype=s.id_subtype where s.id_raw = {0} and name_imp = '{1}')",
-                    idRaw, nameImp);
+                if (classRaw != string.Empty)
+                {
+                    sqlCommand = string.Format("Select is_minimum From Norm_general_impurities c where  id_class = (select id_class from Class where " +
+                    "id_NameRaw = (select st.id_NameRaw from Raw st join Storage s on st.id_NameRaw=s.id_NameRaw where s.id_raw = {0}) and number_class = {1}) and name_imp = '{2}'",
+                     idRaw, classRaw, nameImp);
+                }
+
+                else if (type != string.Empty)
+                {
+                    sqlCommand = string.Format("Select is_minimum From Norm_general_impurities c where  id_class is Null and id_subtype = (select st.id_subtype " +
+                      "from Subtype_raw st join Storage s on st.id_subtype=s.id_subtype where s.id_raw = {0} and name_imp = '{1}')",
+                      idRaw, nameImp);
+                }
                 else
                 {
                     sqlCommand = string.Format("Select is_minimum From Norm_general_impurities where  id_class = (select id_class from Class where " +
