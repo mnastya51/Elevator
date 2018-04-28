@@ -105,10 +105,10 @@
             this.radioButtonMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radioButtonMin.Location = new System.Drawing.Point(134, 19);
             this.radioButtonMin.Name = "radioButtonMin";
-            this.radioButtonMin.Size = new System.Drawing.Size(89, 22);
+            this.radioButtonMin.Size = new System.Drawing.Size(80, 22);
             this.radioButtonMin.TabIndex = 84;
             this.radioButtonMin.TabStop = true;
-            this.radioButtonMin.Text = "не менее";
+            this.radioButtonMin.Text = "больше";
             this.radioButtonMin.UseVisualStyleBackColor = true;
             // 
             // radioButtonMax
@@ -117,9 +117,9 @@
             this.radioButtonMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radioButtonMax.Location = new System.Drawing.Point(134, 47);
             this.radioButtonMax.Name = "radioButtonMax";
-            this.radioButtonMax.Size = new System.Drawing.Size(89, 22);
+            this.radioButtonMax.Size = new System.Drawing.Size(80, 22);
             this.radioButtonMax.TabIndex = 85;
-            this.radioButtonMax.Text = "не более";
+            this.radioButtonMax.Text = "меньше";
             this.radioButtonMax.UseVisualStyleBackColor = true;
             // 
             // groupBox1

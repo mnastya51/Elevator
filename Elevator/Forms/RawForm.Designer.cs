@@ -568,7 +568,7 @@
             this.Controls.Add(this.groupBoxClass);
             this.Controls.Add(this.groupBox1);
             this.Name = "RawForm";
-            this.Text = "Культура";
+            this.Text = "Зерновые культуры";
             this.Load += new System.EventHandler(this.RawForm_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRaw)).EndInit();

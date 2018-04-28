@@ -107,9 +107,9 @@ namespace Elevator.Forms
                 switch (groupComboBox.Text)
                 {
                     case "Общие показатели":
-                        GeneralLevelOfQuality generalLevelOfQualityNorm = new GeneralLevelOfQuality(Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[1].Value),
+                        GeneralLevelOfQuality generalLevelOfQuality = new GeneralLevelOfQuality(Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[1].Value),
                             Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[0].Value), Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[2].Value));
-                        controller.changeButtonClick(generalLevelOfQualityNorm, true);
+                        controller.changeButtonClick(generalLevelOfQuality, true);
                         break;
                     case "Вредные примеси":
                         HarmfulLevelOfQuality harmfulLevelOfQuality = new HarmfulLevelOfQuality(Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[1].Value),
@@ -150,8 +150,34 @@ namespace Elevator.Forms
         }
 
         private void defineClassButton_Click(object sender, EventArgs e)
-        {
-         //   if(typeLabel.Text !)
+        {//сырье, 
+            try
+            {
+                switch (groupComboBox.Text)
+                {
+                    case "Общие показатели":
+                        GeneralLevelOfQuality generalLevelOfQuality = new GeneralLevelOfQuality(Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[1].Value),
+                            Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[0].Value), Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[2].Value));
+                        controller.defineClassClick(generalLevelOfQuality, Convert.ToString(dataGridViewRaw.CurrentRow.Cells[2].Value), typeLabel.Text, subtypeLabel.Text, dataGridViewAnalys);
+                        break;
+                    case "Вредные примеси":
+                        HarmfulLevelOfQuality harmfulLevelOfQuality = new HarmfulLevelOfQuality(Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[1].Value),
+                            Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[0].Value), Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[2].Value));
+                        controller.defineClassClick(harmfulLevelOfQuality, Convert.ToString(dataGridViewRaw.CurrentRow.Cells[2].Value), typeLabel.Text, subtypeLabel.Text, dataGridViewAnalys);
+                        break;
+                    case "Сорные примеси":
+                        WeedLevelOfQuality weedLevelOfQuality = new WeedLevelOfQuality(Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[1].Value),
+                            Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[0].Value), Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[2].Value));
+                        controller.defineClassClick(weedLevelOfQuality, Convert.ToString(dataGridViewRaw.CurrentRow.Cells[2].Value), typeLabel.Text, subtypeLabel.Text, dataGridViewAnalys);
+                        break;
+                    case "Зерновые примеси":
+                        GrainLevelOfQuality grainLevelOfQuality = new GrainLevelOfQuality(Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[1].Value),
+                            Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[0].Value), Convert.ToString(dataGridViewAnalys.CurrentRow.Cells[2].Value));
+                        controller.defineClassClick(grainLevelOfQuality, Convert.ToString(dataGridViewRaw.CurrentRow.Cells[2].Value), typeLabel.Text, subtypeLabel.Text, dataGridViewAnalys);
+                        break;
+                }
+            }
+            catch (NullReferenceException) { MessageBox.Show("Введите значение хотя бы одного показателя!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
     }
 }

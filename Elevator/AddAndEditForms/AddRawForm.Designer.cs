@@ -103,7 +103,7 @@
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.labelName);
             this.Name = "AddRawForm";
-            this.Text = "Добавление сырья";
+            this.Text = "Добавление зерновой культуры";
             this.ResumeLayout(false);
             this.PerformLayout();
 
