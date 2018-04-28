@@ -257,7 +257,7 @@ namespace Elevator.Controllers
                             if (i == valueArray.Length - 1)
                                 dataGridViewAnalys.Rows[j].Cells[2].Style.BackColor = System.Drawing.Color.LightBlue;
                             j = valueArray.Length;
-                            res[0] = classes[i];
+                            res[0] = "";
                             res[1] = i.ToString();
                         }
                     }
@@ -296,7 +296,7 @@ namespace Elevator.Controllers
                                 if (i == valueArray.Length)
                                     dataGridViewAnalys.Rows[j].Cells[2].Style.BackColor = System.Drawing.Color.LightBlue;
                                 j = valueArray.Length;
-                                res[0] = classes[i];
+                                res[0] = "";
                                 res[1] = i.ToString();
                             }
                         }
@@ -317,7 +317,7 @@ namespace Elevator.Controllers
                                 if (i == valueArray.Length - 1)
                                     dataGridViewAnalys.Rows[j].Cells[2].Style.BackColor = System.Drawing.Color.LightBlue;
                                 j = valueArray.Length;
-                                res[0] = classes[i];
+                                res[0] = "";
                                 res[1] = i.ToString();
                             }
                         }                                              
