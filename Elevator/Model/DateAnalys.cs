@@ -19,10 +19,9 @@ namespace Elevator.Model
             this.IdRaw = idRaw;
         }
 
-        public DateAnalys(string id, string date)
+        public DateAnalys(string id)
         {
             this.Id = id;
-            this.Date = date;
         }
     }
 }

@@ -163,6 +163,7 @@
     <Compile Include="Controllers\AnalysQualityRawController.cs" />
     <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Controllers\ContractorController.cs" />
+    <Compile Include="Controllers\DateAnalysController.cs" />
     <Compile Include="Controllers\TransportationController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\LevelOfQualityController.cs" />

@@ -78,7 +78,6 @@ namespace Elevator
                     connection.Open();
                     SqlCommand cmd = new SqlCommand(sqlCommand, connection);
                     cmd.ExecuteNonQuery();
-                    connection.Close();
                 }
                 return true;
             }
@@ -1626,6 +1625,31 @@ namespace Elevator
                 reader.Close();
             }
             return res;
+        }
+        public void selectDateAnalys(DataGridView dataGridView, int idContractor, int idRaw)
+        {
+            string sqlCommand = string.Empty;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select id_analysis, date_analysis From Analysis " +
+                    "where id_raw = {0} and id_contractor = {1}", idRaw, idContractor);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        dataGridView.Rows.Add();
+                        DataGridViewRow row = dataGridView.Rows[c];
+                        row.Cells[0].Value = reader.GetInt32(0);
+                        row.Cells[1].Value = reader.GetString(1);
+                        c++;
+                    }
+                }
+                reader.Close();
+            }
         }
     }
 }
