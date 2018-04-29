@@ -1,4 +1,5 @@
-﻿using Elevator.Controllers;
+﻿using Elevator.AddAndEditForms;
+using Elevator.Controllers;
 using Elevator.Model;
 using Elevator.Utils;
 using System;
@@ -70,6 +71,8 @@ namespace Elevator.Forms
             addButton.Enabled = true;
             changeButton.Enabled = true;
             defineClassButton.Enabled = true;
+            dateAnalysButton.Enabled = true;
+            dateAnalysButton.BackColor = Color.DarkOrange;
             selectAnalys(change);
         }
         private void selectAnalys(string[] change)
@@ -178,6 +181,13 @@ namespace Elevator.Forms
                 }
             }
             catch (NullReferenceException) { MessageBox.Show("Введите значение хотя бы одного показателя!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        private void dateAnalysButton_Click(object sender, EventArgs e)
+        {
+            new AddDateAnalysForm(new DateAnalys(
+                Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[4].Value),              
+                Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value))).ShowDialog();
         }
     }
 }

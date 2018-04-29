@@ -16,5 +16,10 @@ namespace Elevator.AddAndEditForms
         {
             InitializeComponent();
         }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

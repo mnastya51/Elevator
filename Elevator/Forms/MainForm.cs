@@ -70,7 +70,7 @@ namespace Elevator.Forms
 
         private void dataAnalysToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            new DateAnalysForm().ShowDialog();
         }
     }
 }

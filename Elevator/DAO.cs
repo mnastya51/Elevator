@@ -1312,7 +1312,7 @@ namespace Elevator
                         row.Cells[6].Value = reader.GetString(6);
                         row.Cells[7].Value = reader.GetInt32(7);
                         row.Cells[8].Value = reader.GetString(8);
-                        row.Cells[9].Value = reader.GetString(9);
+                        row.Cells[9].Value = reader.GetFloat(9);
                         c++;
                     }
                 }
@@ -1325,7 +1325,7 @@ namespace Elevator
             string sqlCommand = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                sqlCommand = string.Format("Select d.id_raw, c.name_contr, r.name_raw, d.date_delivery From Contractor c join Delivery d " +
+                sqlCommand = string.Format("Select d.id_raw, c.name_contr, r.name_raw, d.date_delivery, c.id_contractor From Contractor c join Delivery d " +
                     "on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join Raw r on st.id_NameRaw = " +
                     "r.id_NameRaw");
                 connection.Open();
@@ -1341,7 +1341,8 @@ namespace Elevator
                         row.Cells[0].Value = reader.GetInt32(0);
                         row.Cells[1].Value = reader.GetString(1);
                         row.Cells[2].Value = reader.GetString(2);
-                        row.Cells[3].Value = reader.GetString(3);                       
+                        row.Cells[3].Value = reader.GetString(3);
+                        row.Cells[4].Value = reader.GetInt32(4);
                         c++;
                     }
                 }

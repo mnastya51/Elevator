@@ -90,6 +90,12 @@
     <Compile Include="AddAndEditForms\AddContractorForm.Designer.cs">
       <DependentUpon>AddContractorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddAndEditForms\AddDateAnalysForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAndEditForms\AddDateAnalysForm.Designer.cs">
+      <DependentUpon>AddDateAnalysForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddAndEditForms\AddNormOfGeneralLevelForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,7 @@
     <Compile Include="Controllers\AddAnalysQualityRawController.cs" />
     <Compile Include="Controllers\AddContractController.cs" />
     <Compile Include="Controllers\AddContractorController.cs" />
+    <Compile Include="Controllers\AddDateAnalysController.cs" />
     <Compile Include="Controllers\AddTransportationController.cs" />
     <Compile Include="Controllers\AddEmployeeController.cs" />
     <Compile Include="Controllers\AddlevelOfQualityController.cs" />
@@ -176,6 +183,7 @@
     <Compile Include="Model\AbstractStorage.cs" />
     <Compile Include="Model\Contract.cs" />
     <Compile Include="Model\Contractor.cs" />
+    <Compile Include="Model\DateAnalys.cs" />
     <Compile Include="Model\Delivery.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\GeneralLevelOfQuality.cs" />
@@ -298,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddAndEditForms\AddContractorForm.resx">
       <DependentUpon>AddContractorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddAndEditForms\AddDateAnalysForm.resx">
+      <DependentUpon>AddDateAnalysForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddAndEditForms\AddNormOfGeneralLevelForm.resx">
       <DependentUpon>AddNormOfGeneralLevelForm.cs</DependentUpon>
