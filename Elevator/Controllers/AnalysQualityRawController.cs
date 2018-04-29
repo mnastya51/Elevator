@@ -61,7 +61,7 @@ namespace Elevator.Controllers
             new AddAnalysQualityRawForm(weedLevelOfQuality, forChange).ShowDialog();
         }
 
-        public string defineClassClick(GeneralLevelOfQuality generalLevelOfQuality, string raw, string type, 
+        public string defineClassClick(GeneralLevelOfQuality generalLevelOfQuality, string raw, string type,
             string subtype, DataGridView dataGridViewAnalys)
         {
             string numberClass = "";
@@ -75,7 +75,8 @@ namespace Elevator.Controllers
                     classes[i], GeneralLevelOfQualityNorm.NormAttr, GeneralLevelOfQualityNorm.NameTable,
                     GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr);
                     FormValue<string, string>[] valueArray = value.ToArray<FormValue<string, string>>();
-                    string[] res = fillWithClassForGeneral(dataGridViewAnalys, i, flag, classes, valueArray, generalLevelOfQuality.IdRaw, type);
+                    string[] res = fillWithClassForGeneral(dataGridViewAnalys, i, flag, classes, 
+                        valueArray, generalLevelOfQuality.IdRaw, type);
                     numberClass = res[0];
                     i = Convert.ToInt32(res[1]);
                 }
@@ -113,7 +114,7 @@ namespace Elevator.Controllers
                 }
                 dataGridViewAnalys.ClearSelection();
                 return numberClass;
-            }           
+            }
         }
         public string defineClassClick(HarmfulLevelOfQuality harmfulLevelOfQuality, string raw, string type, string subtype,
              DataGridView dataGridViewAnalys)
@@ -129,7 +130,8 @@ namespace Elevator.Controllers
                     classes[i], HarmfulLevelOfQualityNorm.NormAttr, HarmfulLevelOfQualityNorm.NameTable,
                     HarmfulLevelOfQualityNorm.TypeOfLevelQualityAttr);
                     FormValue<string, string>[] valueArray = value.ToArray<FormValue<string, string>>();
-                    string[] res = fillWithClass(dataGridViewAnalys, i, flag, classes, valueArray);
+                    string[] res = fillWithClass(dataGridViewAnalys, i, flag, classes, valueArray,
+                        harmfulLevelOfQuality.IdRaw, "hurmful", type);
                     numberClass = res[0];
                     i = Convert.ToInt32(res[1]);
                 }
@@ -161,7 +163,8 @@ namespace Elevator.Controllers
                     classes[i], WeedLevelOfQualityNorm.NormAttr, WeedLevelOfQualityNorm.NameTable,
                    WeedLevelOfQualityNorm.TypeOfLevelQualityAttr);
                     FormValue<string, string>[] valueArray = value.ToArray<FormValue<string, string>>();
-                    string[] res = fillWithClass(dataGridViewAnalys, i, flag, classes, valueArray);
+                    string[] res = fillWithClass(dataGridViewAnalys, i, flag, classes, valueArray,
+                        weedLevelOfQuality.IdRaw, "weed", type);
                     numberClass = res[0];
                     i = Convert.ToInt32(res[1]);
                 }
@@ -179,8 +182,8 @@ namespace Elevator.Controllers
                 return numberClass;
             }
         }
-        public string defineClassClick(GrainLevelOfQuality grainLevelOfQuality, string raw, string type, string subtype,
-            DataGridView dataGridViewAnalys)
+        public string defineClassClick(GrainLevelOfQuality grainLevelOfQuality, string raw,
+            string type, string subtype, DataGridView dataGridViewAnalys)
         {
             string numberClass = "";
             string[] classes = DAO.getInstance().getClasses(raw);
@@ -193,7 +196,8 @@ namespace Elevator.Controllers
                     classes[i], GrainLevelOfQualityNorm.NormAttr, GrainLevelOfQualityNorm.NameTable,
                     GrainLevelOfQualityNorm.TypeOfLevelQualityAttr);
                     FormValue<string, string>[] valueArray = value.ToArray<FormValue<string, string>>();
-                    string[] res = fillWithClass(dataGridViewAnalys, i, flag, classes, valueArray);
+                    string[] res = fillWithClass(dataGridViewAnalys, i, flag, classes, valueArray,
+                        grainLevelOfQuality.IdRaw, "grain", type);
                     numberClass = res[0];
                     i = Convert.ToInt32(res[1]);
                 }
@@ -212,7 +216,8 @@ namespace Elevator.Controllers
             }
         }
 
-        public void fillWithoutClass(DataGridView dataGridViewAnalys, FormValue<string, string>[] valueArray)
+        private void fillWithoutClass(DataGridView dataGridViewAnalys,
+            FormValue<string, string>[] valueArray)
         {
             for (int i = 0; i < valueArray.Length; i++)
             {
@@ -222,8 +227,10 @@ namespace Elevator.Controllers
                     if (row.Cells[1].Value.ToString() == valueArray[i].getKey())
                     {
                         row.Cells[3].Value = valueArray[i].getValue();
-                        if (Convert.ToDouble(row.Cells[2].Value) > Convert.ToDouble(row.Cells[3].Value))
+                        if (Convert.ToDouble(row.Cells[2].Value) > Convert.ToDouble(valueArray[i].getValue()))
+                        {
                             dataGridViewAnalys.Rows[i].Cells[2].Style.BackColor = System.Drawing.Color.LightBlue;
+                        }
                     }
                 }
                 catch { i++; }
@@ -231,31 +238,355 @@ namespace Elevator.Controllers
             dataGridViewAnalys.ClearSelection();
         }
 
-        public string[] fillWithClass(DataGridView dataGridViewAnalys, int i, bool flag, string[] classes, FormValue<string, string>[] valueArray)
+        public string[] fillWithClass(DataGridView dataGridViewAnalys, int i, bool flag,
+            string[] classes, FormValue<string, string>[] valueArray, string idRaw, 
+            string groupLevel, string type)
         {
-            string[] res = new string [2];
-            for (int j = 0; j < valueArray.Length; j++)
+            string[] res = new string[2];
+            string idClass = valueArray[0].getValue();
+            for (int j = 1; j < valueArray.Length; j++)
             {
                 try
                 {
-                    DataGridViewRow row = dataGridViewAnalys.Rows[j];
+                    DataGridViewRow row = dataGridViewAnalys.Rows[j - 1];
                     if (row.Cells[1].Value.ToString() == valueArray[j].getKey())
                     {
-                        row.Cells[3].Value = valueArray[j].getValue();
                         if (Convert.ToDouble(row.Cells[2].Value) <= Convert.ToDouble(valueArray[j].getValue()))
                         {
-                            dataGridViewAnalys.Rows[j].Cells[2].Style.BackColor = System.Drawing.Color.White;
+                            //row.Cells[3].Value = valueArray[j].getValue();
+                           // dataGridViewAnalys.Rows[j - 1].Cells[2].Style.BackColor = System.Drawing.Color.White;
                             if (flag && j == valueArray.Length - 1)
                             {
-                                res[0] = classes[i];
-                                res[1] = classes.Length.ToString();                               
+                                switch (groupLevel)
+                                {
+                                    case "hurmful":
+                                        {
+                                            res = findClassGrain(i, classes, idRaw, dataGridViewAnalys);
+                                            if (res[0] != "")
+                                                res = findClassWeed(Convert.ToInt16(res[2]), classes, idRaw, dataGridViewAnalys);
+                                            else break;
+                                            if (res[0] != "")
+                                                res = findClassGeneral(Convert.ToInt16(res[2]), classes, idRaw, dataGridViewAnalys, type);
+                                            break;
+                                        }
+                                    case "weed":
+                                        {
+                                            res = findClassGrain(i, classes, idRaw, dataGridViewAnalys);
+                                            if (res[0] != "")
+                                                res = findClassHurmful(Convert.ToInt16(res[2]), classes, idRaw, dataGridViewAnalys);
+                                            else break;
+                                            if (res[0] != "")
+                                                res = findClassGeneral(Convert.ToInt16(res[2]), classes, idRaw, dataGridViewAnalys, type);
+                                            break;
+                                        }
+                                    case "grain":
+                                        {
+                                            res = findClassHurmful(i, classes, idRaw, dataGridViewAnalys);
+                                            if (res[0] != "")
+                                                res = findClassWeed(Convert.ToInt16(res[2]), classes, idRaw, dataGridViewAnalys);
+                                            else break;
+                                            if (res[0] != "")
+                                                res = findClassGeneral(Convert.ToInt16(res[2]), classes, idRaw, dataGridViewAnalys, type);
+                                            break;
+                                        }
+                                }
+                                if (res[0] != "")
+                                {                          
+                                    switch (groupLevel)
+                                    {
+                                        case "hurmful":
+                                            {
+                                                LinkedList<FormValue<string, string>> value = DAO.getInstance().defineStateForClass(idRaw,
+                                                    res[0], HarmfulLevelOfQualityNorm.NormAttr, HarmfulLevelOfQualityNorm.NameTable,
+                                                     HarmfulLevelOfQualityNorm.TypeOfLevelQualityAttr);
+                                                FormValue<string, string>[] valueResult = value.ToArray<FormValue<string, string>>();
+                                                DAO.getInstance().updateNote("Storage", new FormValue<string, string>("id_raw", idRaw), new FormValue<string, string>("id_class", valueResult[0].getValue()));
+                                                getValue(valueResult, dataGridViewAnalys);
+                                                break;
+                                            }
+                                        case "weed":
+                                            {
+                                                LinkedList<FormValue<string, string>> value = DAO.getInstance().defineStateForClass(idRaw,
+                                                     res[0], WeedLevelOfQualityNorm.NormAttr, WeedLevelOfQualityNorm.NameTable,
+                                                      WeedLevelOfQualityNorm.TypeOfLevelQualityAttr);
+                                                FormValue<string, string>[] valueResult = value.ToArray<FormValue<string, string>>();
+                                                DAO.getInstance().updateNote("Storage", new FormValue<string, string>("id_raw", idRaw), new FormValue<string, string>("id_class", valueResult[0].getValue()));
+                                                getValue(valueResult, dataGridViewAnalys);
+                                                break;
+                                            }
+                                        case "grain":
+                                            {
+                                                LinkedList<FormValue<string, string>> value = DAO.getInstance().defineStateForClass(idRaw,
+                                                     res[0], GrainLevelOfQualityNorm.NormAttr, GrainLevelOfQualityNorm.NameTable,
+                                                      GrainLevelOfQualityNorm.TypeOfLevelQualityAttr);
+                                                FormValue<string, string>[] valueResult = value.ToArray<FormValue<string, string>>();
+                                                DAO.getInstance().updateNote("Storage", new FormValue<string, string>("id_raw", idRaw), new FormValue<string, string>("id_class", valueResult[0].getValue()));
+                                                getValue(valueResult, dataGridViewAnalys);
+                                                break;
+                                            }                                        
+                                    }
+                                }
+                                else
+                                {
+                                    for (int k = 1; k < valueArray.Length; k++)
+                                    {
+                                        row = dataGridViewAnalys.Rows[k - 1];
+                                        if (row.Cells[1].Value.ToString() == valueArray[k].getKey())
+                                        {
+                                            row.Cells[3].Value = valueArray[k].getValue();
+                                            dataGridViewAnalys.Rows[k - 1].Cells[2].Style.BackColor = System.Drawing.Color.White;
+                                        }
+                                    }
+                                    DAO.getInstance().updateClassToNullForStorage(idRaw);
+                                }
+                                res[1] = classes.Length.ToString();
                             }
                         }
                         else
                         {
                             flag = false;
-                            if (i == valueArray.Length - 1)
-                                dataGridViewAnalys.Rows[j].Cells[2].Style.BackColor = System.Drawing.Color.LightBlue;
+                            row.Cells[3].Value = valueArray[j].getValue();
+                            if (i == classes.Length - 1)
+                                dataGridViewAnalys.Rows[j - 1].Cells[2].Style.BackColor = System.Drawing.Color.LightBlue;
+                            j = valueArray.Length;
+                            res[0] = "";
+                            DAO.getInstance().updateClassToNullForStorage(idRaw);
+                            res[1] = i.ToString();
+                        }
+                    }
+                }
+                catch { j++; }
+            }
+            return res;
+        }
+        private string[] fillWithClassForGeneral(DataGridView dataGridViewAnalys, int i, bool flag,
+            string[] classes, FormValue<string, string>[] valueArray, string idRaw, string type)
+        {
+            string[] res = new string[2];
+            string idClass = valueArray[0].getValue();
+            for (int j = 1; j < valueArray.Length; j++)
+            {
+                try
+                {
+                    DataGridViewRow row = dataGridViewAnalys.Rows[j - 1];
+                    if (row.Cells[1].Value.ToString() == valueArray[j].getKey())
+                    {
+                        bool isMax = DAO.getInstance().isMaximum(idRaw, type, classes[i], row.Cells[1].Value.ToString());
+                        if (isMax)
+                        {
+                            if (Convert.ToDouble(row.Cells[2].Value) > Convert.ToDouble(valueArray[j].getValue()))
+                            {
+                                row.Cells[3].Value = valueArray[j].getValue();
+                                dataGridViewAnalys.Rows[j - 1].Cells[2].Style.BackColor = System.Drawing.Color.White;
+                                if (flag && j == valueArray.Length - 1)
+                                {////////////////////////////////////////////////
+                                    res = findClassGrain(i, classes, idRaw, dataGridViewAnalys);
+                                    if (res[0] != "")
+                                        res = findClassWeed(Convert.ToInt16(res[2]), classes, idRaw, dataGridViewAnalys);
+                                    if (res[0] != "")
+                                        res = findClassHurmful(Convert.ToInt16(res[2]), classes, idRaw, dataGridViewAnalys);
+                                    if (res[0] != "")
+                                    {
+                                        LinkedList<FormValue<string, string>> value = DAO.getInstance().defineStateForClass(idRaw,
+                                            res[0], GeneralLevelOfQualityNorm.NormAttr, GeneralLevelOfQualityNorm.NameTable,
+                                             GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr);
+                                        FormValue<string, string>[] valueResult = value.ToArray<FormValue<string, string>>();
+                                        DAO.getInstance().updateNote("Storage", new FormValue<string, string>("id_raw", idRaw), new FormValue<string, string>("id_class", valueResult[0].getValue()));
+                                        getValue(valueResult, dataGridViewAnalys);
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        for (int k = 1; k < valueArray.Length; k++)
+                                        {
+                                            row = dataGridViewAnalys.Rows[k - 1];
+                                            if (row.Cells[1].Value.ToString() == valueArray[k].getKey())
+                                            {
+                                                row.Cells[3].Value = valueArray[k].getValue();
+                                                dataGridViewAnalys.Rows[k - 1].Cells[2].Style.BackColor = System.Drawing.Color.White;
+                                            }
+                                        }
+                                        DAO.getInstance().updateClassToNullForStorage(idRaw);
+                                    }
+                                    res[1] = classes.Length.ToString();
+                                }
+                            }
+                            else
+                            {
+                                flag = false;
+                                row.Cells[3].Value = valueArray[j].getValue();
+                                if (i == classes.Length - 1)
+                                    dataGridViewAnalys.Rows[j - 1].Cells[2].Style.BackColor = System.Drawing.Color.LightBlue;
+                                j = valueArray.Length;
+                                res[0] = "";
+                                DAO.getInstance().updateClassToNullForStorage(idRaw);
+                                res[1] = i.ToString();
+                            }
+                        }
+                        else
+                        {
+                            if (Convert.ToDouble(row.Cells[2].Value) <= Convert.ToDouble(valueArray[j].getValue()))
+                            {
+                                row.Cells[3].Value = valueArray[j].getValue();
+                                dataGridViewAnalys.Rows[j - 1].Cells[2].Style.BackColor = System.Drawing.Color.White;
+                                if (flag && j == valueArray.Length - 1)
+                                {
+                                    res = findClassGrain(i, classes, idRaw, dataGridViewAnalys);
+                                    if (res[0] != "")
+                                        res = findClassWeed(Convert.ToInt16(res[2]), classes, idRaw, dataGridViewAnalys);
+                                    if (res[0] != "")
+                                        res = findClassHurmful(Convert.ToInt16(res[2]), classes, idRaw, dataGridViewAnalys);
+                                    if (res[0] != "")
+                                    {
+                                        LinkedList<FormValue<string, string>> value = DAO.getInstance().defineStateForClass(idRaw,
+                                            res[0], GeneralLevelOfQualityNorm.NormAttr, GeneralLevelOfQualityNorm.NameTable,
+                                             GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr);
+                                        FormValue<string, string>[] valueResult = value.ToArray<FormValue<string, string>>();
+                                        DAO.getInstance().updateNote("Storage", new FormValue<string, string>("id_raw", idRaw), new FormValue<string, string>("id_class", valueResult[0].getValue()));
+                                        getValue(valueResult, dataGridViewAnalys);
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        for (int k = 1; k < valueArray.Length; k++)
+                                        {
+                                            row = dataGridViewAnalys.Rows[k - 1];
+                                            if (row.Cells[1].Value.ToString() == valueArray[k].getKey())
+                                            {
+                                                row.Cells[3].Value = valueArray[k].getValue();
+                                                dataGridViewAnalys.Rows[k - 1].Cells[2].Style.BackColor = System.Drawing.Color.White;
+                                            }
+                                        }
+                                        DAO.getInstance().updateClassToNullForStorage(idRaw);
+                                    }
+                                    res[1] = classes.Length.ToString();
+                                }
+                            }
+                            else
+                            {
+                                flag = false;
+                                row.Cells[3].Value = valueArray[j].getValue();
+                                if (i == classes.Length - 1)
+                                    dataGridViewAnalys.Rows[j - 1].Cells[2].Style.BackColor = System.Drawing.Color.LightBlue;
+                                j = valueArray.Length;
+                                res[0] = "";
+                                DAO.getInstance().updateClassToNullForStorage(idRaw);
+                                res[1] = i.ToString();
+                            }
+                        }
+                    }
+                }
+                catch { j++; }
+            }
+            return res;
+        }
+
+        private string[] findClassGrain(int c, string[] classes, string idRaw, DataGridView dataGridViewAnalys)
+        {
+            string[] res = new string[2];
+            for (int i = c; i < classes.Length; i++)
+            {
+                LinkedList<FormValue<string, string>> value = DAO.getInstance().defineStateForClass(idRaw,
+                    classes[i], GrainLevelOfQualityNorm.NormAttr, GrainLevelOfQualityNorm.NameTable,
+                    GrainLevelOfQualityNorm.TypeOfLevelQualityAttr);
+                FormValue<string, string>[] valueArray = value.ToArray<FormValue<string, string>>();
+
+               
+                LinkedList<FormValue<string, string>> values = DAO.getInstance().selectAnalysQualityForDefineClass(TypeGrainLevelOfQuality.NameTable,
+                    TypeGrainLevelOfQuality.NameAttr, GrainLevelOfQuality.NameTable,
+                    GrainLevelOfQuality.ValueAttr, idRaw);
+                FormValue<string, string>[] valueRes = values.ToArray<FormValue<string, string>>();
+                res = find(classes, valueRes, i,  idRaw,  dataGridViewAnalys, valueArray);
+                i = Convert.ToInt16(res[1]);
+            }
+            return res;
+        }
+
+        private string[] findClassWeed(int c, string[] classes, string idRaw, DataGridView dataGridViewAnalys)
+        {
+            string[] res = new string[3];
+            for (int i = c; i < classes.Length; i++)
+            {
+                LinkedList<FormValue<string, string>> value = DAO.getInstance().defineStateForClass(idRaw,
+                    classes[i], WeedLevelOfQualityNorm.NormAttr, WeedLevelOfQualityNorm.NameTable,
+                   WeedLevelOfQualityNorm.TypeOfLevelQualityAttr);
+                FormValue<string, string>[] valueArray = value.ToArray<FormValue<string, string>>();
+             
+               
+                LinkedList<FormValue<string, string>> values = DAO.getInstance().selectAnalysQualityForDefineClass(TypeWeedLevelOfQuality.NameTable,
+                    TypeWeedLevelOfQuality.NameAttr, WeedLevelOfQuality.NameTable,
+                    WeedLevelOfQuality.ValueAttr, idRaw);
+                FormValue<string, string>[] valueRes = values.ToArray<FormValue<string, string>>();
+                res = find(classes, valueRes, i, idRaw, dataGridViewAnalys, valueArray);
+                i = Convert.ToInt16(res[1]);
+            }
+            return res;
+        }
+
+        private string[] findClassHurmful(int c, string[] classes, string idRaw, DataGridView dataGridViewAnalys)
+        {
+            string[] res = new string[2];
+            for (int i = c; i < classes.Length; i++)
+            {
+                LinkedList<FormValue<string, string>> value = DAO.getInstance().defineStateForClass(idRaw,
+                    classes[i], HarmfulLevelOfQualityNorm.NormAttr, HarmfulLevelOfQualityNorm.NameTable,
+                    HarmfulLevelOfQualityNorm.TypeOfLevelQualityAttr);
+                FormValue<string, string>[] valueArray = value.ToArray<FormValue<string, string>>();
+
+
+                LinkedList<FormValue<string, string>> values = DAO.getInstance().selectAnalysQualityForDefineClass(TypeHarmfulLevelOfQuality.NameTable,
+                    TypeHarmfulLevelOfQuality.NameAttr, HarmfulLevelOfQuality.NameTable,
+                    HarmfulLevelOfQuality.ValueAttr, idRaw);
+                FormValue<string, string>[] valueRes = values.ToArray<FormValue<string, string>>();
+                res = find(classes, valueRes, i, idRaw, dataGridViewAnalys, valueArray);
+                i = Convert.ToInt16(res[1]);
+            }
+            return res;
+        }
+
+        private string[] findClassGeneral(int c, string[] classes, string idRaw, DataGridView dataGridViewAnalys, string type)
+        {
+            string[] res = new string[3];
+            for (int i = c; i < classes.Length; i++)
+            {
+                LinkedList<FormValue<string, string>> value = DAO.getInstance().defineStateForClass(idRaw,
+                classes[i], GeneralLevelOfQualityNorm.NormAttr, GeneralLevelOfQualityNorm.NameTable,
+                GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr);
+                FormValue<string, string>[] valueArray = value.ToArray<FormValue<string, string>>();
+
+                LinkedList<FormValue<string, string>> values = DAO.getInstance().selectAnalysQualityForDefineClass(TypeGeneralLevelOfQuality.NameTable,
+                    TypeGeneralLevelOfQuality.NameAttr, GeneralLevelOfQuality.NameTable,
+                   GeneralLevelOfQuality.ValueAttr, idRaw);
+                FormValue<string, string>[] valueRes = values.ToArray<FormValue<string, string>>();
+                res = findGeneral(classes, valueRes, i, idRaw, dataGridViewAnalys, valueArray, type);
+                i = Convert.ToInt16(res[1]);
+            }            
+            return res;
+        }
+
+        private string[] find(string[] classes, FormValue<string, string>[] valuesRes, int i, string idRaw, DataGridView dataGridViewAnalys, FormValue<string, string>[] valueArray)
+        {
+            string[] res = new string[3];
+            bool flag = true;
+            string idClass = valueArray[0].getValue();
+            for (int j = 1; j < valueArray.Length; j++)
+            {
+                try
+                {
+                    if (valuesRes[j-1].getKey() == valueArray[j].getKey())
+                    {
+                        if (Convert.ToDouble(valuesRes[j - 1].getValue()) <= Convert.ToDouble(valueArray[j].getValue()))
+                        {
+                            if (flag && j == valueArray.Length - 1)
+                            {
+                                res[0] = classes[i];
+                                res[1] = classes.Length.ToString();
+                                res[2] = i.ToString();
+                            }
+                        }
+                        else
+                        {
+                            flag = false;
                             j = valueArray.Length;
                             res[0] = "";
                             res[1] = i.ToString();
@@ -266,35 +597,34 @@ namespace Elevator.Controllers
             }
             return res;
         }
-        public string[] fillWithClassForGeneral(DataGridView dataGridViewAnalys, int i, bool flag, 
-            string[] classes, FormValue<string, string>[] valueArray, string idRaw, string type)
+        private string[] findGeneral(string[] classes, FormValue<string, string>[] valuesRes, int i,
+            string idRaw, DataGridView dataGridViewAnalys, FormValue<string, string>[] valueArray, 
+            string type)
         {
-            string[] res = new string[2];
-            for (int j = 0; j < valueArray.Length; j++)
+            string[] res = new string[3];
+            bool flag = true;
+            string idClass = valueArray[0].getValue();
+            for (int j = 1; j < valueArray.Length; j++)
             {
                 try
                 {
-                    DataGridViewRow row = dataGridViewAnalys.Rows[j];
-                    if (row.Cells[1].Value.ToString() == valueArray[j].getKey())
+                    if (valuesRes[j - 1].getKey() == valueArray[j].getKey())
                     {
-                        row.Cells[3].Value = valueArray[j].getValue();
-                        bool isMax = DAO.getInstance().isMaximum(idRaw, type, classes[i], row.Cells[1].Value.ToString());
+                        bool isMax = DAO.getInstance().isMaximum(idRaw, type, classes[i], valuesRes[j - 1].getKey());
                         if (isMax)
                         {
-                            if (Convert.ToDouble(row.Cells[2].Value) > Convert.ToDouble(valueArray[j].getValue()))
-                            {
-                                dataGridViewAnalys.Rows[j].Cells[2].Style.BackColor = System.Drawing.Color.White;
+                            if (Convert.ToDouble(valuesRes[j - 1].getValue()) > Convert.ToDouble(valueArray[j].getValue()))
+                            {                              
                                 if (flag && j == valueArray.Length - 1)
                                 {
-                                    res[0] = classes[i];
+                                    res[0] = classes[i];                                    
                                     res[1] = classes.Length.ToString();
+                                    res[2] = i.ToString();
                                 }
                             }
                             else
                             {
                                 flag = false;
-                                if (i == valueArray.Length)
-                                    dataGridViewAnalys.Rows[j].Cells[2].Style.BackColor = System.Drawing.Color.LightBlue;
                                 j = valueArray.Length;
                                 res[0] = "";
                                 res[1] = i.ToString();
@@ -302,30 +632,40 @@ namespace Elevator.Controllers
                         }
                         else
                         {
-                            if (Convert.ToDouble(row.Cells[2].Value) <= Convert.ToDouble(valueArray[j].getValue()))
-                            {
-                                dataGridViewAnalys.Rows[j].Cells[2].Style.BackColor = System.Drawing.Color.White;
+                            if (Convert.ToDouble(valuesRes[j - 1].getValue()) <= Convert.ToDouble(valueArray[j].getValue()))
+                            {                         
                                 if (flag && j == valueArray.Length - 1)
                                 {
-                                    res[0] = classes[i];
+                                    res[0] = classes[i];                                 
                                     res[1] = classes.Length.ToString();
+                                    res[2] = i.ToString();
                                 }
                             }
                             else
                             {
-                                flag = false;
-                                if (i == valueArray.Length - 1)
-                                    dataGridViewAnalys.Rows[j].Cells[2].Style.BackColor = System.Drawing.Color.LightBlue;
+                                flag = false;                             
                                 j = valueArray.Length;
-                                res[0] = "";
+                                res[0] = "";                         
                                 res[1] = i.ToString();
                             }
-                        }                                              
+                        }
                     }
                 }
                 catch { j++; }
             }
             return res;
+        }
+        private void getValue(FormValue<string, string>[] valueResult, DataGridView dataGridViewAnalys)
+        {
+            for (int j = 1; j < valueResult.Length; j++)
+            {
+                DataGridViewRow row = dataGridViewAnalys.Rows[j-1];
+                if (row.Cells[1].Value.ToString() == valueResult[j].getKey())
+                {
+                    row.Cells[3].Value = valueResult[j].getValue();
+                    dataGridViewAnalys.Rows[j - 1].Cells[2].Style.BackColor = System.Drawing.Color.White;
+                }
+            }           
         }
     }
 }

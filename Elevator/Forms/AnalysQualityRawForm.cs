@@ -136,7 +136,6 @@ namespace Elevator.Forms
         {
             dataGridViewRaw.Rows.Clear();
             FilterUtils.FilterFormatter filterFormatter = new FilterUtils.FilterFormatter();
-            filterFormatter.addValue("date_delivery", dateTimePicker.Text);
             filterFormatter.addValueWithRegisters("name_raw", rawTextBox.Text);
             filterFormatter.addValueWithRegisters("name_contr", contractorTextBox.Text);         
             string command = filterFormatter.getFormattedRequestForFindRaw();           
@@ -146,11 +145,12 @@ namespace Elevator.Forms
 
         private void btnAllList_Click(object sender, EventArgs e)
         {
+            rawTextBox.Text = "";
             select();
         }
 
         private void defineClassButton_Click(object sender, EventArgs e)
-        {//сырье, 
+        { 
             try
             {
                 switch (groupComboBox.Text)

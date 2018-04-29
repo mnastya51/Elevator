@@ -1377,7 +1377,6 @@ namespace Elevator
                     }
                 }
                 reader.Close();
-                connection.Close();
             }
             return res;
         }
@@ -1534,7 +1533,7 @@ namespace Elevator
         {
             string sqlCommand = string.Empty;
             LinkedList<FormValue<string, string>> formValue = new LinkedList<FormValue<string, string>>();
-                sqlCommand = string.Format("Select {3}, {0} From {1} c where  id_class = (select id_class from "+
+                sqlCommand = string.Format("Select {3}, {0}, id_class From {1} c where  id_class = (select id_class from " +
                     "Class where id_NameRaw = (select st.id_NameRaw from Raw st join Storage s on st.id_NameRaw "+
                     "= s.id_NameRaw where s.id_raw = {2}) and number_class = {4}) ", normAttr,
                     nameTable, idRaw, nameAttr, classRaw);
@@ -1548,6 +1547,8 @@ namespace Elevator
                     int c = 0;
                     while (reader.Read())
                     {
+                        if (c == 0)
+                            formValue.AddLast(new FormValue<string, string>("class", reader.GetInt32(2).ToString()));
                         formValue.AddLast(new FormValue<string, string>(reader.GetString(0), reader.GetFloat(1).ToString()));
                         c++;
                     }
@@ -1587,5 +1588,43 @@ namespace Elevator
                 return isMaximum;
             }
         }
-    }                          
+
+        public void updateClassToNullForStorage(string idRaw)
+        {
+            string sqlCommand;
+            string settingString = string.Empty;
+            sqlCommand = string.Format("Update Storage Set id_class = null where id_raw ='{0}'", idRaw);
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public LinkedList<FormValue<string, string>> selectAnalysQualityForDefineClass(string nameTableType, string typeAttr, string nameTableValue, string valueAttr, string idRaw)
+        {
+            string sqlCommand = string.Empty;
+            LinkedList<FormValue<string, string>> res = new LinkedList<FormValue<string, string>>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select t.{0}, v.{1} From {2} t join {3} v " +
+                    "on t.{0} = v.{0} join Storage s on v.id_raw = s.id_raw where s.id_raw = {4} ",
+                    typeAttr, valueAttr, nameTableType, nameTableValue, idRaw);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        res.AddLast(new FormValue <string, string> (reader.GetString(0), Convert.ToString(reader.GetFloat(1))));
+                        c++;
+                    }
+                }
+                reader.Close();
+            }
+            return res;
+        }
+    }
 }
