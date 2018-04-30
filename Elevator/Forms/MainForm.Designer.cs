@@ -170,6 +170,7 @@
             this.processingToolStripMenuItem.Name = "processingToolStripMenuItem";
             this.processingToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.processingToolStripMenuItem.Text = "Обработка";
+            this.processingToolStripMenuItem.Click += new System.EventHandler(this.processingToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 

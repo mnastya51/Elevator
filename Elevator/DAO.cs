@@ -1093,8 +1093,8 @@ namespace Elevator
                    "values('{0}'," +
                    "(select s.id_subtype from Subtype_raw s join Type_raw t on s.id_type = t. id_type join Raw r on " +
                    "r.id_NameRaw = t.id_NameRaw where s.name_subtype = '{1}' and t.name_type_raw = '{2}'  and r.name_raw = '{3}'), " +
-                   "0, " +
-                   "(select id_NameRaw from Raw where name_raw = '{3}'))", year, subtype, type, raw);
+                   "{4}, " +
+                   "(select id_NameRaw from Raw where name_raw = '{3}'))", year, subtype, type, raw, weight.getValue());
                 }
                 else
                 {
@@ -1102,16 +1102,16 @@ namespace Elevator
                         "values('{0}'," +
                         "(select s.id_subtype from Subtype_raw s join Type_raw t on s.id_type = t. id_type join Raw r on " +
                          "r.id_NameRaw = t.id_NameRaw where  t.name_type_raw = '{1}'  and r.name_raw = '{2}'), " +
-                         "0, " +
-                         "(select id_NameRaw from Raw where name_raw = '{2}'))", year, type, raw);
+                         "{3}, " +
+                         "(select id_NameRaw from Raw where name_raw = '{2}'))", year, type, raw, weight.getValue());
                 }
             }
             else
             {
                 sqlcommandStorage = string.Format("Insert into Storage (year_crop, weight, id_NameRaw)" +
                     "values('{0}'," +
-                     "0, " +
-                     "(select id_NameRaw from Raw where name_raw = '{1}'))", year, raw);
+                     "{2}, " +
+                     "(select id_NameRaw from Raw where name_raw = '{1}'))", year, raw, weight.getValue());
             }
             try
             {                
@@ -1228,8 +1228,8 @@ namespace Elevator
         }
        
         public bool changeTransportation(string nameTable, int id, string contractor, string subdivision,
-            FormValue<string, string> date, FormValue<string, string> transport,
-            FormValue<string, string> weight, int idRaw, string raw, string type, string subtype, 
+            FormValue<string, string> transport, FormValue<string, string> weight,
+            FormValue<string, string> date, int idRaw, string raw, string type, string subtype, 
             string year)
         {
             string sqlCommandStorage;
@@ -1242,21 +1242,21 @@ namespace Elevator
                         sqlCommandStorage = string.Format("Update Storage set id_NameRaw = (select id_NameRaw from Raw where name_raw = '{0}'), " +
                        "id_subtype = (select s.id_subtype from Subtype_raw s join Type_raw t on s.id_type = t. id_type join Raw r on " +
                        "r.id_NameRaw = t.id_NameRaw where s.name_subtype = '{1}' and t.name_type_raw = '{2}'  and r.name_raw = '{0}'), " +
-                       "year_crop = {3} where id_raw = {4}", raw, subtype, type, year, idRaw);
+                       "year_crop = {3}, weight = {5} where id_raw = {4}", raw, subtype, type, year, idRaw, weight.getValue());
                     }
                     else//есть тип
                     {
                         sqlCommandStorage = string.Format("Update Storage set id_NameRaw = (select id_NameRaw from Raw where name_raw = '{0}'), " +
                        "id_subtype = (select s.id_subtype from Subtype_raw s join Type_raw t on s.id_type = t. id_type join Raw r on " +
                              "r.id_NameRaw = t.id_NameRaw where  t.name_type_raw = '{1}'  and r.name_raw = '{0}'), " +
-                       "year_crop = {2} where id_raw = {3}", raw, type, year, idRaw);
+                       "year_crop = {2}, weight = {4} where id_raw = {3}", raw, type, year, idRaw, weight.getValue());
                     }
                 }
                 else//нет типа
                 {
                     sqlCommandStorage = string.Format("Update Storage set id_NameRaw = (select id_NameRaw from Raw where name_raw = '{0}'), " +
                         "id_subtype = null, " +
-                       "year_crop = {1} where id_raw = {2}", raw, year, idRaw);
+                       "year_crop = {1}, weight = {3} where id_raw = {2}", raw, year, idRaw, weight.getValue());
                 }
                 string sqlCommand = string.Format("set xact_abort on; "+
                         " begin tran;" +

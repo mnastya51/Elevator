@@ -78,7 +78,10 @@ namespace Elevator.Controllers
                     string[] res = fillWithClassForGeneral(dataGridViewAnalys, i, flag, classes, 
                         valueArray, generalLevelOfQuality.IdRaw, type);
                     numberClass = res[0];
-                    i = Convert.ToInt32(res[1]);
+                    //if (res[0] == "")
+                  //      i = classes.Length;
+                  //  else 
+                        i = Convert.ToInt32(res[1]);
                 }
                 dataGridViewAnalys.ClearSelection();
                 return numberClass;
@@ -495,7 +498,7 @@ namespace Elevator.Controllers
                 LinkedList<FormValue<string, string>> values = DAO.getInstance().selectAnalysQualityForDefineClass(TypeGrainLevelOfQuality.NameTable,
                     TypeGrainLevelOfQuality.NameAttr, GrainLevelOfQuality.NameTable,
                     GrainLevelOfQuality.ValueAttr, idRaw);
-                FormValue<string, string>[] valueRes = values.ToArray<FormValue<string, string>>();
+                FormValue<string, string>[] valueRes = values.ToArray<FormValue<string, string>>();              
                 res = find(classes, valueRes, i,  idRaw,  dataGridViewAnalys, valueArray);
                 i = Convert.ToInt16(res[1]);
             }
@@ -569,55 +572,19 @@ namespace Elevator.Controllers
             string[] res = new string[3];
             bool flag = true;
             string idClass = valueArray[0].getValue();
-            for (int j = 1; j < valueArray.Length; j++)
+            if (valuesRes.Length != 0 && valueArray.Length != 0)
             {
-                try
+                for (int j = 1; j < valueArray.Length; j++)
                 {
-                    if (valuesRes[j-1].getKey() == valueArray[j].getKey())
+                    try
                     {
-                        if (Convert.ToDouble(valuesRes[j - 1].getValue()) <= Convert.ToDouble(valueArray[j].getValue()))
+                        if (valuesRes[j - 1].getKey() == valueArray[j].getKey())
                         {
-                            if (flag && j == valueArray.Length - 1)
+                            if (Convert.ToDouble(valuesRes[j - 1].getValue()) <= Convert.ToDouble(valueArray[j].getValue()))
                             {
-                                res[0] = classes[i];
-                                res[1] = classes.Length.ToString();
-                                res[2] = i.ToString();
-                            }
-                        }
-                        else
-                        {
-                            flag = false;
-                            j = valueArray.Length;
-                            res[0] = "";
-                            res[1] = i.ToString();
-                        }
-                    }
-                }
-                catch { j++; }
-            }
-            return res;
-        }
-        private string[] findGeneral(string[] classes, FormValue<string, string>[] valuesRes, int i,
-            string idRaw, DataGridView dataGridViewAnalys, FormValue<string, string>[] valueArray, 
-            string type)
-        {
-            string[] res = new string[3];
-            bool flag = true;
-            string idClass = valueArray[0].getValue();
-            for (int j = 1; j < valueArray.Length; j++)
-            {
-                try
-                {
-                    if (valuesRes[j - 1].getKey() == valueArray[j].getKey())
-                    {
-                        bool isMax = DAO.getInstance().isMaximum(idRaw, type, classes[i], valuesRes[j - 1].getKey());
-                        if (isMax)
-                        {
-                            if (Convert.ToDouble(valuesRes[j - 1].getValue()) > Convert.ToDouble(valueArray[j].getValue()))
-                            {                              
                                 if (flag && j == valueArray.Length - 1)
                                 {
-                                    res[0] = classes[i];                                    
+                                    res[0] = classes[i];
                                     res[1] = classes.Length.ToString();
                                     res[2] = i.ToString();
                                 }
@@ -630,28 +597,82 @@ namespace Elevator.Controllers
                                 res[1] = i.ToString();
                             }
                         }
-                        else
+                    }
+                    catch { j++; }
+                }
+            }
+            else
+            {
+                res[0] = classes[i];
+                res[1] = classes.Length.ToString();
+                res[2] = i.ToString();
+            }
+            return res;
+        }
+        private string[] findGeneral(string[] classes, FormValue<string, string>[] valuesRes, int i,
+            string idRaw, DataGridView dataGridViewAnalys, FormValue<string, string>[] valueArray, 
+            string type)
+        {
+            string[] res = new string[3];
+            bool flag = true;
+            string idClass = valueArray[0].getValue();
+            if (valuesRes.Length != 0 && valueArray.Length != 0)
+            {
+                for (int j = 1; j < valueArray.Length; j++)
+                {
+                    try
+                    {
+                        if (valuesRes[j - 1].getKey() == valueArray[j].getKey())
                         {
-                            if (Convert.ToDouble(valuesRes[j - 1].getValue()) <= Convert.ToDouble(valueArray[j].getValue()))
-                            {                         
-                                if (flag && j == valueArray.Length - 1)
+                            bool isMax = DAO.getInstance().isMaximum(idRaw, type, classes[i], valuesRes[j - 1].getKey());
+                            if (isMax)
+                            {
+                                if (Convert.ToDouble(valuesRes[j - 1].getValue()) > Convert.ToDouble(valueArray[j].getValue()))
                                 {
-                                    res[0] = classes[i];                                 
-                                    res[1] = classes.Length.ToString();
-                                    res[2] = i.ToString();
+                                    if (flag && j == valueArray.Length - 1)
+                                    {
+                                        res[0] = classes[i];
+                                        res[1] = classes.Length.ToString();
+                                        res[2] = i.ToString();
+                                    }
+                                }
+                                else
+                                {
+                                    flag = false;
+                                    j = valueArray.Length;
+                                    res[0] = "";
+                                    res[1] = i.ToString();
                                 }
                             }
                             else
                             {
-                                flag = false;                             
-                                j = valueArray.Length;
-                                res[0] = "";                         
-                                res[1] = i.ToString();
+                                if (Convert.ToDouble(valuesRes[j - 1].getValue()) <= Convert.ToDouble(valueArray[j].getValue()))
+                                {
+                                    if (flag && j == valueArray.Length - 1)
+                                    {
+                                        res[0] = classes[i];
+                                        res[1] = classes.Length.ToString();
+                                        res[2] = i.ToString();
+                                    }
+                                }
+                                else
+                                {
+                                    flag = false;
+                                    j = valueArray.Length;
+                                    res[0] = "";
+                                    res[1] = i.ToString();
+                                }
                             }
                         }
                     }
+                    catch { j++; }
                 }
-                catch { j++; }
+            }
+            else
+            {
+                res[0] = classes[i];
+                res[1] = classes.Length.ToString();
+                res[2] = i.ToString();
             }
             return res;
         }

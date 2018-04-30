@@ -48,6 +48,7 @@ namespace Elevator.Forms
             changeButton.Enabled = false;
             defineClassButton.Enabled = false;
             dataGridViewAnalys.Rows.Clear();
+            classLabel.Text = "";
         }
 
         private string[] changeComboBox(string nameTable)

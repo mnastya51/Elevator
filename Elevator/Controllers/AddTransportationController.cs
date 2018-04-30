@@ -74,17 +74,34 @@ namespace Elevator.Controllers
 
         public bool onSaveClick(Shipment shipment, Storage storage, bool forChange)
         {
-            if (!DAO.getInstance().addTransportation(shipment.Id, Shipment.NameTable, shipment.Contractor,
+            if (!forChange)
+            {
+                if (!DAO.getInstance().addTransportation(shipment.Id, Shipment.NameTable, shipment.Contractor,
                 shipment.Subdivision,
             new FormValue<string, string>(Shipment.DateAttr, shipment.Date),
             new FormValue<string, string>(Shipment.TransportAttr, shipment.Transport),
             new FormValue<string, string>(Shipment.WeightAttr, shipment.Weight),
                 storage.Raw, storage.Type, storage.Subtype, storage.Year))
-            {
-                MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                {
+                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else return true;
             }
-            else return true;
+            else
+            {
+                if (!DAO.getInstance().changeTransportation(Shipment.NameTable, shipment.Id, shipment.Contractor,
+              shipment.Subdivision,
+               new FormValue<string, string>(Shipment.TransportAttr, shipment.Transport),
+               new FormValue<string, string>(Shipment.WeightAttr, shipment.Weight),
+               new FormValue<string, string>(Shipment.DateAttr, shipment.Date), storage.IdRaw,
+               storage.Raw, storage.Type, storage.Subtype, storage.Year))
+                {
+                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                else return true;
+            }
 
         }
         public bool checkSave(string surname)

@@ -18,6 +18,9 @@ namespace Elevator.AddAndEditForms
         private Delivery delivery;
         private Shipment shipment;
         private Storage storage;
+        private string nameContractor;
+        private string subdivision;
+        private string date;
         private bool loadFormType = true;
         private bool loadFormSubtype = true;
         public AddTransportationForm()
@@ -69,6 +72,9 @@ namespace Elevator.AddAndEditForms
             dateTimePicker.Text = newDelivery.Date;
             delivery = newDelivery;
             yearNumericUpDown.Text = newStorage.Year;
+            nameContractor = newDelivery.Contractor;
+            subdivision = newDelivery.Subdivision;
+            date = newDelivery.Date;
         }
 
         public AddTransportationForm(Storage newStorage, Shipment newShipment)
@@ -112,6 +118,7 @@ namespace Elevator.AddAndEditForms
                 else
                 {
                     Storage st = new Storage(storage.IdRaw, rawComboBox.Text, typeComboBox.Text, subtypeComboBox.Text, yearNumericUpDown.Text);
+                   // if()
                     Delivery del = new Delivery(delivery.Id, contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text, transportTextBox.Text, weight);
                     if (controller.onSaveClick(del, storage, true))
                         this.Close();

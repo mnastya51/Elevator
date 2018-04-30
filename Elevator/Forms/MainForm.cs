@@ -72,5 +72,10 @@ namespace Elevator.Forms
         {
             new DateAnalysForm().ShowDialog();
         }
+
+        private void processingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
