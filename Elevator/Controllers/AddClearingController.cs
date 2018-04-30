@@ -8,18 +8,14 @@ using System.Windows.Forms;
 
 namespace Elevator.Controllers
 {
-    class AddDryController
+    class AddClearingController
     {
-        public bool onSaveClick(Drying drying, bool forChange)
+        public bool onSaveClick(Clearing clearing, bool forChange)
         {
             if (!forChange)
             {
-                if (!DAO.getInstance().addProcessing("Drying", new FormValue<string, string>("date_drying", drying.Date),
-                    new FormValue<string, string>("weight_before_drying", drying.WeightBefore),
-                    new FormValue<string, string>("weight_after_drying", drying.WeightAfter),
-                    new FormValue<string, string>("wet_before", drying.WetBefore),
-                    new FormValue<string, string>("wet_after", drying.WetAfter),
-                    new FormValue<string, string>("id_raw", drying.IdRaw)))
+                if (!DAO.getInstance().addClearing(clearing.Date, clearing.IdRaw, clearing.WeightBefore,
+                    clearing.WeightAfter))
                 {
                     MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
@@ -28,12 +24,8 @@ namespace Elevator.Controllers
             }
             else
             {
-                if (!DAO.getInstance().updateProcessing("Drying", new FormValue<string, string>("id_raw", drying.IdRaw),
-                    new FormValue<string, string>("date_drying", drying.Date),
-                    new FormValue<string, string>("weight_before_drying ", drying.WeightBefore),
-                    new FormValue<string, string>("weight_after_drying", drying.WeightAfter),
-                    new FormValue<string, string>("wet_before", drying.WetBefore),
-                    new FormValue<string, string>("wet_after", drying.WetAfter)))
+                if (!DAO.getInstance().updateClearing(clearing.Date, clearing.IdRaw, clearing.WeightBefore,
+                    clearing.WeightAfter))
                 {
                     MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;

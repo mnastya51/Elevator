@@ -1704,8 +1704,8 @@ namespace Elevator
             }
             return values.ToArray();
         }
-        public bool updateProcessing(string nameTable, FormValue<string, string> primaryKey, params FormValue<string, string>[] values)
-        {
+        public bool updateDry(string nameTable, FormValue<string, string> primaryKey, params FormValue<string, string>[] values)
+        {//обновлять влажность до нужного числа, остальное по нормам!!!!!!!
             string sqlCommand;
             string settingString = string.Empty;
             if (values.Length > 0) settingString += values[0].getKey() + "='" + values[0].getValue() + "'";
@@ -1715,7 +1715,9 @@ namespace Elevator
             }
             try
             {
-                sqlCommand = string.Format("Update {0} Set {1} where {2}={3}", nameTable, settingString, primaryKey.getKey(), primaryKey.getValue());
+                sqlCommand = string.Format("Update {0} Set {1} where {2}={3} " +
+                    "Update Storage set weight = {4} where id_raw = {3}", nameTable, settingString, 
+                    primaryKey.getKey(), primaryKey.getValue(), values[2].getValue());
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -1730,8 +1732,8 @@ namespace Elevator
                 return false;
             }
         }
-        public bool addProcessing(string nameTable, params FormValue<string, string>[] values)
-        {
+        public bool addDry(string nameTable, params FormValue<string, string>[] values)
+        {//обновлять влажность до нужного числа!!!!!!!!!!!!!
             string sqlCommand;
             string val = string.Empty;
             string names = string.Empty;
@@ -1747,13 +1749,57 @@ namespace Elevator
             }
             try
             {
-                sqlCommand = string.Format("Insert into {0} ({1}) values({2})", nameTable, names, val);
+                sqlCommand = string.Format("Insert into {0} ({1}) values({2}) "+
+                    "Update Storage set weight = {3} where id_raw = {4}", nameTable, names, val, values[3].getValue(), values[1].getValue());
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
                     SqlCommand cmd = new SqlCommand(sqlCommand, connection);
                     cmd.ExecuteNonQuery();
-                    connection.Close();
+                }
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+        }
+        public bool addClearing(string date, string idRaw, string weightBefore, string weightAfter)
+        {//обновлять примеси до нормы!!!!!!!!!!!!!
+            string sqlCommand;
+            try
+            {
+                sqlCommand = string.Format("Insert into Clearing (id_raw, date_clearing, weight_before_clearing, "+
+                    "weight_after_clearing) values({0}, '{1}', {2}, {3}) " +
+                    "Update Storage set weight = {3} where id_raw = {0}", idRaw, date, weightBefore, weightAfter);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+        }
+        public bool updateClearing(string date, string idRaw, string weightBefore, string weightAfter)
+        {
+            string sqlCommand;
+            try
+            {
+                sqlCommand = string.Format("Update Clearing Set date_clearing = '{0}', weight_before_clearing "+
+                    " = {1}, weight_after_clearing = {2} where id_raw={3} " +
+                    "Update Storage set weight = {2} where id_raw = {3}", date, weightBefore,
+                    weightAfter, idRaw);
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
                 }
                 return true;
             }

@@ -57,7 +57,11 @@ namespace Elevator.Forms
             labelWeightAfter.Text = "";
             labelWetBefore.Text = "";
             labelWetAfter.Text = "";
+            labelDateClear.Text = "";
+            labelWeightBeforeClear.Text = "";
+            labelWeightAfterClear.Text = "";
             selectDry();
+            selectClear();
         }
 
         private void btnAllList_Click(object sender, EventArgs e)
@@ -77,6 +81,17 @@ namespace Elevator.Forms
                 labelWeightAfter.Text = values[2];
                 labelWetBefore.Text = values[3];
                 labelWetAfter.Text = values[4];
+            }
+        }
+
+        private void selectClear()
+        {
+            string[] values = DAO.getInstance().selectClear(Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value));
+            if (values.Length != 0)
+            {
+                labelDateClear.Text = values[0];
+                labelWeightBeforeClear.Text = values[1];
+                labelWeightAfterClear.Text = values[2];
             }
         }
 
@@ -104,9 +119,23 @@ namespace Elevator.Forms
 
         private void changeClearButton_Click(object sender, EventArgs e)
         {
-
+            Clearing clearing = new Clearing(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value),
+                labelDateClear.Text, labelWeightBeforeClear.Text, labelWeightAfterClear.Text);
+            controller.changeButtonClearClick(clearing);
+            selectClear();
         }
 
-       
+        private void addClearButton_Click(object sender, EventArgs e)
+        {
+            if (labelDateClear.Text != "" || labelWeightBeforeClear.Text != "" || labelWeightAfterClear.Text != "")
+            {
+                MessageBox.Show("Данные об очистке уже добавлены!", "Очистка!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                controller.addButtonClearClick(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+                selectClear();
+            }
+        }
     }
 }

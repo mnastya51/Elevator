@@ -167,7 +167,7 @@
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.label1);
             this.Name = "AddDryForm";
-            this.Text = "Добавление сырья на сушку";
+            this.Text = "Добавление сушки";
             this.ResumeLayout(false);
             this.PerformLayout();
 

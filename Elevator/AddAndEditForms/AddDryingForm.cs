@@ -94,6 +94,6 @@ namespace Elevator.AddAndEditForms
             saveButton.Enabled = controller.checkSave(textBoxWeightAfter.Text);
             saveButton.BackColor = controller.checkSave(textBoxWeightAfter.Text) ? Color.DarkOrange : Color.LightBlue;
             textBoxWeightAfter.BackColor = controller.isEmpty(textBoxWeightAfter.Text.Replace(" ", "")) ? Color.LightBlue : Color.White;
-        }
+        }       
     }
 }

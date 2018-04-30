@@ -18,5 +18,13 @@ namespace Elevator.Controllers
         {
             new AddDryForm(drying).ShowDialog();
         }
+        public void addButtonClearClick(string idRaw)
+        {
+           new AddClearingForm(idRaw).ShowDialog();
+        }
+        public void changeButtonClearClick(Clearing clearing)
+        {
+            new AddClearingForm(clearing).ShowDialog();
+        }
     }
 }

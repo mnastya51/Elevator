@@ -78,6 +78,12 @@
     <Compile Include="AddAndEditForms\AddClearForm.Designer.cs">
       <DependentUpon>AddClearForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddAndEditForms\AddClearingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAndEditForms\AddClearingForm.Designer.cs">
+      <DependentUpon>AddClearingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddAndEditForms\AddContractForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,11 +114,11 @@
     <Compile Include="AddAndEditForms\AddTransportationForm.Designer.cs">
       <DependentUpon>AddTransportationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddAndEditForms\AddDryForm.cs">
+    <Compile Include="AddAndEditForms\AddDryingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddAndEditForms\AddDryForm.Designer.cs">
-      <DependentUpon>AddDryForm.cs</DependentUpon>
+    <Compile Include="AddAndEditForms\AddDryingForm.Designer.cs">
+      <DependentUpon>AddDryingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AddAndEditForms\AddEmployeeForm.cs">
       <SubType>Form</SubType>
@@ -151,10 +157,11 @@
       <DependentUpon>AddSaveForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AddAnalysQualityRawController.cs" />
+    <Compile Include="Controllers\AddClearingController.cs" />
     <Compile Include="Controllers\AddContractController.cs" />
     <Compile Include="Controllers\AddContractorController.cs" />
     <Compile Include="Controllers\AddDateAnalysController.cs" />
-    <Compile Include="Controllers\AddDryController.cs" />
+    <Compile Include="Controllers\AddDryingController.cs" />
     <Compile Include="Controllers\AddTransportationController.cs" />
     <Compile Include="Controllers\AddEmployeeController.cs" />
     <Compile Include="Controllers\AddlevelOfQualityController.cs" />
@@ -184,6 +191,7 @@
     <Compile Include="Model\AbstractTypeLevelOfQuality.cs" />
     <Compile Include="Model\AbstractQualityLevelNorm.cs" />
     <Compile Include="Model\AbstractStorage.cs" />
+    <Compile Include="Model\Clearing.cs" />
     <Compile Include="Model\Contract.cs" />
     <Compile Include="Model\Contractor.cs" />
     <Compile Include="Model\DateAnalys.cs" />
@@ -305,6 +313,9 @@
     <EmbeddedResource Include="AddAndEditForms\AddClearForm.resx">
       <DependentUpon>AddClearForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddAndEditForms\AddClearingForm.resx">
+      <DependentUpon>AddClearingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddAndEditForms\AddContractForm.resx">
       <DependentUpon>AddContractForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -320,8 +331,8 @@
     <EmbeddedResource Include="AddAndEditForms\AddTransportationForm.resx">
       <DependentUpon>AddTransportationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddAndEditForms\AddDryForm.resx">
-      <DependentUpon>AddDryForm.cs</DependentUpon>
+    <EmbeddedResource Include="AddAndEditForms\AddDryingForm.resx">
+      <DependentUpon>AddDryingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddAndEditForms\AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
