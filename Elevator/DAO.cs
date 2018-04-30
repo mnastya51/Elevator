@@ -1651,5 +1651,116 @@ namespace Elevator
                 reader.Close();
             }
         }
+        public string[] selectDry(int idRaw)
+        {
+            string sqlCommand = string.Empty;
+            LinkedList<string> values = new LinkedList<string>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select * From Drying where id_raw = {0}", idRaw);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        values.AddLast(reader.GetString(1));
+                        try { values.AddLast(reader.GetFloat(2).ToString()); } catch { values.AddLast(""); }
+                        try { values.AddLast(reader.GetFloat(3).ToString()); } catch { values.AddLast(""); }
+                        try { values.AddLast(reader.GetFloat(4).ToString()); } catch { values.AddLast(""); }
+                        try { values.AddLast(reader.GetFloat(5).ToString()); } catch { values.AddLast(""); }
+                        c++;
+                    }
+                }
+                reader.Close();
+            }
+            return values.ToArray();
+        }
+
+        public string[] selectClear(int idRaw)
+        {
+            string sqlCommand = string.Empty;
+            LinkedList<string> values = new LinkedList<string>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select * From Clearing where id_raw = {0}", idRaw);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        values.AddLast(reader.GetString(1));
+                        try { values.AddLast(reader.GetFloat(2).ToString()); } catch { values.AddLast(""); }
+                        try { values.AddLast(reader.GetFloat(3).ToString()); } catch { values.AddLast(""); }
+                        c++;
+                    }
+                }
+                reader.Close();
+            }
+            return values.ToArray();
+        }
+        public bool updateProcessing(string nameTable, FormValue<string, string> primaryKey, params FormValue<string, string>[] values)
+        {
+            string sqlCommand;
+            string settingString = string.Empty;
+            if (values.Length > 0) settingString += values[0].getKey() + "='" + values[0].getValue() + "'";
+            for (int i = 1; i < values.Length; i++)
+            {
+                settingString += ", " + values[i].getKey() + "=" + values[i].getValue();
+            }
+            try
+            {
+                sqlCommand = string.Format("Update {0} Set {1} where {2}={3}", nameTable, settingString, primaryKey.getKey(), primaryKey.getValue());
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+        }
+        public bool addProcessing(string nameTable, params FormValue<string, string>[] values)
+        {
+            string sqlCommand;
+            string val = string.Empty;
+            string names = string.Empty;
+            if (values.Length > 0)
+            {
+                val += "'" + values[0].getValue() + "'";
+                names += values[0].getKey();
+            }
+            for (int i = 1; i < values.Length; i++)
+            {
+                val += ", " + values[i].getValue();
+                names += ", " + values[i].getKey();
+            }
+            try
+            {
+                sqlCommand = string.Format("Insert into {0} ({1}) values({2})", nameTable, names, val);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+        }
     }
 }

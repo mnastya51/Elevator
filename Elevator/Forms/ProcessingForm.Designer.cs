@@ -28,144 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnAllList = new System.Windows.Forms.Button();
-            this.rawComboBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.findButton = new System.Windows.Forms.Button();
-            this.nameContractorComboBox = new System.Windows.Forms.ComboBox();
-            this.lbName = new System.Windows.Forms.Label();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dataGridViewDry = new System.Windows.Forms.DataGridView();
+            this.dateLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.changeDryButton = new System.Windows.Forms.Button();
             this.addDryButton = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridViewClear = new System.Windows.Forms.DataGridView();
             this.changeClearButton = new System.Windows.Forms.Button();
             this.addClearButton = new System.Windows.Forms.Button();
-            this.bindingSourceDry = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSourceClear = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewRaw = new System.Windows.Forms.DataGridView();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.contractorTextBox = new System.Windows.Forms.TextBox();
+            this.rawTextBox = new System.Windows.Forms.TextBox();
+            this.btnAllList = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.findButton = new System.Windows.Forms.Button();
+            this.lbName = new System.Windows.Forms.Label();
+            this.labelDate = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelWeightBefore = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.labelWetAfter = new System.Windows.Forms.Label();
+            this.labelWeightAfter = new System.Windows.Forms.Label();
+            this.labelWetBefore = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDry)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClear)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDry)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceClear)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRaw)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(580, 257);
-            this.groupBox1.TabIndex = 62;
-            this.groupBox1.TabStop = false;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btnAllList);
-            this.groupBox2.Controls.Add(this.rawComboBox);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.findButton);
-            this.groupBox2.Controls.Add(this.nameContractorComboBox);
-            this.groupBox2.Controls.Add(this.lbName);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.groupBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.groupBox2.Location = new System.Drawing.Point(11, 19);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(557, 105);
-            this.groupBox2.TabIndex = 44;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Поиск";
-            // 
-            // btnAllList
-            // 
-            this.btnAllList.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnAllList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAllList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAllList.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnAllList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAllList.Location = new System.Drawing.Point(230, 62);
-            this.btnAllList.Name = "btnAllList";
-            this.btnAllList.Size = new System.Drawing.Size(202, 28);
-            this.btnAllList.TabIndex = 7;
-            this.btnAllList.Text = "Вывести полный список";
-            this.btnAllList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAllList.UseVisualStyleBackColor = false;
-            // 
-            // rawComboBox
-            // 
-            this.rawComboBox.FormattingEnabled = true;
-            this.rawComboBox.Location = new System.Drawing.Point(422, 21);
-            this.rawComboBox.Name = "rawComboBox";
-            this.rawComboBox.Size = new System.Drawing.Size(125, 24);
-            this.rawComboBox.TabIndex = 9;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(358, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 18);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Сырье:";
-            // 
-            // findButton
-            // 
-            this.findButton.BackColor = System.Drawing.Color.DarkOrange;
-            this.findButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.findButton.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.findButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.findButton.Location = new System.Drawing.Point(128, 62);
-            this.findButton.Name = "findButton";
-            this.findButton.Size = new System.Drawing.Size(82, 28);
-            this.findButton.TabIndex = 5;
-            this.findButton.Text = "Найти";
-            this.findButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.findButton.UseVisualStyleBackColor = false;
-            // 
-            // nameContractorComboBox
-            // 
-            this.nameContractorComboBox.FormattingEnabled = true;
-            this.nameContractorComboBox.Location = new System.Drawing.Point(158, 21);
-            this.nameContractorComboBox.Name = "nameContractorComboBox";
-            this.nameContractorComboBox.Size = new System.Drawing.Size(189, 24);
-            this.nameContractorComboBox.TabIndex = 7;
-            // 
-            // lbName
-            // 
-            this.lbName.AutoSize = true;
-            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbName.ForeColor = System.Drawing.Color.Black;
-            this.lbName.Location = new System.Drawing.Point(9, 27);
-            this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(143, 18);
-            this.lbName.TabIndex = 6;
-            this.lbName.Text = "Наим. контрагента:";
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.tabControl);
-            this.groupBox3.Location = new System.Drawing.Point(598, 12);
+            this.groupBox3.Location = new System.Drawing.Point(551, 7);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(514, 257);
+            this.groupBox3.Size = new System.Drawing.Size(363, 332);
             this.groupBox3.TabIndex = 63;
             this.groupBox3.TabStop = false;
             // 
@@ -177,51 +89,55 @@
             this.tabControl.Location = new System.Drawing.Point(6, 14);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(502, 234);
+            this.tabControl.Size = new System.Drawing.Size(340, 307);
             this.tabControl.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.tabPage1.Controls.Add(this.dataGridViewDry);
+            this.tabPage1.Controls.Add(this.labelWetBefore);
+            this.tabPage1.Controls.Add(this.labelWeightAfter);
+            this.tabPage1.Controls.Add(this.labelWetAfter);
+            this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.labelWeightBefore);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.labelDate);
+            this.tabPage1.Controls.Add(this.dateLabel);
+            this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.changeDryButton);
             this.tabPage1.Controls.Add(this.addDryButton);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(494, 203);
+            this.tabPage1.Size = new System.Drawing.Size(332, 276);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Сушка";
             // 
-            // dataGridViewDry
+            // dateLabel
             // 
-            this.dataGridViewDry.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridViewDry.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.dataGridViewDry.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewDry.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewDry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDry.EnableHeadersVisualStyles = false;
-            this.dataGridViewDry.Location = new System.Drawing.Point(6, 49);
-            this.dataGridViewDry.Name = "dataGridViewDry";
-            this.dataGridViewDry.ReadOnly = true;
-            this.dataGridViewDry.RowHeadersVisible = false;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewDry.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewDry.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridViewDry.Size = new System.Drawing.Size(233, 51);
-            this.dataGridViewDry.TabIndex = 61;
+            this.dateLabel.AutoSize = true;
+            this.dateLabel.Location = new System.Drawing.Point(55, 79);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Size = new System.Drawing.Size(0, 16);
+            this.dateLabel.TabIndex = 50;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(6, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 20);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "Дата:";
             // 
             // changeDryButton
             // 
-            this.changeDryButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.changeDryButton.BackColor = System.Drawing.Color.LightGray;
+            this.changeDryButton.Enabled = false;
             this.changeDryButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.changeDryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.changeDryButton.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -233,10 +149,12 @@
             this.changeDryButton.Text = "Изменить";
             this.changeDryButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.changeDryButton.UseVisualStyleBackColor = false;
+            this.changeDryButton.Click += new System.EventHandler(this.changeDryButton_Click);
             // 
             // addDryButton
             // 
-            this.addDryButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.addDryButton.BackColor = System.Drawing.Color.LightGray;
+            this.addDryButton.Enabled = false;
             this.addDryButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addDryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addDryButton.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -248,48 +166,24 @@
             this.addDryButton.Text = "Добавить";
             this.addDryButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addDryButton.UseVisualStyleBackColor = false;
+            this.addDryButton.Click += new System.EventHandler(this.addDryButton_Click);
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.tabPage2.Controls.Add(this.dataGridViewClear);
             this.tabPage2.Controls.Add(this.changeClearButton);
             this.tabPage2.Controls.Add(this.addClearButton);
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(494, 203);
+            this.tabPage2.Size = new System.Drawing.Size(332, 276);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Чистка";
             // 
-            // dataGridViewClear
-            // 
-            this.dataGridViewClear.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridViewClear.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.dataGridViewClear.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewClear.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewClear.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewClear.EnableHeadersVisualStyles = false;
-            this.dataGridViewClear.Location = new System.Drawing.Point(6, 49);
-            this.dataGridViewClear.Name = "dataGridViewClear";
-            this.dataGridViewClear.ReadOnly = true;
-            this.dataGridViewClear.RowHeadersVisible = false;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewClear.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewClear.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridViewClear.Size = new System.Drawing.Size(233, 51);
-            this.dataGridViewClear.TabIndex = 62;
-            // 
             // changeClearButton
             // 
-            this.changeClearButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.changeClearButton.BackColor = System.Drawing.Color.LightGray;
+            this.changeClearButton.Enabled = false;
             this.changeClearButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.changeClearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.changeClearButton.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -301,10 +195,12 @@
             this.changeClearButton.Text = "Изменить";
             this.changeClearButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.changeClearButton.UseVisualStyleBackColor = false;
+            this.changeClearButton.Click += new System.EventHandler(this.changeClearButton_Click);
             // 
             // addClearButton
             // 
-            this.addClearButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.addClearButton.BackColor = System.Drawing.Color.LightGray;
+            this.addClearButton.Enabled = false;
             this.addClearButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addClearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addClearButton.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -317,41 +213,277 @@
             this.addClearButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addClearButton.UseVisualStyleBackColor = false;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridViewRaw);
+            this.groupBox2.Controls.Add(this.groupBox1);
+            this.groupBox2.Location = new System.Drawing.Point(12, 7);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(533, 332);
+            this.groupBox2.TabIndex = 64;
+            this.groupBox2.TabStop = false;
+            // 
+            // dataGridViewRaw
+            // 
+            this.dataGridViewRaw.AllowUserToAddRows = false;
+            this.dataGridViewRaw.AllowUserToDeleteRows = false;
+            this.dataGridViewRaw.AllowUserToResizeRows = false;
+            this.dataGridViewRaw.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewRaw.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
+            this.dataGridViewRaw.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewRaw.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewRaw.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewRaw.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column3,
+            this.Column1,
+            this.Column2,
+            this.Column4,
+            this.Column6});
+            this.dataGridViewRaw.EnableHeadersVisualStyles = false;
+            this.dataGridViewRaw.Location = new System.Drawing.Point(12, 120);
+            this.dataGridViewRaw.MultiSelect = false;
+            this.dataGridViewRaw.Name = "dataGridViewRaw";
+            this.dataGridViewRaw.ReadOnly = true;
+            this.dataGridViewRaw.RowHeadersVisible = false;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewRaw.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewRaw.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridViewRaw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewRaw.Size = new System.Drawing.Size(506, 202);
+            this.dataGridViewRaw.TabIndex = 46;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Код сырья";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Контрагент";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Сырье";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Дата поставки";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Код контрагента";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.contractorTextBox);
+            this.groupBox1.Controls.Add(this.rawTextBox);
+            this.groupBox1.Controls.Add(this.btnAllList);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.findButton);
+            this.groupBox1.Controls.Add(this.lbName);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.groupBox1.Location = new System.Drawing.Point(12, 9);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(506, 105);
+            this.groupBox1.TabIndex = 43;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Поиск";
+            // 
+            // contractorTextBox
+            // 
+            this.contractorTextBox.Location = new System.Drawing.Point(106, 25);
+            this.contractorTextBox.Name = "contractorTextBox";
+            this.contractorTextBox.Size = new System.Drawing.Size(144, 22);
+            this.contractorTextBox.TabIndex = 13;
+            // 
+            // rawTextBox
+            // 
+            this.rawTextBox.Location = new System.Drawing.Point(320, 25);
+            this.rawTextBox.Name = "rawTextBox";
+            this.rawTextBox.Size = new System.Drawing.Size(144, 22);
+            this.rawTextBox.TabIndex = 12;
+            // 
+            // btnAllList
+            // 
+            this.btnAllList.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnAllList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAllList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAllList.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnAllList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAllList.Location = new System.Drawing.Point(222, 61);
+            this.btnAllList.Name = "btnAllList";
+            this.btnAllList.Size = new System.Drawing.Size(183, 28);
+            this.btnAllList.TabIndex = 7;
+            this.btnAllList.Text = "Вывести полный список";
+            this.btnAllList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAllList.UseVisualStyleBackColor = false;
+            this.btnAllList.Click += new System.EventHandler(this.btnAllList_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(256, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 18);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Сырье:";
+            // 
+            // findButton
+            // 
+            this.findButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.findButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.findButton.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.findButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.findButton.Location = new System.Drawing.Point(96, 60);
+            this.findButton.Name = "findButton";
+            this.findButton.Size = new System.Drawing.Size(82, 28);
+            this.findButton.TabIndex = 5;
+            this.findButton.Text = "Найти";
+            this.findButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.findButton.UseVisualStyleBackColor = false;
+            this.findButton.Click += new System.EventHandler(this.findButton_Click);
+            // 
+            // lbName
+            // 
+            this.lbName.AutoSize = true;
+            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbName.ForeColor = System.Drawing.Color.Black;
+            this.lbName.Location = new System.Drawing.Point(9, 27);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(91, 18);
+            this.lbName.TabIndex = 6;
+            this.lbName.Text = "Контрагент:";
+            // 
+            // labelDate
+            // 
+            this.labelDate.AutoSize = true;
+            this.labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelDate.Location = new System.Drawing.Point(164, 53);
+            this.labelDate.Name = "labelDate";
+            this.labelDate.Size = new System.Drawing.Size(0, 20);
+            this.labelDate.TabIndex = 51;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(3, 95);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 20);
+            this.label3.TabIndex = 52;
+            this.label3.Text = "Вес до:";
+            // 
+            // labelWeightBefore
+            // 
+            this.labelWeightBefore.AutoSize = true;
+            this.labelWeightBefore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelWeightBefore.Location = new System.Drawing.Point(164, 95);
+            this.labelWeightBefore.Name = "labelWeightBefore";
+            this.labelWeightBefore.Size = new System.Drawing.Size(0, 20);
+            this.labelWeightBefore.TabIndex = 53;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(6, 138);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(90, 20);
+            this.label5.TabIndex = 54;
+            this.label5.Text = "Вес после:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(6, 223);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(147, 20);
+            this.label6.TabIndex = 55;
+            this.label6.Text = "Влажность после:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(6, 184);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(122, 20);
+            this.label7.TabIndex = 56;
+            this.label7.Text = "Влажность до:";
+            // 
+            // labelWetAfter
+            // 
+            this.labelWetAfter.AutoSize = true;
+            this.labelWetAfter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelWetAfter.Location = new System.Drawing.Point(164, 223);
+            this.labelWetAfter.Name = "labelWetAfter";
+            this.labelWetAfter.Size = new System.Drawing.Size(0, 20);
+            this.labelWetAfter.TabIndex = 57;
+            // 
+            // labelWeightAfter
+            // 
+            this.labelWeightAfter.AutoSize = true;
+            this.labelWeightAfter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelWeightAfter.Location = new System.Drawing.Point(164, 138);
+            this.labelWeightAfter.Name = "labelWeightAfter";
+            this.labelWeightAfter.Size = new System.Drawing.Size(0, 20);
+            this.labelWeightAfter.TabIndex = 58;
+            // 
+            // labelWetBefore
+            // 
+            this.labelWetBefore.AutoSize = true;
+            this.labelWetBefore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelWetBefore.Location = new System.Drawing.Point(164, 184);
+            this.labelWetBefore.Name = "labelWetBefore";
+            this.labelWetBefore.Size = new System.Drawing.Size(0, 20);
+            this.labelWetBefore.TabIndex = 59;
+            // 
             // ProcessingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(1119, 280);
+            this.ClientSize = new System.Drawing.Size(931, 351);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox1);
             this.Name = "ProcessingForm";
             this.Text = "Обработка";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDry)).EndInit();
+            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClear)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDry)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceClear)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRaw)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnAllList;
-        private System.Windows.Forms.ComboBox rawComboBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button findButton;
-        private System.Windows.Forms.ComboBox nameContractorComboBox;
-        private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage1;
@@ -360,9 +492,30 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button changeClearButton;
         private System.Windows.Forms.Button addClearButton;
-        private System.Windows.Forms.BindingSource bindingSourceDry;
-        private System.Windows.Forms.DataGridView dataGridViewDry;
-        private System.Windows.Forms.DataGridView dataGridViewClear;
-        private System.Windows.Forms.BindingSource bindingSourceClear;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dataGridViewRaw;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox contractorTextBox;
+        private System.Windows.Forms.TextBox rawTextBox;
+        private System.Windows.Forms.Button btnAllList;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button findButton;
+        private System.Windows.Forms.Label lbName;
+        private System.Windows.Forms.Label dateLabel;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelWetBefore;
+        private System.Windows.Forms.Label labelWeightAfter;
+        private System.Windows.Forms.Label labelWetAfter;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelWeightBefore;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelDate;
     }
 }

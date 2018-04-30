@@ -154,6 +154,7 @@
     <Compile Include="Controllers\AddContractController.cs" />
     <Compile Include="Controllers\AddContractorController.cs" />
     <Compile Include="Controllers\AddDateAnalysController.cs" />
+    <Compile Include="Controllers\AddDryController.cs" />
     <Compile Include="Controllers\AddTransportationController.cs" />
     <Compile Include="Controllers\AddEmployeeController.cs" />
     <Compile Include="Controllers\AddlevelOfQualityController.cs" />
@@ -164,6 +165,7 @@
     <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Controllers\ContractorController.cs" />
     <Compile Include="Controllers\DateAnalysController.cs" />
+    <Compile Include="Controllers\ProcessingController.cs" />
     <Compile Include="Controllers\TransportationController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\LevelOfQualityController.cs" />
@@ -186,6 +188,7 @@
     <Compile Include="Model\Contractor.cs" />
     <Compile Include="Model\DateAnalys.cs" />
     <Compile Include="Model\Delivery.cs" />
+    <Compile Include="Model\Drying.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\GeneralLevelOfQuality.cs" />
     <Compile Include="Model\GrainLevelOfQuality.cs" />

@@ -56,6 +56,7 @@ namespace Elevator.Forms
 
         private void btnAllList_Click(object sender, EventArgs e)
         {
+            contractorTextBox.Text = "";
             rawTextBox.Text = "";
             select();
         }
@@ -67,6 +68,7 @@ namespace Elevator.Forms
                 Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value))).ShowDialog();
             selectDate();
         }
+
         private void selectDate()
         {
             dataGridViewDate.Rows.Clear();

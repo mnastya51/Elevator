@@ -78,10 +78,7 @@ namespace Elevator.Controllers
                     string[] res = fillWithClassForGeneral(dataGridViewAnalys, i, flag, classes, 
                         valueArray, generalLevelOfQuality.IdRaw, type);
                     numberClass = res[0];
-                    //if (res[0] == "")
-                  //      i = classes.Length;
-                  //  else 
-                        i = Convert.ToInt32(res[1]);
+                    i = Convert.ToInt32(res[1]);
                 }
                 dataGridViewAnalys.ClearSelection();
                 return numberClass;

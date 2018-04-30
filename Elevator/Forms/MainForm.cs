@@ -75,7 +75,7 @@ namespace Elevator.Forms
 
         private void processingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            new ProcessingForm().ShowDialog();
         }
     }
 }
