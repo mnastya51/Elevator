@@ -104,7 +104,7 @@ namespace Elevator.Forms
             }
             else
             {
-                controller.addButtonClick(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+                controller.addButtonClick(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value), Convert.ToString(dataGridViewRaw.CurrentRow.Cells[2].Value));
                 selectDry();
             }
         }
@@ -133,7 +133,7 @@ namespace Elevator.Forms
             }
             else
             {
-                controller.addButtonClearClick(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+                controller.addButtonClearClick(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value), Convert.ToString(dataGridViewRaw.CurrentRow.Cells[2].Value));
                 selectClear();
             }
         }

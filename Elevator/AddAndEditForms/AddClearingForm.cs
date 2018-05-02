@@ -17,11 +17,13 @@ namespace Elevator.AddAndEditForms
         private AddClearingController controller;
         public Clearing clearing;
         private string idRaw;
-        public AddClearingForm(string newIdRaw)
+        private string raw;
+        public AddClearingForm(string newIdRaw, string newRaw)
         {
             InitializeComponent();
             controller = new AddClearingController();
             idRaw = newIdRaw;
+            raw = newRaw;
         }
 
         public AddClearingForm(Clearing newClearing)
@@ -41,7 +43,7 @@ namespace Elevator.AddAndEditForms
                 clearing = new Clearing(idRaw, dateTimePicker.Text,
                     textBoxWeightBefore.Text != "" ? textBoxWeightBefore.Text : "null",
                     textBoxWeightAfter.Text != "" ? textBoxWeightAfter.Text : "null");
-                if (controller.onSaveClick(clearing, false))
+                if (controller.onSaveClick(clearing, raw, false))
                     this.Close();
                 else clearing = null;
             }
@@ -50,7 +52,7 @@ namespace Elevator.AddAndEditForms
                 clearing.Date = dateTimePicker.Text;
                 clearing.WeightBefore = textBoxWeightBefore.Text != "" ? textBoxWeightBefore.Text : "null";
                 clearing.WeightAfter = textBoxWeightAfter.Text != "" ? textBoxWeightAfter.Text : "null";
-                if (controller.onSaveClick(clearing, true))
+                if (controller.onSaveClick(clearing, raw, true))
                     this.Close();
                 else clearing = null;
             }

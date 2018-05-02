@@ -1704,20 +1704,17 @@ namespace Elevator
             }
             return values.ToArray();
         }
-        public bool updateDry(string nameTable, FormValue<string, string> primaryKey, params FormValue<string, string>[] values)
-        {//обновлять влажность до нужного числа, остальное по нормам!!!!!!!
+        public bool updateDry(string idRaw, string date,
+            string weightBefore, string weightAfter, string wetBefore, string wetAfter)
+        {
             string sqlCommand;
-            string settingString = string.Empty;
-            if (values.Length > 0) settingString += values[0].getKey() + "='" + values[0].getValue() + "'";
-            for (int i = 1; i < values.Length; i++)
-            {
-                settingString += ", " + values[i].getKey() + "=" + values[i].getValue();
-            }
             try
             {
-                sqlCommand = string.Format("Update {0} Set {1} where {2}={3} " +
-                    "Update Storage set weight = {4} where id_raw = {3}", nameTable, settingString, 
-                    primaryKey.getKey(), primaryKey.getValue(), values[2].getValue());
+                sqlCommand = string.Format("Update Drying Set date_drying = '{0}', weight_before_drying " +
+                    " = {1}, weight_after_drying = {2}, wet_before = {3}, wet_after = {4} where id_raw={5} " +
+                    "Update Storage set weight = {2} where id_raw = {5}" +
+                    "Update General_impurities set value_imp = {4} where name_imp = 'влажность' and id_raw = {5}",
+                    date, weightBefore, weightAfter, wetBefore, wetAfter, idRaw);
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -1732,25 +1729,33 @@ namespace Elevator
                 return false;
             }
         }
-        public bool addDry(string nameTable, params FormValue<string, string>[] values)
-        {//обновлять влажность до нужного числа!!!!!!!!!!!!!
+        public bool addDry(FormValue<string, string>[] valueGeneral, string date, string idRaw, 
+            string weightBefore, string weightAfter, string wetBefore, string wetAfter)
+        {
             string sqlCommand;
-            string val = string.Empty;
-            string names = string.Empty;
-            if (values.Length > 0)
+            string sqlCommandGeneral = "";
+            for (int i = 1; i < valueGeneral.Length; i++)
             {
-                val += "'" + values[0].getValue() + "'";
-                names += values[0].getKey();
-            }
-            for (int i = 1; i < values.Length; i++)
-            {
-                val += ", " + values[i].getValue();
-                names += ", " + values[i].getKey();
+                if(wetAfter == "null")
+                    sqlCommandGeneral += string.Format(" Update General_impurities set value_imp = " +
+                        "{0} where name_imp = '{1}' and id_raw = {2} ", valueGeneral[i].getValue(), valueGeneral[i].getKey(), idRaw);
+                else
+                {
+                    if(valueGeneral[i].getKey() == "влажность")
+                        sqlCommandGeneral += string.Format(" Update General_impurities set value_imp = " +
+                       "{0} where name_imp = 'влажность' and id_raw = {1} ", wetAfter, idRaw);
+                    else
+                        sqlCommandGeneral += string.Format(" Update General_impurities set value_imp = " +
+                       "{0} where name_imp = '{1}' and id_raw = {2} ", valueGeneral[i].getValue(), valueGeneral[i].getKey(), idRaw);
+                }
             }
             try
             {
-                sqlCommand = string.Format("Insert into {0} ({1}) values({2}) "+
-                    "Update Storage set weight = {3} where id_raw = {4}", nameTable, names, val, values[3].getValue(), values[1].getValue());
+                sqlCommand = string.Format("Insert into Drying (id_raw, date_drying, weight_before_drying, " +
+                    "weight_after_drying, wet_before, wet_after) values({0}, '{1}', {2}, {3}, {4}, {5}) " +
+                    "Update Storage set weight = {3} where id_raw = {0} " +
+                    sqlCommandGeneral, idRaw, date, weightBefore,
+                    weightAfter, wetBefore, wetAfter);
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -1764,14 +1769,39 @@ namespace Elevator
                 return false;
             }
         }
-        public bool addClearing(string date, string idRaw, string weightBefore, string weightAfter)
-        {//обновлять примеси до нормы!!!!!!!!!!!!!
+        public bool addClearing(string date, string idRaw, string weightBefore, string weightAfter,
+            FormValue<string, string>[] valueHarmful,
+            FormValue<string, string>[] valueWeed,
+            FormValue<string, string>[] valueGrain)
+        {
             string sqlCommand;
+            string sqlCommandHarmful = "";
+            string sqlCommandWeed = "";
+            string sqlCommandGrain = "";
+            for (int i = 1; i < valueHarmful.Length; i++)
+            {
+                 sqlCommandHarmful += string.Format(" Update Harmful_impurities set value_harm_imp = " +
+                "{0} where name_harm_imp = '{1}' and id_raw = {2} ", valueHarmful[i].getValue(), valueHarmful[i].getKey(), idRaw);
+            }
+
+            for (int i = 1; i < valueWeed.Length; i++)
+            {
+                sqlCommandWeed += string.Format(" Update Weed_impurities set value_weed_imp = " +
+                "{0} where name_weed_imp = '{1}' and id_raw = {2} ", valueWeed[i].getValue(), valueWeed[i].getKey(), idRaw);
+            }
+
+            for (int i = 1; i < valueGrain.Length; i++)
+            {
+                sqlCommandGrain += string.Format(" Update Grain_impurities set value_grain_imp = " +
+                "{0} where name_grain_imp = '{1}' and id_raw = {2} ", valueGrain[i].getValue(), valueGrain[i].getKey(), idRaw);
+            }
+
             try
             {
-                sqlCommand = string.Format("Insert into Clearing (id_raw, date_clearing, weight_before_clearing, "+
+                sqlCommand = string.Format("Insert into Clearing (id_raw, date_clearing, weight_before_clearing, " +
                     "weight_after_clearing) values({0}, '{1}', {2}, {3}) " +
-                    "Update Storage set weight = {3} where id_raw = {0}", idRaw, date, weightBefore, weightAfter);
+                    "Update Storage set weight = {3} where id_raw = {0} " +
+                    sqlCommandHarmful + sqlCommandWeed + sqlCommandGrain, idRaw, date, weightBefore, weightAfter);
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();

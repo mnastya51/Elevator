@@ -17,11 +17,13 @@ namespace Elevator.AddAndEditForms
         private AddDryController controller;
         public Drying drying;
         private string idRaw;
-        public AddDryForm(string newIdRaw)
+        private string raw;
+        public AddDryForm(string newIdRaw, string newRaw)
         {
             InitializeComponent();
             controller = new AddDryController();
             idRaw = newIdRaw;
+            raw = newRaw;
         }
 
         public AddDryForm(Drying newDrying)
@@ -45,7 +47,7 @@ namespace Elevator.AddAndEditForms
                     textBoxWeightAfter.Text != "" ? textBoxWeightAfter.Text : "null",
                     textBoxWetBefore.Text != "" ? textBoxWetBefore.Text : "null",
                     textBoxWetAfter.Text != "" ? textBoxWetAfter.Text : "null");
-                if (controller.onSaveClick(drying, false))
+                if (controller.onSaveClick(drying, raw, false))
                     this.Close();
                 else drying = null;
             }
@@ -56,7 +58,7 @@ namespace Elevator.AddAndEditForms
                 drying.WeightAfter = textBoxWeightAfter.Text != "" ? textBoxWeightAfter.Text : "null"; 
                 drying.WetBefore = textBoxWetBefore.Text != "" ? textBoxWetBefore.Text : "null"; 
                 drying.WetAfter = textBoxWetAfter.Text != "" ? textBoxWetAfter.Text : "null"; 
-                if (controller.onSaveClick(drying, true))
+                if (controller.onSaveClick(drying, raw, true))
                     this.Close();
                 else drying = null;
             }

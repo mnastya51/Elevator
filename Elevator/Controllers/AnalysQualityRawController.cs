@@ -374,7 +374,7 @@ namespace Elevator.Controllers
                         bool isMax = DAO.getInstance().isMaximum(idRaw, type, classes[i], row.Cells[1].Value.ToString());
                         if (isMax)
                         {
-                            if (Convert.ToDouble(row.Cells[2].Value) > Convert.ToDouble(valueArray[j].getValue()))
+                            if (Convert.ToDouble(row.Cells[2].Value) >= Convert.ToDouble(valueArray[j].getValue()))
                             {
                                 row.Cells[3].Value = valueArray[j].getValue();
                                 dataGridViewAnalys.Rows[j - 1].Cells[2].Style.BackColor = System.Drawing.Color.White;
