@@ -150,11 +150,11 @@
     <Compile Include="AddAndEditForms\AddRawForm.Designer.cs">
       <DependentUpon>AddRawForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddAndEditForms\AddSaveForm.cs">
+    <Compile Include="AddAndEditForms\AddStorageForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddAndEditForms\AddSaveForm.Designer.cs">
-      <DependentUpon>AddSaveForm.cs</DependentUpon>
+    <Compile Include="AddAndEditForms\AddStorageForm.Designer.cs">
+      <DependentUpon>AddStorageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AddAnalysQualityRawController.cs" />
     <Compile Include="Controllers\AddClearingController.cs" />
@@ -162,6 +162,7 @@
     <Compile Include="Controllers\AddContractorController.cs" />
     <Compile Include="Controllers\AddDateAnalysController.cs" />
     <Compile Include="Controllers\AddDryingController.cs" />
+    <Compile Include="Controllers\AddStorageController.cs" />
     <Compile Include="Controllers\AddTransportationController.cs" />
     <Compile Include="Controllers\AddEmployeeController.cs" />
     <Compile Include="Controllers\AddlevelOfQualityController.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="Controllers\ContractorController.cs" />
     <Compile Include="Controllers\DateAnalysController.cs" />
     <Compile Include="Controllers\ProcessingController.cs" />
+    <Compile Include="Controllers\StorageController.cs" />
     <Compile Include="Controllers\TransportationController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\LevelOfQualityController.cs" />
@@ -349,8 +351,8 @@
     <EmbeddedResource Include="AddAndEditForms\AddRawForm.resx">
       <DependentUpon>AddRawForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddAndEditForms\AddSaveForm.resx">
-      <DependentUpon>AddSaveForm.cs</DependentUpon>
+    <EmbeddedResource Include="AddAndEditForms\AddStorageForm.resx">
+      <DependentUpon>AddStorageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AnalysQualityRawForm.resx">
       <DependentUpon>AnalysQualityRawForm.cs</DependentUpon>

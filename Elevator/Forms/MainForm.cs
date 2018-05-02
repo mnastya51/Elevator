@@ -77,5 +77,11 @@ namespace Elevator.Forms
         {
             new ProcessingForm().ShowDialog();
         }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new StorageForm().ShowDialog();
+        }
     }
 }
+

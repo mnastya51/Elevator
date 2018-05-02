@@ -880,23 +880,11 @@ namespace Elevator
                         row.Cells[1].Value = reader.GetString(1);
                         row.Cells[2].Value = reader.GetString(2);
                         row.Cells[3].Value = reader.GetString(3);
-                        try
-                        {
-                            row.Cells[4].Value = reader.GetInt32(4);
-                            row.Cells[5].Value = reader.GetInt32(5);
-                        }
-                        catch
-                        {
-                        }
+                        try { row.Cells[4].Value = reader.GetInt32(4); } catch { }
+                        try { row.Cells[5].Value = reader.GetInt32(5); } catch { }
                         row.Cells[6].Value = reader.GetString(6);
                         row.Cells[7].Value = reader.GetInt32(7);                        
-                        try
-                        {
-                            row.Cells[8].Value = reader.GetString(8); 
-                        }
-                        catch
-                        {
-                        }
+                        try { row.Cells[8].Value = reader.GetString(8); } catch { }
                         row.Cells[9].Value = reader.GetFloat(9);
                         c++;
                     }
@@ -1300,14 +1288,10 @@ namespace Elevator
                         row.Cells[1].Value = reader.GetString(1);
                         row.Cells[2].Value = reader.GetString(2);
                         row.Cells[3].Value = reader.GetString(3);
-                        try
-                        {
+                        try {
                             row.Cells[4].Value = reader.GetInt32(4);
-                            row.Cells[5].Value = reader.GetInt32(5);
-                        }
-                        catch
-                        {
-                        }
+                            row.Cells[5].Value = reader.GetInt32(5);}
+                        catch  {   }
                         row.Cells[6].Value = reader.GetString(6);
                         row.Cells[7].Value = reader.GetInt32(7);
                         row.Cells[8].Value = reader.GetString(8);
@@ -1316,10 +1300,9 @@ namespace Elevator
                     }
                 }
                 reader.Close();
-                connection.Close();
             }
         }
-        public void selectRaw(DataGridView dataGridView)
+        public void selectRawForAnalys(DataGridView dataGridView)
         {
             string sqlCommand = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -1346,9 +1329,75 @@ namespace Elevator
                     }
                 }
                 reader.Close();
-                connection.Close();
             }
         }
+
+        public void selectRaw(DataGridView dataGridView)
+        {
+            string sqlCommand = string.Empty;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select d.id_raw, c.name_contr, r.name_raw, t.name_type_raw, s.name_subtype, d.date_delivery, c.id_contractor From Contractor c join Delivery d " +
+                    "on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join Raw r on st.id_NameRaw = " +
+                    "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join Type_raw t on s.id_type = t.id_type");
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        dataGridView.Rows.Add();
+                        DataGridViewRow row = dataGridView.Rows[c];
+                        row.Cells[0].Value = reader.GetInt32(0);
+                        row.Cells[1].Value = reader.GetString(1);
+                        row.Cells[2].Value = reader.GetString(2);
+                        try { row.Cells[3].Value = reader.GetInt32(3); } catch { }
+                        try { row.Cells[4].Value = reader.GetInt32(4); } catch { }
+                        row.Cells[5].Value = reader.GetString(5);
+                        row.Cells[6].Value = reader.GetInt32(6);
+                        c++;
+                    }
+                }
+                reader.Close();
+            }
+        }
+
+        public void selectRawForStorage(DataGridView dataGridView)
+        {
+            string sqlCommand = string.Empty;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select d.id_raw, c.name_contr, r.name_raw, t.name_type_raw, s.name_subtype, cl.number_class, d.date_delivery, c.id_contractor From Contractor c join Delivery d " +
+                    "on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join Raw r on st.id_NameRaw = " +
+                    "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join Type_raw t on s.id_type = t.id_type " +
+                    "left join Class cl on st.id_class = cl.id_class");
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        dataGridView.Rows.Add();
+                        DataGridViewRow row = dataGridView.Rows[c];
+                        row.Cells[0].Value = reader.GetInt32(0);
+                        row.Cells[1].Value = reader.GetString(1);
+                        row.Cells[2].Value = reader.GetString(2);
+                        try { row.Cells[3].Value = reader.GetInt32(3); } catch { }
+                        try { row.Cells[4].Value = reader.GetInt32(4); } catch { }
+                        try { row.Cells[5].Value = reader.GetInt32(5); } catch { }
+                        row.Cells[6].Value = reader.GetString(6);
+                        row.Cells[7].Value = reader.GetInt32(7);
+                        c++;
+                    }
+                }
+                reader.Close();
+            }
+        }
+
         public LinkedList<string> selectAnalysQuality(string nameTableType, string typeAttr, string nameTableValue, string valueAttr, string idRaw, DataGridView dataGridViewAnalys)
         {
             string sqlCommand = string.Empty;

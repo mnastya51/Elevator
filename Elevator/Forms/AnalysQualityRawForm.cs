@@ -30,7 +30,7 @@ namespace Elevator.Forms
         private void select()
         {
             dataGridViewRaw.Rows.Clear();
-            DAO.getInstance().selectRaw(dataGridViewRaw);
+            DAO.getInstance().selectRawForAnalys(dataGridViewRaw);
             dataGridViewRaw.ClearSelection();
         }
 

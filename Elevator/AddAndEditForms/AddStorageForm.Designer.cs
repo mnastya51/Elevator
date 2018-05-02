@@ -1,6 +1,6 @@
 ﻿namespace Elevator.AddAndEditForms
 {
-    partial class AddSaveForm
+    partial class AddStorageForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@
             this.labelNumber = new System.Windows.Forms.Label();
             this.comboBoxStorage = new System.Windows.Forms.ComboBox();
             this.textBoxNumber = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxWeight = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -59,7 +59,11 @@
             // 
             // comboBoxStorage
             // 
+            this.comboBoxStorage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxStorage.FormattingEnabled = true;
+            this.comboBoxStorage.Items.AddRange(new object[] {
+            "Склад",
+            "Силос"});
             this.comboBoxStorage.Location = new System.Drawing.Point(154, 9);
             this.comboBoxStorage.Name = "comboBoxStorage";
             this.comboBoxStorage.Size = new System.Drawing.Size(121, 21);
@@ -67,17 +71,23 @@
             // 
             // textBoxNumber
             // 
+            this.textBoxNumber.BackColor = System.Drawing.Color.LightBlue;
             this.textBoxNumber.Location = new System.Drawing.Point(154, 46);
             this.textBoxNumber.Name = "textBoxNumber";
             this.textBoxNumber.Size = new System.Drawing.Size(121, 20);
             this.textBoxNumber.TabIndex = 60;
+            this.textBoxNumber.TextChanged += new System.EventHandler(this.textBoxNumber_TextChanged);
+            this.textBoxNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNumber_KeyPress);
             // 
-            // textBox1
+            // textBoxWeight
             // 
-            this.textBox1.Location = new System.Drawing.Point(154, 81);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 61;
+            this.textBoxWeight.BackColor = System.Drawing.Color.LightBlue;
+            this.textBoxWeight.Location = new System.Drawing.Point(154, 81);
+            this.textBoxWeight.Name = "textBoxWeight";
+            this.textBoxWeight.Size = new System.Drawing.Size(121, 20);
+            this.textBoxWeight.TabIndex = 61;
+            this.textBoxWeight.TextChanged += new System.EventHandler(this.textBoxWeight_TextChanged);
+            this.textBoxWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxWeight_KeyPress);
             // 
             // label1
             // 
@@ -85,13 +95,14 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(12, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 20);
+            this.label1.Size = new System.Drawing.Size(41, 20);
             this.label1.TabIndex = 62;
-            this.label1.Text = "Общий вес:";
+            this.label1.Text = "Вес:";
             // 
             // saveButton
             // 
-            this.saveButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.saveButton.BackColor = System.Drawing.Color.LightBlue;
+            this.saveButton.Enabled = false;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.saveButton.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -103,8 +114,9 @@
             this.saveButton.Text = "Сохранить";
             this.saveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // AddSaveForm
+            // AddStorageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -112,12 +124,12 @@
             this.ClientSize = new System.Drawing.Size(287, 159);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxWeight);
             this.Controls.Add(this.textBoxNumber);
             this.Controls.Add(this.comboBoxStorage);
             this.Controls.Add(this.labelNumber);
             this.Controls.Add(this.labelStorage);
-            this.Name = "AddSaveForm";
+            this.Name = "AddStorageForm";
             this.Text = "Добавление места хранения";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -130,7 +142,7 @@
         private System.Windows.Forms.Label labelNumber;
         private System.Windows.Forms.ComboBox comboBoxStorage;
         private System.Windows.Forms.TextBox textBoxNumber;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxWeight;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button saveButton;
     }
