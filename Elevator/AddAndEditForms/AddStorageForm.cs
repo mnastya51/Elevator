@@ -55,21 +55,29 @@ namespace Elevator.AddAndEditForms
         private void saveButton_Click(object sender, EventArgs e)
         {
             if (comboBoxStorage.Text == "Склад") {
-                if (store == null)
-                {
-                    storagePlace = new StoragePlace(idRaw);
-                    store = new StoreStoragePlace(idRaw, comboBoxNumber.Text, textBoxWeight.Text);
-                    if (controller.onAddClick(storagePlace, store))
-                        this.Close();
-                    else store = null;
-                }
+                double capacity = DAO.getInstance().calcCapacity(StoreStoragePlace.NameTable, StoreStoragePlace.WeightAttr,
+                    StoreStoragePlace.NumberAttr, comboBoxNumber.Text);
+                if (capacity + Convert.ToDouble(textBoxWeight.Text) > Store.Capacity)
+                    MessageBox.Show("Склад переполнен! Вместимость 8 тонн!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //писать в сообщение на сколько переполнено
                 else
                 {
-                    store.Number = comboBoxNumber.Text;
-                    store.Weight = textBoxWeight.Text;
-                    if (controller.onUpdateClick(store, number))
-                        this.Close();
-                    else store = null;
+                    if (store == null)
+                    {
+                        storagePlace = new StoragePlace(idRaw);
+                        store = new StoreStoragePlace(idRaw, comboBoxNumber.Text, textBoxWeight.Text);
+                        if (controller.onAddClick(storagePlace, store))
+                            this.Close();
+                        else store = null;
+                    }
+                    else
+                    {
+                        store.Number = comboBoxNumber.Text;
+                        store.Weight = textBoxWeight.Text;
+                        if (controller.onUpdateClick(store, number))
+                            this.Close();
+                        else store = null;
+                    }
                 }
             }
             else

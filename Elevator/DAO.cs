@@ -2011,5 +2011,26 @@ namespace Elevator
                 return false;
             }
         }
+        public double calcCapacity(string nameTable, string weightAttr, string numberAttr, string number)
+        {
+            double capacity = 0;
+            string sqlCommand;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    sqlCommand = string.Format("Select sum({0}) from {1} where {2} = {3}", weightAttr,
+                        nameTable, numberAttr, number);
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    capacity = (double)cmd.ExecuteScalar();
+                    return capacity;
+                }
+            }
+            catch (SqlException)
+            {
+                return 0;
+            }
+        }
     }
 }
