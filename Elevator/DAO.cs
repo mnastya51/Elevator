@@ -1369,7 +1369,7 @@ namespace Elevator
             string sqlCommand = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                sqlCommand = string.Format("Select d.id_raw, c.name_contr, r.name_raw, t.name_type_raw, s.name_subtype, cl.number_class, d.date_delivery, c.id_contractor From Contractor c join Delivery d " +
+                sqlCommand = string.Format("Select d.id_raw, c.name_contr, r.name_raw, t.name_type_raw, s.name_subtype, cl.number_class, d.date_delivery, st.weight, c.id_contractor From Contractor c join Delivery d " +
                     "on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join Raw r on st.id_NameRaw = " +
                     "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join Type_raw t on s.id_type = t.id_type " +
                     "left join Class cl on st.id_class = cl.id_class");
@@ -1390,7 +1390,8 @@ namespace Elevator
                         try { row.Cells[4].Value = reader.GetInt32(4); } catch { }
                         try { row.Cells[5].Value = reader.GetInt32(5); } catch { }
                         row.Cells[6].Value = reader.GetString(6);
-                        row.Cells[7].Value = reader.GetInt32(7);
+                        row.Cells[7].Value = reader.GetString(7);
+                        row.Cells[8].Value = reader.GetInt32(8);
                         c++;
                     }
                 }
