@@ -1,4 +1,5 @@
 ﻿using Elevator.AddAndEditForms;
+using Elevator.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,17 @@ namespace Elevator.Controllers
     {
         public void addButtonClick(string idRaw)
         {
-            new AddStorageForm().ShowDialog();
+            new AddStorageForm(idRaw).ShowDialog();
+        }
+
+        public void changeButtonClick(StoreStoragePlace store)
+        {
+            new AddStorageForm(store).ShowDialog();
+        }
+
+        public void changeButtonClick(SilageStoragePlace silage)
+        {
+            new AddStorageForm(silage).ShowDialog();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Elevator.Controllers;
+using Elevator.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,36 +15,88 @@ namespace Elevator.AddAndEditForms
     public partial class AddStorageForm : Form
     {
         private AddStorageController controller;
-        public AddStorageForm()
+        private string idRaw;
+        private StoreStoragePlace store;
+        private SilageStoragePlace silage;
+        private StoragePlace storagePlace;
+        private string number;
+        public AddStorageForm(string newIdRaw)
         {
             InitializeComponent();
             controller = new AddStorageController();
             comboBoxStorage.Text = comboBoxStorage.Items[0].ToString();
+            idRaw = newIdRaw;
+        }
+
+        public AddStorageForm(StoreStoragePlace newStore)
+        {
+            InitializeComponent();
+            controller = new AddStorageController();
+            comboBoxStorage.Text = comboBoxStorage.Items[0].ToString();
+            store = newStore;
+            comboBoxNumber.Text = store.Number;
+            number = store.Number;
+            textBoxWeight.Text = store.Weight;
+            comboBoxStorage.Enabled = false;
+        }
+
+        public AddStorageForm(SilageStoragePlace newSilage)
+        {
+            InitializeComponent();
+            controller = new AddStorageController();
+            comboBoxStorage.Text = comboBoxStorage.Items[1].ToString();
+            silage = newSilage;
+            comboBoxNumber.Text = silage.Number;
+            number = silage.Number;
+            textBoxWeight.Text = silage.Weight;
+            comboBoxStorage.Enabled = false;
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void textBoxNumber_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char l = e.KeyChar;
-            if (l != '\b' && (l < '0' || l > '9'))
-                e.Handled = true;
-        }
-
-        private void textBoxNumber_TextChanged(object sender, EventArgs e)
-        {
-            saveButton.Enabled = controller.checkSaveForAll(textBoxWeight.Text, textBoxNumber.Text);
-            saveButton.BackColor = controller.checkSaveForAll(textBoxWeight.Text, textBoxNumber.Text) ? Color.DarkOrange : Color.LightBlue;
-            textBoxNumber.BackColor = controller.isEmpty(textBoxNumber.Text.Replace(" ", "")) ? Color.LightBlue : Color.White;
+            if (comboBoxStorage.Text == "Склад") {
+                if (store == null)
+                {
+                    storagePlace = new StoragePlace(idRaw);
+                    store = new StoreStoragePlace(idRaw, comboBoxNumber.Text, textBoxWeight.Text);
+                    if (controller.onAddClick(storagePlace, store))
+                        this.Close();
+                    else store = null;
+                }
+                else
+                {
+                    store.Number = comboBoxNumber.Text;
+                    store.Weight = textBoxWeight.Text;
+                    if (controller.onUpdateClick(store, number))
+                        this.Close();
+                    else store = null;
+                }
+            }
+            else
+            {
+                if (silage == null)
+                {
+                    storagePlace = new StoragePlace(idRaw);
+                    silage = new SilageStoragePlace(idRaw, comboBoxNumber.Text, textBoxWeight.Text);
+                    if (controller.onAddClick(storagePlace, silage))
+                        this.Close();
+                    else silage = null;
+                }
+                else
+                {
+                    silage.Number = comboBoxNumber.Text;
+                    silage.Weight = textBoxWeight.Text;
+                    if (controller.onUpdateClick(silage, number))
+                        this.Close();
+                    else silage = null;
+                }
+            }
         }
 
         private void textBoxWeight_TextChanged(object sender, EventArgs e)
         {
-            saveButton.Enabled = controller.checkSaveForAll(textBoxWeight.Text, textBoxNumber.Text);
-            saveButton.BackColor = controller.checkSaveForAll(textBoxWeight.Text, textBoxNumber.Text) ? Color.DarkOrange : Color.LightBlue;
+            saveButton.Enabled = controller.checkSave(textBoxWeight.Text);
+            saveButton.BackColor = controller.checkSave(textBoxWeight.Text) ? Color.DarkOrange : Color.LightBlue;
             textBoxWeight.BackColor = controller.isEmpty(textBoxWeight.Text.Replace(" ", "")) ? Color.LightBlue : Color.White;
         }
 
@@ -52,6 +105,25 @@ namespace Elevator.AddAndEditForms
             char l = e.KeyChar;
             if (l != '\b' && l != '.' && (l < '0' || l > '9'))
                 e.Handled = true;
+        }
+
+        private void comboBoxStorage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxNumber.Items.Clear();
+            if (comboBoxStorage.Text == "Склад")
+            {
+                string[] store = DAO.getInstance().getStorageToComboBox("Store");
+                comboBoxNumber.Items.AddRange(store);
+                if (store.Length > 0)
+                    comboBoxNumber.Text = comboBoxNumber.Items[0].ToString();
+            }
+            else
+            {
+                string[] store = DAO.getInstance().getStorageToComboBox("Silage");
+                comboBoxNumber.Items.AddRange(store);
+                if (store.Length > 0)
+                    comboBoxNumber.Text = comboBoxNumber.Items[0].ToString();
+            }
         }
     }
 }

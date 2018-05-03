@@ -189,6 +189,7 @@
       <DependentUpon>DateAnalysForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\AbstractLevelOfQuality.cs" />
+    <Compile Include="Model\AbstractStoragePlace.cs" />
     <Compile Include="Model\AbstractTransportation.cs" />
     <Compile Include="Model\AbstractTypeLevelOfQuality.cs" />
     <Compile Include="Model\AbstractQualityLevelNorm.cs" />
@@ -205,8 +206,11 @@
     <Compile Include="Model\GrainLevelOfQualityNorm.cs" />
     <Compile Include="Model\HarmfulLevelOfQuality.cs" />
     <Compile Include="Model\HarmfulLevelOfQualityNorm.cs" />
+    <Compile Include="Model\SilageStoragePlace.cs" />
+    <Compile Include="Model\StoragePlace.cs" />
     <Compile Include="Model\Shipment.cs" />
     <Compile Include="Model\Storage.cs" />
+    <Compile Include="Model\StoreStoragePlace.cs" />
     <Compile Include="Model\TypeGeneralLevelOfQuality.cs" />
     <Compile Include="Model\GeneralLevelOfQualityNorm.cs" />
     <Compile Include="Model\TypeGrainLevelOfQuality.cs" />

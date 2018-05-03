@@ -1,4 +1,5 @@
 ﻿using Elevator.Controllers;
+using Elevator.Model;
 using Elevator.Utils;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,7 @@ namespace Elevator.Forms
             changeButton.BackColor = Color.DarkOrange;
             addButton.Enabled = true;
             changeButton.Enabled = true;
-            //selectClear();
+            selectStorage();
         }
 
         private void findButton_Click(object sender, EventArgs e)
@@ -60,7 +61,38 @@ namespace Elevator.Forms
         private void addButton_Click(object sender, EventArgs e)
         {
             controller.addButtonClick(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
-            //selectDry();
+            selectStorage();
+        }
+
+        private void selectStorage()
+        {
+            dataGridViewStorage.Rows.Clear();
+            DAO.getInstance().selectStorage(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value), dataGridViewStorage);
+            dataGridViewStorage.ClearSelection();
+        }
+
+        private void changeButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataGridViewRow row = dataGridViewStorage.SelectedRows[0];
+                if (Convert.ToString(dataGridViewStorage.CurrentRow.Cells[2].Value) == "склад")
+                {
+                    StoreStoragePlace store = new StoreStoragePlace(Convert.ToString(dataGridViewStorage.CurrentRow.Cells[0].Value),
+                            Convert.ToString(dataGridViewStorage.CurrentRow.Cells[1].Value), Convert.ToString(dataGridViewStorage.CurrentRow.Cells[3].Value),
+                            Convert.ToString(dataGridViewStorage.CurrentRow.Cells[4].Value));
+                    controller.changeButtonClick(store);
+                }
+                else
+                {
+                    SilageStoragePlace silage = new SilageStoragePlace(Convert.ToString(dataGridViewStorage.CurrentRow.Cells[0].Value),
+                           Convert.ToString(dataGridViewStorage.CurrentRow.Cells[1].Value), Convert.ToString(dataGridViewStorage.CurrentRow.Cells[3].Value),
+                           Convert.ToString(dataGridViewStorage.CurrentRow.Cells[4].Value));
+                    controller.changeButtonClick(silage);
+                }
+                selectStorage();
+            }
+            catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите запись!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
     }
 }

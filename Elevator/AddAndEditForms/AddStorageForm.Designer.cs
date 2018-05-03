@@ -31,10 +31,10 @@
             this.labelStorage = new System.Windows.Forms.Label();
             this.labelNumber = new System.Windows.Forms.Label();
             this.comboBoxStorage = new System.Windows.Forms.ComboBox();
-            this.textBoxNumber = new System.Windows.Forms.TextBox();
             this.textBoxWeight = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
+            this.comboBoxNumber = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // labelStorage
@@ -68,16 +68,7 @@
             this.comboBoxStorage.Name = "comboBoxStorage";
             this.comboBoxStorage.Size = new System.Drawing.Size(121, 21);
             this.comboBoxStorage.TabIndex = 59;
-            // 
-            // textBoxNumber
-            // 
-            this.textBoxNumber.BackColor = System.Drawing.Color.LightBlue;
-            this.textBoxNumber.Location = new System.Drawing.Point(154, 46);
-            this.textBoxNumber.Name = "textBoxNumber";
-            this.textBoxNumber.Size = new System.Drawing.Size(121, 20);
-            this.textBoxNumber.TabIndex = 60;
-            this.textBoxNumber.TextChanged += new System.EventHandler(this.textBoxNumber_TextChanged);
-            this.textBoxNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNumber_KeyPress);
+            this.comboBoxStorage.SelectedIndexChanged += new System.EventHandler(this.comboBoxStorage_SelectedIndexChanged);
             // 
             // textBoxWeight
             // 
@@ -116,16 +107,25 @@
             this.saveButton.UseVisualStyleBackColor = false;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
+            // comboBoxNumber
+            // 
+            this.comboBoxNumber.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxNumber.FormattingEnabled = true;
+            this.comboBoxNumber.Location = new System.Drawing.Point(154, 45);
+            this.comboBoxNumber.Name = "comboBoxNumber";
+            this.comboBoxNumber.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxNumber.TabIndex = 76;
+            // 
             // AddStorageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.ClientSize = new System.Drawing.Size(287, 159);
+            this.Controls.Add(this.comboBoxNumber);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxWeight);
-            this.Controls.Add(this.textBoxNumber);
             this.Controls.Add(this.comboBoxStorage);
             this.Controls.Add(this.labelNumber);
             this.Controls.Add(this.labelStorage);
@@ -141,9 +141,9 @@
         private System.Windows.Forms.Label labelStorage;
         private System.Windows.Forms.Label labelNumber;
         private System.Windows.Forms.ComboBox comboBoxStorage;
-        private System.Windows.Forms.TextBox textBoxNumber;
         private System.Windows.Forms.TextBox textBoxWeight;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.ComboBox comboBoxNumber;
     }
 }

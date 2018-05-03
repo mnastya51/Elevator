@@ -1887,5 +1887,128 @@ namespace Elevator
                 return false;
             }
         }
+
+        public void selectStorage(string idRaw, DataGridView dataGridView)
+        {
+            string sqlCommand = string.Empty;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("select id_raw, id_place_storage, 'склад', numb_store, "+
+                    "weight_store from Store_raw where id_raw = {0} ",
+                    idRaw);
+                connection.Open();
+                int c = 0;
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    
+                    while (reader.Read())
+                    {
+                        dataGridView.Rows.Add();
+                        DataGridViewRow row = dataGridView.Rows[c];
+                        row.Cells[0].Value = reader.GetInt32(0);
+                        row.Cells[1].Value = reader.GetInt32(1);
+                        row.Cells[2].Value = reader.GetString(2);
+                        row.Cells[3].Value = reader.GetInt32(3);
+                        row.Cells[4].Value = reader.GetFloat(4);
+                        c++;
+                    }
+                }
+                reader.Close();
+                sqlCommand = string.Format("select id_raw, id_place_storage, 'силос', numb_silage, weight_silage from " +
+                    "Silage_raw where id_raw = {0}",
+                    idRaw);
+                command = new SqlCommand(sqlCommand, connection);
+                reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        dataGridView.Rows.Add();
+                        DataGridViewRow row = dataGridView.Rows[c];
+                        row.Cells[0].Value = reader.GetInt32(0);
+                        row.Cells[1].Value = reader.GetInt32(1);
+                        row.Cells[2].Value = reader.GetString(2);
+                        row.Cells[3].Value = reader.GetInt32(3);
+                        row.Cells[4].Value = reader.GetFloat(4);
+                        c++;
+                    }
+                }
+                reader.Close();
+            }
+        }
+        public bool addStoragePlace(string idRaw, string number, string weight, string nameTable,
+            string numberAttr, string weightAttr)
+        {
+            string sqlCommand;          
+            try
+            {
+                sqlCommand = string.Format("Insert into PlaceStorage (id_raw) values({0}) " +
+                    "Insert into {1} (id_raw, id_place_storage, {2}, {3}) values ({0}, (select max(id_place_storage) "+
+                    "from PlaceStorage), {4}, {5})", 
+                    idRaw, nameTable, numberAttr, weightAttr, number, weight);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+        }
+        public string[] getStorageToComboBox(string nameTable)
+        {
+            LinkedList<string> res = new LinkedList<string>();
+            string sqlCommand = string.Empty;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select * from {0}", nameTable);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        string listElement = reader.GetInt32(0).ToString();
+                        res.AddLast(listElement);
+                        c++;
+                    }
+                }
+                reader.Close();
+                connection.Close();
+            }
+            return res.ToArray<string>();
+        }
+        public bool updateStoragePlace(string idRaw, string number, string weight, string nameTable,
+            string numberAttr, string weightAttr, string idPlaceStorage, string numberBefore)
+        {
+            string sqlCommand;
+            try
+            {
+                sqlCommand = string.Format("Update {0} Set {1} = {2}, {3} = {4} where id_raw ={5} and " +
+                    "id_place_storage = {6} and {1} = {7}",
+                    nameTable, numberAttr, number, weightAttr, weight, idRaw, idPlaceStorage, numberBefore);
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+        }
     }
 }

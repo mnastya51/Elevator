@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Elevator.Controllers
 {
@@ -15,8 +16,17 @@ namespace Elevator.Controllers
                 DAO.getInstance().addStorage(Store.NameTable, storage, store.Count);
             else if (storage < store.Count)
                 DAO.getInstance().addStorage(Store.NameTable, storage, store.Count - storage);
-            else if(storage > store.Count)
-                DAO.getInstance().deleteStorage(Store.NameTable, storage, storage - store.Count, Store.CountAttr);
+            else if (storage > store.Count)
+            {
+                try
+                {
+                    DAO.getInstance().deleteStorage(Store.NameTable, storage, storage - store.Count, Store.CountAttr);
+                }
+                catch
+                {
+                    MessageBox.Show("В одном из хранилищ находится зерно!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         public void onSaveClick(Silage silage, int storage)
@@ -26,7 +36,16 @@ namespace Elevator.Controllers
             else if (storage < silage.Count)
                 DAO.getInstance().addStorage(Silage.NameTable, storage, silage.Count - storage);
             else if (storage > silage.Count)
-                DAO.getInstance().deleteStorage(Silage.NameTable, storage, storage - silage.Count, Silage.CountAttr);
+            {
+                try
+                {
+                    DAO.getInstance().deleteStorage(Silage.NameTable, storage, storage - silage.Count, Silage.CountAttr);
+                }
+                catch
+                {
+                    MessageBox.Show("В одном из хранилищ находится зерно!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         public Int32 getStorage(string nameTable, string column)
