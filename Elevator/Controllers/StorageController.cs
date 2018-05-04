@@ -10,19 +10,19 @@ namespace Elevator.Controllers
 {
     class StorageController
     {
-        public void addButtonClick(string idRaw)
+        public void addButtonClick(string idRaw, string raw, string type, string subtype, string classRaw)
         {
-            new AddStorageForm(idRaw).ShowDialog();
+            new AddStorageForm(idRaw, raw, type, subtype, classRaw).ShowDialog();
         }
 
-        public void changeButtonClick(StoreStoragePlace store)
+        public void changeButtonClick(StoreStoragePlace store, string raw, string type, string subtype, string classRaw)
         {
-            new AddStorageForm(store).ShowDialog();
+            new AddStorageForm(store, raw, type, subtype, classRaw).ShowDialog();
         }
 
-        public void changeButtonClick(SilageStoragePlace silage)
+        public void changeButtonClick(SilageStoragePlace silage, string raw, string type, string subtype, string classRaw)
         {
-            new AddStorageForm(silage).ShowDialog();
+            new AddStorageForm(silage, raw, type, subtype, classRaw).ShowDialog();
         }
     }
 }

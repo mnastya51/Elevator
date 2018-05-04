@@ -2032,5 +2032,39 @@ namespace Elevator
                 return 0;
             }
         }
+
+        public string[] correctAddStorage(string number, string nameTable, string numberAttr)
+        {
+            string sqlCommand = string.Empty;
+            string[] res = new string [4];
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select distinct r.name_raw, t.name_type_raw, s.name_subtype, "+
+                    "cl.number_class from Storage st join Raw r on st.id_NameRaw = "+
+                    "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join "+
+                    "Type_raw t on s.id_type = t.id_type left join Class cl on st.id_class = "+
+                    "cl.id_class join PlaceStorage p on p.id_raw = st.id_raw join {1} e on "+
+                    "e.id_place_storage = p.id_place_storage where e.{2} = {0}", number, 
+                    nameTable, numberAttr);
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        try { res[0] = reader.GetString(0); } catch { res[0] = ""; }              
+                        try { res[1] = Convert.ToString(reader.GetInt32(1)); } catch { res[1] = ""; }
+                        try { res[2] = Convert.ToString(reader.GetInt32(2)); } catch { res[2] = ""; }
+                        try { res[3] = Convert.ToString(reader.GetInt32(3)); } catch { res[3] = ""; }
+                        c++;
+                    }
+                }
+                reader.Close();
+                return res;
+            }
+        }
+
     }
 }

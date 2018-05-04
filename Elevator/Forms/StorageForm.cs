@@ -60,7 +60,11 @@ namespace Elevator.Forms
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            controller.addButtonClick(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+            controller.addButtonClick(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value),
+                Convert.ToString(dataGridViewRaw.CurrentRow.Cells[2].Value),
+                Convert.ToString(dataGridViewRaw.CurrentRow.Cells[3].Value),
+                Convert.ToString(dataGridViewRaw.CurrentRow.Cells[4].Value),
+                Convert.ToString(dataGridViewRaw.CurrentRow.Cells[5].Value));
             selectStorage();
         }
 
@@ -81,14 +85,20 @@ namespace Elevator.Forms
                     StoreStoragePlace store = new StoreStoragePlace(Convert.ToString(dataGridViewStorage.CurrentRow.Cells[0].Value),
                             Convert.ToString(dataGridViewStorage.CurrentRow.Cells[1].Value), Convert.ToString(dataGridViewStorage.CurrentRow.Cells[3].Value),
                             Convert.ToString(dataGridViewStorage.CurrentRow.Cells[4].Value));
-                    controller.changeButtonClick(store);
+                    controller.changeButtonClick(store, Convert.ToString(dataGridViewRaw.CurrentRow.Cells[2].Value),
+                Convert.ToString(dataGridViewRaw.CurrentRow.Cells[3].Value),
+                Convert.ToString(dataGridViewRaw.CurrentRow.Cells[4].Value),
+                Convert.ToString(dataGridViewRaw.CurrentRow.Cells[5].Value));
                 }
                 else
                 {
                     SilageStoragePlace silage = new SilageStoragePlace(Convert.ToString(dataGridViewStorage.CurrentRow.Cells[0].Value),
                            Convert.ToString(dataGridViewStorage.CurrentRow.Cells[1].Value), Convert.ToString(dataGridViewStorage.CurrentRow.Cells[3].Value),
                            Convert.ToString(dataGridViewStorage.CurrentRow.Cells[4].Value));
-                    controller.changeButtonClick(silage);
+                    controller.changeButtonClick(silage, Convert.ToString(dataGridViewRaw.CurrentRow.Cells[2].Value),
+                Convert.ToString(dataGridViewRaw.CurrentRow.Cells[3].Value),
+                Convert.ToString(dataGridViewRaw.CurrentRow.Cells[4].Value),
+                Convert.ToString(dataGridViewRaw.CurrentRow.Cells[5].Value));
                 }
                 selectStorage();
             }
