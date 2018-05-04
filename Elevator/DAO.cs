@@ -2023,8 +2023,8 @@ namespace Elevator
                         nameTable, numberAttr, number);
                     connection.Open();
                     SqlCommand cmd = new SqlCommand(sqlCommand, connection);
-                    capacity = (double)cmd.ExecuteScalar();
-                    return capacity;
+                    try { return capacity = (double)cmd.ExecuteScalar(); }
+                    catch { return 0; }
                 }
             }
             catch (SqlException)

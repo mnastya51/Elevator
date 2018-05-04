@@ -54,12 +54,13 @@ namespace Elevator.AddAndEditForms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (comboBoxStorage.Text == "Склад") {
+            if (comboBoxStorage.Text == "Склад")
+            {
                 double capacity = DAO.getInstance().calcCapacity(StoreStoragePlace.NameTable, StoreStoragePlace.WeightAttr,
                     StoreStoragePlace.NumberAttr, comboBoxNumber.Text);
-                if (capacity + Convert.ToDouble(textBoxWeight.Text) > Store.Capacity)
-                    MessageBox.Show("Склад переполнен! Вместимость 8 тонн!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //писать в сообщение на сколько переполнено
+                double count = capacity + Convert.ToDouble(textBoxWeight.Text);
+                if (count > Store.Capacity)
+                    MessageBox.Show(String.Format("Склад переполнен на {0} тонн(ы)! Вместимость 3500 тонн!", count - Store.Capacity), "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
                     if (store == null)
@@ -82,21 +83,29 @@ namespace Elevator.AddAndEditForms
             }
             else
             {
-                if (silage == null)
-                {
-                    storagePlace = new StoragePlace(idRaw);
-                    silage = new SilageStoragePlace(idRaw, comboBoxNumber.Text, textBoxWeight.Text);
-                    if (controller.onAddClick(storagePlace, silage))
-                        this.Close();
-                    else silage = null;
-                }
+                double capacity = DAO.getInstance().calcCapacity(SilageStoragePlace.NameTable, SilageStoragePlace.WeightAttr,
+                    SilageStoragePlace.NumberAttr, comboBoxNumber.Text);
+                double count = capacity + Convert.ToDouble(textBoxWeight.Text);
+                if (count > Silage.Capacity)
+                    MessageBox.Show(String.Format("Силос переполнен на {0} тонн(ы)! Вместимость 150 тонн!", count - Silage.Capacity), "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
-                    silage.Number = comboBoxNumber.Text;
-                    silage.Weight = textBoxWeight.Text;
-                    if (controller.onUpdateClick(silage, number))
-                        this.Close();
-                    else silage = null;
+                    if (silage == null)
+                    {
+                        storagePlace = new StoragePlace(idRaw);
+                        silage = new SilageStoragePlace(idRaw, comboBoxNumber.Text, textBoxWeight.Text);
+                        if (controller.onAddClick(storagePlace, silage))
+                            this.Close();
+                        else silage = null;
+                    }
+                    else
+                    {
+                        silage.Number = comboBoxNumber.Text;
+                        silage.Weight = textBoxWeight.Text;
+                        if (controller.onUpdateClick(silage, number))
+                            this.Close();
+                        else silage = null;
+                    }
                 }
             }
         }
