@@ -24,7 +24,8 @@ namespace Elevator.AddAndEditForms
         private string type;
         private string subtype;
         private string classRaw;
-        public AddStorageForm(string newIdRaw, string newRaw, string newType, string newSubtype, string newClassRaw)
+        private double weight;
+        public AddStorageForm(string newIdRaw, string newRaw, string newType, string newSubtype, string newClassRaw, double newWeight)
         {
             InitializeComponent();
             controller = new AddStorageController();
@@ -34,6 +35,7 @@ namespace Elevator.AddAndEditForms
             type = newType;
             subtype = newSubtype;
             classRaw = newClassRaw;
+            weight = newWeight;
         }
 
         public AddStorageForm(StoreStoragePlace newStore, string newRaw, string newType, string newSubtype, string newClassRaw)
@@ -70,76 +72,83 @@ namespace Elevator.AddAndEditForms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (comboBoxStorage.Text == "Склад")
+            if (Convert.ToDouble(textBoxWeight.Text) > weight)
             {
-                string[] res = DAO.getInstance().correctAddStorage(comboBoxNumber.Text, StoreStoragePlace.NameTable, StoreStoragePlace.NumberAttr);
-                if ((raw == res[0] && type == res[1] && subtype == res[2] && classRaw == res[3]) ||
-                    (res[0] == null))
-                {
-                    double capacity = DAO.getInstance().calcCapacity(StoreStoragePlace.NameTable, StoreStoragePlace.WeightAttr,
-                        StoreStoragePlace.NumberAttr, comboBoxNumber.Text);
-                    double count = capacity + Convert.ToDouble(textBoxWeight.Text);
-                    if (count > Store.Capacity)
-                        MessageBox.Show(String.Format("Склад переполнен на {0} тонн(ы)! Вместимость 3500 тонн!", count - Store.Capacity), "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    else
-                    {
-                        if (store == null)
-                        {
-                            storagePlace = new StoragePlace(idRaw);
-                            store = new StoreStoragePlace(idRaw, comboBoxNumber.Text, textBoxWeight.Text);
-                            if (controller.onAddClick(storagePlace, store))
-                                this.Close();
-                            else store = null;
-                        }
-                        else
-                        {
-                            store.Number = comboBoxNumber.Text;
-                            store.Weight = textBoxWeight.Text;
-                            if (controller.onUpdateClick(store, number))
-                                this.Close();
-                            else store = null;
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Сырье не может находится в данном хранилище, произойдет смешивание!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show(String.Format("Вес не должен превышать {0} тонн!", weight), "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                string[] res = DAO.getInstance().correctAddStorage(comboBoxNumber.Text, SilageStoragePlace.NameTable, SilageStoragePlace.NumberAttr);
-                if ((raw == res[0] && type == res[1] && subtype == res[2] && classRaw == res[3]) ||
-                    (res[0] == null))
+                if (comboBoxStorage.Text == "Склад")
                 {
-                    double capacity = DAO.getInstance().calcCapacity(SilageStoragePlace.NameTable, SilageStoragePlace.WeightAttr,
-                    SilageStoragePlace.NumberAttr, comboBoxNumber.Text);
-                    double count = capacity + Convert.ToDouble(textBoxWeight.Text);
-                    if (count > Silage.Capacity)
-                        MessageBox.Show(String.Format("Силос переполнен на {0} тонн(ы)! Вместимость 150 тонн!", count - Silage.Capacity), "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    else
+                    string[] res = DAO.getInstance().correctAddStorage(comboBoxNumber.Text, StoreStoragePlace.NameTable, StoreStoragePlace.NumberAttr);
+                    if ((raw == res[0] && type == res[1] && subtype == res[2] && classRaw == res[3]) ||
+                        (res[0] == null))
                     {
-                        if (silage == null)
-                        {
-                            storagePlace = new StoragePlace(idRaw);
-                            silage = new SilageStoragePlace(idRaw, comboBoxNumber.Text, textBoxWeight.Text);
-                            if (controller.onAddClick(storagePlace, silage))
-                                this.Close();
-                            else silage = null;
-                        }
+                        double capacity = DAO.getInstance().calcCapacity(StoreStoragePlace.NameTable, StoreStoragePlace.WeightAttr,
+                            StoreStoragePlace.NumberAttr, comboBoxNumber.Text);
+                        double count = capacity + Convert.ToDouble(textBoxWeight.Text);
+                        if (count > Store.Capacity)
+                            MessageBox.Show(String.Format("Склад переполнен на {0} тонн(ы)! Вместимость 3500 тонн!", count - Store.Capacity), "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         else
                         {
-                            silage.Number = comboBoxNumber.Text;
-                            silage.Weight = textBoxWeight.Text;
-                            if (controller.onUpdateClick(silage, number))
-                                this.Close();
-                            else silage = null;
+                            if (store == null)
+                            {
+                                storagePlace = new StoragePlace(idRaw);
+                                store = new StoreStoragePlace(idRaw, comboBoxNumber.Text, textBoxWeight.Text);
+                                if (controller.onAddClick(storagePlace, store))
+                                    this.Close();
+                                else store = null;
+                            }
+                            else
+                            {
+                                store.Number = comboBoxNumber.Text;
+                                store.Weight = textBoxWeight.Text;
+                                if (controller.onUpdateClick(store, number))
+                                    this.Close();
+                                else store = null;
+                            }
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Сырье не может находится в данном хранилище, произойдет смешивание!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Сырье не может находится в данном хранилище, произойдет смешивание!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string[] res = DAO.getInstance().correctAddStorage(comboBoxNumber.Text, SilageStoragePlace.NameTable, SilageStoragePlace.NumberAttr);
+                    if ((raw == res[0] && type == res[1] && subtype == res[2] && classRaw == res[3]) ||
+                        (res[0] == null))
+                    {
+                        double capacity = DAO.getInstance().calcCapacity(SilageStoragePlace.NameTable, SilageStoragePlace.WeightAttr,
+                        SilageStoragePlace.NumberAttr, comboBoxNumber.Text);
+                        double count = capacity + Convert.ToDouble(textBoxWeight.Text);
+                        if (count > Silage.Capacity)
+                            MessageBox.Show(String.Format("Силос переполнен на {0} тонн(ы)! Вместимость 150 тонн!", count - Silage.Capacity), "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                        {
+                            if (silage == null)
+                            {
+                                storagePlace = new StoragePlace(idRaw);
+                                silage = new SilageStoragePlace(idRaw, comboBoxNumber.Text, textBoxWeight.Text);
+                                if (controller.onAddClick(storagePlace, silage))
+                                    this.Close();
+                                else silage = null;
+                            }
+                            else
+                            {
+                                silage.Number = comboBoxNumber.Text;
+                                silage.Weight = textBoxWeight.Text;
+                                if (controller.onUpdateClick(silage, number))
+                                    this.Close();
+                                else silage = null;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Сырье не может находится в данном хранилище, произойдет смешивание!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -154,7 +163,7 @@ namespace Elevator.AddAndEditForms
         private void textBoxWeight_KeyPress(object sender, KeyPressEventArgs e)
         {
             char l = e.KeyChar;
-            if (l != '\b' && l != '.' && (l < '0' || l > '9'))
+            if (l != '\b' && l != ',' && (l < '0' || l > '9'))
                 e.Handled = true;
         }
 

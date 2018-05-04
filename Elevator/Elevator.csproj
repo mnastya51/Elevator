@@ -72,12 +72,6 @@
     <Compile Include="AddAndEditForms\AddAnalysQualityRawForm.Designer.cs">
       <DependentUpon>AddAnalysQualityRawForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddAndEditForms\AddClearForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddAndEditForms\AddClearForm.Designer.cs">
-      <DependentUpon>AddClearForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="AddAndEditForms\AddClearingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,11 +102,11 @@
     <Compile Include="AddAndEditForms\AddNormOfGeneralLevelForm.Designer.cs">
       <DependentUpon>AddNormOfGeneralLevelForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddAndEditForms\AddTransportationForm.cs">
+    <Compile Include="AddAndEditForms\AddDeliveryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddAndEditForms\AddTransportationForm.Designer.cs">
-      <DependentUpon>AddTransportationForm.cs</DependentUpon>
+    <Compile Include="AddAndEditForms\AddDeliveryForm.Designer.cs">
+      <DependentUpon>AddDeliveryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AddAndEditForms\AddDryingForm.cs">
       <SubType>Form</SubType>
@@ -150,6 +144,12 @@
     <Compile Include="AddAndEditForms\AddRawForm.Designer.cs">
       <DependentUpon>AddRawForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddAndEditForms\AddShipmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAndEditForms\AddShipmentForm.Designer.cs">
+      <DependentUpon>AddShipmentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddAndEditForms\AddStorageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,8 +162,9 @@
     <Compile Include="Controllers\AddContractorController.cs" />
     <Compile Include="Controllers\AddDateAnalysController.cs" />
     <Compile Include="Controllers\AddDryingController.cs" />
+    <Compile Include="Controllers\AddShipmentController.cs" />
     <Compile Include="Controllers\AddStorageController.cs" />
-    <Compile Include="Controllers\AddTransportationController.cs" />
+    <Compile Include="Controllers\AddDeliveryController.cs" />
     <Compile Include="Controllers\AddEmployeeController.cs" />
     <Compile Include="Controllers\AddlevelOfQualityController.cs" />
     <Compile Include="Controllers\AddNormOfRawController.cs" />
@@ -316,9 +317,6 @@
     <EmbeddedResource Include="AddAndEditForms\AddAnalysQualityRawForm.resx">
       <DependentUpon>AddAnalysQualityRawForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddAndEditForms\AddClearForm.resx">
-      <DependentUpon>AddClearForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AddAndEditForms\AddClearingForm.resx">
       <DependentUpon>AddClearingForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -334,8 +332,8 @@
     <EmbeddedResource Include="AddAndEditForms\AddNormOfGeneralLevelForm.resx">
       <DependentUpon>AddNormOfGeneralLevelForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddAndEditForms\AddTransportationForm.resx">
-      <DependentUpon>AddTransportationForm.cs</DependentUpon>
+    <EmbeddedResource Include="AddAndEditForms\AddDeliveryForm.resx">
+      <DependentUpon>AddDeliveryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddAndEditForms\AddDryingForm.resx">
       <DependentUpon>AddDryingForm.cs</DependentUpon>
@@ -354,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddAndEditForms\AddRawForm.resx">
       <DependentUpon>AddRawForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddAndEditForms\AddShipmentForm.resx">
+      <DependentUpon>AddShipmentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddAndEditForms\AddStorageForm.resx">
       <DependentUpon>AddStorageForm.cs</DependentUpon>

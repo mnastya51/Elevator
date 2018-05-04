@@ -38,11 +38,13 @@ namespace Elevator.AddAndEditForms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            string weightBefore = textBoxWeightBefore.Text.Replace(",", ".");
+            string weightAfter = textBoxWeightAfter.Text.Replace(",", ".");
             if (clearing == null)
             {
                 clearing = new Clearing(idRaw, dateTimePicker.Text,
-                    textBoxWeightBefore.Text != "" ? textBoxWeightBefore.Text : "null",
-                    textBoxWeightAfter.Text != "" ? textBoxWeightAfter.Text : "null");
+                    weightBefore != "" ? weightBefore : "null",
+                    weightAfter != "" ? weightAfter : "null");
                 if (controller.onSaveClick(clearing, raw, false))
                     this.Close();
                 else clearing = null;
@@ -50,8 +52,8 @@ namespace Elevator.AddAndEditForms
             else
             {
                 clearing.Date = dateTimePicker.Text;
-                clearing.WeightBefore = textBoxWeightBefore.Text != "" ? textBoxWeightBefore.Text : "null";
-                clearing.WeightAfter = textBoxWeightAfter.Text != "" ? textBoxWeightAfter.Text : "null";
+                clearing.WeightBefore = weightBefore != "" ? weightBefore : "null";
+                clearing.WeightAfter = weightAfter != "" ? weightAfter : "null";
                 if (controller.onSaveClick(clearing, raw, true))
                     this.Close();
                 else clearing = null;
@@ -60,7 +62,7 @@ namespace Elevator.AddAndEditForms
         private void keyPress(KeyPressEventArgs e)
         {
             char l = e.KeyChar;
-            if (l != '\b' && l != '.' && (l < '0' || l > '9'))
+            if (l != '\b' && l != ',' && (l < '0' || l > '9'))
                 e.Handled = true;
         }
 

@@ -117,7 +117,7 @@ namespace Elevator.AddAndEditForms
         {
             if (forChange)
             {
-                string value = valueTextBox.Text.Trim().Replace(",", ".");
+                string value = valueTextBox.Text.Replace(",", ".");
                 switch (this.Text)
                 {
                     case "Изменение общего показателя качества":
@@ -185,7 +185,7 @@ namespace Elevator.AddAndEditForms
         private void valueTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             char l = e.KeyChar;
-            if (l != '\b' && l != '.' && (l < '0' || l > '9'))
+            if (l != '\b' && l != ',' && (l < '0' || l > '9'))
                 e.Handled = true;
         }
     }

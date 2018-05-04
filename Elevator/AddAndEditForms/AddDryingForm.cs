@@ -40,13 +40,17 @@ namespace Elevator.AddAndEditForms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            string weightBefore = textBoxWeightBefore.Text.Replace(",", ".");
+            string weightAfter = textBoxWeightAfter.Text.Replace(",", ".");
+            string wetBefore = textBoxWetBefore.Text.Replace(",", ".");
+            string wetAfter = textBoxWetAfter.Text.Replace(",", ".");
             if (drying == null)
             {
                 drying = new Drying(idRaw, dateTimePicker.Text,
-                    textBoxWeightBefore.Text != "" ? textBoxWeightBefore.Text : "null",
-                    textBoxWeightAfter.Text != "" ? textBoxWeightAfter.Text : "null",
-                    textBoxWetBefore.Text != "" ? textBoxWetBefore.Text : "null",
-                    textBoxWetAfter.Text != "" ? textBoxWetAfter.Text : "null");
+                    weightBefore != "" ? weightBefore : "null",
+                    weightAfter != "" ? weightAfter : "null",
+                    wetBefore != "" ? wetBefore : "null",
+                    wetAfter != "" ? wetAfter : "null");
                 if (controller.onSaveClick(drying, raw, false))
                     this.Close();
                 else drying = null;
@@ -54,10 +58,10 @@ namespace Elevator.AddAndEditForms
             else
             {
                 drying.Date = dateTimePicker.Text;
-                drying.WeightBefore = textBoxWeightBefore.Text != "" ? textBoxWeightBefore.Text : "null";
-                drying.WeightAfter = textBoxWeightAfter.Text != "" ? textBoxWeightAfter.Text : "null"; 
-                drying.WetBefore = textBoxWetBefore.Text != "" ? textBoxWetBefore.Text : "null"; 
-                drying.WetAfter = textBoxWetAfter.Text != "" ? textBoxWetAfter.Text : "null"; 
+                drying.WeightBefore = weightBefore != "" ? weightBefore : "null";
+                drying.WeightAfter = weightAfter != "" ? weightAfter : "null"; 
+                drying.WetBefore = wetBefore != "" ? wetBefore : "null"; 
+                drying.WetAfter = wetAfter != "" ? wetAfter : "null"; 
                 if (controller.onSaveClick(drying, raw, true))
                     this.Close();
                 else drying = null;
@@ -67,7 +71,7 @@ namespace Elevator.AddAndEditForms
         private void keyPress(KeyPressEventArgs e)
         {
             char l = e.KeyChar;
-            if (l != '\b' && l != '.' && (l < '0' || l > '9'))
+            if (l != '\b' && l != ',' && (l < '0' || l > '9'))
                 e.Handled = true;
         }
 

@@ -49,8 +49,8 @@ namespace Elevator.Forms
         private void addButton_Click(object sender, EventArgs e)
         {
             if (this.Text == "Поставка")
-                controller.addButtonClick();
-            else controller.addButtonClick("shipment");//!!!возможно при отгрузке из хранения надо удалять будет
+                controller.addButtonDeliveryClick();
+            else controller.addButtonShipmentClick();
             select();                
         }
 

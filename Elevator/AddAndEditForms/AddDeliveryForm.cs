@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace Elevator.AddAndEditForms
 {
-    public partial class AddTransportationForm : Form
+    public partial class AddDeliveryForm : Form
     {
-        private AddTransportationController controller;
+        private AddDeliveryController controller;
         private Delivery delivery;
         private Shipment shipment;
         private Storage storage;
@@ -23,11 +23,11 @@ namespace Elevator.AddAndEditForms
         private string date;
         private bool loadFormType = true;
         private bool loadFormSubtype = true;
-        public AddTransportationForm()
+        public AddDeliveryForm()
         {
             InitializeComponent();
             dateTimePicker.Format = DateTimePickerFormat.Custom;
-            controller = new AddTransportationController();
+            controller = new AddDeliveryController();
             string[] contractor = DAO.getInstance().getNoteToComboBox("name_contr", "Contractor");//выводить неповторяющиеся записи
             contractorComboBox.Items.AddRange(contractor);
             if (contractor.Length > 0)
@@ -38,12 +38,12 @@ namespace Elevator.AddAndEditForms
                 rawComboBox.Text = rawComboBox.Items[0].ToString();
         }
 
-        public AddTransportationForm(string text)
+        public AddDeliveryForm(string text)
         {
             InitializeComponent();
             dateTimePicker.Format = DateTimePickerFormat.Custom;
             this.Text = "Добавление отгрузки";
-            controller = new AddTransportationController();
+            controller = new AddDeliveryController();
             string[] contractor = DAO.getInstance().getNoteToComboBox("name_contr", "Contractor");
             contractorComboBox.Items.AddRange(contractor);
             if (contractor.Length > 0)
@@ -54,12 +54,12 @@ namespace Elevator.AddAndEditForms
                 rawComboBox.Text = rawComboBox.Items[0].ToString();
         }
 
-        public AddTransportationForm(Storage newStorage, Delivery newDelivery)
+        public AddDeliveryForm(Storage newStorage, Delivery newDelivery)
         {
             InitializeComponent();
             dateTimePicker.Format = DateTimePickerFormat.Custom;
             this.Text = "Изменение поставки";
-            controller = new AddTransportationController();
+            controller = new AddDeliveryController();
             string[] contractor = DAO.getInstance().getNoteToComboBox("name_contr", "Contractor");
             contractorComboBox.Items.AddRange(contractor);
             contractorComboBox.Text = newDelivery.Contractor;
@@ -77,12 +77,12 @@ namespace Elevator.AddAndEditForms
             date = newDelivery.Date;
         }
 
-        public AddTransportationForm(Storage newStorage, Shipment newShipment)
+        public AddDeliveryForm(Storage newStorage, Shipment newShipment)
         {
             InitializeComponent();
             dateTimePicker.Format = DateTimePickerFormat.Custom;
             this.Text = "Изменение отгрузки";
-            controller = new AddTransportationController();
+            controller = new AddDeliveryController();
             string[] contractor = DAO.getInstance().getNoteToComboBox("name_contr", "Contractor");
             contractorComboBox.Items.AddRange(contractor);
             contractorComboBox.Text = newShipment.Contractor;
@@ -203,7 +203,7 @@ namespace Elevator.AddAndEditForms
         private void weightTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             char l = e.KeyChar;
-            if (l != '\b' && l != '.' && (l < '0' || l > '9'))
+            if (l != '\b' && l != ',' && (l < '0' || l > '9'))
                 e.Handled = true;
         }
 
@@ -211,7 +211,7 @@ namespace Elevator.AddAndEditForms
         {
             saveButton.Enabled = controller.checkSave(weightTextBox.Text);
             saveButton.BackColor = controller.checkSave(weightTextBox.Text) ? Color.DarkOrange : Color.LightBlue;
-            weightTextBox.BackColor = !AddRawController.isEmpty(weightTextBox.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
+            weightTextBox.BackColor = controller.isEmpty(weightTextBox.Text.Replace(" ", "")) ? Color.LightBlue : Color.White;
         }
     }
 }

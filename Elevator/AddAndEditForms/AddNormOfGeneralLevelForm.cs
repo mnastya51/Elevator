@@ -50,9 +50,9 @@ namespace Elevator.AddAndEditForms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            string norm = textBoxNorm.Text.Replace(",", ".");
             if (forChange)
             {
-                string norm = textBoxNorm.Text.Trim().Replace(",", ".");
                 generalLevelOfQualityNorm.Norm = norm;
                 if (radioButtonMin.Checked)
                     generalLevelOfQualityNorm.Isminimum = true;
@@ -67,7 +67,7 @@ namespace Elevator.AddAndEditForms
                     generalLevelOfQualityNorm.Isminimum = true;
                 else if (radioButtonMax.Checked)
                     generalLevelOfQualityNorm.Isminimum = false;
-                generalLevelOfQualityNorm.Norm = textBoxNorm.Text;
+                generalLevelOfQualityNorm.Norm = norm;
                 generalLevelOfQualityNorm.TypeImp = impComboBox.Text;
                 if (controller.addClick(generalLevelOfQualityNorm, type, subtype))
                     this.Close();
@@ -84,7 +84,7 @@ namespace Elevator.AddAndEditForms
         private void textBoxNorm_KeyPress(object sender, KeyPressEventArgs e)
         {
             char l = e.KeyChar;
-            if (l != '\b' && l != '.' && (l < '0' || l > '9'))
+            if (l != '\b' && l != ',' && (l < '0' || l > '9'))
                 e.Handled = true;
         }
     }

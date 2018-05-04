@@ -64,7 +64,8 @@ namespace Elevator.Forms
                 Convert.ToString(dataGridViewRaw.CurrentRow.Cells[2].Value),
                 Convert.ToString(dataGridViewRaw.CurrentRow.Cells[3].Value),
                 Convert.ToString(dataGridViewRaw.CurrentRow.Cells[4].Value),
-                Convert.ToString(dataGridViewRaw.CurrentRow.Cells[5].Value));
+                Convert.ToString(dataGridViewRaw.CurrentRow.Cells[5].Value),
+                Convert.ToDouble(dataGridViewRaw.CurrentRow.Cells[7].Value));
             selectStorage();
         }
 

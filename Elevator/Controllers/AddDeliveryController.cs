@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Elevator.Controllers
 {
-    class AddTransportationController
+    class AddDeliveryController
     {
         public bool onSaveClick(Delivery delivery, Storage storage, bool forChange)
         {
@@ -18,7 +18,7 @@ namespace Elevator.Controllers
                     new FormValue<string, string>("date_delivery ", delivery.Date), delivery.Year,
                     new FormValue<string, string>("type_transport_delivery ", delivery.Transport),
                     new FormValue<string, string>("weight_delivery ", delivery.Weight)))*/
-                if (!DAO.getInstance().addTransportation(delivery.Id, Delivery.NameTable, delivery.Contractor,
+                if (!DAO.getInstance().addDelivery(delivery.Id, Delivery.NameTable, delivery.Contractor,
                     delivery.Subdivision,
                 new FormValue<string, string>(Delivery.DateAttr, delivery.Date),
                 new FormValue<string, string>(Delivery.TransportAttr, delivery.Transport),
@@ -76,7 +76,7 @@ namespace Elevator.Controllers
         {
             if (!forChange)
             {
-                if (!DAO.getInstance().addTransportation(shipment.Id, Shipment.NameTable, shipment.Contractor,
+                if (!DAO.getInstance().addDelivery(shipment.Id, Shipment.NameTable, shipment.Contractor,
                 shipment.Subdivision,
             new FormValue<string, string>(Shipment.DateAttr, shipment.Date),
             new FormValue<string, string>(Shipment.TransportAttr, shipment.Transport),
@@ -111,6 +111,11 @@ namespace Elevator.Controllers
         public bool isNotEmpty(string text)
         {
             return text.Replace(" ", "").Length > 0;
+        }
+
+        public bool isEmpty(string text)
+        {
+            return text == null || text == string.Empty || text.Length == 0;
         }
     }
    

@@ -12,24 +12,24 @@ namespace Elevator.Controllers
 {
     class TransportationController
     {
-        public void addButtonClick()
+        public void addButtonDeliveryClick()
         {
-            new AddTransportationForm().ShowDialog();
+            new AddDeliveryForm().ShowDialog();
         }
 
-        public void addButtonClick(string text)
+        public void addButtonShipmentClick()
         {
-            new AddTransportationForm(text).ShowDialog();
+            new AddShipmentForm().ShowDialog();
         }
 
         public void changeButtonClick(Storage storage, Delivery delivery)
         {
-            new AddTransportationForm(storage, delivery).ShowDialog();
+            new AddDeliveryForm(storage, delivery).ShowDialog();
         }
 
         public void changeButtonClick(Storage storage, Shipment shipment)
         {
-            new AddTransportationForm(storage, shipment).ShowDialog();
+            new AddDeliveryForm(storage, shipment).ShowDialog();
         }
     }
 }

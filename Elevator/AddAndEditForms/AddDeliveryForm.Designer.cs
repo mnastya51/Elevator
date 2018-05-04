@@ -1,6 +1,6 @@
 ﻿namespace Elevator.AddAndEditForms
 {
-    partial class AddTransportationForm
+    partial class AddDeliveryForm
     {
         /// <summary>
         /// Required designer variable.
@@ -265,7 +265,7 @@
             this.subdivisionComboBox.Size = new System.Drawing.Size(231, 21);
             this.subdivisionComboBox.TabIndex = 27;
             // 
-            // AddTransportationForm
+            // AddDeliveryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -290,7 +290,7 @@
             this.Controls.Add(this.labelTransport);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.labelYear);
-            this.Name = "AddTransportationForm";
+            this.Name = "AddDeliveryForm";
             this.Text = "Добавление поставки";
             ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).EndInit();
             this.ResumeLayout(false);

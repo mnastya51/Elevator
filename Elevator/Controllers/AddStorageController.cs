@@ -12,9 +12,9 @@ namespace Elevator.Controllers
     {
         public bool onAddClick(StoragePlace storagePlace, StoreStoragePlace storeStoragePlace)
         {
-
+            string weight = storeStoragePlace.Weight.Replace(",", ".");
             if (!DAO.getInstance().addStoragePlace(storagePlace.IdRaw, storeStoragePlace.Number,
-                storeStoragePlace.Weight, StoreStoragePlace.NameTable, StoreStoragePlace.NumberAttr, StoreStoragePlace.WeightAttr))
+                weight, StoreStoragePlace.NameTable, StoreStoragePlace.NumberAttr, StoreStoragePlace.WeightAttr))
             {
                 MessageBox.Show("Данное сырье уже присутствует в данном хранилище!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -25,8 +25,9 @@ namespace Elevator.Controllers
 
         public bool onUpdateClick(StoreStoragePlace storeStoragePlace, string number)
         {
+            string weight = storeStoragePlace.Weight.Replace(",", ".");
             if (!DAO.getInstance().updateStoragePlace(storeStoragePlace.IdRaw, storeStoragePlace.Number,
-                storeStoragePlace.Weight, StoreStoragePlace.NameTable, StoreStoragePlace.NumberAttr, StoreStoragePlace.WeightAttr,
+                weight, StoreStoragePlace.NameTable, StoreStoragePlace.NumberAttr, StoreStoragePlace.WeightAttr,
                 storeStoragePlace.IdPlaceStorage, number))
             {
                 MessageBox.Show("Данное сырье уже присутствует в данном хранилище!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -38,8 +39,9 @@ namespace Elevator.Controllers
 
         public bool onAddClick(StoragePlace storagePlace, SilageStoragePlace silageStoragePlace)
         {
+            string weight = silageStoragePlace.Weight.Replace(",", ".");
             if (!DAO.getInstance().addStoragePlace(storagePlace.IdRaw, silageStoragePlace.Number,
-                silageStoragePlace.Weight, SilageStoragePlace.NameTable, SilageStoragePlace.NumberAttr, SilageStoragePlace.WeightAttr))
+                weight, SilageStoragePlace.NameTable, SilageStoragePlace.NumberAttr, SilageStoragePlace.WeightAttr))
             {
                 MessageBox.Show("Данное сырье уже присутствует в данном хранилище!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -50,8 +52,9 @@ namespace Elevator.Controllers
 
         public bool onUpdateClick(SilageStoragePlace silageStoragePlace, string number)
         {
+            string weight = silageStoragePlace.Weight.Replace(",", ".");
             if (!DAO.getInstance().updateStoragePlace(silageStoragePlace.IdRaw, silageStoragePlace.Number,
-                silageStoragePlace.Weight, SilageStoragePlace.NameTable, SilageStoragePlace.NumberAttr, SilageStoragePlace.WeightAttr,
+                weight, SilageStoragePlace.NameTable, SilageStoragePlace.NumberAttr, SilageStoragePlace.WeightAttr,
                 silageStoragePlace.IdPlaceStorage, number))
             {
                 MessageBox.Show("Данное сырье уже присутствует в данном хранилище!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
