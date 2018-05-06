@@ -27,9 +27,9 @@ namespace Elevator.Controllers
             new AddDeliveryForm(storage, delivery).ShowDialog();
         }
 
-        public void changeButtonClick(Storage storage, Shipment shipment)
+        public void deleteButtonClick(Shipment shipment)
         {
-            new AddDeliveryForm(storage, shipment).ShowDialog();
+            DAO.getInstance().deleteShipment(shipment.IdStorage, shipment.Contractor, shipment.Subdivision, shipment.Id);
         }
     }
 }

@@ -20,108 +20,39 @@ namespace Elevator.Controllers
                  storage.Raw, storage.Type, storage.Subtype, storage.Year);
         }
 
-        public bool onSaveClick(Shipment shipment, StoreStoragePlace store, bool forChange)
-        {
-            if (!forChange)
-            {
-                if (!DAO.getInstance().addShipment(shipment.Id, shipment.Contractor,
-                shipment.Subdivision, shipment.Transport, shipment.Weight, shipment.Date))
-                {
-                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-                else
-                {
-                    DAO.getInstance().updateStoragePlace(store.IdRaw, store.Number, store.Weight,
-                StoreStoragePlace.NameTable, StoreStoragePlace.NumberAttr, StoreStoragePlace.WeightAttr,
-                store.IdPlaceStorage, store.Number);
-                    return true;
-                }
-            }
-            else
-            {
-              /* if (!DAO.getInstance().changeTransportation(Shipment.NameTable, shipment.Id, shipment.Contractor,
-              shipment.Subdivision,
-               new FormValue<string, string>(Shipment.TransportAttr, shipment.Transport),
-               new FormValue<string, string>(Shipment.WeightAttr, shipment.Weight),
-               new FormValue<string, string>(Shipment.DateAttr, shipment.Date), storage.IdRaw,
-               storage.Raw, storage.Type, storage.Subtype, storage.Year))
-                {
-                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-                else*/ return true;
-            }
-
-        }
-
-        public bool onSaveClickAndDelete(Shipment shipment, StoreStoragePlace store)
+        public bool onSaveClick(Shipment shipment, StoreStoragePlace store, string id)
         {
             if (!DAO.getInstance().addShipment(shipment.Id, shipment.Contractor,
-            shipment.Subdivision, shipment.Transport, shipment.Weight, shipment.Date))
+            shipment.Subdivision, shipment.Transport, shipment.Weight, shipment.Date, id))
             {
                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else
             {
-                DAO.getInstance().deleteStoragePlace(store.IdRaw, store.Number,
-            StoreStoragePlace.NameTable, StoreStoragePlace.NumberAttr, store.IdPlaceStorage);
+                DAO.getInstance().updateStoragePlace(store.IdRaw, store.Number, store.Weight,
+            StoreStoragePlace.NameTable, StoreStoragePlace.NumberAttr, StoreStoragePlace.WeightAttr,
+            store.IdPlaceStorage, store.Number);
                 return true;
             }
-        }
+        }                        
 
-        public bool onSaveClickAndDelete(Shipment shipment, SilageStoragePlace silage)
+        public bool onSaveClick(Shipment shipment, SilageStoragePlace silage, string id)
         {
             if (!DAO.getInstance().addShipment(shipment.Id, shipment.Contractor,
-            shipment.Subdivision, shipment.Transport, shipment.Weight, shipment.Date))
+                shipment.Subdivision, shipment.Transport, shipment.Weight, shipment.Date, id))
             {
                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else
             {
-                DAO.getInstance().deleteStoragePlace(silage.IdRaw, silage.Number,
-            SilageStoragePlace.NameTable, SilageStoragePlace.NumberAttr, silage.IdPlaceStorage);
+                DAO.getInstance().updateStoragePlace(silage.IdRaw, silage.Number, silage.Weight,
+            SilageStoragePlace.NameTable, SilageStoragePlace.NumberAttr, SilageStoragePlace.WeightAttr,
+            silage.IdPlaceStorage, silage.Number);
                 return true;
             }
-        }
-
-        public bool onSaveClick(Shipment shipment, SilageStoragePlace silage, bool forChange)
-        {
-            if (!forChange)
-            {
-                if (!DAO.getInstance().addShipment(shipment.Id, shipment.Contractor,
-                shipment.Subdivision, shipment.Transport, shipment.Weight, shipment.Date))
-                {
-                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-                else
-                {
-                    DAO.getInstance().updateStoragePlace(silage.IdRaw, silage.Number, silage.Weight,
-                SilageStoragePlace.NameTable, SilageStoragePlace.NumberAttr, SilageStoragePlace.WeightAttr,
-                silage.IdPlaceStorage, silage.Number);
-                    return true;
-                }
-            }
-            else
-            {
-                /* if (!DAO.getInstance().changeTransportation(Shipment.NameTable, shipment.Id, shipment.Contractor,
-                shipment.Subdivision,
-                 new FormValue<string, string>(Shipment.TransportAttr, shipment.Transport),
-                 new FormValue<string, string>(Shipment.WeightAttr, shipment.Weight),
-                 new FormValue<string, string>(Shipment.DateAttr, shipment.Date), storage.IdRaw,
-                 storage.Raw, storage.Type, storage.Subtype, storage.Year))
-                  {
-                      MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                      return false;
-                  }
-                  else*/
-                return true;
-            }
-
-        }
+        }                    
 
         public bool checkSave(string surname)
         {

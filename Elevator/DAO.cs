@@ -856,7 +856,7 @@ namespace Elevator
 
             }
         }
-        public void selectTransportation(string nameTable, string[] columns, DataGridView dataGridViewContract)
+        public void selectDelivery(string nameTable, string[] columns, DataGridView dataGridViewContract)
         {
             string sqlCommand = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -890,9 +890,46 @@ namespace Elevator
                     }
                 }
                 reader.Close();
-                connection.Close();
             }
         }
+
+        public void selectShipment(DataGridView dataGridView)
+        {
+            string sqlCommand = string.Empty;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                sqlCommand = string.Format("Select d.id_raw, c.name_contr, c.subdivision, r.name_raw, t.name_type_raw, s.name_subtype, date_shipment, st.year_crop, " +
+                    "type_transport_shipment,  weight_shipment, id_place_storage From Contractor c join Shipment d " +
+                    "on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join Raw r on st.id_NameRaw = " +
+                    "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join Type_raw t on s.id_type = t.id_type");
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        dataGridView.Rows.Add();
+                        DataGridViewRow row = dataGridView.Rows[c];
+                        row.Cells[0].Value = reader.GetInt32(0);
+                        row.Cells[1].Value = reader.GetString(1);
+                        row.Cells[2].Value = reader.GetString(2);
+                        row.Cells[3].Value = reader.GetString(3);
+                        try { row.Cells[4].Value = reader.GetInt32(4); } catch { }
+                        try { row.Cells[5].Value = reader.GetInt32(5); } catch { }
+                        row.Cells[6].Value = reader.GetString(6);
+                        row.Cells[7].Value = reader.GetInt32(7);
+                        try { row.Cells[8].Value = reader.GetString(8); } catch { }
+                        row.Cells[9].Value = reader.GetFloat(9);
+                        try { row.Cells[10].Value = reader.GetInt32(10); } catch { }
+                        c++;
+                    }
+                }
+                reader.Close();
+            }
+        }
+
         public string[] getTypeToComboBox(string column, string nameTable, string key, string columnParent, string nameTableParent, string value)
         {
             LinkedList<string> res = new LinkedList<string>();
@@ -2074,7 +2111,8 @@ namespace Elevator
                     "'склад',  e.numb_store, e.id_place_storage  from  Storage st join Raw r on st.id_NameRaw = " +
                     "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join Type_raw t on s.id_type = t.id_type " +
                     "left join Class cl on st.id_class = cl.id_class join PlaceStorage p on st.id_raw = "+
-                    "p.id_raw join Store_raw e on e.id_place_storage = p.id_place_storage");
+                    "p.id_raw join Store_raw e on e.id_place_storage = p.id_place_storage "+
+                    "where e.weight_store != 0");
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
                 SqlDataReader reader = command.ExecuteReader();
@@ -2102,7 +2140,8 @@ namespace Elevator
                 "'силос',  e.numb_silage, e.id_place_storage from  Storage st join Raw r on st.id_NameRaw = " +
                 "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join Type_raw t on s.id_type = t.id_type " +
                 "left join Class cl on st.id_class = cl.id_class join PlaceStorage p on st.id_raw = " +
-                "p.id_raw join Silage_raw e on e.id_place_storage = p.id_place_storage");
+                "p.id_raw join Silage_raw e on e.id_place_storage = p.id_place_storage " +
+                    "where e.numb_silage != 0");
                 command = new SqlCommand(sqlCommand, connection);
                 reader = command.ExecuteReader();
                 if (reader.HasRows)
@@ -2127,15 +2166,17 @@ namespace Elevator
             }
         }
         public bool addShipment(int idRaw, string contractor, string subdivision, string transport, string weight,
-                    string date)
+                    string date, string id)
         {
             try {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string sqlCommand = string.Format("Insert into Shipment (id_contractor, id_raw, type_transport_shipment, "+
-                        "weight_shipment, date_shipment) values (" +
+                    string sqlCommand = "";
+                        sqlCommand = string.Format("Insert into Shipment (id_contractor, id_raw, type_transport_shipment, "+
+                        "weight_shipment, date_shipment, id_place_storage) values (" +
                         "(select id_contractor from Contractor where name_contr = '{0}' and subdivision = '{5}'), " +
-                        "{1}, '{2}', '{3}', '{4}')", contractor, idRaw, transport, weight, date, subdivision);
+                        "{1}, '{2}', '{3}', '{4}', {6})", contractor, idRaw, transport, weight, date, 
+                        subdivision, id);                 
                     connection.Open();
                     SqlCommand command = new SqlCommand(sqlCommand, connection);
                     command.ExecuteNonQuery();
@@ -2147,29 +2188,18 @@ namespace Elevator
                 return false;
             }
         }
-        public bool deleteStoragePlace(string idRaw, string number, string nameTable,
-            string numberAttr, string idPlaceStorage)
+        public void deleteShipment(string idStorage, string contractor, string subdivision, int idRaw)
         {
             string sqlCommand;
-            try
-            {
-                sqlCommand = string.Format("Delete {0} where id_raw ={1} and " +
-                    "id_place_storage = {2} and {3} = {4} "+
-                    "Delete PlaceStorage where id_raw ={1} and " +
-                    "id_place_storage = {2}", nameTable, idRaw, idPlaceStorage, numberAttr,   number);
+            sqlCommand = string.Format("Delete Shipment where id_place_storage = {0} and id_raw = {1} and "+
+                "id_contractor = (select id_contractor from Contractor where name_contr = '{2}' and subdivision = '{3}')",
+                idStorage, idRaw, contractor, subdivision);
 
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
-                    cmd.ExecuteNonQuery();
-                    connection.Close();
-                }
-                return true;
-            }
-            catch (SqlException)
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                return false;
+                connection.Open();
+                SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                cmd.ExecuteNonQuery();
             }
         }
     }

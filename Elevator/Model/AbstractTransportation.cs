@@ -15,6 +15,8 @@ namespace Elevator.Model
         public string Weight { get; set; }
         public string Date { get; set; }
 
+        public AbstractTransportation(){}
+
         public AbstractTransportation(int id, string contractor, string subdivision, string date, string transport, string weight)
         {
             this.Id = id;

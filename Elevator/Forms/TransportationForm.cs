@@ -19,7 +19,7 @@ namespace Elevator.Forms
         public TransportationForm()
         {
             InitializeComponent();
-            controller = new TransportationController();
+            controller = new TransportationController();           
             select();
         }
         public TransportationForm(string title)
@@ -27,6 +27,10 @@ namespace Elevator.Forms
             InitializeComponent();
             this.Text = title;
             controller = new TransportationController();
+            changeButton.Text = "Удалить";
+            DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
+            column1.Name = "Код";
+            dataGridViewDelivery.Columns.Add(column1);
             select();
         }
 
@@ -36,12 +40,12 @@ namespace Elevator.Forms
             if (this.Text == "Поставка")
             {              
                 string[] columns = { Delivery.DateAttr, Delivery.TransportAttr, Delivery.WeightAttr };
-                DAO.getInstance().selectTransportation(Delivery.NameTable, columns, dataGridViewDelivery);              
+                DAO.getInstance().selectDelivery(Delivery.NameTable, columns, dataGridViewDelivery);              
             }
             else
             {
                 string[] columns = { Shipment.DateAttr, Shipment.TransportAttr, Shipment.WeightAttr };
-                DAO.getInstance().selectTransportation(Shipment.NameTable, columns, dataGridViewDelivery);
+                DAO.getInstance().selectShipment(dataGridViewDelivery);
             }
             dataGridViewDelivery.ClearSelection();
         }
@@ -58,14 +62,14 @@ namespace Elevator.Forms
         {
             try
             {
-                DataGridViewRow row = dataGridViewDelivery.SelectedRows[0];
-                Storage storage = new Storage(Convert.ToInt32(dataGridViewDelivery.CurrentRow.Cells[0].Value),
-                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[3].Value),
-                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[4].Value),
-                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[5].Value),
-                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[7].Value));
+                DataGridViewRow row = dataGridViewDelivery.SelectedRows[0];      
                 if (this.Text == "Поставка")
                 {
+                    Storage storage = new Storage(Convert.ToInt32(dataGridViewDelivery.CurrentRow.Cells[0].Value),
+                   Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[3].Value),
+                   Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[4].Value),
+                   Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[5].Value),
+                   Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[7].Value));
                     Delivery delivery = new Delivery(Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[1].Value),
                         Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[2].Value),
                         Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[6].Value),
@@ -75,21 +79,18 @@ namespace Elevator.Forms
                 }
                 else
                 {
-                    Shipment shipment = new Shipment(Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[1].Value),
+                    DialogResult dr = MessageBox.Show("Вы действительно хотите удалить запись?",
+                "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                    if (dr == DialogResult.OK)
+                    {
+                        Shipment shipment = new Shipment(Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[1].Value),
                         Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[2].Value),
-                        Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[6].Value),
-                        Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[8].Value),
-                        Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[9].Value));
-                    controller.changeButtonClick(storage, shipment);
+                        Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[10].Value),
+                        Convert.ToInt32(dataGridViewDelivery.CurrentRow.Cells[0].Value));
+                        controller.deleteButtonClick(shipment);
+                    }
                 }
                 select();
-                //int idRaw = DAO.getInstance().changeStorage(storage.IdRaw, storage.Raw, storage.Type, storage.Subtype,
-                //    storage.Year);
-                /*  Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[4].Value),
-                   Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[6].Value),
-                      Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[7].Value));
-
-                  dataGridViewContractor.DataSource = DAO.getInstance().selectTable("Contractor");*/
             }
             catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите запись!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Error); }
            

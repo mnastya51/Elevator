@@ -57,66 +57,28 @@ namespace Elevator.AddAndEditForms
                 MessageBox.Show(String.Format("Вес не должен превышать {0} тонн!", weightBefore), "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
-                string weightStr = weight.ToString().Replace(",",".");
-                if (shipment == null)
+                string weightStr = weight.ToString().Replace(",", ".");
+                shipment = new Shipment(Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value), contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text,
+                     transportTextBox.Text, weightStr);
+                weightStr = (weightBefore - weight).ToString().Replace(",", ".");
+
+                if (Convert.ToString(dataGridViewRaw.CurrentRow.Cells[6].Value) == "склад")
                 {
-                    shipment = new Shipment(Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value), contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text,
-                         transportTextBox.Text, weightStr);
-                    weightStr = (weightBefore - weight).ToString().Replace(",", ".");
-                    
-                    if (Convert.ToString(dataGridViewRaw.CurrentRow.Cells[6].Value) == "склад")
-                    {
-                        if (weightBefore != weight)
-                        {
-                            StoreStoragePlace store = new StoreStoragePlace(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value),
-                                Convert.ToString(dataGridViewRaw.CurrentRow.Cells[8].Value),
-                                Convert.ToString(dataGridViewRaw.CurrentRow.Cells[7].Value), weightStr);
-                            if (controller.onSaveClick(shipment, store, false))
-                                this.Close();
-                            else { shipment = null; }
-                        }
-                        else
-                        {
-                            StoreStoragePlace store = new StoreStoragePlace(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value),
-                                Convert.ToString(dataGridViewRaw.CurrentRow.Cells[8].Value),
-                                Convert.ToString(dataGridViewRaw.CurrentRow.Cells[7].Value), weightStr);
-                            if (controller.onSaveClickAndDelete(shipment, store))
-                                this.Close();
-                            else { shipment = null; }
-                        }
-                    }
-                    else
-                    {
-                        if (weightBefore != weight)
-                        {
-                            SilageStoragePlace silage = new SilageStoragePlace(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value),
-                            Convert.ToString(dataGridViewRaw.CurrentRow.Cells[8].Value),
-                            Convert.ToString(dataGridViewRaw.CurrentRow.Cells[7].Value), weightStr);
-                            if (controller.onSaveClick(shipment, silage, false))
-                                this.Close();
-                            else { shipment = null; }
-                        }
-                        else
-                        {
-                            SilageStoragePlace silage = new SilageStoragePlace(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value),
-                            Convert.ToString(dataGridViewRaw.CurrentRow.Cells[8].Value),
-                            Convert.ToString(dataGridViewRaw.CurrentRow.Cells[7].Value), weightStr);
-                            if (controller.onSaveClickAndDelete(shipment, silage))
-                                this.Close();
-                            else { shipment = null; }
-                        }
-                    }
-                    
+                    StoreStoragePlace store = new StoreStoragePlace(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value),
+                        Convert.ToString(dataGridViewRaw.CurrentRow.Cells[8].Value),
+                        Convert.ToString(dataGridViewRaw.CurrentRow.Cells[7].Value), weightStr);
+                    if (controller.onSaveClick(shipment, store, Convert.ToString(dataGridViewRaw.CurrentRow.Cells[8].Value)))
+                        this.Close();
+                    else { shipment = null; }
                 }
                 else
-                {/*
-                Shipment sh = new Shipment(storage.IdRaw, contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text, transportTextBox.Text, weight);
-                if (controller.onSaveClick(sh, true))
-                    this.Close();
-                else
                 {
-                    sh = null;
-                }*/
+                    SilageStoragePlace silage = new SilageStoragePlace(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value),
+                        Convert.ToString(dataGridViewRaw.CurrentRow.Cells[8].Value),
+                        Convert.ToString(dataGridViewRaw.CurrentRow.Cells[7].Value), weightStr);
+                    if (controller.onSaveClick(shipment, silage, Convert.ToString(dataGridViewRaw.CurrentRow.Cells[8].Value)))
+                        this.Close();
+                    else { shipment = null; }
                 }
             }
         }
