@@ -2071,7 +2071,7 @@ namespace Elevator
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 sqlCommand = string.Format("Select st.id_raw, r.name_raw, t.name_type_raw, s.name_subtype, cl.number_class, e.weight_store, " +
-                    "'склад',  e.numb_store from  Storage st join Raw r on st.id_NameRaw = " +
+                    "'склад',  e.numb_store, e.id_place_storage  from  Storage st join Raw r on st.id_NameRaw = " +
                     "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join Type_raw t on s.id_type = t.id_type " +
                     "left join Class cl on st.id_class = cl.id_class join PlaceStorage p on st.id_raw = "+
                     "p.id_raw join Store_raw e on e.id_place_storage = p.id_place_storage");
@@ -2093,12 +2093,13 @@ namespace Elevator
                         try { row.Cells[5].Value = reader.GetFloat(5); } catch { }
                         row.Cells[6].Value = reader.GetString(6);
                         row.Cells[7].Value = reader.GetInt32(7);
+                        row.Cells[8].Value = reader.GetInt32(8);
                         c++;
                     }
                 }
                 reader.Close();
                 sqlCommand = string.Format("Select st.id_raw, r.name_raw, t.name_type_raw, s.name_subtype, cl.number_class, e.weight_silage, " +
-                "'силос',  e.numb_silage from  Storage st join Raw r on st.id_NameRaw = " +
+                "'силос',  e.numb_silage, e.id_place_storage from  Storage st join Raw r on st.id_NameRaw = " +
                 "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join Type_raw t on s.id_type = t.id_type " +
                 "left join Class cl on st.id_class = cl.id_class join PlaceStorage p on st.id_raw = " +
                 "p.id_raw join Silage_raw e on e.id_place_storage = p.id_place_storage");
@@ -2118,6 +2119,7 @@ namespace Elevator
                         try { row.Cells[5].Value = reader.GetFloat(5); } catch { }
                         row.Cells[6].Value = reader.GetString(6);
                         row.Cells[7].Value = reader.GetInt32(7);
+                        row.Cells[8].Value = reader.GetInt32(8);
                         c++;
                     }
                 }
@@ -2137,6 +2139,31 @@ namespace Elevator
                     connection.Open();
                     SqlCommand command = new SqlCommand(sqlCommand, connection);
                     command.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+        }
+        public bool deleteStoragePlace(string idRaw, string number, string nameTable,
+            string numberAttr, string idPlaceStorage)
+        {
+            string sqlCommand;
+            try
+            {
+                sqlCommand = string.Format("Delete {0} where id_raw ={1} and " +
+                    "id_place_storage = {2} and {3} = {4} "+
+                    "Delete PlaceStorage where id_raw ={1} and " +
+                    "id_place_storage = {2}", nameTable, idRaw, idPlaceStorage, numberAttr,   number);
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
                 }
                 return true;
             }

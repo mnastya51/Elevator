@@ -44,6 +44,10 @@
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.labelYear = new System.Windows.Forms.Label();
             this.dataGridViewRaw = new System.Windows.Forms.DataGridView();
+            this.rawTextBox = new System.Windows.Forms.TextBox();
+            this.btnAllList = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.findButton = new System.Windows.Forms.Button();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,10 +56,7 @@
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rawTextBox = new System.Windows.Forms.TextBox();
-            this.btnAllList = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.findButton = new System.Windows.Forms.Button();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRaw)).BeginInit();
             this.SuspendLayout();
@@ -238,7 +239,8 @@
             this.Column9,
             this.Column10,
             this.Column1,
-            this.Column4});
+            this.Column4,
+            this.Column5});
             this.dataGridViewRaw.EnableHeadersVisualStyles = false;
             this.dataGridViewRaw.Location = new System.Drawing.Point(12, 56);
             this.dataGridViewRaw.MultiSelect = false;
@@ -251,6 +253,54 @@
             this.dataGridViewRaw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewRaw.Size = new System.Drawing.Size(585, 232);
             this.dataGridViewRaw.TabIndex = 49;
+            // 
+            // rawTextBox
+            // 
+            this.rawTextBox.Location = new System.Drawing.Point(76, 16);
+            this.rawTextBox.Name = "rawTextBox";
+            this.rawTextBox.Size = new System.Drawing.Size(144, 20);
+            this.rawTextBox.TabIndex = 12;
+            // 
+            // btnAllList
+            // 
+            this.btnAllList.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnAllList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAllList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAllList.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnAllList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAllList.Location = new System.Drawing.Point(414, 16);
+            this.btnAllList.Name = "btnAllList";
+            this.btnAllList.Size = new System.Drawing.Size(183, 28);
+            this.btnAllList.TabIndex = 7;
+            this.btnAllList.Text = "Вывести полный список";
+            this.btnAllList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAllList.UseVisualStyleBackColor = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(12, 18);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(58, 18);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Сырье:";
+            // 
+            // findButton
+            // 
+            this.findButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.findButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.findButton.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.findButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.findButton.Location = new System.Drawing.Point(310, 16);
+            this.findButton.Name = "findButton";
+            this.findButton.Size = new System.Drawing.Size(82, 28);
+            this.findButton.TabIndex = 5;
+            this.findButton.Text = "Найти";
+            this.findButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.findButton.UseVisualStyleBackColor = false;
             // 
             // Column3
             // 
@@ -301,53 +351,11 @@
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
-            // rawTextBox
+            // Column5
             // 
-            this.rawTextBox.Location = new System.Drawing.Point(76, 16);
-            this.rawTextBox.Name = "rawTextBox";
-            this.rawTextBox.Size = new System.Drawing.Size(144, 20);
-            this.rawTextBox.TabIndex = 12;
-            // 
-            // btnAllList
-            // 
-            this.btnAllList.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnAllList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAllList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAllList.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnAllList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAllList.Location = new System.Drawing.Point(414, 16);
-            this.btnAllList.Name = "btnAllList";
-            this.btnAllList.Size = new System.Drawing.Size(183, 28);
-            this.btnAllList.TabIndex = 7;
-            this.btnAllList.Text = "Вывести полный список";
-            this.btnAllList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAllList.UseVisualStyleBackColor = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(12, 18);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 18);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Сырье:";
-            // 
-            // findButton
-            // 
-            this.findButton.BackColor = System.Drawing.Color.DarkOrange;
-            this.findButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.findButton.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.findButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.findButton.Location = new System.Drawing.Point(310, 16);
-            this.findButton.Name = "findButton";
-            this.findButton.Size = new System.Drawing.Size(82, 28);
-            this.findButton.TabIndex = 5;
-            this.findButton.Text = "Найти";
-            this.findButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.findButton.UseVisualStyleBackColor = false;
+            this.Column5.HeaderText = "IdPlaceStorage";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // AddShipmentForm
             // 
@@ -410,5 +418,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }
