@@ -16,13 +16,20 @@ namespace Elevator.Forms
     public partial class TransportationForm : Form
     {
         private TransportationController controller;
-        public TransportationForm()
+        public TransportationForm(Employee employee)
         {
             InitializeComponent();
             controller = new TransportationController();           
             select();
+            if (employee.Post.Equals("Бухгалтер") || employee.Post.Equals("Главный бухгалтер"))
+            {
+                addButton.Enabled = false;
+                addButton.BackColor = Color.LightGray;
+                changeButton.Enabled = false;
+                changeButton.BackColor = Color.LightGray;
+            }
         }
-        public TransportationForm(string title)
+        public TransportationForm(string title, Employee employee)
         {
             InitializeComponent();
             this.Text = title;
@@ -32,6 +39,13 @@ namespace Elevator.Forms
             column1.Name = "Код";
             dataGridViewDelivery.Columns.Add(column1);
             select();
+            if (employee.Post.Equals("Бухгалтер") || employee.Post.Equals("Главный бухгалтер"))
+            {
+                addButton.Enabled = false;
+                addButton.BackColor = Color.LightGray;
+                changeButton.Enabled = false;
+                changeButton.BackColor = Color.LightGray;
+            }
         }
 
         private void select()

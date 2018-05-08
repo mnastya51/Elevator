@@ -46,6 +46,8 @@
             this.loginTextBox.Size = new System.Drawing.Size(196, 33);
             this.loginTextBox.TabIndex = 1;
             this.loginTextBox.Text = "Логин";
+            this.loginTextBox.Enter += new System.EventHandler(this.loginTextBox_Enter);
+            this.loginTextBox.Leave += new System.EventHandler(this.loginTextBox_Leave);
             // 
             // passwordTextBox
             // 
@@ -55,10 +57,12 @@
             this.passwordTextBox.Location = new System.Drawing.Point(54, 70);
             this.passwordTextBox.MaxLength = 15;
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(196, 33);
             this.passwordTextBox.TabIndex = 2;
             this.passwordTextBox.Text = "Пароль";
+            this.passwordTextBox.Enter += new System.EventHandler(this.passwordTextBox_Enter);
+            this.passwordTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.passwordTextBox_KeyPress);
+            this.passwordTextBox.Leave += new System.EventHandler(this.passwordTextBox_Leave);
             // 
             // authirizationButton
             // 
@@ -74,6 +78,7 @@
             this.authirizationButton.Text = "Войти";
             this.authirizationButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.authirizationButton.UseVisualStyleBackColor = false;
+            this.authirizationButton.Click += new System.EventHandler(this.authirizationButton_Click);
             // 
             // buttonRegistration
             // 
@@ -106,6 +111,7 @@
             this.Name = "AuthorizationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Авторизация";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AuthorizationForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -46,10 +46,11 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отгрузкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.карточкаАнализаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.прочиеОтчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.analysisCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сменитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelEmp = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -189,23 +190,25 @@
             // отчетыToolStripMenuItem
             // 
             this.отчетыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.карточкаАнализаToolStripMenuItem,
-            this.прочиеОтчетыToolStripMenuItem});
+            this.analysisCardToolStripMenuItem,
+            this.reportToolStripMenuItem});
             this.отчетыToolStripMenuItem.Name = "отчетыToolStripMenuItem";
             this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.отчетыToolStripMenuItem.Text = "Отчеты";
             // 
-            // карточкаАнализаToolStripMenuItem
+            // analysisCardToolStripMenuItem
             // 
-            this.карточкаАнализаToolStripMenuItem.Name = "карточкаАнализаToolStripMenuItem";
-            this.карточкаАнализаToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.карточкаАнализаToolStripMenuItem.Text = "Карточка анализа";
+            this.analysisCardToolStripMenuItem.Name = "analysisCardToolStripMenuItem";
+            this.analysisCardToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.analysisCardToolStripMenuItem.Text = "Карточка анализа";
+            this.analysisCardToolStripMenuItem.Click += new System.EventHandler(this.analysisCardToolStripMenuItem_Click);
             // 
-            // прочиеОтчетыToolStripMenuItem
+            // reportToolStripMenuItem
             // 
-            this.прочиеОтчетыToolStripMenuItem.Name = "прочиеОтчетыToolStripMenuItem";
-            this.прочиеОтчетыToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.прочиеОтчетыToolStripMenuItem.Text = "Прочие отчеты";
+            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.reportToolStripMenuItem.Text = "Прочие отчеты";
+            this.reportToolStripMenuItem.Click += new System.EventHandler(this.reportToolStripMenuItem_Click);
             // 
             // сменитьПользователяToolStripMenuItem
             // 
@@ -220,17 +223,30 @@
             this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.справкаToolStripMenuItem.Text = "Справка";
             // 
+            // labelEmp
+            // 
+            this.labelEmp.AutoSize = true;
+            this.labelEmp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(137)))), ((int)(((byte)(79)))));
+            this.labelEmp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelEmp.Location = new System.Drawing.Point(378, 4);
+            this.labelEmp.Name = "labelEmp";
+            this.labelEmp.Size = new System.Drawing.Size(56, 15);
+            this.labelEmp.TabIndex = 1;
+            this.labelEmp.Text = "labelEmp";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.ClientSize = new System.Drawing.Size(680, 299);
+            this.Controls.Add(this.labelEmp);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Учет хранения зерновых культур";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -255,11 +271,12 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отгрузкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отчетыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem карточкаАнализаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem прочиеОтчетыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem analysisCardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сменитьПользователяToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem normsImpurityToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dataAnalysToolStripMenuItem;
+        private System.Windows.Forms.Label labelEmp;
     }
 }

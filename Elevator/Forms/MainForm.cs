@@ -1,4 +1,5 @@
 ﻿using Elevator.Forms;
+using Elevator.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,46 @@ namespace Elevator.Forms
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        public Employee employee;
+        public MainForm(Employee employee)
         {
             InitializeComponent();
+            this.employee = employee;
+            labelEmp.Text = employee.Surname + " " + employee.Name;
+            if (employee.Post.Equals("Лаборант"))
+            {
+                employeeToolStripMenuItem.Enabled = false;
+                contractorToolStripMenuItem.Enabled = false;
+                contractToolStripMenuItem.Enabled = false;
+                reportToolStripMenuItem.Enabled = false;
+            }
+            else if (employee.Post.Equals("Бухгалтер"))
+            {
+                rawToolStripMenuItem.Enabled = false;
+                storageToolStripMenuItem.Enabled = false;
+                impurityToolStripMenuItem.Enabled = false;
+                normsImpurityToolStripMenuItem.Enabled = false;
+                analysisQualityToolStripMenuItem.Enabled = false;
+                dataAnalysToolStripMenuItem.Enabled = false;
+                analysisCardToolStripMenuItem.Enabled = false;
+                employeeToolStripMenuItem.Enabled = false;
+            }
+            else if (employee.Post.Equals("Главный бухгалтер"))
+            {
+                rawToolStripMenuItem.Enabled = false;
+                storageToolStripMenuItem.Enabled = false;
+                impurityToolStripMenuItem.Enabled = false;
+                normsImpurityToolStripMenuItem.Enabled = false;
+                analysisQualityToolStripMenuItem.Enabled = false;
+                dataAnalysToolStripMenuItem.Enabled = false;
+                analysisCardToolStripMenuItem.Enabled = false;
+            }
+            else if (employee.Post.Equals("Заведующий лабораторией"))
+            {
+                employeeToolStripMenuItem.Enabled = false;
+                contractorToolStripMenuItem.Enabled = false;
+                contractToolStripMenuItem.Enabled = false;
+            }
         }
 
         private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -55,12 +93,12 @@ namespace Elevator.Forms
 
         private void deliveryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new TransportationForm().ShowDialog();
+            new TransportationForm(employee).ShowDialog();
         }
 
         private void отгрузкаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new TransportationForm("Отгрузка").ShowDialog();
+            new TransportationForm("Отгрузка", employee).ShowDialog();
         }
 
         private void analysisQualityToolStripMenuItem_Click(object sender, EventArgs e)
@@ -75,13 +113,29 @@ namespace Elevator.Forms
 
         private void processingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new ProcessingForm().ShowDialog();
+            new ProcessingForm(employee).ShowDialog();
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new StorageForm().ShowDialog();
+            new StorageForm(employee).ShowDialog();
         }
-    }
+
+        private void analysisCardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new AnalysisCardForm().ShowDialog();
+             //new Form1().ShowDialog();        
+        }
+
+        private void reportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ReportsForm().ShowDialog();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+    }   
 }
 

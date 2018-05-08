@@ -16,7 +16,13 @@ namespace Elevator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.MainForm());
+            // Application.Run(new Forms.MainForm());
+            var authForm = new AuthorizationForm();
+            if (authForm.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new Forms.MainForm(authForm.Empl));
+            }
+            Application.Run(new AuthorizationForm());
         }
     }
 }

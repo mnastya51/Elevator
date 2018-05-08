@@ -16,12 +16,21 @@ namespace Elevator.Forms
     public partial class ProcessingForm : Form
     {
         private ProcessingController controller;
-        public ProcessingForm()
+        private Employee employee;
+        public ProcessingForm(Employee employee)
         {
             InitializeComponent();
             controller = new ProcessingController();
             dataGridViewRaw.CellClick += dataGridViewRaw_CellClick;
             select();
+            this.employee = employee;
+            if (employee.Post.Equals("Бухгалтер") || employee.Post.Equals("Главный бухгалтер"))
+            {
+                addClearButton.Enabled = false;
+                changeClearButton.BackColor = Color.LightGray;
+                addDryButton.Enabled = false;
+                changeDryButton.BackColor = Color.LightGray;
+            }
         }
 
         private void select()
@@ -44,24 +53,27 @@ namespace Elevator.Forms
 
         private void dataGridViewRaw_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            addDryButton.BackColor = Color.DarkOrange;
-            changeDryButton.BackColor = Color.DarkOrange;
-            addDryButton.Enabled = true;
-            changeDryButton.Enabled = true;
-            addClearButton.BackColor = Color.DarkOrange;
-            changeClearButton.BackColor = Color.DarkOrange;
-            addClearButton.Enabled = true;
-            changeClearButton.Enabled = true;
-            labelDate.Text = "";
-            labelWeightBefore.Text = "";
-            labelWeightAfter.Text = "";
-            labelWetBefore.Text = "";
-            labelWetAfter.Text = "";
-            labelDateClear.Text = "";
-            labelWeightBeforeClear.Text = "";
-            labelWeightAfterClear.Text = "";
-            selectDry();
-            selectClear();
+            if (!(employee.Post.Equals("Бухгалтер") || employee.Post.Equals("Главный бухгалтер")))
+            {
+                addDryButton.BackColor = Color.DarkOrange;
+                changeDryButton.BackColor = Color.DarkOrange;
+                addDryButton.Enabled = true;
+                changeDryButton.Enabled = true;
+                addClearButton.BackColor = Color.DarkOrange;
+                changeClearButton.BackColor = Color.DarkOrange;
+                addClearButton.Enabled = true;
+                changeClearButton.Enabled = true;
+                labelDate.Text = "";
+                labelWeightBefore.Text = "";
+                labelWeightAfter.Text = "";
+                labelWetBefore.Text = "";
+                labelWetAfter.Text = "";
+                labelDateClear.Text = "";
+                labelWeightBeforeClear.Text = "";
+                labelWeightAfterClear.Text = "";
+                selectDry();
+                selectClear();
+            }
         }
 
         private void btnAllList_Click(object sender, EventArgs e)

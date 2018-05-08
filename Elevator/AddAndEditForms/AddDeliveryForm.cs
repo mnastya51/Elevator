@@ -16,7 +16,6 @@ namespace Elevator.AddAndEditForms
     {
         private AddDeliveryController controller;
         private Delivery delivery;
-        private Shipment shipment;
         private Storage storage;
         private string nameContractor;
         private string subdivision;

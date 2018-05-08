@@ -16,12 +16,19 @@ namespace Elevator.Forms
     public partial class StorageForm : Form
     {
         private StorageController controller;
-        public StorageForm()
+        private Employee employee;
+        public StorageForm(Employee employee)
         {
             InitializeComponent();
             controller = new StorageController();
             dataGridViewRaw.CellClick += dataGridViewRaw_CellClick;
             select();
+            this.employee = employee;
+            if ((employee.Post.Equals("Бухгалтер") || employee.Post.Equals("Главный бухгалтер")))
+            {
+                addButton.Enabled = false;
+                changeButton.Enabled = false;
+            }
         }
 
         private void select()
@@ -33,11 +40,14 @@ namespace Elevator.Forms
 
         private void dataGridViewRaw_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            addButton.BackColor = Color.DarkOrange;
-            changeButton.BackColor = Color.DarkOrange;
-            addButton.Enabled = true;
-            changeButton.Enabled = true;
-            selectStorage();
+            if (!(employee.Post.Equals("Бухгалтер") || employee.Post.Equals("Главный бухгалтер")))
+            {
+                addButton.BackColor = Color.DarkOrange;
+                changeButton.BackColor = Color.DarkOrange;
+                addButton.Enabled = true;
+                changeButton.Enabled = true;
+                selectStorage();
+            }
         }
 
         private void findButton_Click(object sender, EventArgs e)

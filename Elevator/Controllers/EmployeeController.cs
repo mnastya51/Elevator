@@ -27,5 +27,9 @@ namespace Elevator.Controllers
         {
             new AddEmployeeForm().ShowDialog();
         }
+        public Employee GetEmployeeByAuthorization(string login, string password)
+        {
+            return DAO.getInstance().GetEmployeeByAuthorization(login, password);
+        }
     }
 }
