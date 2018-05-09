@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddDateAnalysForm));
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
@@ -35,31 +36,32 @@
             // 
             // dateTimePicker
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(134, 12);
+            this.dateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dateTimePicker.Location = new System.Drawing.Point(138, 16);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(142, 20);
+            this.dateTimePicker.Size = new System.Drawing.Size(202, 26);
             this.dateTimePicker.TabIndex = 61;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(9, 13);
+            this.label1.Location = new System.Drawing.Point(12, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 20);
+            this.label1.Size = new System.Drawing.Size(125, 20);
             this.label1.TabIndex = 60;
-            this.label1.Text = "Дата анализа:";
+            this.label1.Text = "Дата анализа*:";
             // 
             // saveButton
             // 
             this.saveButton.BackColor = System.Drawing.Color.DarkOrange;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.saveButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.saveButton.Location = new System.Drawing.Point(89, 54);
+            this.saveButton.Location = new System.Drawing.Point(138, 61);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(92, 34);
+            this.saveButton.Size = new System.Drawing.Size(100, 36);
             this.saveButton.TabIndex = 69;
             this.saveButton.Text = "Сохранить";
             this.saveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -71,10 +73,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(292, 100);
+            this.ClientSize = new System.Drawing.Size(355, 117);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(371, 156);
+            this.MinimumSize = new System.Drawing.Size(371, 156);
             this.Name = "AddDateAnalysForm";
             this.Text = "Добавление даты анализа";
             this.ResumeLayout(false);

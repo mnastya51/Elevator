@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContarctForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.nameContractortextBox = new System.Windows.Forms.TextBox();
             this.btnAllList = new System.Windows.Forms.Button();
@@ -59,29 +60,30 @@
             this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(723, 68);
+            this.groupBox1.Size = new System.Drawing.Size(731, 68);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Поиск";
             // 
             // nameContractortextBox
             // 
-            this.nameContractortextBox.Location = new System.Drawing.Point(158, 26);
+            this.nameContractortextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nameContractortextBox.Location = new System.Drawing.Point(117, 24);
             this.nameContractortextBox.MaxLength = 150;
             this.nameContractortextBox.Name = "nameContractortextBox";
-            this.nameContractortextBox.Size = new System.Drawing.Size(257, 22);
+            this.nameContractortextBox.Size = new System.Drawing.Size(257, 26);
             this.nameContractortextBox.TabIndex = 49;
             // 
             // btnAllList
             // 
             this.btnAllList.BackColor = System.Drawing.Color.DarkOrange;
             this.btnAllList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAllList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAllList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAllList.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnAllList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAllList.Location = new System.Drawing.Point(524, 23);
+            this.btnAllList.Location = new System.Drawing.Point(503, 24);
             this.btnAllList.Name = "btnAllList";
-            this.btnAllList.Size = new System.Drawing.Size(182, 28);
+            this.btnAllList.Size = new System.Drawing.Size(210, 28);
             this.btnAllList.TabIndex = 9;
             this.btnAllList.Text = "Вывести полный список";
             this.btnAllList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -91,22 +93,22 @@
             // lbName
             // 
             this.lbName.AutoSize = true;
-            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbName.ForeColor = System.Drawing.Color.Black;
-            this.lbName.Location = new System.Drawing.Point(9, 27);
+            this.lbName.Location = new System.Drawing.Point(9, 23);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(143, 18);
+            this.lbName.Size = new System.Drawing.Size(102, 20);
             this.lbName.TabIndex = 6;
-            this.lbName.Text = "Наим. контрагента:";
+            this.lbName.Text = "Контрагент:";
             // 
             // findButton
             // 
             this.findButton.BackColor = System.Drawing.Color.DarkOrange;
             this.findButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.findButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.findButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.findButton.Location = new System.Drawing.Point(428, 23);
+            this.findButton.Location = new System.Drawing.Point(400, 24);
             this.findButton.Name = "findButton";
             this.findButton.Size = new System.Drawing.Size(82, 28);
             this.findButton.TabIndex = 5;
@@ -119,12 +121,12 @@
             // 
             this.deleteButton.BackColor = System.Drawing.Color.DarkOrange;
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.deleteButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteButton.Location = new System.Drawing.Point(202, 86);
+            this.deleteButton.Location = new System.Drawing.Point(212, 86);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(88, 28);
+            this.deleteButton.Size = new System.Drawing.Size(93, 28);
             this.deleteButton.TabIndex = 50;
             this.deleteButton.Text = "Удалить";
             this.deleteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -135,12 +137,12 @@
             // 
             this.changeButton.BackColor = System.Drawing.Color.DarkOrange;
             this.changeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.changeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.changeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.changeButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.changeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.changeButton.Location = new System.Drawing.Point(108, 86);
+            this.changeButton.Location = new System.Drawing.Point(113, 86);
             this.changeButton.Name = "changeButton";
-            this.changeButton.Size = new System.Drawing.Size(88, 28);
+            this.changeButton.Size = new System.Drawing.Size(93, 28);
             this.changeButton.TabIndex = 49;
             this.changeButton.Text = "Изменить";
             this.changeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -151,12 +153,12 @@
             // 
             this.addButton.BackColor = System.Drawing.Color.DarkOrange;
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.addButton.Location = new System.Drawing.Point(14, 86);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(88, 28);
+            this.addButton.Size = new System.Drawing.Size(93, 28);
             this.addButton.TabIndex = 48;
             this.addButton.Text = "Добавить";
             this.addButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -171,7 +173,7 @@
             this.dataGridViewContract.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewContract.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.dataGridViewContract.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -187,16 +189,17 @@
             this.Column3,
             this.Column4});
             this.dataGridViewContract.EnableHeadersVisualStyles = false;
-            this.dataGridViewContract.Location = new System.Drawing.Point(12, 120);
+            this.dataGridViewContract.Location = new System.Drawing.Point(12, 125);
             this.dataGridViewContract.MultiSelect = false;
             this.dataGridViewContract.Name = "dataGridViewContract";
             this.dataGridViewContract.ReadOnly = true;
             this.dataGridViewContract.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.dataGridViewContract.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewContract.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewContract.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContract.Size = new System.Drawing.Size(723, 206);
+            this.dataGridViewContract.Size = new System.Drawing.Size(731, 244);
             this.dataGridViewContract.TabIndex = 61;
             // 
             // Column1
@@ -234,12 +237,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(747, 338);
+            this.ClientSize = new System.Drawing.Size(765, 381);
             this.Controls.Add(this.dataGridViewContract);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.changeButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(781, 420);
+            this.MinimumSize = new System.Drawing.Size(781, 420);
             this.Name = "ContarctForm";
             this.Text = "Договора";
             this.groupBox1.ResumeLayout(false);

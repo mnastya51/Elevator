@@ -63,9 +63,9 @@ namespace Elevator.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
         /// </summary>
-        internal static System.Drawing.Icon login {
+        internal static System.Drawing.Icon auth {
             get {
-                object obj = ResourceManager.GetObject("login", resourceCulture);
+                object obj = ResourceManager.GetObject("auth", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

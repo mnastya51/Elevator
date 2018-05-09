@@ -37,6 +37,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RawForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.deleteButtonRaw = new System.Windows.Forms.Button();
             this.changeButtonRaw = new System.Windows.Forms.Button();
@@ -97,9 +98,9 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.InfoText;
             this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(358, 251);
+            this.groupBox1.Size = new System.Drawing.Size(307, 251);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             // 
@@ -107,12 +108,12 @@
             // 
             this.deleteButtonRaw.BackColor = System.Drawing.Color.DarkOrange;
             this.deleteButtonRaw.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.deleteButtonRaw.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.deleteButtonRaw.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.deleteButtonRaw.ForeColor = System.Drawing.SystemColors.Desktop;
             this.deleteButtonRaw.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteButtonRaw.Location = new System.Drawing.Point(194, 14);
+            this.deleteButtonRaw.Location = new System.Drawing.Point(205, 14);
             this.deleteButtonRaw.Name = "deleteButtonRaw";
-            this.deleteButtonRaw.Size = new System.Drawing.Size(88, 28);
+            this.deleteButtonRaw.Size = new System.Drawing.Size(93, 28);
             this.deleteButtonRaw.TabIndex = 48;
             this.deleteButtonRaw.Text = "Удалить";
             this.deleteButtonRaw.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -123,12 +124,12 @@
             // 
             this.changeButtonRaw.BackColor = System.Drawing.Color.DarkOrange;
             this.changeButtonRaw.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.changeButtonRaw.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.changeButtonRaw.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.changeButtonRaw.ForeColor = System.Drawing.SystemColors.Desktop;
             this.changeButtonRaw.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.changeButtonRaw.Location = new System.Drawing.Point(100, 14);
+            this.changeButtonRaw.Location = new System.Drawing.Point(106, 14);
             this.changeButtonRaw.Name = "changeButtonRaw";
-            this.changeButtonRaw.Size = new System.Drawing.Size(88, 28);
+            this.changeButtonRaw.Size = new System.Drawing.Size(93, 28);
             this.changeButtonRaw.TabIndex = 47;
             this.changeButtonRaw.Text = "Изменить";
             this.changeButtonRaw.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -139,12 +140,12 @@
             // 
             this.addButtonRaw.BackColor = System.Drawing.Color.DarkOrange;
             this.addButtonRaw.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addButtonRaw.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addButtonRaw.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addButtonRaw.ForeColor = System.Drawing.SystemColors.Desktop;
             this.addButtonRaw.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addButtonRaw.Location = new System.Drawing.Point(6, 14);
+            this.addButtonRaw.Location = new System.Drawing.Point(6, 15);
             this.addButtonRaw.Name = "addButtonRaw";
-            this.addButtonRaw.Size = new System.Drawing.Size(88, 28);
+            this.addButtonRaw.Size = new System.Drawing.Size(93, 28);
             this.addButtonRaw.TabIndex = 46;
             this.addButtonRaw.Text = "Добавить";
             this.addButtonRaw.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -160,7 +161,7 @@
             this.dataGridViewRaw.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewRaw.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.dataGridViewRaw.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -175,16 +176,17 @@
             this.numbergostDataGridViewTextBoxColumn});
             this.dataGridViewRaw.DataSource = this.rawBindingSource;
             this.dataGridViewRaw.EnableHeadersVisualStyles = false;
-            this.dataGridViewRaw.Location = new System.Drawing.Point(6, 48);
+            this.dataGridViewRaw.Location = new System.Drawing.Point(6, 51);
             this.dataGridViewRaw.MultiSelect = false;
             this.dataGridViewRaw.Name = "dataGridViewRaw";
             this.dataGridViewRaw.ReadOnly = true;
             this.dataGridViewRaw.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.dataGridViewRaw.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewRaw.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewRaw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewRaw.Size = new System.Drawing.Size(346, 197);
+            this.dataGridViewRaw.Size = new System.Drawing.Size(292, 194);
             this.dataGridViewRaw.TabIndex = 44;
             // 
             // idNameRawDataGridViewTextBoxColumn
@@ -228,9 +230,9 @@
             this.groupBoxClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBoxClass.ForeColor = System.Drawing.SystemColors.InfoText;
             this.groupBoxClass.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.groupBoxClass.Location = new System.Drawing.Point(376, 12);
+            this.groupBoxClass.Location = new System.Drawing.Point(325, 6);
             this.groupBoxClass.Name = "groupBoxClass";
-            this.groupBoxClass.Size = new System.Drawing.Size(194, 251);
+            this.groupBoxClass.Size = new System.Drawing.Size(208, 251);
             this.groupBoxClass.TabIndex = 49;
             this.groupBoxClass.TabStop = false;
             // 
@@ -238,12 +240,12 @@
             // 
             this.deleteButtonClass.BackColor = System.Drawing.Color.LightGray;
             this.deleteButtonClass.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.deleteButtonClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.deleteButtonClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.deleteButtonClass.ForeColor = System.Drawing.SystemColors.Desktop;
             this.deleteButtonClass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteButtonClass.Location = new System.Drawing.Point(100, 14);
+            this.deleteButtonClass.Location = new System.Drawing.Point(105, 15);
             this.deleteButtonClass.Name = "deleteButtonClass";
-            this.deleteButtonClass.Size = new System.Drawing.Size(88, 28);
+            this.deleteButtonClass.Size = new System.Drawing.Size(93, 28);
             this.deleteButtonClass.TabIndex = 48;
             this.deleteButtonClass.Text = "Удалить";
             this.deleteButtonClass.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -254,12 +256,12 @@
             // 
             this.addButtonClass.BackColor = System.Drawing.Color.LightGray;
             this.addButtonClass.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addButtonClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addButtonClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addButtonClass.ForeColor = System.Drawing.SystemColors.Desktop;
             this.addButtonClass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addButtonClass.Location = new System.Drawing.Point(6, 14);
+            this.addButtonClass.Location = new System.Drawing.Point(6, 15);
             this.addButtonClass.Name = "addButtonClass";
-            this.addButtonClass.Size = new System.Drawing.Size(88, 28);
+            this.addButtonClass.Size = new System.Drawing.Size(93, 28);
             this.addButtonClass.TabIndex = 46;
             this.addButtonClass.Text = "Добавить";
             this.addButtonClass.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -275,7 +277,7 @@
             this.dataGridViewClass.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewClass.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.dataGridViewClass.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -290,16 +292,17 @@
             this.numberclassDataGridViewTextBoxColumn});
             this.dataGridViewClass.DataSource = this.classBindingSource;
             this.dataGridViewClass.EnableHeadersVisualStyles = false;
-            this.dataGridViewClass.Location = new System.Drawing.Point(6, 47);
+            this.dataGridViewClass.Location = new System.Drawing.Point(6, 51);
             this.dataGridViewClass.MultiSelect = false;
             this.dataGridViewClass.Name = "dataGridViewClass";
             this.dataGridViewClass.ReadOnly = true;
             this.dataGridViewClass.RowHeadersVisible = false;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             this.dataGridViewClass.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewClass.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewClass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewClass.Size = new System.Drawing.Size(182, 198);
+            this.dataGridViewClass.Size = new System.Drawing.Size(192, 194);
             this.dataGridViewClass.TabIndex = 44;
             // 
             // idclassDataGridViewTextBoxColumn
@@ -350,9 +353,9 @@
             this.groupBoxType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBoxType.ForeColor = System.Drawing.SystemColors.InfoText;
             this.groupBoxType.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.groupBoxType.Location = new System.Drawing.Point(12, 264);
+            this.groupBoxType.Location = new System.Drawing.Point(12, 257);
             this.groupBoxType.Name = "groupBoxType";
-            this.groupBoxType.Size = new System.Drawing.Size(558, 251);
+            this.groupBoxType.Size = new System.Drawing.Size(521, 179);
             this.groupBoxType.TabIndex = 50;
             this.groupBoxType.TabStop = false;
             // 
@@ -361,12 +364,12 @@
             this.deleteSubtypeButton.BackColor = System.Drawing.Color.LightGray;
             this.deleteSubtypeButton.Enabled = false;
             this.deleteSubtypeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.deleteSubtypeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.deleteSubtypeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.deleteSubtypeButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.deleteSubtypeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteSubtypeButton.Location = new System.Drawing.Point(402, 15);
+            this.deleteSubtypeButton.Location = new System.Drawing.Point(384, 15);
             this.deleteSubtypeButton.Name = "deleteSubtypeButton";
-            this.deleteSubtypeButton.Size = new System.Drawing.Size(88, 28);
+            this.deleteSubtypeButton.Size = new System.Drawing.Size(93, 28);
             this.deleteSubtypeButton.TabIndex = 51;
             this.deleteSubtypeButton.Text = "Удалить";
             this.deleteSubtypeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -378,12 +381,12 @@
             this.addSubtypeButton.BackColor = System.Drawing.Color.LightGray;
             this.addSubtypeButton.Enabled = false;
             this.addSubtypeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addSubtypeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addSubtypeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addSubtypeButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.addSubtypeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addSubtypeButton.Location = new System.Drawing.Point(308, 15);
+            this.addSubtypeButton.Location = new System.Drawing.Point(285, 15);
             this.addSubtypeButton.Name = "addSubtypeButton";
-            this.addSubtypeButton.Size = new System.Drawing.Size(88, 28);
+            this.addSubtypeButton.Size = new System.Drawing.Size(93, 28);
             this.addSubtypeButton.TabIndex = 50;
             this.addSubtypeButton.Text = "Добавить";
             this.addSubtypeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -399,7 +402,7 @@
             this.dataGridViewSubtype.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSubtype.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.dataGridViewSubtype.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -414,16 +417,17 @@
             this.namesubtypeDataGridViewTextBoxColumn});
             this.dataGridViewSubtype.DataSource = this.subtyperawBindingSource;
             this.dataGridViewSubtype.EnableHeadersVisualStyles = false;
-            this.dataGridViewSubtype.Location = new System.Drawing.Point(308, 49);
+            this.dataGridViewSubtype.Location = new System.Drawing.Point(285, 54);
             this.dataGridViewSubtype.MultiSelect = false;
             this.dataGridViewSubtype.Name = "dataGridViewSubtype";
             this.dataGridViewSubtype.ReadOnly = true;
             this.dataGridViewSubtype.RowHeadersVisible = false;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
             this.dataGridViewSubtype.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewSubtype.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewSubtype.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSubtype.Size = new System.Drawing.Size(182, 191);
+            this.dataGridViewSubtype.Size = new System.Drawing.Size(192, 116);
             this.dataGridViewSubtype.TabIndex = 49;
             // 
             // idsubtypeDataGridViewTextBoxColumn
@@ -458,12 +462,12 @@
             // 
             this.deleteTypeButton.BackColor = System.Drawing.Color.LightGray;
             this.deleteTypeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.deleteTypeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.deleteTypeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.deleteTypeButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.deleteTypeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteTypeButton.Location = new System.Drawing.Point(149, 15);
+            this.deleteTypeButton.Location = new System.Drawing.Point(140, 15);
             this.deleteTypeButton.Name = "deleteTypeButton";
-            this.deleteTypeButton.Size = new System.Drawing.Size(88, 28);
+            this.deleteTypeButton.Size = new System.Drawing.Size(93, 28);
             this.deleteTypeButton.TabIndex = 48;
             this.deleteTypeButton.Text = "Удалить";
             this.deleteTypeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -474,12 +478,12 @@
             // 
             this.addTypeButton.BackColor = System.Drawing.Color.LightGray;
             this.addTypeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addTypeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addTypeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addTypeButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.addTypeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addTypeButton.Location = new System.Drawing.Point(55, 15);
+            this.addTypeButton.Location = new System.Drawing.Point(41, 15);
             this.addTypeButton.Name = "addTypeButton";
-            this.addTypeButton.Size = new System.Drawing.Size(88, 28);
+            this.addTypeButton.Size = new System.Drawing.Size(93, 28);
             this.addTypeButton.TabIndex = 46;
             this.addTypeButton.Text = "Добавить";
             this.addTypeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -495,7 +499,7 @@
             this.dataGridViewType.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewType.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.dataGridViewType.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -510,7 +514,7 @@
             this.idNameRawDataGridViewTextBoxColumn2});
             this.dataGridViewType.DataSource = this.typerawBindingSource;
             this.dataGridViewType.EnableHeadersVisualStyles = false;
-            this.dataGridViewType.Location = new System.Drawing.Point(55, 54);
+            this.dataGridViewType.Location = new System.Drawing.Point(41, 54);
             this.dataGridViewType.MultiSelect = false;
             this.dataGridViewType.Name = "dataGridViewType";
             this.dataGridViewType.ReadOnly = true;
@@ -519,7 +523,7 @@
             this.dataGridViewType.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewType.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewType.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewType.Size = new System.Drawing.Size(182, 191);
+            this.dataGridViewType.Size = new System.Drawing.Size(192, 119);
             this.dataGridViewType.TabIndex = 44;
             // 
             // idtypeDataGridViewTextBoxColumn
@@ -563,10 +567,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(584, 526);
+            this.ClientSize = new System.Drawing.Size(544, 449);
             this.Controls.Add(this.groupBoxType);
             this.Controls.Add(this.groupBoxClass);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(560, 488);
+            this.MinimumSize = new System.Drawing.Size(560, 488);
             this.Name = "RawForm";
             this.Text = "Зерновые культуры";
             this.Load += new System.EventHandler(this.RawForm_Load);

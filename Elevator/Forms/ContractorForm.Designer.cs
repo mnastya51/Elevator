@@ -38,12 +38,6 @@
             this.lbName = new System.Windows.Forms.Label();
             this.findButton = new System.Windows.Forms.Button();
             this.dataGridViewContractor = new System.Windows.Forms.DataGridView();
-            this.contractorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.accountOfGrainDataSet = new Elevator.AccountOfGrainDataSet();
-            this.addButton = new System.Windows.Forms.Button();
-            this.changeButton = new System.Windows.Forms.Button();
-            this.deleteButton = new System.Windows.Forms.Button();
-            this.contractorTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.ContractorTableAdapter();
             this.idcontractorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namecontrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subdivisionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +46,12 @@
             this.mailindexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.innDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contractorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.accountOfGrainDataSet = new Elevator.AccountOfGrainDataSet();
+            this.addButton = new System.Windows.Forms.Button();
+            this.changeButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.contractorTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.ContractorTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContractor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractorBindingSource)).BeginInit();
@@ -76,17 +76,18 @@
             // 
             // nameContractortextBox
             // 
-            this.nameContractortextBox.Location = new System.Drawing.Point(130, 27);
+            this.nameContractortextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nameContractortextBox.Location = new System.Drawing.Point(140, 23);
             this.nameContractortextBox.MaxLength = 150;
             this.nameContractortextBox.Name = "nameContractortextBox";
-            this.nameContractortextBox.Size = new System.Drawing.Size(282, 22);
+            this.nameContractortextBox.Size = new System.Drawing.Size(273, 26);
             this.nameContractortextBox.TabIndex = 48;
             // 
             // btnAllList
             // 
             this.btnAllList.BackColor = System.Drawing.Color.DarkOrange;
             this.btnAllList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAllList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAllList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAllList.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnAllList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAllList.Location = new System.Drawing.Point(525, 23);
@@ -101,11 +102,11 @@
             // lbName
             // 
             this.lbName.AutoSize = true;
-            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbName.ForeColor = System.Drawing.Color.Black;
-            this.lbName.Location = new System.Drawing.Point(9, 27);
+            this.lbName.Location = new System.Drawing.Point(8, 25);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(115, 18);
+            this.lbName.Size = new System.Drawing.Size(126, 20);
             this.lbName.TabIndex = 6;
             this.lbName.Text = "Наименование:";
             // 
@@ -113,10 +114,10 @@
             // 
             this.findButton.BackColor = System.Drawing.Color.DarkOrange;
             this.findButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.findButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.findButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.findButton.Location = new System.Drawing.Point(428, 23);
+            this.findButton.Location = new System.Drawing.Point(428, 22);
             this.findButton.Name = "findButton";
             this.findButton.Size = new System.Drawing.Size(82, 28);
             this.findButton.TabIndex = 5;
@@ -134,7 +135,7 @@
             this.dataGridViewContractor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewContractor.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.dataGridViewContractor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -154,79 +155,18 @@
             this.innDataGridViewTextBoxColumn});
             this.dataGridViewContractor.DataSource = this.contractorBindingSource;
             this.dataGridViewContractor.EnableHeadersVisualStyles = false;
-            this.dataGridViewContractor.Location = new System.Drawing.Point(12, 120);
+            this.dataGridViewContractor.Location = new System.Drawing.Point(12, 128);
             this.dataGridViewContractor.MultiSelect = false;
             this.dataGridViewContractor.Name = "dataGridViewContractor";
             this.dataGridViewContractor.ReadOnly = true;
             this.dataGridViewContractor.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.dataGridViewContractor.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewContractor.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewContractor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContractor.Size = new System.Drawing.Size(824, 210);
+            this.dataGridViewContractor.Size = new System.Drawing.Size(824, 244);
             this.dataGridViewContractor.TabIndex = 43;
-            // 
-            // contractorBindingSource
-            // 
-            this.contractorBindingSource.DataMember = "Contractor";
-            this.contractorBindingSource.DataSource = this.accountOfGrainDataSet;
-            // 
-            // accountOfGrainDataSet
-            // 
-            this.accountOfGrainDataSet.DataSetName = "AccountOfGrainDataSet";
-            this.accountOfGrainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // addButton
-            // 
-            this.addButton.BackColor = System.Drawing.Color.DarkOrange;
-            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addButton.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addButton.Location = new System.Drawing.Point(12, 86);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(88, 28);
-            this.addButton.TabIndex = 45;
-            this.addButton.Text = "Добавить";
-            this.addButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.addButton.UseVisualStyleBackColor = false;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
-            // 
-            // changeButton
-            // 
-            this.changeButton.BackColor = System.Drawing.Color.DarkOrange;
-            this.changeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.changeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.changeButton.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.changeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.changeButton.Location = new System.Drawing.Point(108, 86);
-            this.changeButton.Name = "changeButton";
-            this.changeButton.Size = new System.Drawing.Size(88, 28);
-            this.changeButton.TabIndex = 46;
-            this.changeButton.Text = "Изменить";
-            this.changeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.changeButton.UseVisualStyleBackColor = false;
-            this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
-            // 
-            // deleteButton
-            // 
-            this.deleteButton.BackColor = System.Drawing.Color.DarkOrange;
-            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deleteButton.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteButton.Location = new System.Drawing.Point(202, 86);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(88, 28);
-            this.deleteButton.TabIndex = 47;
-            this.deleteButton.Text = "Удалить";
-            this.deleteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.deleteButton.UseVisualStyleBackColor = false;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
-            // 
-            // contractorTableAdapter
-            // 
-            this.contractorTableAdapter.ClearBeforeFill = true;
             // 
             // idcontractorDataGridViewTextBoxColumn
             // 
@@ -285,18 +225,82 @@
             this.innDataGridViewTextBoxColumn.Name = "innDataGridViewTextBoxColumn";
             this.innDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // contractorBindingSource
+            // 
+            this.contractorBindingSource.DataMember = "Contractor";
+            this.contractorBindingSource.DataSource = this.accountOfGrainDataSet;
+            // 
+            // accountOfGrainDataSet
+            // 
+            this.accountOfGrainDataSet.DataSetName = "AccountOfGrainDataSet";
+            this.accountOfGrainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // addButton
+            // 
+            this.addButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addButton.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addButton.Location = new System.Drawing.Point(12, 89);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(93, 28);
+            this.addButton.TabIndex = 45;
+            this.addButton.Text = "Добавить";
+            this.addButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
+            // changeButton
+            // 
+            this.changeButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.changeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.changeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.changeButton.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.changeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.changeButton.Location = new System.Drawing.Point(111, 89);
+            this.changeButton.Name = "changeButton";
+            this.changeButton.Size = new System.Drawing.Size(93, 28);
+            this.changeButton.TabIndex = 46;
+            this.changeButton.Text = "Изменить";
+            this.changeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.changeButton.UseVisualStyleBackColor = false;
+            this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.deleteButton.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.deleteButton.Location = new System.Drawing.Point(210, 89);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(93, 28);
+            this.deleteButton.TabIndex = 47;
+            this.deleteButton.Text = "Удалить";
+            this.deleteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
+            // contractorTableAdapter
+            // 
+            this.contractorTableAdapter.ClearBeforeFill = true;
+            // 
             // ContractorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(848, 342);
+            this.ClientSize = new System.Drawing.Size(848, 384);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.changeButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.dataGridViewContractor);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(864, 423);
+            this.MinimumSize = new System.Drawing.Size(864, 423);
             this.Name = "ContractorForm";
             this.Text = "Контрагенты";
             this.Load += new System.EventHandler(this.ContractorForm_Load);

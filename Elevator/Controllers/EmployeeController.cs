@@ -11,9 +11,9 @@ namespace Elevator.Controllers
 {
     class EmployeeController
     {
-        public void changeButtonClick(Employee employee)
+        public void changeButtonClick(Employee employee, Employee selectEmployee)
         {
-            new AddEmployeeForm(employee).ShowDialog();
+            new AddEmployeeForm(employee, selectEmployee).ShowDialog();
         }
         public void deleteButtonClick(string id)
         {

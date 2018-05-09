@@ -15,24 +15,26 @@ namespace Elevator.AddAndEditForms
     public partial class AddEmployeeForm : Form
     {
         private AddEmployeeController controller;
-        public Employee employee;
+        private Employee employee;
+        private Employee selectEmployee;
         public AddEmployeeForm()
         {
             InitializeComponent();
             controller = new AddEmployeeController();
             comboBoxPost.Text = comboBoxPost.Items[0].ToString();
         }
-        public AddEmployeeForm(Employee emp)
+        public AddEmployeeForm(Employee emp, Employee selectEmployee)
         {
             InitializeComponent();
             controller = new AddEmployeeController();
             employee = emp;
-            surnameTextBox.Text = emp.Surname;
-            nameTextBox.Text = emp.Name;
-            secnameTextBox.Text = emp.SecName;
-            comboBoxPost.Text = emp.Post;
-            loginTextBox.Text = emp.Login;
-            passwordTextBox.Text = emp.Password;
+            this.selectEmployee = selectEmployee;
+            surnameTextBox.Text = selectEmployee.Surname;
+            nameTextBox.Text = selectEmployee.Name;
+            secnameTextBox.Text = selectEmployee.SecName;
+            comboBoxPost.Text = selectEmployee.Post;
+            loginTextBox.Text = selectEmployee.Login;
+            passwordTextBox.Text = selectEmployee.Password;
             this.Text = "Изменение cотрудника";
             surnameTextBox.BackColor = Color.White;
             nameTextBox.BackColor = Color.White;
@@ -42,34 +44,42 @@ namespace Elevator.AddAndEditForms
             passwordTextBox.BackColor = Color.White;
             saveButton.Enabled = true;
             saveButton.BackColor = Color.DarkOrange;
+            if (!employee.Post.Equals("Главный бухгалтер"))
+            {
+                surnameTextBox.Enabled = false;
+                nameTextBox.Enabled = false;
+                secnameTextBox.Enabled = false;
+                comboBoxPost.Enabled = false;
+                loginTextBox.Enabled = false;
+            }
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (employee == null)
+            if (selectEmployee == null)
             {
-                employee = new Employee(surnameTextBox.Text,
+                selectEmployee = new Employee(surnameTextBox.Text,
                     nameTextBox.Text,
                     secnameTextBox.Text,
                     comboBoxPost.Text,
                     loginTextBox.Text,
                     passwordTextBox.Text);
-                if (controller.onSaveClick(employee, false))
+                if (controller.onSaveClick(selectEmployee, false))
                     this.Close();
-                else employee = null;
+                else selectEmployee = null;
             }
             else
             {
-                employee.Surname = surnameTextBox.Text;
-                employee.Name = nameTextBox.Text;
-                employee.SecName = secnameTextBox.Text;
-                employee.Post = comboBoxPost.Text;
-                employee.Login = loginTextBox.Text;
-                employee.Password = passwordTextBox.Text;
-                controller.onSaveClick(employee, true);
-                if (controller.onSaveClick(employee, true))
+                selectEmployee.Surname = surnameTextBox.Text;
+                selectEmployee.Name = nameTextBox.Text;
+                selectEmployee.SecName = secnameTextBox.Text;
+                selectEmployee.Post = comboBoxPost.Text;
+                selectEmployee.Login = loginTextBox.Text;
+                selectEmployee.Password = passwordTextBox.Text;
+                controller.onSaveClick(selectEmployee, true);
+                if (controller.onSaveClick(selectEmployee, true))
                     this.Close();
-                else employee = null;
+                else selectEmployee = null;
             }
         }
 
@@ -130,5 +140,14 @@ namespace Elevator.AddAndEditForms
         {
             keyPress(e);
         }
+
+        private void passwordTextBox_Enter(object sender, EventArgs e)
+        {
+            if (employee.Post != selectEmployee.Post && employee.Post.Equals("Главный бухгалтер"))
+            {
+                MessageBox.Show("Вы не можете изменить пароль сотрудника!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                passwordTextBox.Enabled = false;
+            }
+        }            
     }
 }

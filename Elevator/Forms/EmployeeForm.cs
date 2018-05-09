@@ -15,10 +15,22 @@ namespace Elevator.Forms
     public partial class EmployeeForm : Form
     {
         private EmployeeController controller;
-        public EmployeeForm()
+        private Employee employee;
+        public EmployeeForm(Employee employee)
         {
             InitializeComponent();
             controller = new EmployeeController();
+            this.employee = employee;
+            dataGridViewEmployee.CellClick += dataGridViewEmployee_CellClick;
+            if (!employee.Post.Equals("Главный бухгалтер"))
+            {
+                addButton.Enabled = false;
+                addButton.BackColor = Color.LightGray;
+                deleteButton.Enabled = false;
+                deleteButton.BackColor = Color.LightGray;
+                changeButton.Enabled = false;
+                changeButton.BackColor = Color.LightGray;
+            }
         }
 
         private void EmployeeForm_Load(object sender, EventArgs e)
@@ -28,19 +40,28 @@ namespace Elevator.Forms
 
         }
 
+        private void dataGridViewEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (employee.Login == Convert.ToString(dataGridViewEmployee.CurrentRow.Cells[5].Value))
+            {
+                changeButton.Enabled = true;
+                changeButton.BackColor = Color.DarkOrange;
+            }
+        }
+
         private void changeButton_Click(object sender, EventArgs e)
         {
             try
             {
                 DataGridViewRow row = dataGridViewEmployee.SelectedRows[0];
-                Employee employee = new Employee(Convert.ToInt32(dataGridViewEmployee.CurrentRow.Cells[0].Value),
+                Employee selectEmployee = new Employee(Convert.ToInt32(dataGridViewEmployee.CurrentRow.Cells[0].Value),
                     Convert.ToString(dataGridViewEmployee.CurrentRow.Cells[1].Value),
                     Convert.ToString(dataGridViewEmployee.CurrentRow.Cells[2].Value),
                     Convert.ToString(dataGridViewEmployee.CurrentRow.Cells[3].Value),
                     Convert.ToString(dataGridViewEmployee.CurrentRow.Cells[4].Value),
                     Convert.ToString(dataGridViewEmployee.CurrentRow.Cells[5].Value),
                     Convert.ToString(dataGridViewEmployee.CurrentRow.Cells[6].Value));
-                controller.changeButtonClick(employee);
+                controller.changeButtonClick(employee, selectEmployee);
                 dataGridViewEmployee.DataSource = DAO.getInstance().selectTable("Employee");
             }
             catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите сотрудника!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Error); }

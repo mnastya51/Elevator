@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AnalysisCardForm));
             this.createReportButton = new System.Windows.Forms.Button();
             this.dataGridViewRaw = new System.Windows.Forms.DataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,12 +49,12 @@
             // 
             this.createReportButton.BackColor = System.Drawing.Color.DarkOrange;
             this.createReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.createReportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.createReportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.createReportButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.createReportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.createReportButton.Location = new System.Drawing.Point(12, 12);
             this.createReportButton.Name = "createReportButton";
-            this.createReportButton.Size = new System.Drawing.Size(212, 28);
+            this.createReportButton.Size = new System.Drawing.Size(234, 35);
             this.createReportButton.TabIndex = 47;
             this.createReportButton.Text = "Создать карточку анализа";
             this.createReportButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -68,7 +69,7 @@
             this.dataGridViewRaw.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewRaw.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.dataGridViewRaw.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -88,16 +89,17 @@
             this.Column10,
             this.Column6});
             this.dataGridViewRaw.EnableHeadersVisualStyles = false;
-            this.dataGridViewRaw.Location = new System.Drawing.Point(12, 65);
+            this.dataGridViewRaw.Location = new System.Drawing.Point(12, 57);
             this.dataGridViewRaw.MultiSelect = false;
             this.dataGridViewRaw.Name = "dataGridViewRaw";
             this.dataGridViewRaw.ReadOnly = true;
             this.dataGridViewRaw.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.dataGridViewRaw.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewRaw.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewRaw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewRaw.Size = new System.Drawing.Size(804, 299);
+            this.dataGridViewRaw.Size = new System.Drawing.Size(804, 303);
             this.dataGridViewRaw.TabIndex = 48;
             this.dataGridViewRaw.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewRaw_DataBindingComplete);
             // 
@@ -116,7 +118,7 @@
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Сырье";
+            this.Column2.HeaderText = "Культура";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
@@ -165,6 +167,7 @@
             this.ClientSize = new System.Drawing.Size(828, 376);
             this.Controls.Add(this.dataGridViewRaw);
             this.Controls.Add(this.createReportButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AnalysisCardForm";
             this.Text = "Выбор отчета";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRaw)).EndInit();

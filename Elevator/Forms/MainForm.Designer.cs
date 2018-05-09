@@ -48,7 +48,7 @@
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analysisCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.сменитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelEmp = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
@@ -61,7 +61,7 @@
             this.справочникиToolStripMenuItem,
             this.сервисToolStripMenuItem,
             this.отчетыToolStripMenuItem,
-            this.сменитьПользователяToolStripMenuItem,
+            this.changeUserToolStripMenuItem,
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -100,7 +100,7 @@
             // 
             this.rawToolStripMenuItem.Name = "rawToolStripMenuItem";
             this.rawToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
-            this.rawToolStripMenuItem.Text = "Сырье";
+            this.rawToolStripMenuItem.Text = "Зерновые культуры";
             this.rawToolStripMenuItem.Click += new System.EventHandler(this.rawToolStripMenuItem_Click);
             // 
             // storageToolStripMenuItem
@@ -210,11 +210,12 @@
             this.reportToolStripMenuItem.Text = "Прочие отчеты";
             this.reportToolStripMenuItem.Click += new System.EventHandler(this.reportToolStripMenuItem_Click);
             // 
-            // сменитьПользователяToolStripMenuItem
+            // changeUserToolStripMenuItem
             // 
-            this.сменитьПользователяToolStripMenuItem.Name = "сменитьПользователяToolStripMenuItem";
-            this.сменитьПользователяToolStripMenuItem.Size = new System.Drawing.Size(145, 20);
-            this.сменитьПользователяToolStripMenuItem.Text = "Сменить пользователя";
+            this.changeUserToolStripMenuItem.Name = "changeUserToolStripMenuItem";
+            this.changeUserToolStripMenuItem.Size = new System.Drawing.Size(145, 20);
+            this.changeUserToolStripMenuItem.Text = "Сменить пользователя";
+            this.changeUserToolStripMenuItem.Click += new System.EventHandler(this.changeUserToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
@@ -273,7 +274,7 @@
         private System.Windows.Forms.ToolStripMenuItem отчетыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem analysisCardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem сменитьПользователяToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem normsImpurityToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dataAnalysToolStripMenuItem;

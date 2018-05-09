@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddEmployeeForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBoxPost = new System.Windows.Forms.ComboBox();
             this.secnameTextBox = new System.Windows.Forms.TextBox();
@@ -62,7 +63,7 @@
             this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(358, 183);
+            this.groupBox1.Size = new System.Drawing.Size(352, 205);
             this.groupBox1.TabIndex = 46;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Информация о сотруднике";
@@ -70,24 +71,26 @@
             // comboBoxPost
             // 
             this.comboBoxPost.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxPost.FormattingEnabled = true;
             this.comboBoxPost.Items.AddRange(new object[] {
             "Лаборант",
             "Заведующий лаборатории",
             "Бухгалтер",
             "Главный бухгалтер"});
-            this.comboBoxPost.Location = new System.Drawing.Point(115, 143);
+            this.comboBoxPost.Location = new System.Drawing.Point(122, 157);
             this.comboBoxPost.Name = "comboBoxPost";
-            this.comboBoxPost.Size = new System.Drawing.Size(231, 24);
+            this.comboBoxPost.Size = new System.Drawing.Size(207, 28);
             this.comboBoxPost.TabIndex = 25;
             // 
             // secnameTextBox
             // 
             this.secnameTextBox.BackColor = System.Drawing.Color.LightBlue;
-            this.secnameTextBox.Location = new System.Drawing.Point(115, 104);
+            this.secnameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.secnameTextBox.Location = new System.Drawing.Point(122, 113);
             this.secnameTextBox.MaxLength = 20;
             this.secnameTextBox.Name = "secnameTextBox";
-            this.secnameTextBox.Size = new System.Drawing.Size(231, 22);
+            this.secnameTextBox.Size = new System.Drawing.Size(207, 26);
             this.secnameTextBox.TabIndex = 24;
             this.secnameTextBox.TextChanged += new System.EventHandler(this.secnameTextBox_TextChanged);
             this.secnameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.secnameTextBox_KeyPress);
@@ -95,10 +98,11 @@
             // nameTextBox
             // 
             this.nameTextBox.BackColor = System.Drawing.Color.LightBlue;
-            this.nameTextBox.Location = new System.Drawing.Point(115, 63);
+            this.nameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nameTextBox.Location = new System.Drawing.Point(121, 68);
             this.nameTextBox.MaxLength = 20;
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(231, 22);
+            this.nameTextBox.Size = new System.Drawing.Size(208, 26);
             this.nameTextBox.TabIndex = 23;
             this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             this.nameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameTextBox_KeyPress);
@@ -106,10 +110,11 @@
             // surnameTextBox
             // 
             this.surnameTextBox.BackColor = System.Drawing.Color.LightBlue;
-            this.surnameTextBox.Location = new System.Drawing.Point(115, 26);
+            this.surnameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.surnameTextBox.Location = new System.Drawing.Point(121, 26);
             this.surnameTextBox.MaxLength = 30;
             this.surnameTextBox.Name = "surnameTextBox";
-            this.surnameTextBox.Size = new System.Drawing.Size(231, 22);
+            this.surnameTextBox.Size = new System.Drawing.Size(208, 26);
             this.surnameTextBox.TabIndex = 22;
             this.surnameTextBox.TextChanged += new System.EventHandler(this.surnameTextBox_TextChanged);
             this.surnameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.surnameTextBox_KeyPress);
@@ -117,44 +122,44 @@
             // labelPost
             // 
             this.labelPost.AutoSize = true;
-            this.labelPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelPost.ForeColor = System.Drawing.Color.Black;
-            this.labelPost.Location = new System.Drawing.Point(9, 149);
+            this.labelPost.Location = new System.Drawing.Point(11, 157);
             this.labelPost.Name = "labelPost";
-            this.labelPost.Size = new System.Drawing.Size(99, 18);
+            this.labelPost.Size = new System.Drawing.Size(105, 20);
             this.labelPost.TabIndex = 19;
             this.labelPost.Text = "Должность*:";
             // 
             // secnameLabel
             // 
             this.secnameLabel.AutoSize = true;
-            this.secnameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.secnameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.secnameLabel.ForeColor = System.Drawing.Color.Black;
-            this.secnameLabel.Location = new System.Drawing.Point(9, 104);
+            this.secnameLabel.Location = new System.Drawing.Point(11, 113);
             this.secnameLabel.Name = "secnameLabel";
-            this.secnameLabel.Size = new System.Drawing.Size(85, 18);
+            this.secnameLabel.Size = new System.Drawing.Size(93, 20);
             this.secnameLabel.TabIndex = 17;
             this.secnameLabel.Text = "Отчество*:";
             // 
             // rawLabel
             // 
             this.rawLabel.AutoSize = true;
-            this.rawLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rawLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.rawLabel.ForeColor = System.Drawing.Color.Black;
-            this.rawLabel.Location = new System.Drawing.Point(9, 63);
+            this.rawLabel.Location = new System.Drawing.Point(11, 68);
             this.rawLabel.Name = "rawLabel";
-            this.rawLabel.Size = new System.Drawing.Size(48, 18);
+            this.rawLabel.Size = new System.Drawing.Size(50, 20);
             this.rawLabel.TabIndex = 15;
             this.rawLabel.Text = "Имя*:";
             // 
             // lbSurname
             // 
             this.lbSurname.AutoSize = true;
-            this.lbSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbSurname.ForeColor = System.Drawing.Color.Black;
-            this.lbSurname.Location = new System.Drawing.Point(9, 27);
+            this.lbSurname.Location = new System.Drawing.Point(11, 26);
             this.lbSurname.Name = "lbSurname";
-            this.lbSurname.Size = new System.Drawing.Size(83, 18);
+            this.lbSurname.Size = new System.Drawing.Size(91, 20);
             this.lbSurname.TabIndex = 6;
             this.lbSurname.Text = "Фамилия*:";
             // 
@@ -167,9 +172,9 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.InfoText;
             this.groupBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.groupBox2.Location = new System.Drawing.Point(13, 201);
+            this.groupBox2.Location = new System.Drawing.Point(12, 225);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(358, 99);
+            this.groupBox2.Size = new System.Drawing.Size(352, 112);
             this.groupBox2.TabIndex = 47;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Информация для входа в систему";
@@ -178,45 +183,47 @@
             // 
             this.passwordTextBox.BackColor = System.Drawing.Color.LightBlue;
             this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.passwordTextBox.ForeColor = System.Drawing.Color.Gray;
-            this.passwordTextBox.Location = new System.Drawing.Point(114, 60);
+            this.passwordTextBox.Location = new System.Drawing.Point(121, 66);
             this.passwordTextBox.MaxLength = 20;
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
-            this.passwordTextBox.Size = new System.Drawing.Size(231, 25);
+            this.passwordTextBox.Size = new System.Drawing.Size(208, 26);
             this.passwordTextBox.TabIndex = 23;
             this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
+            this.passwordTextBox.Enter += new System.EventHandler(this.passwordTextBox_Enter);
             // 
             // loginTextBox
             // 
             this.loginTextBox.BackColor = System.Drawing.Color.LightBlue;
-            this.loginTextBox.Location = new System.Drawing.Point(115, 26);
+            this.loginTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loginTextBox.Location = new System.Drawing.Point(121, 24);
             this.loginTextBox.MaxLength = 20;
             this.loginTextBox.Name = "loginTextBox";
-            this.loginTextBox.Size = new System.Drawing.Size(231, 22);
+            this.loginTextBox.Size = new System.Drawing.Size(208, 26);
             this.loginTextBox.TabIndex = 22;
             this.loginTextBox.TextChanged += new System.EventHandler(this.loginTextBox_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(9, 63);
+            this.label3.Location = new System.Drawing.Point(11, 66);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 18);
+            this.label3.Size = new System.Drawing.Size(77, 20);
             this.label3.TabIndex = 15;
             this.label3.Text = "Пароль*:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(9, 27);
+            this.label4.Location = new System.Drawing.Point(11, 24);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 18);
+            this.label4.Size = new System.Drawing.Size(65, 20);
             this.label4.TabIndex = 6;
             this.label4.Text = "Логин*:";
             // 
@@ -225,12 +232,12 @@
             this.saveButton.BackColor = System.Drawing.Color.LightBlue;
             this.saveButton.Enabled = false;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.saveButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.saveButton.Location = new System.Drawing.Point(144, 313);
+            this.saveButton.Location = new System.Drawing.Point(133, 353);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(92, 34);
+            this.saveButton.Size = new System.Drawing.Size(100, 36);
             this.saveButton.TabIndex = 68;
             this.saveButton.Text = "Сохранить";
             this.saveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -242,10 +249,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(383, 359);
+            this.ClientSize = new System.Drawing.Size(381, 407);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(397, 446);
+            this.MinimumSize = new System.Drawing.Size(397, 446);
             this.Name = "AddEmployeeForm";
             this.Text = "Добавление сотрудника";
             this.groupBox1.ResumeLayout(false);

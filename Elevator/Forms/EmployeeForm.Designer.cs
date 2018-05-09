@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.surnameTextBox = new System.Windows.Forms.TextBox();
             this.btnAllList = new System.Windows.Forms.Button();
@@ -39,10 +40,6 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.changeButton = new System.Windows.Forms.Button();
             this.dataGridViewEmployee = new System.Windows.Forms.DataGridView();
-            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.accountOfGrainDataSet = new Elevator.AccountOfGrainDataSet();
-            this.employeeTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.EmployeeTableAdapter();
-            this.addButton = new System.Windows.Forms.Button();
             this.idempDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +47,10 @@
             this.postDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.accountOfGrainDataSet = new Elevator.AccountOfGrainDataSet();
+            this.employeeTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.EmployeeTableAdapter();
+            this.addButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
@@ -67,29 +68,30 @@
             this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(599, 59);
+            this.groupBox1.Size = new System.Drawing.Size(632, 59);
             this.groupBox1.TabIndex = 44;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Поиск";
             // 
             // surnameTextBox
             // 
-            this.surnameTextBox.Location = new System.Drawing.Point(86, 21);
+            this.surnameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.surnameTextBox.Location = new System.Drawing.Point(97, 20);
             this.surnameTextBox.MaxLength = 30;
             this.surnameTextBox.Name = "surnameTextBox";
-            this.surnameTextBox.Size = new System.Drawing.Size(184, 22);
+            this.surnameTextBox.Size = new System.Drawing.Size(184, 26);
             this.surnameTextBox.TabIndex = 49;
             // 
             // btnAllList
             // 
             this.btnAllList.BackColor = System.Drawing.Color.DarkOrange;
             this.btnAllList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAllList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAllList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAllList.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnAllList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAllList.Location = new System.Drawing.Point(364, 17);
+            this.btnAllList.Location = new System.Drawing.Point(399, 21);
             this.btnAllList.Name = "btnAllList";
-            this.btnAllList.Size = new System.Drawing.Size(218, 28);
+            this.btnAllList.Size = new System.Drawing.Size(218, 27);
             this.btnAllList.TabIndex = 9;
             this.btnAllList.Text = "Вывести полный список";
             this.btnAllList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -99,11 +101,11 @@
             // lbName
             // 
             this.lbName.AutoSize = true;
-            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbName.ForeColor = System.Drawing.Color.Black;
-            this.lbName.Location = new System.Drawing.Point(9, 27);
+            this.lbName.Location = new System.Drawing.Point(6, 19);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(77, 18);
+            this.lbName.Size = new System.Drawing.Size(85, 20);
             this.lbName.TabIndex = 6;
             this.lbName.Text = "Фамилия:";
             // 
@@ -111,10 +113,10 @@
             // 
             this.findButton.BackColor = System.Drawing.Color.DarkOrange;
             this.findButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.findButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.findButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.findButton.Location = new System.Drawing.Point(276, 17);
+            this.findButton.Location = new System.Drawing.Point(300, 19);
             this.findButton.Name = "findButton";
             this.findButton.Size = new System.Drawing.Size(82, 28);
             this.findButton.TabIndex = 5;
@@ -127,7 +129,7 @@
             // 
             this.deleteButton.BackColor = System.Drawing.Color.DarkOrange;
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.deleteButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.deleteButton.Location = new System.Drawing.Point(200, 77);
@@ -143,7 +145,7 @@
             // 
             this.changeButton.BackColor = System.Drawing.Color.DarkOrange;
             this.changeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.changeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.changeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.changeButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.changeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.changeButton.Location = new System.Drawing.Point(106, 77);
@@ -164,7 +166,7 @@
             this.dataGridViewEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewEmployee.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.dataGridViewEmployee.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -183,47 +185,18 @@
             this.passwordDataGridViewTextBoxColumn});
             this.dataGridViewEmployee.DataSource = this.employeeBindingSource;
             this.dataGridViewEmployee.EnableHeadersVisualStyles = false;
-            this.dataGridViewEmployee.Location = new System.Drawing.Point(12, 111);
+            this.dataGridViewEmployee.Location = new System.Drawing.Point(12, 113);
             this.dataGridViewEmployee.MultiSelect = false;
             this.dataGridViewEmployee.Name = "dataGridViewEmployee";
             this.dataGridViewEmployee.ReadOnly = true;
             this.dataGridViewEmployee.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.dataGridViewEmployee.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewEmployee.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewEmployee.Size = new System.Drawing.Size(601, 172);
+            this.dataGridViewEmployee.Size = new System.Drawing.Size(632, 233);
             this.dataGridViewEmployee.TabIndex = 54;
-            // 
-            // employeeBindingSource
-            // 
-            this.employeeBindingSource.DataMember = "Employee";
-            this.employeeBindingSource.DataSource = this.accountOfGrainDataSet;
-            // 
-            // accountOfGrainDataSet
-            // 
-            this.accountOfGrainDataSet.DataSetName = "AccountOfGrainDataSet";
-            this.accountOfGrainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // employeeTableAdapter
-            // 
-            this.employeeTableAdapter.ClearBeforeFill = true;
-            // 
-            // addButton
-            // 
-            this.addButton.BackColor = System.Drawing.Color.DarkOrange;
-            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addButton.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addButton.Location = new System.Drawing.Point(12, 77);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(88, 28);
-            this.addButton.TabIndex = 55;
-            this.addButton.Text = "Добавить";
-            this.addButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.addButton.UseVisualStyleBackColor = false;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // idempDataGridViewTextBoxColumn
             // 
@@ -277,17 +250,50 @@
             this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
             this.passwordDataGridViewTextBoxColumn.Visible = false;
             // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataMember = "Employee";
+            this.employeeBindingSource.DataSource = this.accountOfGrainDataSet;
+            // 
+            // accountOfGrainDataSet
+            // 
+            this.accountOfGrainDataSet.DataSetName = "AccountOfGrainDataSet";
+            this.accountOfGrainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // employeeTableAdapter
+            // 
+            this.employeeTableAdapter.ClearBeforeFill = true;
+            // 
+            // addButton
+            // 
+            this.addButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addButton.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addButton.Location = new System.Drawing.Point(12, 78);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(88, 28);
+            this.addButton.TabIndex = 55;
+            this.addButton.Text = "Добавить";
+            this.addButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
             // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(636, 295);
+            this.ClientSize = new System.Drawing.Size(658, 358);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.dataGridViewEmployee);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.changeButton);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(674, 397);
+            this.MinimumSize = new System.Drawing.Size(674, 397);
             this.Name = "EmployeeForm";
             this.Text = "Сотрудники";
             this.Load += new System.EventHandler(this.EmployeeForm_Load);

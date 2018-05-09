@@ -189,6 +189,6 @@ namespace Elevator.Forms
             new AddDateAnalysForm(new DateAnalys(
                 Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[4].Value),              
                 Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value))).ShowDialog();
-        }
+        }       
     }
 }

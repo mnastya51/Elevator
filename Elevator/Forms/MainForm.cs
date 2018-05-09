@@ -20,9 +20,13 @@ namespace Elevator.Forms
             InitializeComponent();
             this.employee = employee;
             labelEmp.Text = employee.Surname + " " + employee.Name;
+            determineLaw();
+        }
+
+        private void determineLaw()
+        {
             if (employee.Post.Equals("Лаборант"))
             {
-                employeeToolStripMenuItem.Enabled = false;
                 contractorToolStripMenuItem.Enabled = false;
                 contractToolStripMenuItem.Enabled = false;
                 reportToolStripMenuItem.Enabled = false;
@@ -36,7 +40,6 @@ namespace Elevator.Forms
                 analysisQualityToolStripMenuItem.Enabled = false;
                 dataAnalysToolStripMenuItem.Enabled = false;
                 analysisCardToolStripMenuItem.Enabled = false;
-                employeeToolStripMenuItem.Enabled = false;
             }
             else if (employee.Post.Equals("Главный бухгалтер"))
             {
@@ -50,15 +53,27 @@ namespace Elevator.Forms
             }
             else if (employee.Post.Equals("Заведующий лабораторией"))
             {
-                employeeToolStripMenuItem.Enabled = false;
                 contractorToolStripMenuItem.Enabled = false;
                 contractToolStripMenuItem.Enabled = false;
             }
         }
 
+        private void returnLaw()
+        {
+            contractorToolStripMenuItem.Enabled = true;
+            contractToolStripMenuItem.Enabled = true;
+            reportToolStripMenuItem.Enabled = true;
+            rawToolStripMenuItem.Enabled = true;
+            storageToolStripMenuItem.Enabled = true;
+            impurityToolStripMenuItem.Enabled = true;
+            normsImpurityToolStripMenuItem.Enabled = true;
+            analysisQualityToolStripMenuItem.Enabled = true;
+            dataAnalysToolStripMenuItem.Enabled = true;
+            analysisCardToolStripMenuItem.Enabled = true;
+        }
         private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new EmployeeForm().ShowDialog();
+            new EmployeeForm(employee).ShowDialog();
         }
 
         private void contractorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -135,6 +150,25 @@ namespace Elevator.Forms
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void changeUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AuthorizationForm authForm = new AuthorizationForm();
+            authForm.StartPosition = FormStartPosition.CenterParent;
+            if (authForm.ShowDialog() == DialogResult.OK)
+            {
+                this.Visible = true;
+                this.employee = authForm.Empl;
+                labelEmp.Text = employee.Name + " " + employee.Surname;
+                returnLaw();
+                determineLaw();
+            }
+            else
+            {
+                this.Close();
+            }
         }
     }   
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StoragePlac1Form));
             this.labelName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
@@ -61,12 +62,12 @@
             // 
             this.saveButton.BackColor = System.Drawing.Color.DarkOrange;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.saveButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.saveButton.Location = new System.Drawing.Point(144, 84);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(92, 34);
+            this.saveButton.Size = new System.Drawing.Size(105, 34);
             this.saveButton.TabIndex = 67;
             this.saveButton.Text = "Сохранить";
             this.saveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -75,13 +76,15 @@
             // 
             // storeNumericUpDown
             // 
+            this.storeNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.storeNumericUpDown.Location = new System.Drawing.Point(244, 9);
             this.storeNumericUpDown.Name = "storeNumericUpDown";
-            this.storeNumericUpDown.Size = new System.Drawing.Size(120, 20);
+            this.storeNumericUpDown.Size = new System.Drawing.Size(120, 26);
             this.storeNumericUpDown.TabIndex = 68;
             // 
             // silageNumericUpDown
             // 
+            this.silageNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.silageNumericUpDown.Location = new System.Drawing.Point(244, 43);
             this.silageNumericUpDown.Maximum = new decimal(new int[] {
             200,
@@ -89,21 +92,24 @@
             0,
             0});
             this.silageNumericUpDown.Name = "silageNumericUpDown";
-            this.silageNumericUpDown.Size = new System.Drawing.Size(120, 20);
+            this.silageNumericUpDown.Size = new System.Drawing.Size(120, 26);
             this.silageNumericUpDown.TabIndex = 69;
             // 
-            // StorageForm
+            // StoragePlac1Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(373, 134);
+            this.ClientSize = new System.Drawing.Size(381, 134);
             this.Controls.Add(this.silageNumericUpDown);
             this.Controls.Add(this.storeNumericUpDown);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelName);
-            this.Name = "StorageForm";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(397, 173);
+            this.MinimumSize = new System.Drawing.Size(397, 173);
+            this.Name = "StoragePlac1Form";
             this.Text = "Место хранения";
             this.Load += new System.EventHandler(this.StorageForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.storeNumericUpDown)).EndInit();

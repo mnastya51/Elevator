@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddDryForm));
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.textBoxWeightBefore = new System.Windows.Forms.TextBox();
@@ -45,33 +46,36 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(10, 12);
+            this.label1.Location = new System.Drawing.Point(12, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 20);
+            this.label1.Size = new System.Drawing.Size(58, 20);
             this.label1.TabIndex = 58;
-            this.label1.Text = "Дата:";
+            this.label1.Text = "Дата*:";
             // 
             // dateTimePicker
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(163, 11);
+            this.dateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dateTimePicker.Location = new System.Drawing.Point(176, 16);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(137, 20);
+            this.dateTimePicker.Size = new System.Drawing.Size(240, 26);
             this.dateTimePicker.TabIndex = 59;
             // 
             // textBoxWeightBefore
             // 
-            this.textBoxWeightBefore.Location = new System.Drawing.Point(163, 49);
+            this.textBoxWeightBefore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxWeightBefore.Location = new System.Drawing.Point(176, 59);
             this.textBoxWeightBefore.Name = "textBoxWeightBefore";
-            this.textBoxWeightBefore.Size = new System.Drawing.Size(137, 20);
+            this.textBoxWeightBefore.Size = new System.Drawing.Size(240, 26);
             this.textBoxWeightBefore.TabIndex = 60;
             this.textBoxWeightBefore.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxWeightUp_KeyPress);
             // 
             // textBoxWeightAfter
             // 
             this.textBoxWeightAfter.BackColor = System.Drawing.Color.LightBlue;
-            this.textBoxWeightAfter.Location = new System.Drawing.Point(163, 86);
+            this.textBoxWeightAfter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxWeightAfter.Location = new System.Drawing.Point(176, 101);
             this.textBoxWeightAfter.Name = "textBoxWeightAfter";
-            this.textBoxWeightAfter.Size = new System.Drawing.Size(137, 20);
+            this.textBoxWeightAfter.Size = new System.Drawing.Size(240, 26);
             this.textBoxWeightAfter.TabIndex = 61;
             this.textBoxWeightAfter.TextChanged += new System.EventHandler(this.textBoxWeightAfter_TextChanged);
             this.textBoxWeightAfter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxWeightAfter_KeyPress);
@@ -80,7 +84,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(10, 49);
+            this.label2.Location = new System.Drawing.Point(10, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 20);
             this.label2.TabIndex = 62;
@@ -90,25 +94,27 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(10, 86);
+            this.label3.Location = new System.Drawing.Point(10, 101);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 20);
+            this.label3.Size = new System.Drawing.Size(96, 20);
             this.label3.TabIndex = 63;
-            this.label3.Text = "Вес после:";
+            this.label3.Text = "Вес после*:";
             // 
             // textBoxWetBefore
             // 
-            this.textBoxWetBefore.Location = new System.Drawing.Point(163, 126);
+            this.textBoxWetBefore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxWetBefore.Location = new System.Drawing.Point(176, 145);
             this.textBoxWetBefore.Name = "textBoxWetBefore";
-            this.textBoxWetBefore.Size = new System.Drawing.Size(137, 20);
+            this.textBoxWetBefore.Size = new System.Drawing.Size(240, 26);
             this.textBoxWetBefore.TabIndex = 64;
             this.textBoxWetBefore.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxHumidityUp_KeyPress);
             // 
             // textBoxWetAfter
             // 
-            this.textBoxWetAfter.Location = new System.Drawing.Point(163, 160);
+            this.textBoxWetAfter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxWetAfter.Location = new System.Drawing.Point(176, 189);
             this.textBoxWetAfter.Name = "textBoxWetAfter";
-            this.textBoxWetAfter.Size = new System.Drawing.Size(137, 20);
+            this.textBoxWetAfter.Size = new System.Drawing.Size(240, 26);
             this.textBoxWetAfter.TabIndex = 65;
             this.textBoxWetAfter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxHumidityAfter_KeyPress);
             // 
@@ -116,7 +122,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(10, 126);
+            this.label4.Location = new System.Drawing.Point(10, 145);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 20);
             this.label4.TabIndex = 66;
@@ -126,7 +132,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(10, 160);
+            this.label5.Location = new System.Drawing.Point(12, 189);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(147, 20);
             this.label5.TabIndex = 67;
@@ -137,12 +143,12 @@
             this.saveButton.BackColor = System.Drawing.Color.LightBlue;
             this.saveButton.Enabled = false;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.saveButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.saveButton.Location = new System.Drawing.Point(105, 201);
+            this.saveButton.Location = new System.Drawing.Point(176, 233);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(92, 34);
+            this.saveButton.Size = new System.Drawing.Size(100, 36);
             this.saveButton.TabIndex = 68;
             this.saveButton.Text = "Сохранить";
             this.saveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -154,7 +160,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(316, 249);
+            this.ClientSize = new System.Drawing.Size(435, 286);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -166,6 +172,9 @@
             this.Controls.Add(this.textBoxWeightBefore);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(451, 325);
+            this.MinimumSize = new System.Drawing.Size(451, 325);
             this.Name = "AddDryForm";
             this.Text = "Добавление сушки";
             this.ResumeLayout(false);

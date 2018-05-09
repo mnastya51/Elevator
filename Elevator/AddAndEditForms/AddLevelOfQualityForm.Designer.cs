@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddLevelOfQualityForm));
             this.saveButton = new System.Windows.Forms.Button();
             this.impurityLabel = new System.Windows.Forms.Label();
             this.textBoxImpurity = new System.Windows.Forms.TextBox();
@@ -38,12 +39,12 @@
             this.saveButton.BackColor = System.Drawing.Color.LightBlue;
             this.saveButton.Enabled = false;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.saveButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.saveButton.Location = new System.Drawing.Point(161, 48);
+            this.saveButton.Location = new System.Drawing.Point(129, 58);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(92, 34);
+            this.saveButton.Size = new System.Drawing.Size(100, 36);
             this.saveButton.TabIndex = 72;
             this.saveButton.Text = "Сохранить";
             this.saveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -54,7 +55,7 @@
             // 
             this.impurityLabel.AutoSize = true;
             this.impurityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.impurityLabel.Location = new System.Drawing.Point(12, 9);
+            this.impurityLabel.Location = new System.Drawing.Point(12, 16);
             this.impurityLabel.Name = "impurityLabel";
             this.impurityLabel.Size = new System.Drawing.Size(111, 20);
             this.impurityLabel.TabIndex = 71;
@@ -63,11 +64,11 @@
             // textBoxImpurity
             // 
             this.textBoxImpurity.BackColor = System.Drawing.Color.LightBlue;
-            this.textBoxImpurity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxImpurity.Location = new System.Drawing.Point(124, 9);
+            this.textBoxImpurity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxImpurity.Location = new System.Drawing.Point(129, 16);
             this.textBoxImpurity.MaxLength = 20;
             this.textBoxImpurity.Name = "textBoxImpurity";
-            this.textBoxImpurity.Size = new System.Drawing.Size(269, 22);
+            this.textBoxImpurity.Size = new System.Drawing.Size(218, 26);
             this.textBoxImpurity.TabIndex = 73;
             this.textBoxImpurity.TextChanged += new System.EventHandler(this.textBoxImpurity_TextChanged);
             this.textBoxImpurity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxImpurity_KeyPress);
@@ -77,10 +78,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(405, 94);
+            this.ClientSize = new System.Drawing.Size(362, 111);
             this.Controls.Add(this.textBoxImpurity);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.impurityLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(378, 150);
+            this.MinimumSize = new System.Drawing.Size(378, 150);
             this.Name = "AddLevelOfQualityForm";
             this.Text = "Добавление показателя качества";
             this.ResumeLayout(false);

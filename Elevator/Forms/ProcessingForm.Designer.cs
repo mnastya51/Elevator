@@ -30,7 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProcessingForm));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.labelWetBefore = new System.Windows.Forms.Label();
@@ -73,6 +73,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.findButton = new System.Windows.Forms.Button();
             this.lbName = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,33 +81,26 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox3.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRaw)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.tabControl);
-            this.groupBox3.Location = new System.Drawing.Point(551, 7);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(363, 332);
-            this.groupBox3.TabIndex = 63;
-            this.groupBox3.TabStop = false;
             // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tabControl.Location = new System.Drawing.Point(6, 14);
+            this.tabControl.HotTrack = true;
+            this.tabControl.Location = new System.Drawing.Point(6, 15);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(340, 307);
+            this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl.TabIndex = 0;
             // 
             // tabPage1
@@ -232,12 +226,12 @@
             this.changeDryButton.BackColor = System.Drawing.Color.LightGray;
             this.changeDryButton.Enabled = false;
             this.changeDryButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.changeDryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.changeDryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.changeDryButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.changeDryButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.changeDryButton.Location = new System.Drawing.Point(100, 6);
+            this.changeDryButton.Location = new System.Drawing.Point(105, 6);
             this.changeDryButton.Name = "changeDryButton";
-            this.changeDryButton.Size = new System.Drawing.Size(88, 28);
+            this.changeDryButton.Size = new System.Drawing.Size(93, 28);
             this.changeDryButton.TabIndex = 48;
             this.changeDryButton.Text = "Изменить";
             this.changeDryButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -249,12 +243,12 @@
             this.addDryButton.BackColor = System.Drawing.Color.LightGray;
             this.addDryButton.Enabled = false;
             this.addDryButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addDryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addDryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addDryButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.addDryButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.addDryButton.Location = new System.Drawing.Point(6, 6);
             this.addDryButton.Name = "addDryButton";
-            this.addDryButton.Size = new System.Drawing.Size(88, 28);
+            this.addDryButton.Size = new System.Drawing.Size(93, 28);
             this.addDryButton.TabIndex = 47;
             this.addDryButton.Text = "Добавить";
             this.addDryButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -264,6 +258,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
+            this.tabPage2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabPage2.Controls.Add(this.labelWeightAfterClear);
             this.tabPage2.Controls.Add(this.label22);
             this.tabPage2.Controls.Add(this.labelWeightBeforeClear);
@@ -451,7 +446,7 @@
             this.changeClearButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.changeClearButton.Location = new System.Drawing.Point(100, 6);
             this.changeClearButton.Name = "changeClearButton";
-            this.changeClearButton.Size = new System.Drawing.Size(88, 28);
+            this.changeClearButton.Size = new System.Drawing.Size(93, 28);
             this.changeClearButton.TabIndex = 50;
             this.changeClearButton.Text = "Изменить";
             this.changeClearButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -468,7 +463,7 @@
             this.addClearButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.addClearButton.Location = new System.Drawing.Point(6, 6);
             this.addClearButton.Name = "addClearButton";
-            this.addClearButton.Size = new System.Drawing.Size(88, 28);
+            this.addClearButton.Size = new System.Drawing.Size(93, 28);
             this.addClearButton.TabIndex = 49;
             this.addClearButton.Text = "Добавить";
             this.addClearButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -493,7 +488,7 @@
             this.dataGridViewRaw.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewRaw.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.dataGridViewRaw.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -516,6 +511,7 @@
             this.dataGridViewRaw.Name = "dataGridViewRaw";
             this.dataGridViewRaw.ReadOnly = true;
             this.dataGridViewRaw.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.dataGridViewRaw.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewRaw.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -543,28 +539,30 @@
             // 
             // contractorTextBox
             // 
-            this.contractorTextBox.Location = new System.Drawing.Point(106, 25);
+            this.contractorTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.contractorTextBox.Location = new System.Drawing.Point(114, 20);
             this.contractorTextBox.Name = "contractorTextBox";
-            this.contractorTextBox.Size = new System.Drawing.Size(144, 22);
+            this.contractorTextBox.Size = new System.Drawing.Size(149, 26);
             this.contractorTextBox.TabIndex = 13;
             // 
             // rawTextBox
             // 
-            this.rawTextBox.Location = new System.Drawing.Point(320, 25);
+            this.rawTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rawTextBox.Location = new System.Drawing.Point(358, 20);
             this.rawTextBox.Name = "rawTextBox";
-            this.rawTextBox.Size = new System.Drawing.Size(144, 22);
+            this.rawTextBox.Size = new System.Drawing.Size(134, 26);
             this.rawTextBox.TabIndex = 12;
             // 
             // btnAllList
             // 
             this.btnAllList.BackColor = System.Drawing.Color.DarkOrange;
             this.btnAllList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAllList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAllList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAllList.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnAllList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAllList.Location = new System.Drawing.Point(222, 61);
+            this.btnAllList.Location = new System.Drawing.Point(214, 60);
             this.btnAllList.Name = "btnAllList";
-            this.btnAllList.Size = new System.Drawing.Size(183, 28);
+            this.btnAllList.Size = new System.Drawing.Size(218, 28);
             this.btnAllList.TabIndex = 7;
             this.btnAllList.Text = "Вывести полный список";
             this.btnAllList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -574,22 +572,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(256, 26);
+            this.label1.Location = new System.Drawing.Point(269, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 18);
+            this.label1.Size = new System.Drawing.Size(83, 20);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Сырье:";
+            this.label1.Text = "Культура:";
             // 
             // findButton
             // 
             this.findButton.BackColor = System.Drawing.Color.DarkOrange;
             this.findButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.findButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.findButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.findButton.Location = new System.Drawing.Point(96, 60);
+            this.findButton.Location = new System.Drawing.Point(114, 60);
             this.findButton.Name = "findButton";
             this.findButton.Size = new System.Drawing.Size(82, 28);
             this.findButton.TabIndex = 5;
@@ -601,13 +599,22 @@
             // lbName
             // 
             this.lbName.AutoSize = true;
-            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbName.ForeColor = System.Drawing.Color.Black;
-            this.lbName.Location = new System.Drawing.Point(9, 27);
+            this.lbName.Location = new System.Drawing.Point(6, 20);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(91, 18);
+            this.lbName.Size = new System.Drawing.Size(102, 20);
             this.lbName.TabIndex = 6;
             this.lbName.Text = "Контрагент:";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.tabControl);
+            this.groupBox3.Location = new System.Drawing.Point(551, 7);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(363, 332);
+            this.groupBox3.TabIndex = 63;
+            this.groupBox3.TabStop = false;
             // 
             // Column3
             // 
@@ -624,7 +631,7 @@
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Сырье";
+            this.Column2.HeaderText = "Культура";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
@@ -658,12 +665,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(931, 351);
+            this.ClientSize = new System.Drawing.Size(931, 347);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(947, 386);
+            this.MinimumSize = new System.Drawing.Size(947, 386);
             this.Name = "ProcessingForm";
             this.Text = "Обработка";
-            this.groupBox3.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -673,12 +682,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRaw)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button changeDryButton;
@@ -721,6 +730,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
