@@ -2227,12 +2227,12 @@ namespace Elevator
                 return false;
             }
         }
-        public void deleteShipment(string idStorage, string contractor, string subdivision, int idRaw)
+        public void deleteShipment(string date, string contractor, string subdivision, int idRaw)
         {
             string sqlCommand;
-            sqlCommand = string.Format("Delete Shipment where id_place_storage = {0} and id_raw = {1} and " +
+            sqlCommand = string.Format("Delete Shipment where date_shipment = '{0}' and id_raw = {1} and " +
                 "id_contractor = (select id_contractor from Contractor where name_contr = '{2}' and subdivision = '{3}')",
-                idStorage, idRaw, contractor, subdivision);
+                date, idRaw, contractor, subdivision);
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

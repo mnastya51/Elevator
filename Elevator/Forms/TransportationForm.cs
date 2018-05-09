@@ -38,12 +38,15 @@ namespace Elevator.Forms
             DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
             column1.Name = "Код";
             dataGridViewDelivery.Columns.Add(column1);
+            column1.Visible = false;
             DataGridViewTextBoxColumn column2 = new DataGridViewTextBoxColumn();
             column2.Name = "Хранилище";
             dataGridViewDelivery.Columns.Add(column2);
+            column2.Visible = false;
             DataGridViewTextBoxColumn column3 = new DataGridViewTextBoxColumn();
             column3.Name = "Номер";
             dataGridViewDelivery.Columns.Add(column3);
+            column3.Visible = false;
             select();
             cancelButton.Enabled = true;
             cancelButton.Visible = true;
@@ -109,7 +112,7 @@ namespace Elevator.Forms
                     {
                         Shipment shipment = new Shipment(Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[1].Value),
                         Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[2].Value),
-                        Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[10].Value),
+                        Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[6].Value),
                         Convert.ToInt32(dataGridViewDelivery.CurrentRow.Cells[0].Value));
                         controller.deleteButtonClick(shipment);
                     }
@@ -164,8 +167,8 @@ namespace Elevator.Forms
                     Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[2].Value),
                     Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[10].Value),
                     Convert.ToInt32(dataGridViewDelivery.CurrentRow.Cells[0].Value),
+                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[6].Value),
                     Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[11].Value),
-                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[10].Value),
                     Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[12].Value),
                      Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[9].Value));
                     controller.cancelShipmentClick(shipment);

@@ -22,22 +22,22 @@ namespace Elevator.Model
             base(contractor, subdivision, date, transport, weight)
         {
         }
-        public Shipment(string contractor, string subdivision, string idStorage, int id) 
+        public Shipment(string contractor, string subdivision, string date, int idRaw) 
         {
-            this.IdStorage = idStorage;
+            this.Id= idRaw;
             this.Contractor = contractor;
             this.Subdivision = subdivision;
-            this.Id = id;
+            this.Date = date;
         }
-        public Shipment(string contractor, string subdivision, string idStorage, int id, string placeStorage,
-            string idPlaceStorage, string number, string weight)
+        public Shipment(string contractor, string subdivision, string idStorage, int id, string date,
+            string placeStorage, string number, string weight)
         {
             this.IdStorage = idStorage;
             this.Contractor = contractor;
             this.Subdivision = subdivision;
             this.Id = id;
+            this.Date = date;
             this.PlaceStorage = placeStorage;
-            this.IdPlaceStorage = idPlaceStorage;
             this.Number = number;
             this.Weight = weight;
         }
