@@ -23,7 +23,7 @@ namespace Elevator.Controllers
         public bool onSaveClick(Shipment shipment, StoreStoragePlace store, string id)
         {
             if (!DAO.getInstance().addShipment(shipment.Id, shipment.Contractor,
-            shipment.Subdivision, shipment.Transport, shipment.Weight, shipment.Date, id))
+            shipment.Subdivision, shipment.Transport, shipment.Weight, shipment.Date, id, "numb_store", shipment.Number))
             {
                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -40,7 +40,7 @@ namespace Elevator.Controllers
         public bool onSaveClick(Shipment shipment, SilageStoragePlace silage, string id)
         {
             if (!DAO.getInstance().addShipment(shipment.Id, shipment.Contractor,
-                shipment.Subdivision, shipment.Transport, shipment.Weight, shipment.Date, id))
+                shipment.Subdivision, shipment.Transport, shipment.Weight, shipment.Date, id, "numb_silage", shipment.Number))
             {
                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;

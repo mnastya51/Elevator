@@ -38,13 +38,23 @@ namespace Elevator.Forms
             DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
             column1.Name = "Код";
             dataGridViewDelivery.Columns.Add(column1);
+            DataGridViewTextBoxColumn column2 = new DataGridViewTextBoxColumn();
+            column2.Name = "Хранилище";
+            dataGridViewDelivery.Columns.Add(column2);
+            DataGridViewTextBoxColumn column3 = new DataGridViewTextBoxColumn();
+            column3.Name = "Номер";
+            dataGridViewDelivery.Columns.Add(column3);
             select();
+            cancelButton.Enabled = true;
+            cancelButton.Visible = true;
             if (employee.Post.Equals("Бухгалтер") || employee.Post.Equals("Главный бухгалтер"))
             {
                 addButton.Enabled = false;
                 addButton.BackColor = Color.LightGray;
                 changeButton.Enabled = false;
                 changeButton.BackColor = Color.LightGray;
+                cancelButton.Enabled = false;
+                cancelButton.BackColor = Color.LightGray;
             }
         }
 
@@ -139,6 +149,30 @@ namespace Elevator.Forms
             rawTextBox.Text = string.Empty;
             contractorTextBox.Text = string.Empty;
             dataGridViewDelivery.ClearSelection();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataGridViewRow row = dataGridViewDelivery.SelectedRows[0];
+                DialogResult dr = MessageBox.Show("Вы действительно хотите отменить запись?",
+            "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                if (dr == DialogResult.OK)
+                {
+                    Shipment shipment = new Shipment(Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[1].Value),
+                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[2].Value),
+                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[10].Value),
+                    Convert.ToInt32(dataGridViewDelivery.CurrentRow.Cells[0].Value),
+                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[11].Value),
+                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[10].Value),
+                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[12].Value),
+                     Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[9].Value));
+                    controller.cancelShipmentClick(shipment);
+                }
+            }
+            catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите запись!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            select();
         }
     }
 }

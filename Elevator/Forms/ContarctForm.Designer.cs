@@ -201,6 +201,7 @@
             this.dataGridViewContract.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewContract.Size = new System.Drawing.Size(731, 244);
             this.dataGridViewContract.TabIndex = 61;
+            this.dataGridViewContract.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewContract_DataBindingComplete);
             // 
             // Column1
             // 

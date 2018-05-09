@@ -32,6 +32,7 @@ namespace Elevator.Forms
         {
             controller.addButtonClick();
             dataGridViewContractor.DataSource = DAO.getInstance().selectTable("Contractor");
+            dataGridViewContractor.ClearSelection();
         }
 
         private void changeButton_Click(object sender, EventArgs e)
@@ -49,6 +50,7 @@ namespace Elevator.Forms
                     Convert.ToString(dataGridViewContractor.CurrentRow.Cells[7].Value));
                 controller.changeButtonClick(contractor);
                 dataGridViewContractor.DataSource = DAO.getInstance().selectTable("Contractor");
+                dataGridViewContractor.ClearSelection();
             }
             catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите контрагента!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }

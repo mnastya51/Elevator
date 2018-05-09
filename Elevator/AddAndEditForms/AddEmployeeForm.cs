@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -44,7 +45,7 @@ namespace Elevator.AddAndEditForms
             passwordTextBox.BackColor = Color.White;
             saveButton.Enabled = true;
             saveButton.BackColor = Color.DarkOrange;
-            if (!employee.Post.Equals("Главный бухгалтер"))
+            if (!(employee.Post.Equals("Главный бухгалтер") || employee.Post.Equals("admin")))
             {
                 surnameTextBox.Enabled = false;
                 nameTextBox.Enabled = false;
@@ -56,6 +57,9 @@ namespace Elevator.AddAndEditForms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] checkSum = md5.ComputeHash(Encoding.UTF8.GetBytes(passwordTextBox.Text.Trim()));
+            string resultPassword = BitConverter.ToString(checkSum).Replace("-", String.Empty);
             if (selectEmployee == null)
             {
                 selectEmployee = new Employee(surnameTextBox.Text,
@@ -63,7 +67,7 @@ namespace Elevator.AddAndEditForms
                     secnameTextBox.Text,
                     comboBoxPost.Text,
                     loginTextBox.Text,
-                    passwordTextBox.Text);
+                    resultPassword);
                 if (controller.onSaveClick(selectEmployee, false))
                     this.Close();
                 else selectEmployee = null;
@@ -75,7 +79,7 @@ namespace Elevator.AddAndEditForms
                 selectEmployee.SecName = secnameTextBox.Text;
                 selectEmployee.Post = comboBoxPost.Text;
                 selectEmployee.Login = loginTextBox.Text;
-                selectEmployee.Password = passwordTextBox.Text;
+                selectEmployee.Password = resultPassword;
                 controller.onSaveClick(selectEmployee, true);
                 if (controller.onSaveClick(selectEmployee, true))
                     this.Close();
@@ -143,10 +147,13 @@ namespace Elevator.AddAndEditForms
 
         private void passwordTextBox_Enter(object sender, EventArgs e)
         {
-            if (employee.Post != selectEmployee.Post && employee.Post.Equals("Главный бухгалтер"))
+            if (employee != null)
             {
-                MessageBox.Show("Вы не можете изменить пароль сотрудника!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                passwordTextBox.Enabled = false;
+                if (employee.Post != selectEmployee.Post && (employee.Post.Equals("Главный бухгалтер") || employee.Post.Equals("admin")))
+                {
+                    MessageBox.Show("Вы не можете изменить пароль сотрудника!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    passwordTextBox.Enabled = false;
+                }
             }
         }            
     }

@@ -22,7 +22,7 @@ namespace Elevator.Forms
             controller = new EmployeeController();
             this.employee = employee;
             dataGridViewEmployee.CellClick += dataGridViewEmployee_CellClick;
-            if (!employee.Post.Equals("Главный бухгалтер"))
+            if (!(employee.Post.Equals("Главный бухгалтер") || employee.Post.Equals("admin")))
             {
                 addButton.Enabled = false;
                 addButton.BackColor = Color.LightGray;
@@ -37,7 +37,6 @@ namespace Elevator.Forms
         {
             dataGridViewEmployee.DataSource = DAO.getInstance().selectTable("Employee");
             dataGridViewEmployee.ClearSelection();
-
         }
 
         private void dataGridViewEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -63,6 +62,7 @@ namespace Elevator.Forms
                     Convert.ToString(dataGridViewEmployee.CurrentRow.Cells[6].Value));
                 controller.changeButtonClick(employee, selectEmployee);
                 dataGridViewEmployee.DataSource = DAO.getInstance().selectTable("Employee");
+                dataGridViewEmployee.ClearSelection();
             }
             catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите сотрудника!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
@@ -109,6 +109,7 @@ namespace Elevator.Forms
         {
             controller.addButtonClick();
             dataGridViewEmployee.DataSource = DAO.getInstance().selectTable("Employee");
+            dataGridViewEmployee.ClearSelection();
         }
     }
 }

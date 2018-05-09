@@ -93,5 +93,10 @@ namespace Elevator.Forms
             select();
             nameContractortextBox.Text = string.Empty;
         }
+
+        private void dataGridViewContract_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridViewContract.ClearSelection();
+        }
     }
 }

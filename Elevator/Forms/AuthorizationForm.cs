@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -90,6 +91,7 @@ namespace Elevator
             {
                 if (loginTextBox.Text.Trim().Equals("admin") && passwordTextBox.Text.Trim().Equals("admin"))
                 {
+                    Empl = new Employee("Админ", "", "admin");
                     DialogResult = DialogResult.OK;
                     this.Dispose();
                 }
@@ -97,7 +99,10 @@ namespace Elevator
                 {
                     try
                     {
-                        Empl = employeeController.GetEmployeeByAuthorization(loginTextBox.Text.Trim(), passwordTextBox.Text.Trim());
+                        MD5 md5 = new MD5CryptoServiceProvider();
+                        byte[] checkSum = md5.ComputeHash(Encoding.UTF8.GetBytes(passwordTextBox.Text.Trim()));
+                        string resultPassword = BitConverter.ToString(checkSum).Replace("-", String.Empty);
+                        Empl = employeeController.GetEmployeeByAuthorization(loginTextBox.Text.Trim(), resultPassword);
                         if (Empl == null)
                         {
                             MessageBox.Show("Неверный логин или пароль!", "Ошибка входа в систему", MessageBoxButtons.OK, MessageBoxIcon.Error);

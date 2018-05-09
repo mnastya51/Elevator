@@ -75,7 +75,7 @@
             this.comboBoxPost.FormattingEnabled = true;
             this.comboBoxPost.Items.AddRange(new object[] {
             "Лаборант",
-            "Заведующий лаборатории",
+            "Заведующий лабораторией",
             "Бухгалтер",
             "Главный бухгалтер"});
             this.comboBoxPost.Location = new System.Drawing.Point(122, 157);
@@ -186,7 +186,7 @@
             this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.passwordTextBox.ForeColor = System.Drawing.Color.Gray;
             this.passwordTextBox.Location = new System.Drawing.Point(121, 66);
-            this.passwordTextBox.MaxLength = 20;
+            this.passwordTextBox.MaxLength = 35;
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(208, 26);

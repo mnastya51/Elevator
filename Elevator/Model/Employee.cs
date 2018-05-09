@@ -47,5 +47,11 @@ namespace Elevator.Model
             this.SecName = secName;
             this.Post = post;
         }
+        public Employee(string surname, string name, string post)
+        {
+            this.Surname = surname;
+            this.Name = name;
+            this.Post = post;
+        }
     }
 }

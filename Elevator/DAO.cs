@@ -899,16 +899,18 @@ namespace Elevator
             string sqlCommand = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                sqlCommand = string.Format("Select d.id_raw, c.name_contr, c.subdivision, r.name_raw, t.name_type_raw, s.name_subtype, date_shipment, st.year_crop, " +
-                    "type_transport_shipment,  weight_shipment, id_place_storage From Contractor c join Shipment d " +
-                    "on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join Raw r on st.id_NameRaw = " +
-                    "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join Type_raw t on s.id_type = t.id_type");
+                sqlCommand = string.Format("Select d.id_raw, c.name_contr, c.subdivision, r.name_raw, "+
+                    "t.name_type_raw, s.name_subtype, date_shipment, st.year_crop, type_transport_shipment, "+
+                    "weight_shipment, id_place_storage, 'склад', numb_store From Contractor c join Shipment "+
+                    "d on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join "+
+                    " Raw r on st.id_NameRaw = r.id_NameRaw left join Subtype_raw s on s.id_subtype = "+
+                    "st.id_subtype left join Type_raw t on s.id_type = t.id_type where numb_store is not null");
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
                 SqlDataReader reader = command.ExecuteReader();
+                int c = 0;
                 if (reader.HasRows)
                 {
-                    int c = 0;
                     while (reader.Read())
                     {
                         dataGridView.Rows.Add();
@@ -924,12 +926,45 @@ namespace Elevator
                         try { row.Cells[8].Value = reader.GetString(8); } catch { }
                         row.Cells[9].Value = reader.GetFloat(9);
                         try { row.Cells[10].Value = reader.GetInt32(10); } catch { }
+                        try { row.Cells[11].Value = reader.GetString(11); } catch { }
+                        try { row.Cells[12].Value = reader.GetInt32(12); } catch { }
+                        c++;
+                    }
+                }
+                reader.Close();
+                sqlCommand = string.Format("Select d.id_raw, c.name_contr, c.subdivision, r.name_raw, " +
+                    "t.name_type_raw, s.name_subtype, date_shipment, st.year_crop, type_transport_shipment, " +
+                    "weight_shipment, id_place_storage, 'силос', numb_silage From Contractor c join Shipment " +
+                    "d on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join " +
+                    " Raw r on st.id_NameRaw = r.id_NameRaw left join Subtype_raw s on s.id_subtype = " +
+                    "st.id_subtype left join Type_raw t on s.id_type = t.id_type where numb_silage is not null");
+                command = new SqlCommand(sqlCommand, connection);
+                reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        dataGridView.Rows.Add();
+                        DataGridViewRow row = dataGridView.Rows[c];
+                        row.Cells[0].Value = reader.GetInt32(0);
+                        row.Cells[1].Value = reader.GetString(1);
+                        row.Cells[2].Value = reader.GetString(2);
+                        row.Cells[3].Value = reader.GetString(3);
+                        try { row.Cells[4].Value = reader.GetInt32(4); } catch { }
+                        try { row.Cells[5].Value = reader.GetInt32(5); } catch { }
+                        row.Cells[6].Value = reader.GetString(6);
+                        row.Cells[7].Value = reader.GetInt32(7);
+                        try { row.Cells[8].Value = reader.GetString(8); } catch { }
+                        row.Cells[9].Value = reader.GetFloat(9);
+                        try { row.Cells[10].Value = reader.GetInt32(10); } catch { }
+                        try { row.Cells[11].Value = reader.GetString(11); } catch { }
+                        try { row.Cells[12].Value = reader.GetInt32(12); } catch { }
                         c++;
                     }
                 }
                 reader.Close();
             }
-        }
+        }      
 
         public string[] getTypeToComboBox(string column, string nameTable, string key, string columnParent, string nameTableParent, string value)
         {
@@ -2169,7 +2204,7 @@ namespace Elevator
             }
         }
         public bool addShipment(int idRaw, string contractor, string subdivision, string transport, string weight,
-                    string date, string id)
+                    string date, string id, string placeStorage, string number)
         {
             try
             {
@@ -2177,10 +2212,10 @@ namespace Elevator
                 {
                     string sqlCommand = "";
                     sqlCommand = string.Format("Insert into Shipment (id_contractor, id_raw, type_transport_shipment, " +
-                    "weight_shipment, date_shipment, id_place_storage) values (" +
+                    "weight_shipment, date_shipment, id_place_storage, {7}) values (" +
                     "(select id_contractor from Contractor where name_contr = '{0}' and subdivision = '{5}'), " +
-                    "{1}, '{2}', '{3}', '{4}', {6})", contractor, idRaw, transport, weight, date,
-                    subdivision, id);
+                    "{1}, '{2}', '{3}', '{4}', {6}, {8})", contractor, idRaw, transport, weight, date,
+                    subdivision, id, placeStorage, number);
                     connection.Open();
                     SqlCommand command = new SqlCommand(sqlCommand, connection);
                     command.ExecuteNonQuery();
@@ -2349,6 +2384,31 @@ namespace Elevator
                 throw ex;
             }
             return employee;
+        }
+        public bool cancelStoragePlace(string idRaw, string number, string weight, string nameTable,
+            string numberAttr, string weightAttr, string idPlaceStorage)
+        {
+            string sqlCommand;
+            try
+            {
+                sqlCommand = string.Format("Update {0} Set {3} = (select {3} from {0} "+
+                    "where id_raw ={5} and id_place_storage = {6} and {1} = {2})+{4} where id_raw ={5} and " +
+                    "id_place_storage = {6} and {1} = {2}",
+                    nameTable, numberAttr, number, weightAttr, weight, idRaw, idPlaceStorage);
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
     }
 }

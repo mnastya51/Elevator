@@ -89,7 +89,7 @@
             this.btnAllList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnAllList.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnAllList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAllList.Location = new System.Drawing.Point(399, 21);
+            this.btnAllList.Location = new System.Drawing.Point(399, 19);
             this.btnAllList.Name = "btnAllList";
             this.btnAllList.Size = new System.Drawing.Size(218, 27);
             this.btnAllList.TabIndex = 9;
@@ -132,9 +132,9 @@
             this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.deleteButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteButton.Location = new System.Drawing.Point(200, 77);
+            this.deleteButton.Location = new System.Drawing.Point(210, 78);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(88, 28);
+            this.deleteButton.Size = new System.Drawing.Size(93, 28);
             this.deleteButton.TabIndex = 53;
             this.deleteButton.Text = "Удалить";
             this.deleteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -148,9 +148,9 @@
             this.changeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.changeButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.changeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.changeButton.Location = new System.Drawing.Point(106, 77);
+            this.changeButton.Location = new System.Drawing.Point(111, 77);
             this.changeButton.Name = "changeButton";
-            this.changeButton.Size = new System.Drawing.Size(88, 28);
+            this.changeButton.Size = new System.Drawing.Size(93, 28);
             this.changeButton.TabIndex = 52;
             this.changeButton.Text = "Изменить";
             this.changeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -273,7 +273,7 @@
             this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.addButton.Location = new System.Drawing.Point(12, 78);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(88, 28);
+            this.addButton.Size = new System.Drawing.Size(93, 28);
             this.addButton.TabIndex = 55;
             this.addButton.Text = "Добавить";
             this.addButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
