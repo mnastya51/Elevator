@@ -23,7 +23,7 @@ namespace Elevator.Controllers
                     FormValue<string, string>[] valueGeneral = value.ToArray<FormValue<string, string>>();
 
                     if (!DAO.getInstance().addDry(valueGeneral, drying.Date, drying.IdRaw, drying.WeightBefore,
-                    drying.WeightAfter, drying.WetBefore, drying.WetAfter))
+                    drying.WeightAfter, drying.WetBefore, drying.WetAfter, drying.IdContractor))
                   {
                       MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                       return false;
@@ -41,7 +41,7 @@ namespace Elevator.Controllers
                     FormValue<string, string>[] valueGeneral = value.ToArray<FormValue<string, string>>();
 
                     if (!DAO.getInstance().addDry(valueGeneral, drying.Date, drying.IdRaw, drying.WeightBefore,
-                    drying.WeightAfter, drying.WetBefore, drying.WetAfter))
+                    drying.WeightAfter, drying.WetBefore, drying.WetAfter, drying.IdContractor))
                     {
                         MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
@@ -52,7 +52,7 @@ namespace Elevator.Controllers
             else
             {
                 if (!DAO.getInstance().updateDry(drying.IdRaw, drying.Date, drying.WeightBefore,
-                    drying.WeightAfter, drying.WetBefore, drying.WetAfter))
+                    drying.WeightAfter, drying.WetBefore, drying.WetAfter, drying.IdContractor))
                 {
                     MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;

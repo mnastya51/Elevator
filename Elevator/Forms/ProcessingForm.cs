@@ -116,7 +116,8 @@ namespace Elevator.Forms
             }
             else
             {
-                controller.addButtonClick(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value), Convert.ToString(dataGridViewRaw.CurrentRow.Cells[2].Value));
+                controller.addButtonClick(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value),
+                    Convert.ToString(dataGridViewRaw.CurrentRow.Cells[6].Value), Convert.ToString(dataGridViewRaw.CurrentRow.Cells[2].Value));
                 selectDry();
             }
         }
@@ -124,6 +125,7 @@ namespace Elevator.Forms
         private void changeDryButton_Click(object sender, EventArgs e)
         {
             Drying drying = new Drying(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value),
+                Convert.ToString(dataGridViewRaw.CurrentRow.Cells[6].Value),
                 labelDate.Text, labelWeightBefore.Text, labelWeightAfter.Text, labelWetBefore.Text, labelWetAfter.Text);
             controller.changeButtonClick(drying);
             selectDry();
@@ -132,6 +134,7 @@ namespace Elevator.Forms
         private void changeClearButton_Click(object sender, EventArgs e)
         {
             Clearing clearing = new Clearing(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value),
+                Convert.ToString(dataGridViewRaw.CurrentRow.Cells[6].Value),
                 labelDateClear.Text, labelWeightBeforeClear.Text, labelWeightAfterClear.Text);
             controller.changeButtonClearClick(clearing);
             selectClear();
@@ -145,7 +148,9 @@ namespace Elevator.Forms
             }
             else
             {
-                controller.addButtonClearClick(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value), Convert.ToString(dataGridViewRaw.CurrentRow.Cells[2].Value));
+                controller.addButtonClearClick(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value),
+                    Convert.ToString(dataGridViewRaw.CurrentRow.Cells[6].Value),
+                    Convert.ToString(dataGridViewRaw.CurrentRow.Cells[2].Value));
                 selectClear();
             }
         }

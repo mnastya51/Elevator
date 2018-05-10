@@ -33,7 +33,7 @@ namespace Elevator.Controllers
                     FormValue<string, string>[] valueGrain = valueG.ToArray<FormValue<string, string>>();
 
                     if (!DAO.getInstance().addClearing(clearing.Date, clearing.IdRaw, clearing.WeightBefore,
-                clearing.WeightAfter, valueHarmful, valueWeed, valueGrain))
+                clearing.WeightAfter, valueHarmful, valueWeed, valueGrain, clearing.IdContractor))
                     {
                         MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
@@ -67,7 +67,7 @@ namespace Elevator.Controllers
                     FormValue<string, string>[] valueGrain = valueG.ToArray<FormValue<string, string>>();
 
                     if (!DAO.getInstance().addClearing(clearing.Date, clearing.IdRaw, clearing.WeightBefore,
-               clearing.WeightAfter, valueHarmful, valueWeed, valueGrain))
+               clearing.WeightAfter, valueHarmful, valueWeed, valueGrain, clearing.IdContractor))
                     {
                         MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
@@ -78,7 +78,7 @@ namespace Elevator.Controllers
             else
             {
                 if (!DAO.getInstance().updateClearing(clearing.Date, clearing.IdRaw, clearing.WeightBefore,
-                    clearing.WeightAfter))
+                    clearing.WeightAfter, clearing.IdContractor))
                 {
                     MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;

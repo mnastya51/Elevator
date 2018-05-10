@@ -138,8 +138,8 @@ namespace Elevator.Forms
 
         private void analysisCardToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new AnalysisCardForm().ShowDialog();
-             //new Form1().ShowDialog();        
+           // new AnalysisCardForm().ShowDialog();
+             new Form1().ShowDialog();        
         }
 
         private void reportToolStripMenuItem_Click(object sender, EventArgs e)

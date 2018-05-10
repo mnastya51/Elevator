@@ -54,16 +54,48 @@ namespace Elevator.Forms
                         {
                             SqlDataAdapter da = DAO.getInstance().selectProcessing(dateS, datePo);
                             AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
-                            ds.EnforceConstraints = false;
-                            da.Fill(ds, "Raw");
-                            da.Fill(ds, "Clearing");
+                            da.Fill(ds, "ProcessReportContractor");
+                            //ds.EnforceConstraints = false;
+                            //try
+                            //{*/
+                            // da.Fill(ds, "Contractor");
+                            // da.Fill(ds, "ProcessReport");
+                            // da.Fill(ds, "Storage");
+                            // da.Fill(ds, "Raw");
+                            // da.Fill(ds, "Clearing");
+                            //da.Fill(ds, "Drying");
+                            /*     }
+                                 catch(Exception exc)
+                                 {
+                                     String s = "sdfsfs";
+                                 }
+                                 ReportDocument doc = new ReportDocument();*/
+                            // doc.Load("Reports/ProcessingReport.rpt");
+                            /* doc.Load("Reports/CrystalReport4.rpt");
+                             doc.SetDataSource(ds);
+                             crystalReportViewer1.ReportSource = doc;
+                             //ds.EnforceConstraints = false;*/
+                            /*  DAO.getInstance().selectProcessing1(dateS, datePo, da);
+                              try
+                              {
+                                  //da.Fill(ds, "Contractor");
+                                  da.Fill(ds, "Delivery");
+                                  da.Fill(ds, "Storage");
+                                  da.Fill(ds, "Raw");
+                                  da.Fill(ds, "Drying");
+                              }
+                              catch (Exception exc)
+                              {
+                                  String s = "sdfsfs";
+                              }*/
+                            /*da.Fill(ds, "Clearing");
                             da.Fill(ds, "Drying");
                             da.Fill(ds, "Contractor");
                             da.Fill(ds, "Delivery");
-                            da.Fill(ds, "Storage");                   
-                            ReportDocument doc = new ReportDocument();
-                            // doc.Load("Reports/ProcessingReport.rpt");
-                            doc.Load("Reports/CrystalReport4.rpt");
+                            da.Fill(ds, "Storage");   */
+                             ReportDocument doc = new ReportDocument();
+                             doc.Load("Reports/CrystalReport1.rpt");
+                           // doc.Load("Reports/CrystalReport4.rpt");
                             doc.SetDataSource(ds);
                             crystalReportViewer1.ReportSource = doc;
                             break;

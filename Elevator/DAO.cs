@@ -899,11 +899,11 @@ namespace Elevator
             string sqlCommand = string.Empty;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                sqlCommand = string.Format("Select d.id_raw, c.name_contr, c.subdivision, r.name_raw, "+
-                    "t.name_type_raw, s.name_subtype, date_shipment, st.year_crop, type_transport_shipment, "+
-                    "weight_shipment, id_place_storage, 'склад', numb_store From Contractor c join Shipment "+
-                    "d on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join "+
-                    " Raw r on st.id_NameRaw = r.id_NameRaw left join Subtype_raw s on s.id_subtype = "+
+                sqlCommand = string.Format("Select d.id_raw, c.name_contr, c.subdivision, r.name_raw, " +
+                    "t.name_type_raw, s.name_subtype, date_shipment, st.year_crop, type_transport_shipment, " +
+                    "weight_shipment, id_place_storage, 'склад', numb_store From Contractor c join Shipment " +
+                    "d on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join " +
+                    " Raw r on st.id_NameRaw = r.id_NameRaw left join Subtype_raw s on s.id_subtype = " +
                     "st.id_subtype left join Type_raw t on s.id_type = t.id_type where numb_store is not null");
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
@@ -964,7 +964,7 @@ namespace Elevator
                 }
                 reader.Close();
             }
-        }      
+        }
 
         public string[] getTypeToComboBox(string column, string nameTable, string key, string columnParent, string nameTableParent, string value)
         {
@@ -1791,11 +1791,11 @@ namespace Elevator
                     int c = 0;
                     while (reader.Read())
                     {
-                        values.AddLast(reader.GetString(1));
-                        try { values.AddLast(reader.GetFloat(2).ToString()); } catch { values.AddLast(""); }
+                        values.AddLast(reader.GetString(2));
                         try { values.AddLast(reader.GetFloat(3).ToString()); } catch { values.AddLast(""); }
                         try { values.AddLast(reader.GetFloat(4).ToString()); } catch { values.AddLast(""); }
                         try { values.AddLast(reader.GetFloat(5).ToString()); } catch { values.AddLast(""); }
+                        try { values.AddLast(reader.GetFloat(6).ToString()); } catch { values.AddLast(""); }
                         c++;
                     }
                 }
@@ -1819,9 +1819,9 @@ namespace Elevator
                     int c = 0;
                     while (reader.Read())
                     {
-                        values.AddLast(reader.GetString(1));
-                        try { values.AddLast(reader.GetFloat(2).ToString()); } catch { values.AddLast(""); }
+                        values.AddLast(reader.GetString(2));
                         try { values.AddLast(reader.GetFloat(3).ToString()); } catch { values.AddLast(""); }
+                        try { values.AddLast(reader.GetFloat(4).ToString()); } catch { values.AddLast(""); }
                         c++;
                     }
                 }
@@ -1830,16 +1830,17 @@ namespace Elevator
             return values.ToArray();
         }
         public bool updateDry(string idRaw, string date,
-            string weightBefore, string weightAfter, string wetBefore, string wetAfter)
+            string weightBefore, string weightAfter, string wetBefore, string wetAfter, string idContractor)
         {
             string sqlCommand;
             try
             {
                 sqlCommand = string.Format("Update Drying Set date_drying = '{0}', weight_before_drying " +
                     " = {1}, weight_after_drying = {2}, wet_before = {3}, wet_after = {4} where id_raw={5} " +
+                    "and id_contractor = {6}"+
                     "Update Storage set weight = {2} where id_raw = {5}" +
                     "Update General_impurities set value_imp = {4} where name_imp = 'влажность' and id_raw = {5}",
-                    date, weightBefore, weightAfter, wetBefore, wetAfter, idRaw);
+                    date, weightBefore, weightAfter, wetBefore, wetAfter, idRaw, idContractor);
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -1855,15 +1856,16 @@ namespace Elevator
             }
         }
         public bool addDry(FormValue<string, string>[] valueGeneral, string date, string idRaw,
-            string weightBefore, string weightAfter, string wetBefore, string wetAfter)
+            string weightBefore, string weightAfter, string wetBefore, string wetAfter, string idContractor)
         {
             string sqlCommand;
             string sqlCommandGeneral = "";
             for (int i = 1; i < valueGeneral.Length; i++)
             {
+                string val = valueGeneral[i].getValue().Replace(",", ".");
                 if (wetAfter == "null")
                     sqlCommandGeneral += string.Format(" Update General_impurities set value_imp = " +
-                        "{0} where name_imp = '{1}' and id_raw = {2} ", valueGeneral[i].getValue(), valueGeneral[i].getKey(), idRaw);
+                        "{0} where name_imp = '{1}' and id_raw = {2} ", val, valueGeneral[i].getKey(), idRaw);
                 else
                 {
                     if (valueGeneral[i].getKey() == "влажность")
@@ -1871,16 +1873,16 @@ namespace Elevator
                        "{0} where name_imp = 'влажность' and id_raw = {1} ", wetAfter, idRaw);
                     else
                         sqlCommandGeneral += string.Format(" Update General_impurities set value_imp = " +
-                       "{0} where name_imp = '{1}' and id_raw = {2} ", valueGeneral[i].getValue(), valueGeneral[i].getKey(), idRaw);
+                       "{0} where name_imp = '{1}' and id_raw = {2} ", val, valueGeneral[i].getKey(), idRaw);
                 }
             }
             try
             {
                 sqlCommand = string.Format("Insert into Drying (id_raw, date_drying, weight_before_drying, " +
-                    "weight_after_drying, wet_before, wet_after) values({0}, '{1}', {2}, {3}, {4}, {5}) " +
+                    "weight_after_drying, wet_before, wet_after, id_contractor) values({0}, '{1}', {2}, {3}, {4}, {5}, {6}) " +
                     "Update Storage set weight = {3} where id_raw = {0} " +
                     sqlCommandGeneral, idRaw, date, weightBefore,
-                    weightAfter, wetBefore, wetAfter);
+                    weightAfter, wetBefore, wetAfter, idContractor);
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -1897,7 +1899,7 @@ namespace Elevator
         public bool addClearing(string date, string idRaw, string weightBefore, string weightAfter,
             FormValue<string, string>[] valueHarmful,
             FormValue<string, string>[] valueWeed,
-            FormValue<string, string>[] valueGrain)
+            FormValue<string, string>[] valueGrain, string idContractor)
         {
             string sqlCommand;
             string sqlCommandHarmful = "";
@@ -1905,28 +1907,31 @@ namespace Elevator
             string sqlCommandGrain = "";
             for (int i = 1; i < valueHarmful.Length; i++)
             {
+                string val = valueHarmful[i].getValue().Replace(",", ".");
                 sqlCommandHarmful += string.Format(" Update Harmful_impurities set value_harm_imp = " +
-               "{0} where name_harm_imp = '{1}' and id_raw = {2} ", valueHarmful[i].getValue(), valueHarmful[i].getKey(), idRaw);
+               "{0} where name_harm_imp = '{1}' and id_raw = {2} ", val, valueHarmful[i].getKey(), idRaw);
             }
 
             for (int i = 1; i < valueWeed.Length; i++)
             {
+                string val = valueWeed[i].getValue().Replace(",", ".");
                 sqlCommandWeed += string.Format(" Update Weed_impurities set value_weed_imp = " +
-                "{0} where name_weed_imp = '{1}' and id_raw = {2} ", valueWeed[i].getValue(), valueWeed[i].getKey(), idRaw);
+                "{0} where name_weed_imp = '{1}' and id_raw = {2} ", val, valueWeed[i].getKey(), idRaw);
             }
 
             for (int i = 1; i < valueGrain.Length; i++)
             {
+                string val = valueGrain[i].getValue().Replace(",", ".");
                 sqlCommandGrain += string.Format(" Update Grain_impurities set value_grain_imp = " +
-                "{0} where name_grain_imp = '{1}' and id_raw = {2} ", valueGrain[i].getValue(), valueGrain[i].getKey(), idRaw);
+                "{0} where name_grain_imp = '{1}' and id_raw = {2} ", val, valueGrain[i].getKey(), idRaw);
             }
 
             try
             {
                 sqlCommand = string.Format("Insert into Clearing (id_raw, date_clearing, weight_before_clearing, " +
-                    "weight_after_clearing) values({0}, '{1}', {2}, {3}) " +
+                    "weight_after_clearing, id_contractor) values({0}, '{1}', {2}, {3}, {4}) " +
                     "Update Storage set weight = {3} where id_raw = {0} " +
-                    sqlCommandHarmful + sqlCommandWeed + sqlCommandGrain, idRaw, date, weightBefore, weightAfter);
+                    sqlCommandHarmful + sqlCommandWeed + sqlCommandGrain, idRaw, date, weightBefore, weightAfter, idContractor);
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -1940,15 +1945,15 @@ namespace Elevator
                 return false;
             }
         }
-        public bool updateClearing(string date, string idRaw, string weightBefore, string weightAfter)
+        public bool updateClearing(string date, string idRaw, string weightBefore, string weightAfter, string idContractor)
         {
             string sqlCommand;
             try
             {
                 sqlCommand = string.Format("Update Clearing Set date_clearing = '{0}', weight_before_clearing " +
-                    " = {1}, weight_after_clearing = {2} where id_raw={3} " +
+                    " = {1}, weight_after_clearing = {2} where id_raw={3} and id_contractor = {4}" +
                     "Update Storage set weight = {2} where id_raw = {3}", date, weightBefore,
-                    weightAfter, idRaw);
+                    weightAfter, idRaw, idContractor);
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -2274,18 +2279,18 @@ namespace Elevator
         {
             string sqlCommand = string.Empty;
             SqlConnection connection = new SqlConnection(connectionString);
-                sqlCommand = string.Format("Select * From Contractor c join Delivery d "+
-                "on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join Raw r on "+
-                "st.id_NameRaw = r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left "+
-                "join Type_raw t on s.id_type = t.id_type left join Class cl on st.id_class = cl.id_class "+
-                "left join PlaceStorage p on p.id_raw = st.id_raw left join  Store_raw e on e.id_place_storage "+
-                " = p.id_place_storage left join Silage_raw y on e.id_place_storage = p.id_place_storage "+
-                "left join General_impurities g on g.id_raw = st.id_raw left join Harmful_impurities h on "+
-                "h.id_raw = st.id_raw left join Weed_impurities w on w.id_raw = st.id_raw "+
-                " left join Grain_impurities n on n.id_raw = st.id_raw where d.id_raw = {0}", id_raw);
-                connection.Open();
-                SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
-                return da;           
+            sqlCommand = string.Format("Select * From Contractor c join Delivery d " +
+            "on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join Raw r on " +
+            "st.id_NameRaw = r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left " +
+            "join Type_raw t on s.id_type = t.id_type left join Class cl on st.id_class = cl.id_class " +
+            "left join PlaceStorage p on p.id_raw = st.id_raw left join  Store_raw e on e.id_place_storage " +
+            " = p.id_place_storage left join Silage_raw y on e.id_place_storage = p.id_place_storage " +
+            "left join General_impurities g on g.id_raw = st.id_raw left join Harmful_impurities h on " +
+            "h.id_raw = st.id_raw left join Weed_impurities w on w.id_raw = st.id_raw " +
+            " left join Grain_impurities n on n.id_raw = st.id_raw where d.id_raw = {0}", id_raw);
+            connection.Open();
+            SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
+            return da;
         }
         public SqlDataAdapter selectAnalysisCard1(string id_raw)
         {
@@ -2294,7 +2299,7 @@ namespace Elevator
             sqlCommand = string.Format("Select * From Contractor c join Delivery d " +
             "on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join Raw r on " +
             "st.id_NameRaw = r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left " +
-            "join Type_raw t on s.id_type = t.id_type left join Class cl on st.id_class = cl.id_class "+
+            "join Type_raw t on s.id_type = t.id_type left join Class cl on st.id_class = cl.id_class " +
             "where d.id_raw = {0}", id_raw);
             connection.Open();
             SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
@@ -2305,7 +2310,7 @@ namespace Elevator
             string sqlCommand = string.Empty;
             SqlConnection connection = new SqlConnection(connectionString);
             sqlCommand = string.Format("Select * From Contractor c join Delivery d " +
-            "on c.id_contractor = d.id_contractor "+
+            "on c.id_contractor = d.id_contractor " +
             "where d.id_raw = {0}", id_raw);
             connection.Open();
             SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
@@ -2319,7 +2324,7 @@ namespace Elevator
                 {
                     string sql;
                     if (dateS == "" && datePo == "")
-                        sql = "SELECT count(id_raw) From Storage"; 
+                        sql = "SELECT count(id_raw) From Storage";
                     else
                         sql = string.Format("SELECT count(id_raw) From Storage Where year_crop BETWEEN {0} AND {1}", dateS, datePo);
                     connection.Open();
@@ -2352,11 +2357,31 @@ namespace Elevator
         {
             string sqlCommand = string.Empty;
             SqlConnection connection = new SqlConnection(connectionString);
-            sqlCommand = "select distinct * from Contractor c join Delivery d on d.id_contractor = "+
-                " c.id_contractor join Storage s on s.id_raw = d.id_raw join Raw r on s.id_NameRaw = r.id_NameRaw "+
-                " join Clearing g on s.id_raw = g.id_raw join Drying y on s.id_raw = y.id_raw";
+           /* sqlCommand = "select distinct * from (((((Contractor c join  Delivery d on c.id_contractor = d.id_contractor) " +
+                "join Storage s on s.id_raw = d.id_raw) join Raw r on s.id_NameRaw = r.id_NameRaw) " +
+                " join Clearing g on s.id_raw = g.id_raw)";*/
+            //sqlCommand = "select * from Contractor c join  Delivery d on c.id_contractor = d.id_contractor ";
+            //sqlCommand = "select * from ProcessReport";
+            sqlCommand = "exec ProcessReportContractor 2";
             connection.Open();
             SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
+            return da;
+        }
+
+        public SqlDataAdapter selectProcessing1(string dateS, string datePo, SqlDataAdapter da)
+        {
+            string sqlCommand = string.Empty;
+            SqlConnection connection = new SqlConnection(connectionString);
+            sqlCommand = "select distinct * from ((((Delivery d " +
+                "join Storage s on s.id_raw = d.id_raw) join Raw r on s.id_NameRaw = r.id_NameRaw) " +
+                ") join Drying y on s.id_raw = y.id_raw)";
+            SqlCommand sql = new SqlCommand(sqlCommand, connection);
+            //sqlCommand = "select distinct * from Contractor c join Delivery d on d.id_contractor = " +
+            //    " c.id_contractor join Storage s on s.id_raw = d.id_raw join Raw r on s.id_NameRaw = r.id_NameRaw " +
+            //    " left join Clearing g on s.id_raw = g.id_raw left join Drying y on s.id_raw = y.id_raw";
+            connection.Open();
+            //da.ICommand = sql;
+           // SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
             return da;
         }
 
@@ -2377,7 +2402,7 @@ namespace Elevator
                         employee = new Employee(Convert.ToInt32(dataReader[0]), dataReader[1].ToString(), dataReader[2].ToString(), dataReader[3].ToString(), dataReader[4].ToString(), login, password);
                     }
                     dataReader.Close();
-                }              
+                }
             }
             catch (SqlException ex)
             {
@@ -2391,7 +2416,7 @@ namespace Elevator
             string sqlCommand;
             try
             {
-                sqlCommand = string.Format("Update {0} Set {3} = (select {3} from {0} "+
+                sqlCommand = string.Format("Update {0} Set {3} = (select {3} from {0} " +
                     "where id_raw ={5} and id_place_storage = {6} and {1} = {2})+{4} where id_raw ={5} and " +
                     "id_place_storage = {6} and {1} = {2}",
                     nameTable, numberAttr, number, weightAttr, weight, idRaw, idPlaceStorage);

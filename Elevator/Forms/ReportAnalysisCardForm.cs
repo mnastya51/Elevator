@@ -36,7 +36,7 @@ namespace Elevator.Forms
             SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connect);
 
             // SqlDataAdapter da = DAO.getInstance().selectAnalysisCard2(id_raw);
-            AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
+            /*AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
             ds.EnforceConstraints = false;
             da.Fill(ds, "Contractor");
             da.Fill(ds, "Delivery");
@@ -56,7 +56,7 @@ namespace Elevator.Forms
             doc.Load("Reports/CrystalReport2.rpt");
             //doc.Load("Reports/CardAnalysis.rpt");
             doc.SetDataSource(ds);
-            crystalReportViewer1.ReportSource = doc;
+            crystalReportViewer1.ReportSource = doc;*/
         }
     }
 }

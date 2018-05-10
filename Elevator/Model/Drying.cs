@@ -9,13 +9,14 @@ namespace Elevator.Model
     public class Drying
     {
         public string IdRaw { get; set; }
+        public string IdContractor { get; set; }
         public string Date { get; set; }
         public string WeightBefore { get; set; }
         public string WeightAfter { get; set; }
         public string WetAfter { get; set; }
         public string WetBefore { get; set; }
 
-        public Drying(string newIdRaw, string newDate, string newWeightBefore, string newWeightAfter,
+        public Drying(string newIdRaw, string idContractor, string newDate, string newWeightBefore, string newWeightAfter,
             string newWetBefore, string newWetAfter)
         {
             this.IdRaw = newIdRaw;
@@ -24,6 +25,7 @@ namespace Elevator.Model
             this.WeightAfter = newWeightAfter;
             this.WetBefore = newWetBefore;
             this.WetAfter = newWetAfter;
+            this.IdContractor = idContractor;
         }
     }
 }

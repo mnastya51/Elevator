@@ -18,12 +18,14 @@ namespace Elevator.AddAndEditForms
         public Drying drying;
         private string idRaw;
         private string raw;
-        public AddDryForm(string newIdRaw, string newRaw)
+        private string idContractor;
+        public AddDryForm(string newIdRaw, string idContractor, string newRaw)
         {
             InitializeComponent();
             controller = new AddDryController();
             idRaw = newIdRaw;
             raw = newRaw;
+            this.idContractor = idContractor;
         }
 
         public AddDryForm(Drying newDrying)
@@ -46,7 +48,7 @@ namespace Elevator.AddAndEditForms
             string wetAfter = textBoxWetAfter.Text.Replace(",", ".");
             if (drying == null)
             {
-                drying = new Drying(idRaw, dateTimePicker.Text,
+                drying = new Drying(idRaw, idContractor, dateTimePicker.Text,
                     weightBefore != "" ? weightBefore : "null",
                     weightAfter != "" ? weightAfter : "null",
                     wetBefore != "" ? wetBefore : "null",

@@ -61,16 +61,16 @@ namespace Elevator.Forms
             dataRelation = new DataRelation("r", dataColumn1, dataColumn2);
             ds.Relations.Add(dataRelation);*/
 
-            string connectionString = @"Data Source=.\SQLEXPRESS; Initial Catalog = D:\НАСТЯ\ДИПЛОМ\ВКРБ Михеева\База данных\AccountOfGrain.MDF; Integrated Security = True";
+          /*  string connectionString = @"Data Source=.\SQLEXPRESS; Initial Catalog = D:\НАСТЯ\ДИПЛОМ\ВКРБ Михеева\База данных\AccountOfGrain.MDF; Integrated Security = True";
             SqlConnection connect = new SqlConnection(connectionString);
             connect.Open();
            string s = "select * From Contractor c join Contract t on c.id_contractor = t.id_contractor";
             //SqlDataReader da = sql.ExecuteReader();
             SqlDataAdapter da = new SqlDataAdapter(s, connect);
-             AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
-            ds.EnforceConstraints = false;
-            da.Fill(ds, "Contractor");
-            da.Fill(ds, "Contract");
+             //AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
+           // ds.EnforceConstraints = false;
+           // da.Fill(ds, "Contractor");
+           // da.Fill(ds, "Contract");
             //da.Fill(ds, "Contract");
             //ds.EnforceConstraints = false;
 
@@ -91,13 +91,13 @@ namespace Elevator.Forms
             //da.Fill(ds);
             //DataTable dt = new DataTable();
             // dt.Load(da);
-            ReportDocument doc = new ReportDocument();
-            doc.Load("Reports/CrystalReport1.rpt");
-            doc.SetDataSource(ds);
+           // ReportDocument doc = new ReportDocument();
+          //  doc.Load("Reports/CrystalReport1.rpt");
+           // doc.SetDataSource(ds);
             /**ReportDocument doc = new ReportDocument();
             doc.Load("Reports/CrystalReport1.rpt");*/
-            crystalReportViewer1.ReportSource = doc;
-             crystalReportViewer1.Refresh();
+           /* crystalReportViewer1.ReportSource = doc;
+             crystalReportViewer1.Refresh();*/
         }
     }
 }

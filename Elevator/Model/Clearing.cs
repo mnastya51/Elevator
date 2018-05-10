@@ -9,16 +9,18 @@ namespace Elevator.Model
     public class Clearing
     {
         public string IdRaw { get; set; }
+        public string IdContractor { get; set; }
         public string Date { get; set; }
         public string WeightBefore { get; set; }
         public string WeightAfter { get; set; }
 
-        public Clearing(string newIdRaw, string newDate, string newWeightBefore, string newWeightAfter)
+        public Clearing(string newIdRaw, string idContractor, string newDate, string newWeightBefore, string newWeightAfter)
         {
             this.IdRaw = newIdRaw;
             this.Date = newDate;
             this.WeightBefore = newWeightBefore;
             this.WeightAfter = newWeightAfter;
+            this.IdContractor = idContractor;
         }
     }
 }

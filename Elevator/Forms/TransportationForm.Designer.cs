@@ -33,7 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransportationForm));
             this.rawBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.accountOfGrainDataSet = new Elevator.AccountOfGrainDataSet();
             this.changeButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.filtrGroupBox = new System.Windows.Forms.GroupBox();
@@ -57,26 +56,13 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rawTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.RawTableAdapter();
-            this.contractorTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.ContractorTableAdapter();
             this.cancelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.rawBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).BeginInit();
             this.filtrGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDelivery)).BeginInit();
             this.SuspendLayout();
-            // 
-            // rawBindingSource
-            // 
-            this.rawBindingSource.DataMember = "Raw";
-            this.rawBindingSource.DataSource = this.accountOfGrainDataSet;
-            // 
-            // accountOfGrainDataSet
-            // 
-            this.accountOfGrainDataSet.DataSetName = "AccountOfGrainDataSet";
-            this.accountOfGrainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // changeButton
             // 
@@ -229,11 +215,6 @@
             this.findButton.UseVisualStyleBackColor = false;
             this.findButton.Click += new System.EventHandler(this.findButton_Click);
             // 
-            // contractorBindingSource
-            // 
-            this.contractorBindingSource.DataMember = "Contractor";
-            this.contractorBindingSource.DataSource = this.accountOfGrainDataSet;
-            // 
             // dataGridViewDelivery
             // 
             this.dataGridViewDelivery.AllowUserToAddRows = false;
@@ -337,14 +318,6 @@
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
-            // rawTableAdapter
-            // 
-            this.rawTableAdapter.ClearBeforeFill = true;
-            // 
-            // contractorTableAdapter
-            // 
-            this.contractorTableAdapter.ClearBeforeFill = true;
-            // 
             // cancelButton
             // 
             this.cancelButton.BackColor = System.Drawing.Color.DarkOrange;
@@ -380,7 +353,6 @@
             this.Name = "TransportationForm";
             this.Text = "Поставка";
             ((System.ComponentModel.ISupportInitialize)(this.rawBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).EndInit();
             this.filtrGroupBox.ResumeLayout(false);
             this.filtrGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).EndInit();
@@ -396,11 +368,8 @@
         private System.Windows.Forms.GroupBox filtrGroupBox;
         private System.Windows.Forms.Button findButton;
         private System.Windows.Forms.DataGridView dataGridViewDelivery;
-        private AccountOfGrainDataSet accountOfGrainDataSet;
         private System.Windows.Forms.BindingSource rawBindingSource;
-        private AccountOfGrainDataSetTableAdapters.RawTableAdapter rawTableAdapter;
         private System.Windows.Forms.BindingSource contractorBindingSource;
-        private AccountOfGrainDataSetTableAdapters.ContractorTableAdapter contractorTableAdapter;
         private System.Windows.Forms.NumericUpDown yearNumericUpDown;
         private System.Windows.Forms.Button btnAllList;
         private System.Windows.Forms.Label label2;
