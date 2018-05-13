@@ -2353,35 +2353,54 @@ namespace Elevator
             return da;
         }
 
-        public SqlDataAdapter selectProcessing(string dateS, string datePo)
+        public SqlDataAdapter selectProcessing()
         {
             string sqlCommand = string.Empty;
             SqlConnection connection = new SqlConnection(connectionString);
-           /* sqlCommand = "select distinct * from (((((Contractor c join  Delivery d on c.id_contractor = d.id_contractor) " +
-                "join Storage s on s.id_raw = d.id_raw) join Raw r on s.id_NameRaw = r.id_NameRaw) " +
-                " join Clearing g on s.id_raw = g.id_raw)";*/
-            //sqlCommand = "select * from Contractor c join  Delivery d on c.id_contractor = d.id_contractor ";
-            //sqlCommand = "select * from ProcessReport";
-            sqlCommand = "exec ProcessReportContractor 2";
+            sqlCommand = "select * from ProcessReport";
             connection.Open();
             SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
             return da;
         }
 
-        public SqlDataAdapter selectProcessing1(string dateS, string datePo, SqlDataAdapter da)
+        public SqlDataAdapter selectProcessReportWithPeriod(string dateS, string datePo)
         {
             string sqlCommand = string.Empty;
             SqlConnection connection = new SqlConnection(connectionString);
-            sqlCommand = "select distinct * from ((((Delivery d " +
-                "join Storage s on s.id_raw = d.id_raw) join Raw r on s.id_NameRaw = r.id_NameRaw) " +
-                ") join Drying y on s.id_raw = y.id_raw)";
-            SqlCommand sql = new SqlCommand(sqlCommand, connection);
-            //sqlCommand = "select distinct * from Contractor c join Delivery d on d.id_contractor = " +
-            //    " c.id_contractor join Storage s on s.id_raw = d.id_raw join Raw r on s.id_NameRaw = r.id_NameRaw " +
-            //    " left join Clearing g on s.id_raw = g.id_raw left join Drying y on s.id_raw = y.id_raw";
+            sqlCommand = string.Format("exec ProcessReportWithPeriod @date1 = {0}, @date2 = {1}",
+                dateS, datePo);
             connection.Open();
-            //da.ICommand = sql;
-           // SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
+            SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
+            return da;
+        }
+
+        public SqlDataAdapter selectProcessReportContractor(string contractor, string subdivision)
+        {
+            string sqlCommand = string.Empty;
+            SqlConnection connection = new SqlConnection(connectionString);
+            string sql = string.Format("select id_contractor from Contractor where name_contr = '{0}' and " +
+                "subdivision = '{1}'",contractor, subdivision);
+            connection.Open();
+            SqlCommand command = new SqlCommand(sql, connection);
+            int count = (Int32)command.ExecuteScalar();
+            sqlCommand = string.Format("exec ProcessReportContractor @id = {0}", count);            
+            SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
+            return da;
+        }
+
+        public SqlDataAdapter selectProcessReportContractorWithPeriod(string contractor, 
+            string subdivision, string dateS, string datePo)
+        {
+            string sqlCommand = string.Empty;
+            SqlConnection connection = new SqlConnection(connectionString);
+            string sql = string.Format("select id_contractor from Contractor where name_contr = '{0}' and " +
+                "subdivision = '{1}'", contractor, subdivision);
+            connection.Open();
+            SqlCommand command = new SqlCommand(sql, connection);
+            int count = (Int32)command.ExecuteScalar();
+            sqlCommand = string.Format("exec ProcessReportContractorWithPeriod @id = {0}, @date1 = {1}, "+
+                "@date2 = {2}", count, dateS, datePo);
+            SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
             return da;
         }
 

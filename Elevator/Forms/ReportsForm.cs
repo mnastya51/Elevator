@@ -35,10 +35,7 @@ namespace Elevator.Forms
             {
                 if (new ReportController().hasRawInPeriod(fromTextBox.Text, toTextBox.Text))
                 {
-                    if (fromTextBox.Text == "" && toTextBox.Text == "")
-                    {
-                        new ReportForm("\'Объем зерна\'", fromTextBox.Text, toTextBox.Text).ShowDialog();
-                    }
+                    new ReportForm("\'Объем зерна\'", fromTextBox.Text, toTextBox.Text, contractorComboBox.Text, subdivisionComboBox.Text).ShowDialog();
                 }
                 else
                 {
@@ -49,10 +46,7 @@ namespace Elevator.Forms
             {
                 if (new ReportController().hasRawInPeriod(fromTextBox.Text, toTextBox.Text))
                 {
-                    if (fromTextBox.Text == "" && toTextBox.Text == "")
-                    {
-                        new ReportForm("\'Проведенная обработка\'", fromTextBox.Text, toTextBox.Text).ShowDialog();
-                    }
+                     new ReportForm("\'Проведенная обработка\'", fromTextBox.Text, toTextBox.Text, contractorComboBox.Text, subdivisionComboBox.Text).ShowDialog();
                 }
                 else
                 {

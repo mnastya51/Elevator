@@ -16,14 +16,14 @@ namespace Elevator.Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CrystalReport4 : ReportClass {
+    public class ProcessReportWithPeriod : ReportClass {
         
-        public CrystalReport4() {
+        public ProcessReportWithPeriod() {
         }
         
         public override string ResourceName {
             get {
-                return "CrystalReport4.rpt";
+                return "ProcessReportWithPeriod.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Elevator.Reports {
         
         public override string FullResourceName {
             get {
-                return "Elevator.Reports.CrystalReport4.rpt";
+                return "Elevator.Reports.ProcessReportWithPeriod.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace Elevator.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace Elevator.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,17 +82,33 @@ namespace Elevator.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
             get {
                 return this.ReportDefinition.Sections[4];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+            get {
+                return this.ReportDefinition.Sections[5];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+            get {
+                return this.ReportDefinition.Sections[6];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCrystalReport4 : Component, ICachedReport {
+    public class CachedProcessReportWithPeriod : Component, ICachedReport {
         
-        public CachedCrystalReport4() {
+        public CachedProcessReportWithPeriod() {
         }
         
         [Browsable(false)]
@@ -129,7 +145,7 @@ namespace Elevator.Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CrystalReport4 rpt = new CrystalReport4();
+            ProcessReportWithPeriod rpt = new ProcessReportWithPeriod();
             rpt.Site = this.Site;
             return rpt;
         }

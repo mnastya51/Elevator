@@ -17,91 +17,87 @@ namespace Elevator.Forms
         private string type;
         private string dateS;
         private string datePo;
-        public ReportForm(string type, string dateS, string datePo)
+        private string contractor;
+        private string subdivision;
+
+        public ReportForm(string type, string dateS, string datePo, string contractor, string subdivision)
         {
             InitializeComponent();
             this.type = type;
             this.dateS = dateS;
             this.datePo = datePo;
+            this.contractor = contractor;
+            this.subdivision = subdivision;
             this.Text = "Отчет " + type;
         }
 
         private void ReportForm_Load(object sender, EventArgs e)
         {
-            if (dateS == "" && datePo == "")
+            if (type == "\'Объем зерна\'")
             {
-                switch (type)
-                {
-                    case "\'Объем зерна\'":
-                        {
-                            /*SqlDataAdapter da = DAO.getInstance().selectVolume();
-                            AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
-                            ds.EnforceConstraints = false;
-                            da.Fill(ds, "Contractor");
-                            da.Fill(ds, "Delivery");
-                            da.Fill(ds, "Storage");
-                            da.Fill(ds, "Raw");
-                            da.Fill(ds, "Subtype_raw");
-                            da.Fill(ds, "Type_raw");
-                            ReportDocument doc = new ReportDocument();
-                            doc.Load("Reports/CrystalReport2.rpt");
-                            doc.SetDataSource(ds);
-                            crystalReportViewer1.ReportSource = doc;*/
-
-                            break;
-                        }
-                    case "\'Проведенная обработка\'":
-                        {
-                            SqlDataAdapter da = DAO.getInstance().selectProcessing(dateS, datePo);
-                            AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
-                            da.Fill(ds, "ProcessReportContractor");
-                            //ds.EnforceConstraints = false;
-                            //try
-                            //{*/
-                            // da.Fill(ds, "Contractor");
-                            // da.Fill(ds, "ProcessReport");
-                            // da.Fill(ds, "Storage");
-                            // da.Fill(ds, "Raw");
-                            // da.Fill(ds, "Clearing");
-                            //da.Fill(ds, "Drying");
-                            /*     }
-                                 catch(Exception exc)
-                                 {
-                                     String s = "sdfsfs";
-                                 }
-                                 ReportDocument doc = new ReportDocument();*/
-                            // doc.Load("Reports/ProcessingReport.rpt");
-                            /* doc.Load("Reports/CrystalReport4.rpt");
-                             doc.SetDataSource(ds);
-                             crystalReportViewer1.ReportSource = doc;
-                             //ds.EnforceConstraints = false;*/
-                            /*  DAO.getInstance().selectProcessing1(dateS, datePo, da);
-                              try
-                              {
-                                  //da.Fill(ds, "Contractor");
-                                  da.Fill(ds, "Delivery");
-                                  da.Fill(ds, "Storage");
-                                  da.Fill(ds, "Raw");
-                                  da.Fill(ds, "Drying");
-                              }
-                              catch (Exception exc)
-                              {
-                                  String s = "sdfsfs";
-                              }*/
-                            /*da.Fill(ds, "Clearing");
-                            da.Fill(ds, "Drying");
-                            da.Fill(ds, "Contractor");
-                            da.Fill(ds, "Delivery");
-                            da.Fill(ds, "Storage");   */
-                             ReportDocument doc = new ReportDocument();
-                             doc.Load("Reports/CrystalReport1.rpt");
-                           // doc.Load("Reports/CrystalReport4.rpt");
-                            doc.SetDataSource(ds);
-                            crystalReportViewer1.ReportSource = doc;
-                            break;
-                        }
-                }
+                /*SqlDataAdapter da = DAO.getInstance().selectVolume();
+                AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
+                ds.EnforceConstraints = false;
+                da.Fill(ds, "Contractor");
+                da.Fill(ds, "Delivery");
+                da.Fill(ds, "Storage");
+                da.Fill(ds, "Raw");
+                da.Fill(ds, "Subtype_raw");
+                da.Fill(ds, "Type_raw");
+                ReportDocument doc = new ReportDocument();
+                doc.Load("Reports/CrystalReport2.rpt");
+                doc.SetDataSource(ds);
+                crystalReportViewer1.ReportSource = doc;*/
             }
+            else if (type == "\'Проведенная обработка\'")
+            {
+                if (dateS == "" && datePo == "")
+                {
+                    if (contractor == "")
+                    {
+                        SqlDataAdapter da = DAO.getInstance().selectProcessing();
+                        AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
+                        da.Fill(ds, "ProcessReport");
+                        ReportDocument doc = new ReportDocument();
+                        doc.Load("Reports/ReportProcess.rpt");
+                        doc.SetDataSource(ds);
+                        crystalReportViewer1.ReportSource = doc;
+                    }
+                    else
+                    {                       
+                        SqlDataAdapter da = DAO.getInstance().selectProcessReportContractor(contractor, subdivision);
+                        AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
+                        da.Fill(ds, "ProcessReportContractor");
+                        ReportDocument doc = new ReportDocument();
+                        doc.Load("Reports/ProcessReportContractor.rpt");
+                        doc.SetDataSource(ds);
+                        crystalReportViewer1.ReportSource = doc;
+                    }
+                }
+                else
+                {
+                    if (contractor == "")
+                    {
+                        SqlDataAdapter da = DAO.getInstance().selectProcessReportWithPeriod(dateS, datePo);
+                        AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
+                        da.Fill(ds, "ProcessReportWithPeriod");
+                        ReportDocument doc = new ReportDocument();
+                        doc.Load("Reports/ProcessReportWithPeriod.rpt");
+                        doc.SetDataSource(ds);
+                        crystalReportViewer1.ReportSource = doc;
+                    }
+                    else
+                    {
+                        SqlDataAdapter da = DAO.getInstance().selectProcessReportContractorWithPeriod(contractor, subdivision, dateS, datePo);
+                        AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
+                        da.Fill(ds, "ProcessReportContractorWithPeriod");
+                        ReportDocument doc = new ReportDocument();
+                        doc.Load("Reports/ProcessReportContractorWithPeriod.rpt");
+                        doc.SetDataSource(ds);
+                        crystalReportViewer1.ReportSource = doc;
+                    }
+                }
+            }                         
         }
     }  
 }
