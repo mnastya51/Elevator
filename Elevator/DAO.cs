@@ -2341,40 +2341,28 @@ namespace Elevator
             }
         }
 
-        public SqlDataAdapter selectVolume()
-        {// объем зерна по опред сырью, типу, подтипу и классу сырья
-            string sqlCommand = string.Empty;
-            SqlConnection connection = new SqlConnection(connectionString);
-            sqlCommand = "Select * From Contractor c join Delivery d " +
-            "on c.id_contractor = d.id_contractor " +
-            "where d.id_raw = {0}";
-            connection.Open();
-            SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
-            return da;
-        }
-
-        public SqlDataAdapter selectProcessing()
+        public SqlDataAdapter selectReport(string name)
         {
             string sqlCommand = string.Empty;
             SqlConnection connection = new SqlConnection(connectionString);
-            sqlCommand = "select * from ProcessReport";
+            sqlCommand = string.Format("select * from {0}", name);
             connection.Open();
             SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
             return da;
         }
 
-        public SqlDataAdapter selectProcessReportWithPeriod(string dateS, string datePo)
+        public SqlDataAdapter selectReportWithPeriod(string dateS, string datePo, string name)
         {
             string sqlCommand = string.Empty;
             SqlConnection connection = new SqlConnection(connectionString);
-            sqlCommand = string.Format("exec ProcessReportWithPeriod @date1 = {0}, @date2 = {1}",
-                dateS, datePo);
+            sqlCommand = string.Format("exec {2} @date1 = {0}, @date2 = {1}",
+                dateS, datePo, name);
             connection.Open();
             SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
             return da;
         }
 
-        public SqlDataAdapter selectProcessReportContractor(string contractor, string subdivision)
+        public SqlDataAdapter selectReportContractor(string contractor, string subdivision, string name)
         {
             string sqlCommand = string.Empty;
             SqlConnection connection = new SqlConnection(connectionString);
@@ -2383,13 +2371,13 @@ namespace Elevator
             connection.Open();
             SqlCommand command = new SqlCommand(sql, connection);
             int count = (Int32)command.ExecuteScalar();
-            sqlCommand = string.Format("exec ProcessReportContractor @id = {0}", count);            
+            sqlCommand = string.Format("exec {1} @id = {0}", count, name);            
             SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
             return da;
         }
 
-        public SqlDataAdapter selectProcessReportContractorWithPeriod(string contractor, 
-            string subdivision, string dateS, string datePo)
+        public SqlDataAdapter selectReportContractorWithPeriod(string contractor, 
+            string subdivision, string dateS, string datePo, string name)
         {
             string sqlCommand = string.Empty;
             SqlConnection connection = new SqlConnection(connectionString);
@@ -2398,8 +2386,8 @@ namespace Elevator
             connection.Open();
             SqlCommand command = new SqlCommand(sql, connection);
             int count = (Int32)command.ExecuteScalar();
-            sqlCommand = string.Format("exec ProcessReportContractorWithPeriod @id = {0}, @date1 = {1}, "+
-                "@date2 = {2}", count, dateS, datePo);
+            sqlCommand = string.Format("exec {3} @id = {0}, @date1 = {1}, "+
+                "@date2 = {2}", count, dateS, datePo, name);
             SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
             return da;
         }

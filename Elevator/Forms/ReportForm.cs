@@ -35,19 +35,55 @@ namespace Elevator.Forms
         {
             if (type == "\'Объем зерна\'")
             {
-                /*SqlDataAdapter da = DAO.getInstance().selectVolume();
-                AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
-                ds.EnforceConstraints = false;
-                da.Fill(ds, "Contractor");
-                da.Fill(ds, "Delivery");
-                da.Fill(ds, "Storage");
-                da.Fill(ds, "Raw");
-                da.Fill(ds, "Subtype_raw");
-                da.Fill(ds, "Type_raw");
-                ReportDocument doc = new ReportDocument();
-                doc.Load("Reports/CrystalReport2.rpt");
-                doc.SetDataSource(ds);
-                crystalReportViewer1.ReportSource = doc;*/
+                if (dateS == "" && datePo == "")
+                {
+                    if (contractor == "")
+                    {
+                        SqlDataAdapter da = DAO.getInstance().selectReport("ReportWeight");
+                        AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
+                        da.Fill(ds, "ReportWeight");
+                        ReportDocument doc = new ReportDocument();
+                        doc.Load("Reports/ReportWeight.rpt");
+                        doc.SetDataSource(ds);
+                        crystalReportViewer1.ReportSource = doc;
+                    }
+                    else
+                    {
+                        SqlDataAdapter da = DAO.getInstance().selectReportContractor(contractor,
+                            subdivision, "ReportWeightWithContractor");
+                        AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
+                        da.Fill(ds, "ReportWeightWithContractor");
+                        ReportDocument doc = new ReportDocument();
+                        doc.Load("Reports/ReportWeightWithContractor.rpt");
+                        doc.SetDataSource(ds);
+                        crystalReportViewer1.ReportSource = doc;
+                    }
+                }
+                else
+                {
+                    if (contractor == "")
+                    {
+                        SqlDataAdapter da = DAO.getInstance().selectReportWithPeriod(dateS, 
+                            datePo, "ReportWeightWithPeriod");
+                        AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
+                        da.Fill(ds, "ReportWeightWithPeriod");
+                        ReportDocument doc = new ReportDocument();
+                        doc.Load("Reports/ReportWeightWithPeriod.rpt");
+                        doc.SetDataSource(ds);
+                        crystalReportViewer1.ReportSource = doc;
+                    }
+                    else
+                    {
+                        SqlDataAdapter da = DAO.getInstance().selectReportContractorWithPeriod(contractor, 
+                            subdivision, dateS, datePo, "ReportWeightWithContractorPeriod");
+                        AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
+                        da.Fill(ds, "ReportWeightWithContractorPeriod");
+                        ReportDocument doc = new ReportDocument();
+                        doc.Load("Reports/ReportWeightWithContractorPeriod.rpt");
+                        doc.SetDataSource(ds);
+                        crystalReportViewer1.ReportSource = doc;
+                    }
+                }
             }
             else if (type == "\'Проведенная обработка\'")
             {
@@ -55,7 +91,7 @@ namespace Elevator.Forms
                 {
                     if (contractor == "")
                     {
-                        SqlDataAdapter da = DAO.getInstance().selectProcessing();
+                        SqlDataAdapter da = DAO.getInstance().selectReport("ProcessReport");
                         AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
                         da.Fill(ds, "ProcessReport");
                         ReportDocument doc = new ReportDocument();
@@ -65,7 +101,8 @@ namespace Elevator.Forms
                     }
                     else
                     {                       
-                        SqlDataAdapter da = DAO.getInstance().selectProcessReportContractor(contractor, subdivision);
+                        SqlDataAdapter da = DAO.getInstance().selectReportContractor(contractor, 
+                            subdivision, "ProcessReportContractor");
                         AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
                         da.Fill(ds, "ProcessReportContractor");
                         ReportDocument doc = new ReportDocument();
@@ -78,7 +115,8 @@ namespace Elevator.Forms
                 {
                     if (contractor == "")
                     {
-                        SqlDataAdapter da = DAO.getInstance().selectProcessReportWithPeriod(dateS, datePo);
+                        SqlDataAdapter da = DAO.getInstance().selectReportWithPeriod(dateS, datePo,
+                            "ProcessReportWithPeriod");
                         AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
                         da.Fill(ds, "ProcessReportWithPeriod");
                         ReportDocument doc = new ReportDocument();
@@ -88,7 +126,8 @@ namespace Elevator.Forms
                     }
                     else
                     {
-                        SqlDataAdapter da = DAO.getInstance().selectProcessReportContractorWithPeriod(contractor, subdivision, dateS, datePo);
+                        SqlDataAdapter da = DAO.getInstance().selectReportContractorWithPeriod(contractor,
+                            subdivision, dateS, datePo, "ProcessReportContractorWithPeriod");
                         AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
                         da.Fill(ds, "ProcessReportContractorWithPeriod");
                         ReportDocument doc = new ReportDocument();
