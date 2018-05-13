@@ -40,48 +40,48 @@ namespace Elevator.Forms
                     if (contractor == "")
                     {
                         SqlDataAdapter da = DAO.getInstance().selectReport("ReportWeight");
-                        AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
+                        /*AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
                         da.Fill(ds, "ReportWeight");
                         ReportDocument doc = new ReportDocument();
                         doc.Load("Reports/ReportWeight.rpt");
                         doc.SetDataSource(ds);
-                        crystalReportViewer1.ReportSource = doc;
+                        crystalReportViewer1.ReportSource = doc;*/
                     }
                     else
                     {
-                        SqlDataAdapter da = DAO.getInstance().selectReportContractor(contractor,
+                       /* SqlDataAdapter da = DAO.getInstance().selectReportContractor(contractor,
                             subdivision, "ReportWeightWithContractor");
                         AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
                         da.Fill(ds, "ReportWeightWithContractor");
                         ReportDocument doc = new ReportDocument();
                         doc.Load("Reports/ReportWeightWithContractor.rpt");
                         doc.SetDataSource(ds);
-                        crystalReportViewer1.ReportSource = doc;
+                        crystalReportViewer1.ReportSource = doc;*/
                     }
                 }
                 else
                 {
                     if (contractor == "")
                     {
-                        SqlDataAdapter da = DAO.getInstance().selectReportWithPeriod(dateS, 
+                      /*  SqlDataAdapter da = DAO.getInstance().selectReportWithPeriod(dateS, 
                             datePo, "ReportWeightWithPeriod");
                         AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
                         da.Fill(ds, "ReportWeightWithPeriod");
                         ReportDocument doc = new ReportDocument();
                         doc.Load("Reports/ReportWeightWithPeriod.rpt");
                         doc.SetDataSource(ds);
-                        crystalReportViewer1.ReportSource = doc;
+                        crystalReportViewer1.ReportSource = doc;*/
                     }
                     else
                     {
-                        SqlDataAdapter da = DAO.getInstance().selectReportContractorWithPeriod(contractor, 
+                      /*  SqlDataAdapter da = DAO.getInstance().selectReportContractorWithPeriod(contractor, 
                             subdivision, dateS, datePo, "ReportWeightWithContractorPeriod");
                         AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
                         da.Fill(ds, "ReportWeightWithContractorPeriod");
                         ReportDocument doc = new ReportDocument();
                         doc.Load("Reports/ReportWeightWithContractorPeriod.rpt");
                         doc.SetDataSource(ds);
-                        crystalReportViewer1.ReportSource = doc;
+                        crystalReportViewer1.ReportSource = doc;*/
                     }
                 }
             }
@@ -91,49 +91,49 @@ namespace Elevator.Forms
                 {
                     if (contractor == "")
                     {
-                        SqlDataAdapter da = DAO.getInstance().selectReport("ProcessReport");
+                      /*  SqlDataAdapter da = DAO.getInstance().selectReport("ProcessReport");
                         AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
                         da.Fill(ds, "ProcessReport");
                         ReportDocument doc = new ReportDocument();
                         doc.Load("Reports/ReportProcess.rpt");
                         doc.SetDataSource(ds);
-                        crystalReportViewer1.ReportSource = doc;
+                        crystalReportViewer1.ReportSource = doc;*/
                     }
                     else
                     {                       
-                        SqlDataAdapter da = DAO.getInstance().selectReportContractor(contractor, 
+                        /*SqlDataAdapter da = DAO.getInstance().selectReportContractor(contractor, 
                             subdivision, "ProcessReportContractor");
                         AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
                         da.Fill(ds, "ProcessReportContractor");
                         ReportDocument doc = new ReportDocument();
                         doc.Load("Reports/ProcessReportContractor.rpt");
                         doc.SetDataSource(ds);
-                        crystalReportViewer1.ReportSource = doc;
+                        crystalReportViewer1.ReportSource = doc;*/
                     }
                 }
                 else
                 {
                     if (contractor == "")
                     {
-                        SqlDataAdapter da = DAO.getInstance().selectReportWithPeriod(dateS, datePo,
+                       /* SqlDataAdapter da = DAO.getInstance().selectReportWithPeriod(dateS, datePo,
                             "ProcessReportWithPeriod");
                         AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
                         da.Fill(ds, "ProcessReportWithPeriod");
                         ReportDocument doc = new ReportDocument();
                         doc.Load("Reports/ProcessReportWithPeriod.rpt");
                         doc.SetDataSource(ds);
-                        crystalReportViewer1.ReportSource = doc;
+                        crystalReportViewer1.ReportSource = doc;*/
                     }
                     else
                     {
-                        SqlDataAdapter da = DAO.getInstance().selectReportContractorWithPeriod(contractor,
+                       /* SqlDataAdapter da = DAO.getInstance().selectReportContractorWithPeriod(contractor,
                             subdivision, dateS, datePo, "ProcessReportContractorWithPeriod");
                         AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
                         da.Fill(ds, "ProcessReportContractorWithPeriod");
                         ReportDocument doc = new ReportDocument();
                         doc.Load("Reports/ProcessReportContractorWithPeriod.rpt");
                         doc.SetDataSource(ds);
-                        crystalReportViewer1.ReportSource = doc;
+                        crystalReportViewer1.ReportSource = doc;*/
                     }
                 }
             }                         

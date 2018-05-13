@@ -54,5 +54,19 @@ namespace Elevator.Forms
                 }
             }
         }
+
+        private void fromTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char l = e.KeyChar;
+            if (l != '\b' && l != '.' && (l < '0' || l > '9'))
+                e.Handled = true;
+        }
+
+        private void toTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char l = e.KeyChar;
+            if (l != '\b' && l != '.' && (l < '0' || l > '9'))
+                e.Handled = true;
+        }
     }
 }

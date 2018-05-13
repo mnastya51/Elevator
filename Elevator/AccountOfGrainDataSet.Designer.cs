@@ -12154,6 +12154,8 @@ namespace Elevator {
             
             private global::System.Data.DataColumn columnsubdivision;
             
+            private global::System.Data.DataColumn columnyear_crop;
+            
             private global::System.Data.DataColumn columnname_raw;
             
             private global::System.Data.DataColumn columnname_type_raw;
@@ -12162,7 +12164,7 @@ namespace Elevator {
             
             private global::System.Data.DataColumn columnname_subtype;
             
-            private global::System.Data.DataColumn columnid_class;
+            private global::System.Data.DataColumn columnnumber_class;
             
             private global::System.Data.DataColumn columnname_imp;
             
@@ -12179,6 +12181,10 @@ namespace Elevator {
             private global::System.Data.DataColumn columnname_grain_imp;
             
             private global::System.Data.DataColumn columnvalue_grain_imp;
+            
+            private global::System.Data.DataColumn columnColumn1;
+            
+            private global::System.Data.DataColumn columnColumn2;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -12231,6 +12237,14 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn year_cropColumn {
+                get {
+                    return this.columnyear_crop;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn name_rawColumn {
                 get {
                     return this.columnname_raw;
@@ -12263,9 +12277,9 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn id_classColumn {
+            public global::System.Data.DataColumn number_classColumn {
                 get {
-                    return this.columnid_class;
+                    return this.columnnumber_class;
                 }
             }
             
@@ -12335,6 +12349,22 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Column1Column {
+                get {
+                    return this.columnColumn1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Column2Column {
+                get {
+                    return this.columnColumn2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -12370,16 +12400,35 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ReportAnalysisCardRow AddReportAnalysisCardRow(string name_contr, string subdivision, string name_raw, int name_type_raw, string number_gost, int name_subtype, string name_imp, float value_imp, string name_harm_imp, float value_harm_imp, string name_weed_imp, float value_weed_imp, string name_grain_imp, float value_grain_imp) {
+            public ReportAnalysisCardRow AddReportAnalysisCardRow(
+                        string name_contr, 
+                        string subdivision, 
+                        int year_crop, 
+                        string name_raw, 
+                        int name_type_raw, 
+                        string number_gost, 
+                        int name_subtype, 
+                        int number_class, 
+                        string name_imp, 
+                        float value_imp, 
+                        string name_harm_imp, 
+                        float value_harm_imp, 
+                        string name_weed_imp, 
+                        float value_weed_imp, 
+                        string name_grain_imp, 
+                        float value_grain_imp, 
+                        string Column1, 
+                        string Column2) {
                 ReportAnalysisCardRow rowReportAnalysisCardRow = ((ReportAnalysisCardRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         name_contr,
                         subdivision,
+                        year_crop,
                         name_raw,
                         name_type_raw,
                         number_gost,
                         name_subtype,
-                        null,
+                        number_class,
                         name_imp,
                         value_imp,
                         name_harm_imp,
@@ -12387,7 +12436,9 @@ namespace Elevator {
                         name_weed_imp,
                         value_weed_imp,
                         name_grain_imp,
-                        value_grain_imp};
+                        value_grain_imp,
+                        Column1,
+                        Column2};
                 rowReportAnalysisCardRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowReportAnalysisCardRow);
                 return rowReportAnalysisCardRow;
@@ -12412,11 +12463,12 @@ namespace Elevator {
             internal void InitVars() {
                 this.columnname_contr = base.Columns["name_contr"];
                 this.columnsubdivision = base.Columns["subdivision"];
+                this.columnyear_crop = base.Columns["year_crop"];
                 this.columnname_raw = base.Columns["name_raw"];
                 this.columnname_type_raw = base.Columns["name_type_raw"];
                 this.columnnumber_gost = base.Columns["number_gost"];
                 this.columnname_subtype = base.Columns["name_subtype"];
-                this.columnid_class = base.Columns["id_class"];
+                this.columnnumber_class = base.Columns["number_class"];
                 this.columnname_imp = base.Columns["name_imp"];
                 this.columnvalue_imp = base.Columns["value_imp"];
                 this.columnname_harm_imp = base.Columns["name_harm_imp"];
@@ -12425,6 +12477,8 @@ namespace Elevator {
                 this.columnvalue_weed_imp = base.Columns["value_weed_imp"];
                 this.columnname_grain_imp = base.Columns["name_grain_imp"];
                 this.columnvalue_grain_imp = base.Columns["value_grain_imp"];
+                this.columnColumn1 = base.Columns["Column1"];
+                this.columnColumn2 = base.Columns["Column2"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12434,6 +12488,8 @@ namespace Elevator {
                 base.Columns.Add(this.columnname_contr);
                 this.columnsubdivision = new global::System.Data.DataColumn("subdivision", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsubdivision);
+                this.columnyear_crop = new global::System.Data.DataColumn("year_crop", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnyear_crop);
                 this.columnname_raw = new global::System.Data.DataColumn("name_raw", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnname_raw);
                 this.columnname_type_raw = new global::System.Data.DataColumn("name_type_raw", typeof(int), null, global::System.Data.MappingType.Element);
@@ -12442,8 +12498,8 @@ namespace Elevator {
                 base.Columns.Add(this.columnnumber_gost);
                 this.columnname_subtype = new global::System.Data.DataColumn("name_subtype", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnname_subtype);
-                this.columnid_class = new global::System.Data.DataColumn("id_class", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid_class);
+                this.columnnumber_class = new global::System.Data.DataColumn("number_class", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnumber_class);
                 this.columnname_imp = new global::System.Data.DataColumn("name_imp", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnname_imp);
                 this.columnvalue_imp = new global::System.Data.DataColumn("value_imp", typeof(float), null, global::System.Data.MappingType.Element);
@@ -12460,17 +12516,24 @@ namespace Elevator {
                 base.Columns.Add(this.columnname_grain_imp);
                 this.columnvalue_grain_imp = new global::System.Data.DataColumn("value_grain_imp", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvalue_grain_imp);
+                this.columnColumn1 = new global::System.Data.DataColumn("Column1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnColumn1);
+                this.columnColumn2 = new global::System.Data.DataColumn("Column2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnColumn2);
                 this.columnname_contr.AllowDBNull = false;
                 this.columnname_contr.MaxLength = 150;
                 this.columnsubdivision.MaxLength = 50;
+                this.columnyear_crop.AllowDBNull = false;
                 this.columnname_raw.MaxLength = 15;
                 this.columnnumber_gost.MaxLength = 30;
-                this.columnid_class.AutoIncrement = true;
-                this.columnid_class.ReadOnly = true;
                 this.columnname_imp.MaxLength = 20;
                 this.columnname_harm_imp.MaxLength = 20;
                 this.columnname_weed_imp.MaxLength = 20;
                 this.columnname_grain_imp.MaxLength = 20;
+                this.columnColumn1.ReadOnly = true;
+                this.columnColumn1.MaxLength = 30;
+                this.columnColumn2.ReadOnly = true;
+                this.columnColumn2.MaxLength = 30;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17197,6 +17260,17 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int year_crop {
+                get {
+                    return ((int)(this[this.tableReportAnalysisCard.year_cropColumn]));
+                }
+                set {
+                    this[this.tableReportAnalysisCard.year_cropColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string name_raw {
                 get {
                     try {
@@ -17262,17 +17336,17 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int id_class {
+            public int number_class {
                 get {
                     try {
-                        return ((int)(this[this.tableReportAnalysisCard.id_classColumn]));
+                        return ((int)(this[this.tableReportAnalysisCard.number_classColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'id_class\' в таблице \'ReportAnalysisCard\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'number_class\' в таблице \'ReportAnalysisCard\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableReportAnalysisCard.id_classColumn] = value;
+                    this[this.tableReportAnalysisCard.number_classColumn] = value;
                 }
             }
             
@@ -17412,6 +17486,38 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Column1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableReportAnalysisCard.Column1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Column1\' в таблице \'ReportAnalysisCard\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReportAnalysisCard.Column1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Column2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableReportAnalysisCard.Column2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Column2\' в таблице \'ReportAnalysisCard\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReportAnalysisCard.Column2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IssubdivisionNull() {
                 return this.IsNull(this.tableReportAnalysisCard.subdivisionColumn);
             }
@@ -17472,14 +17578,14 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isid_classNull() {
-                return this.IsNull(this.tableReportAnalysisCard.id_classColumn);
+            public bool Isnumber_classNull() {
+                return this.IsNull(this.tableReportAnalysisCard.number_classColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setid_classNull() {
-                this[this.tableReportAnalysisCard.id_classColumn] = global::System.Convert.DBNull;
+            public void Setnumber_classNull() {
+                this[this.tableReportAnalysisCard.number_classColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17576,6 +17682,30 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setvalue_grain_impNull() {
                 this[this.tableReportAnalysisCard.value_grain_impColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsColumn1Null() {
+                return this.IsNull(this.tableReportAnalysisCard.Column1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetColumn1Null() {
+                this[this.tableReportAnalysisCard.Column1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsColumn2Null() {
+                return this.IsNull(this.tableReportAnalysisCard.Column2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetColumn2Null() {
+                this[this.tableReportAnalysisCard.Column2Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -30751,11 +30881,12 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
             tableMapping.DataSetTable = "ReportAnalysisCard";
             tableMapping.ColumnMappings.Add("name_contr", "name_contr");
             tableMapping.ColumnMappings.Add("subdivision", "subdivision");
+            tableMapping.ColumnMappings.Add("year_crop", "year_crop");
             tableMapping.ColumnMappings.Add("name_raw", "name_raw");
             tableMapping.ColumnMappings.Add("name_type_raw", "name_type_raw");
             tableMapping.ColumnMappings.Add("number_gost", "number_gost");
             tableMapping.ColumnMappings.Add("name_subtype", "name_subtype");
-            tableMapping.ColumnMappings.Add("id_class", "id_class");
+            tableMapping.ColumnMappings.Add("number_class", "number_class");
             tableMapping.ColumnMappings.Add("name_imp", "name_imp");
             tableMapping.ColumnMappings.Add("value_imp", "value_imp");
             tableMapping.ColumnMappings.Add("name_harm_imp", "name_harm_imp");
@@ -30764,6 +30895,8 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
             tableMapping.ColumnMappings.Add("value_weed_imp", "value_weed_imp");
             tableMapping.ColumnMappings.Add("name_grain_imp", "name_grain_imp");
             tableMapping.ColumnMappings.Add("value_grain_imp", "value_grain_imp");
+            tableMapping.ColumnMappings.Add("Column1", "Column1");
+            tableMapping.ColumnMappings.Add("Column2", "Column2");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -30784,19 +30917,26 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idEmp", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(AccountOfGrainDataSet.ReportAnalysisCardDataTable dataTable, global::System.Nullable<int> id) {
+        public virtual int Fill(AccountOfGrainDataSet.ReportAnalysisCardDataTable dataTable, global::System.Nullable<int> id, global::System.Nullable<int> idEmp) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((id.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((idEmp.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(idEmp.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -30809,13 +30949,19 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual AccountOfGrainDataSet.ReportAnalysisCardDataTable GetData(global::System.Nullable<int> id) {
+        public virtual AccountOfGrainDataSet.ReportAnalysisCardDataTable GetData(global::System.Nullable<int> id, global::System.Nullable<int> idEmp) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((id.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((idEmp.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(idEmp.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             AccountOfGrainDataSet.ReportAnalysisCardDataTable dataTable = new AccountOfGrainDataSet.ReportAnalysisCardDataTable();
             this.Adapter.Fill(dataTable);

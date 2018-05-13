@@ -1465,7 +1465,7 @@ namespace Elevator
                         try { row.Cells[4].Value = reader.GetInt32(4); } catch { }
                         try { row.Cells[5].Value = reader.GetInt32(5); } catch { }
                         row.Cells[6].Value = reader.GetString(6);
-                        row.Cells[7].Value = reader.GetString(7);
+                        row.Cells[7].Value = reader.GetFloat(7);
                         row.Cells[8].Value = reader.GetInt32(8);
                         c++;
                     }
@@ -2388,6 +2388,17 @@ namespace Elevator
             int count = (Int32)command.ExecuteScalar();
             sqlCommand = string.Format("exec {3} @id = {0}, @date1 = {1}, "+
                 "@date2 = {2}", count, dateS, datePo, name);
+            SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
+            return da;
+        }
+
+        public SqlDataAdapter selectReportAnalysisCard(string idRaw, int id)
+        {
+            string sqlCommand = string.Empty;
+            SqlConnection connection = new SqlConnection(connectionString);
+            sqlCommand = string.Format("exec ReportAnalysisCard @id= {0},  @idEmp = {1}",
+                idRaw, id);
+            connection.Open();
             SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
             return da;
         }

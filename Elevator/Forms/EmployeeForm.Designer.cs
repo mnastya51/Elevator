@@ -42,9 +42,11 @@
             this.dataGridViewEmployee = new System.Windows.Forms.DataGridView();
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addButton = new System.Windows.Forms.Button();
+            this.accountOfGrainDataSet = new Elevator.AccountOfGrainDataSet();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -180,6 +182,11 @@
             this.dataGridViewEmployee.Size = new System.Drawing.Size(632, 233);
             this.dataGridViewEmployee.TabIndex = 54;
             // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataSource = this.accountOfGrainDataSet;
+            this.employeeBindingSource.Position = 0;
+            // 
             // addButton
             // 
             this.addButton.BackColor = System.Drawing.Color.DarkOrange;
@@ -195,6 +202,11 @@
             this.addButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
+            // accountOfGrainDataSet
+            // 
+            this.accountOfGrainDataSet.DataSetName = "AccountOfGrainDataSet";
+            this.accountOfGrainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // EmployeeForm
             // 
@@ -217,6 +229,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -233,5 +246,6 @@
         private System.Windows.Forms.TextBox surnameTextBox;
         private System.Windows.Forms.BindingSource employeeBindingSource;
         private System.Windows.Forms.Button addButton;
+        private AccountOfGrainDataSet accountOfGrainDataSet;
     }
 }

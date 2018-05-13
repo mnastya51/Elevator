@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractorForm));
@@ -38,15 +37,11 @@
             this.lbName = new System.Windows.Forms.Label();
             this.findButton = new System.Windows.Forms.Button();
             this.dataGridViewContractor = new System.Windows.Forms.DataGridView();
-            this.contractorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addButton = new System.Windows.Forms.Button();
             this.changeButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.accountOfGrainDataSet = new Elevator.AccountOfGrainDataSet();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContractor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractorBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -122,7 +117,6 @@
             this.dataGridViewContractor.AllowUserToAddRows = false;
             this.dataGridViewContractor.AllowUserToDeleteRows = false;
             this.dataGridViewContractor.AllowUserToResizeRows = false;
-            this.dataGridViewContractor.AutoGenerateColumns = false;
             this.dataGridViewContractor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewContractor.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.dataGridViewContractor.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -135,7 +129,6 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewContractor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewContractor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewContractor.DataSource = this.contractorBindingSource;
             this.dataGridViewContractor.EnableHeadersVisualStyles = false;
             this.dataGridViewContractor.Location = new System.Drawing.Point(12, 128);
             this.dataGridViewContractor.MultiSelect = false;
@@ -149,11 +142,6 @@
             this.dataGridViewContractor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewContractor.Size = new System.Drawing.Size(824, 244);
             this.dataGridViewContractor.TabIndex = 43;
-            // 
-            // contractorBindingSource
-            // 
-            this.contractorBindingSource.DataSource = this.accountOfGrainDataSet;
-            this.contractorBindingSource.Position = 0;
             // 
             // addButton
             // 
@@ -203,11 +191,6 @@
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
-            // accountOfGrainDataSet
-            // 
-            this.accountOfGrainDataSet.DataSetName = "AccountOfGrainDataSet";
-            this.accountOfGrainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // ContractorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,8 +211,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContractor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractorBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -245,7 +226,5 @@
         private System.Windows.Forms.Button changeButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.TextBox nameContractortextBox;
-        private System.Windows.Forms.BindingSource contractorBindingSource;
-        private AccountOfGrainDataSet accountOfGrainDataSet;
     }
 }
