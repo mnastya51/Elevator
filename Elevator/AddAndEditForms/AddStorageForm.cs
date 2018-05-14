@@ -38,7 +38,7 @@ namespace Elevator.AddAndEditForms
             weight = newWeight;
         }
 
-        public AddStorageForm(StoreStoragePlace newStore, string newRaw, string newType, string newSubtype, string newClassRaw)
+        public AddStorageForm(StoreStoragePlace newStore, string newRaw, string newType, string newSubtype, string newClassRaw, double newWeight)
         {
             InitializeComponent();
             controller = new AddStorageController();
@@ -52,9 +52,10 @@ namespace Elevator.AddAndEditForms
             type = newType;
             subtype = newSubtype;
             classRaw = newClassRaw;
+            weight = newWeight;
         }
 
-        public AddStorageForm(SilageStoragePlace newSilage, string newRaw, string newType, string newSubtype, string newClassRaw)
+        public AddStorageForm(SilageStoragePlace newSilage, string newRaw, string newType, string newSubtype, string newClassRaw, double newWeight)
         {
             InitializeComponent();
             controller = new AddStorageController();
@@ -68,6 +69,7 @@ namespace Elevator.AddAndEditForms
             type = newType;
             subtype = newSubtype;
             classRaw = newClassRaw;
+            weight = newWeight;
         }
 
         private void saveButton_Click(object sender, EventArgs e)

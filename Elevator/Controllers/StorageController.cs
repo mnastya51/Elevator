@@ -15,14 +15,14 @@ namespace Elevator.Controllers
             new AddStorageForm(idRaw, raw, type, subtype, classRaw, weight).ShowDialog();
         }
 
-        public void changeButtonClick(StoreStoragePlace store, string raw, string type, string subtype, string classRaw)
+        public void changeButtonClick(StoreStoragePlace store, string raw, string type, string subtype, string classRaw, double weight)
         {
-            new AddStorageForm(store, raw, type, subtype, classRaw).ShowDialog();
+            new AddStorageForm(store, raw, type, subtype, classRaw, weight).ShowDialog();
         }
 
-        public void changeButtonClick(SilageStoragePlace silage, string raw, string type, string subtype, string classRaw)
+        public void changeButtonClick(SilageStoragePlace silage, string raw, string type, string subtype, string classRaw, double weight)
         {
-            new AddStorageForm(silage, raw, type, subtype, classRaw).ShowDialog();
+            new AddStorageForm(silage, raw, type, subtype, classRaw, weight).ShowDialog();
         }
     }
 }
