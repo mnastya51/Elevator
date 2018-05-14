@@ -47,18 +47,13 @@ namespace Elevator.Controllers
 
         public int checkIndex(string index)
         {
-            try
-            {
                 if (index.Replace(" ", "").Length > 6)
                 {
                     MessageBox.Show("Длина индекса должа быть равна 6!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return Convert.ToInt32(index.Substring(0, index.Length - 1));
                 }
-                return Convert.ToInt32(index);
-            } catch (Exception)
-            {
-                return -1;
-            }
+                else
+                    return -1;
         }
 
         public bool checkSaveForIndex(string index)

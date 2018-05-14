@@ -19,16 +19,7 @@ namespace Elevator.Forms
         {
             InitializeComponent();
             controller = new LevelOfQualityController();
-            groupComboBox.SelectedIndexChanged += groupComboBox_SelectedIndexChanged;
             groupComboBox.Text = groupComboBox.Items[0].ToString();
-        }
-
-        private void groupComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            addButton.Enabled = false;
-            addButton.BackColor = Color.LightGray;
-            deleteButton.Enabled = false;
-            deleteButton.BackColor = Color.LightGray;
         }
 
         private FormValue<string, string> changeComboBox(string nameTable)
@@ -43,11 +34,6 @@ namespace Elevator.Forms
         }
         private void showButton_Click(object sender, EventArgs e)
         {
-            addButton.Enabled = true;
-            addButton.BackColor = Color.DarkOrange;
-            deleteButton.Enabled = true;
-            deleteButton.BackColor = Color.DarkOrange;
-
             dataGridViewImpurityQuality.Rows.Clear();
             DAO.getInstance().selectImpurityTable(changeComboBox(groupComboBox.Text).getKey(), dataGridViewImpurityQuality);
             dataGridViewImpurityQuality.ClearSelection();

@@ -64,7 +64,7 @@ namespace Elevator.Forms
         private void addButton_Click(object sender, EventArgs e)
         {
             new AddDateAnalysForm(new DateAnalys(
-                Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[4].Value),
+                Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[6].Value),
                 Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value))).ShowDialog();
             selectDate();
         }
@@ -72,7 +72,7 @@ namespace Elevator.Forms
         private void selectDate()
         {
             dataGridViewDate.Rows.Clear();
-            DAO.getInstance().selectDateAnalys(dataGridViewDate, Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[4].Value),
+            DAO.getInstance().selectDateAnalys(dataGridViewDate, Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[6].Value),
                 Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value));
             dataGridViewDate.ClearSelection();
         }

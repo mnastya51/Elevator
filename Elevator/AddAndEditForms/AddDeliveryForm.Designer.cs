@@ -70,7 +70,7 @@
             this.weightTextBox.MaxLength = 10;
             this.weightTextBox.Name = "weightTextBox";
             this.weightTextBox.Size = new System.Drawing.Size(231, 26);
-            this.weightTextBox.TabIndex = 8;
+            this.weightTextBox.TabIndex = 9;
             this.weightTextBox.TextChanged += new System.EventHandler(this.weightTextBox_TextChanged);
             this.weightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.weightTextBox_KeyPress);
             // 
@@ -90,7 +90,7 @@
             0});
             this.yearNumericUpDown.Name = "yearNumericUpDown";
             this.yearNumericUpDown.Size = new System.Drawing.Size(231, 26);
-            this.yearNumericUpDown.TabIndex = 6;
+            this.yearNumericUpDown.TabIndex = 7;
             this.yearNumericUpDown.Value = new decimal(new int[] {
             2018,
             0,
@@ -102,10 +102,10 @@
             this.subtypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.subtypeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.subtypeComboBox.FormattingEnabled = true;
-            this.subtypeComboBox.Location = new System.Drawing.Point(155, 148);
+            this.subtypeComboBox.Location = new System.Drawing.Point(155, 194);
             this.subtypeComboBox.Name = "subtypeComboBox";
             this.subtypeComboBox.Size = new System.Drawing.Size(231, 28);
-            this.subtypeComboBox.TabIndex = 4;
+            this.subtypeComboBox.TabIndex = 5;
             // 
             // label2
             // 
@@ -123,10 +123,10 @@
             this.typeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.typeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.typeComboBox.FormattingEnabled = true;
-            this.typeComboBox.Location = new System.Drawing.Point(155, 197);
+            this.typeComboBox.Location = new System.Drawing.Point(155, 148);
             this.typeComboBox.Name = "typeComboBox";
             this.typeComboBox.Size = new System.Drawing.Size(231, 28);
-            this.typeComboBox.TabIndex = 3;
+            this.typeComboBox.TabIndex = 4;
             this.typeComboBox.SelectedIndexChanged += new System.EventHandler(this.typeComboBox_SelectedIndexChanged);
             // 
             // label1
@@ -147,7 +147,7 @@
             this.transportTextBox.MaxLength = 20;
             this.transportTextBox.Name = "transportTextBox";
             this.transportTextBox.Size = new System.Drawing.Size(231, 26);
-            this.transportTextBox.TabIndex = 7;
+            this.transportTextBox.TabIndex = 8;
             // 
             // labelTransport
             // 
@@ -178,7 +178,7 @@
             this.dateTimePicker.Location = new System.Drawing.Point(155, 245);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(231, 26);
-            this.dateTimePicker.TabIndex = 5;
+            this.dateTimePicker.TabIndex = 6;
             // 
             // labelDate
             // 
@@ -199,7 +199,7 @@
             this.rawComboBox.Location = new System.Drawing.Point(155, 105);
             this.rawComboBox.Name = "rawComboBox";
             this.rawComboBox.Size = new System.Drawing.Size(231, 28);
-            this.rawComboBox.TabIndex = 2;
+            this.rawComboBox.TabIndex = 3;
             this.rawComboBox.SelectedIndexChanged += new System.EventHandler(this.rawComboBox_SelectedIndexChanged);
             // 
             // rawLabel
@@ -273,7 +273,7 @@
             this.subdivisionComboBox.Location = new System.Drawing.Point(155, 61);
             this.subdivisionComboBox.Name = "subdivisionComboBox";
             this.subdivisionComboBox.Size = new System.Drawing.Size(231, 28);
-            this.subdivisionComboBox.TabIndex = 27;
+            this.subdivisionComboBox.TabIndex = 2;
             // 
             // AddDeliveryForm
             // 

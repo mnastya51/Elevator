@@ -28,18 +28,35 @@ namespace Elevator.Controllers
             }
             else
             {
-                if(!DAO.getInstance().updateNote("employee", new FormValue<string, string>("id_emp", employee.Id.ToString()),
-                    new FormValue<string, string>("surname", employee.Surname),
-                    new FormValue<string, string>("name", employee.Name),
-                    new FormValue<string, string>("secName", employee.SecName),
-                    new FormValue<string, string>("post", employee.Post),
-                    new FormValue<string, string>("login", employee.Login),
-                    new FormValue<string, string>("password", employee.Password)))
+                if (employee.Password != "")
                 {
-                    MessageBox.Show("Данный логин уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
+                    if (!DAO.getInstance().updateNote("employee", new FormValue<string, string>("id_emp", employee.Id.ToString()),
+                        new FormValue<string, string>("surname", employee.Surname),
+                        new FormValue<string, string>("name", employee.Name),
+                        new FormValue<string, string>("secName", employee.SecName),
+                        new FormValue<string, string>("post", employee.Post),
+                        new FormValue<string, string>("login", employee.Login),
+                        new FormValue<string, string>("password", employee.Password)))
+                    {
+                        MessageBox.Show("Данный логин уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    else return true;
                 }
-                else return true;
+                else
+                {
+                    if (!DAO.getInstance().updateNote("employee", new FormValue<string, string>("id_emp", employee.Id.ToString()),
+                        new FormValue<string, string>("surname", employee.Surname),
+                        new FormValue<string, string>("name", employee.Name),
+                        new FormValue<string, string>("secName", employee.SecName),
+                        new FormValue<string, string>("post", employee.Post),
+                        new FormValue<string, string>("login", employee.Login)))
+                    {
+                        MessageBox.Show("Данный логин уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    else return true;
+                }
             }
         }
 

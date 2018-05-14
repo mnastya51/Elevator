@@ -1085,62 +1085,7 @@ namespace Elevator
                 return false;
             }
         }
-        /* public bool addDelivery(string nameTable, string contractor,string raw, string type, string subtype,
-                     FormValue<string, string> date,string year,FormValue<string, string> transport, FormValue<string, string> weight)
-         {
-             string sqlCommand;           
-             try
-             {
-                 if (isSubtypes(type, raw))//добавление в Storage, еще сделать в Delivery
-                 {
-                     sqlCommand = string.Format("Insert into Storage (year_crop, id_subtype, weight, id_NameRaw) " +
-                    "values({0}," +
-                    "(select s.id_subtype from Subtype_raw s join Type_raw t on s.id_type = t. id_type join Raw r on " +
-                    "r.id_NameRaw = t.id_NameRaw where s.name_subtype = {1} and t.name_type_raw = {2}  and r.name_raw = '{3}'), " +
-                    "0, " +
-                    "(select id_NameRaw from Raw where name_raw = '{3}'))", year, subtype, type, raw);
-                 }
-                 else
-                 {
-                     sqlCommand = string.Format("Insert into Storage (year_crop, id_subtype, weight, id_NameRaw, id_class)" +
-                         "values({0}," +
-                         "(select s.id_subtype from Subtype_raw s join Type_raw t on s.id_type = t. id_type Raw r on " +
-                          "r.id_NameRaw = t.id_NameRaw where  t.name_type_raw = {2}  and r.name_raw = '{3}'), " +
-                          "0, " +
-                          "(select id_NameRaw from Raw where name_raw = '{3}'))", year, type, raw);
-                 }
-                 using (SqlConnection connection = new SqlConnection(connectionString))
-                 {
-                     connection.Open();
-                     SqlCommand cmd = new SqlCommand(sqlCommand, connection);
-                     cmd.ExecuteNonQuery();
-                     connection.Close();
-                 }
-                 //сначала получить id_raw
-                 using (SqlConnection connection = new SqlConnection(connectionString))
-                 {
-                     sqlCommand = string.Format("Select max(id_raw) From Storage");
-                     connection.Open();
-                     SqlCommand command = new SqlCommand(sqlCommand, connection);
-                     int idRaw = (Int32)command.ExecuteScalar();
-                 }
-                 //добавление в деливери
-                 using (SqlConnection connection = new SqlConnection(connectionString))
-                 {
-                     sqlCommand = string.Format("Insert into {0} (id_contractor, id_raw, {0}, {1}, {2}) values ("+
-                         "select id_contractor from)", 
-                         nameTable, transport.getKey(), weight.getKey(), date.getKey());
-                     connection.Open();
-                     SqlCommand command = new SqlCommand(sqlCommand, connection);
-                     int idRaw = (Int32)command.ExecuteScalar();
-                 }
-                 return true;
-             }
-             catch (SqlException)
-             {
-                 return false;
-             }
-         }*/
+
         public bool addDelivery(int idRaw, string nameTable, string contractor, string subdivision,
                     FormValue<string, string> date, FormValue<string, string> transport, FormValue<string, string> weight,
                     string raw, string type, string subtype, string year)
@@ -1199,62 +1144,6 @@ namespace Elevator
             }
         }
 
-        /* public int addStorage(string raw, string type, string subtype, string year)
-         {
-             string sqlCommand;
-             int idRaw;
-             try
-             {
-                 if (isTypesForStorage(raw))
-                 {
-                     if (isSubtypesForStorage(type, raw))
-                     {
-                         sqlCommand = string.Format("Insert into Storage (year_crop, id_subtype, weight, id_NameRaw) " +
-                        "values('{0}'," +
-                        "(select s.id_subtype from Subtype_raw s join Type_raw t on s.id_type = t. id_type join Raw r on " +
-                        "r.id_NameRaw = t.id_NameRaw where s.name_subtype = '{1}' and t.name_type_raw = '{2}'  and r.name_raw = '{3}'), " +
-                        "0, " +
-                        "(select id_NameRaw from Raw where name_raw = '{3}'))", year, subtype, type, raw);
-                     }
-                     else
-                     {
-                         sqlCommand = string.Format("Insert into Storage (year_crop, id_subtype, weight, id_NameRaw)" +
-                             "values('{0}'," +
-                             "(select s.id_subtype from Subtype_raw s join Type_raw t on s.id_type = t. id_type join Raw r on " +
-                              "r.id_NameRaw = t.id_NameRaw where  t.name_type_raw = '{1}'  and r.name_raw = '{2}'), " +
-                              "0, " +
-                              "(select id_NameRaw from Raw where name_raw = '{2}'))", year, type, raw);
-                     }
-                 }
-                 else
-                 {
-                     sqlCommand = string.Format("Insert into Storage (year_crop, weight, id_NameRaw)" +
-                         "values('{0}'," +
-                          "0, " +
-                          "(select id_NameRaw from Raw where name_raw = '{1}'))", year, raw);
-                 }
-                 using (SqlConnection connection = new SqlConnection(connectionString))
-                 {
-                     connection.Open();
-                     SqlCommand cmd = new SqlCommand(sqlCommand, connection);
-                     cmd.ExecuteNonQuery();
-                     connection.Close();
-                 }
-                 //получить id_raw
-                 using (SqlConnection connection = new SqlConnection(connectionString))
-                 {
-                     sqlCommand = string.Format("Select max(id_raw) From Storage");
-                     connection.Open();
-                     SqlCommand command = new SqlCommand(sqlCommand, connection);
-                     idRaw = (Int32)command.ExecuteScalar();
-                 }
-                 return idRaw;
-             }
-             catch (SqlException)
-             {
-                 return 0;
-             }
-         }*/
         private bool isSubtypesForStorage(string type, string raw)//есть подтипы у типа
         {
             string sqlCommand = string.Empty;

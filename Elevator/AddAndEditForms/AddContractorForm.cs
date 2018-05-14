@@ -21,7 +21,6 @@ namespace Elevator.AddAndEditForms
             InitializeComponent();
             controller = new AddContractorController();
             maskedTextBoxPhone.TextChanged += maskedTextBoxPhone_TextChanged;
-            maskedTextBoxPhone.GotFocus += maskedTextBoxPhone_GotFocus;
         }
 
         public AddContractorForm(Contractor contr)
@@ -88,16 +87,22 @@ namespace Elevator.AddAndEditForms
             richTextBoxFactadress.BackColor = !AddContractorController.isEmpty(richTextBoxFactadress.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
         }
 
-        private void textBoxIndex_TextChanged(object sender, EventArgs e)
+        private void maskedTextBoxPhone_TextChanged(object sender, EventArgs e)
         {
+            maskedTextBoxPhone.BackColor = controller.checkPhone(maskedTextBoxPhone.Text) ? Color.White : Color.LightBlue;
+            saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text);
+            saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text) ? Color.DarkOrange : Color.LightBlue;
+        }
+
+        private void textBoxIndex_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char l = e.KeyChar;
+            if (l != '\b' && l != ',' && (l < '0' || l > '9'))
+                e.Handled = true;
             int newIndex = controller.checkIndex(textBoxIndex.Text);
             if (newIndex == -1 && textBoxIndex.Text.Length <= 1)
             {
                 textBoxIndex.Text = string.Empty;
-            }
-            else
-            {
-                textBoxIndex.Text = newIndex == -1 ? textBoxIndex.Text.Substring(0, textBoxIndex.Text.Length - 1) : newIndex.ToString();
             }
             textBoxIndex.SelectionStart = textBoxIndex.Text.Length;
             saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text);
@@ -105,36 +110,20 @@ namespace Elevator.AddAndEditForms
             textBoxIndex.BackColor = controller.checkSaveForIndex(textBoxIndex.Text) ? Color.White : Color.LightBlue;
         }
 
-
-        private void textBoxINN_TextChanged(object sender, EventArgs e)
+        private void textBoxINN_KeyPress(object sender, KeyPressEventArgs e)
         {
+            char l = e.KeyChar;
+            if (l != '\b' && l != ',' && (l < '0' || l > '9'))
+                e.Handled = true;
             Int64 newIndex = controller.checkInn(textBoxINN.Text);
             if (newIndex == -1 && textBoxINN.Text.Length <= 1)
             {
                 textBoxINN.Text = string.Empty;
             }
-            else
-            {
-                textBoxINN.Text = newIndex == -1 ? textBoxINN.Text.Substring(0, textBoxINN.Text.Length - 1) : newIndex.ToString();
-            }
             textBoxINN.SelectionStart = textBoxINN.Text.Length;
             saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text);
             saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text) ? Color.DarkOrange : Color.LightBlue;
             textBoxINN.BackColor = controller.checkSaveForInn(textBoxINN.Text) ? Color.White : Color.LightBlue;
-        }
-
-        private void maskedTextBoxPhone_TextChanged(object sender, EventArgs e)
-        {
-            maskedTextBoxPhone.BackColor = controller.checkPhone(maskedTextBoxPhone.Text) ? Color.White : Color.LightBlue;
-            saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text);
-            saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text) ? Color.DarkOrange : Color.LightBlue;
-        }
-        private void maskedTextBoxPhone_GotFocus(object sender, EventArgs e)
-        {
-            /*maskedTextBoxPhone.Focus();
-
-            maskedTextBoxPhone.SelectionStart = 2;
-            maskedTextBoxPhone.SelectionLength = 1;*/
         }
     }
 }

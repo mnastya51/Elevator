@@ -167,7 +167,7 @@
             this.textBoxIndex.Name = "textBoxIndex";
             this.textBoxIndex.Size = new System.Drawing.Size(232, 26);
             this.textBoxIndex.TabIndex = 71;
-            this.textBoxIndex.TextChanged += new System.EventHandler(this.textBoxIndex_TextChanged);
+            this.textBoxIndex.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxIndex_KeyPress);
             // 
             // maskedTextBoxPhone
             // 
@@ -187,7 +187,7 @@
             this.textBoxINN.Name = "textBoxINN";
             this.textBoxINN.Size = new System.Drawing.Size(232, 26);
             this.textBoxINN.TabIndex = 76;
-            this.textBoxINN.TextChanged += new System.EventHandler(this.textBoxINN_TextChanged);
+            this.textBoxINN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxINN_KeyPress);
             // 
             // saveButton
             // 

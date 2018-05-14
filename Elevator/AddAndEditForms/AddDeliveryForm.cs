@@ -17,11 +17,12 @@ namespace Elevator.AddAndEditForms
         private AddDeliveryController controller;
         private Delivery delivery;
         private Storage storage;
-        private string nameContractor;
-        private string subdivision;
-        private string date;
+       // private string nameContractor;
+    //    private string subdivision;
+    //    private string date;
         private bool loadFormType = true;
         private bool loadFormSubtype = true;
+        private bool loadFormContractor = true;
         public AddDeliveryForm()
         {
             InitializeComponent();
@@ -43,6 +44,11 @@ namespace Elevator.AddAndEditForms
             dateTimePicker.Format = DateTimePickerFormat.Custom;
             this.Text = "Изменение поставки";
             controller = new AddDeliveryController();
+            delivery = newDelivery;
+            yearNumericUpDown.Text = newStorage.Year;
+            //nameContractor = newDelivery.Contractor;
+           // subdivision = newDelivery.Subdivision;
+           // date = newDelivery.Date;
             string[] contractor = DAO.getInstance().getNoteToComboBox("name_contr", "Contractor");
             contractorComboBox.Items.AddRange(contractor);
             contractorComboBox.Text = newDelivery.Contractor;
@@ -52,12 +58,7 @@ namespace Elevator.AddAndEditForms
             rawComboBox.Text = newStorage.Raw;
             transportTextBox.Text = newDelivery.Transport;
             weightTextBox.Text = newDelivery.Weight;
-            dateTimePicker.Text = newDelivery.Date;
-            delivery = newDelivery;
-            yearNumericUpDown.Text = newStorage.Year;
-            nameContractor = newDelivery.Contractor;
-            subdivision = newDelivery.Subdivision;
-            date = newDelivery.Date;
+            dateTimePicker.Text = newDelivery.Date;           
         }
 
        
@@ -111,6 +112,7 @@ namespace Elevator.AddAndEditForms
         {
             subtypeComboBox.Items.Clear();
             string[] subtypes = DAO.getInstance().getSubtypes(typeComboBox.Text, rawComboBox.Text);
+            subtypeComboBox.Items.AddRange(subtypes);
             if (loadFormSubtype && storage != null)
             {
                 subtypeComboBox.Text = storage.Subtype;
@@ -118,7 +120,6 @@ namespace Elevator.AddAndEditForms
             }
             if (subtypes.Length > 0)
             {
-                subtypeComboBox.Items.AddRange(subtypes);
                 subtypeComboBox.Text = subtypeComboBox.Items[0].ToString();
             }
         }
@@ -128,12 +129,15 @@ namespace Elevator.AddAndEditForms
             subdivisionComboBox.Items.Clear();
             string[] subdivisions = DAO.getInstance().getSubdivisionToComboBox(contractorComboBox.Text);
             subdivisionComboBox.Items.AddRange(subdivisions);
-            if (delivery != null)
+            if (loadFormContractor && delivery != null)
             {
                 subdivisionComboBox.Text = delivery.Subdivision;
+                loadFormContractor = false;
             }
             else if (subdivisions.Length > 0)
+            {
                 subdivisionComboBox.Text = subdivisionComboBox.Items[0].ToString();
+            }
         }
 
         private void weightTextBox_KeyPress(object sender, KeyPressEventArgs e)

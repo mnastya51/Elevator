@@ -20,40 +20,7 @@ namespace Elevator.AddAndEditForms
         private GrainLevelOfQualityNorm grainLevelOfQualityNorm;
         private string type;
         private string subtype;
-        /* private string norm;
-         private string raw;
-         private string nameTable;
-         private string nameImp;
-         private string nameTableNorm;*/
         private bool forChange = false;
-       /* private string valueImp;
-        private string nameNorm;
-        private string numberClass;*/
-        /* public AddNormOfRawForm(string newNameTable, string newNameImp, LinkedList<string> impurities, string newNorm, string newRaw, string newNameTableNorm, string newNumberClass)
-         {       
-             InitializeComponent();
-             controller = new AddNormOfRawController();
-             string[] imp = DAO.getInstance().getImpurity(newNameTable, newNameImp, impurities);
-             impComboBox.Items.AddRange(imp);
-             if(imp.Length>0)
-                 impComboBox.Text = impComboBox.Items[0].ToString();
-             norm = newNorm;
-             raw = newRaw;
-             nameTable = newNameTable;
-             nameImp = newNameImp;
-             nameTableNorm = newNameTableNorm;
-             forChange = false;
-             numberClass = newNumberClass;
-         }*/
-       /* public AddNormOfRawForm(GeneralLevelOfQualityNorm newGeneralLevelOfQualityNorm, string[] impurities)
-        {
-            InitializeComponent();
-            controller = new AddNormOfRawController();
-            //string[] imp = DAO.getInstance().getImpurity(TypeGeneralLevelOfQuality.NameTable, GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr, impurities);
-            impComboBox.Items.AddRange(impurities);
-            impComboBox.Text = impComboBox.Items[0].ToString();   
-            generalLevelOfQualityNorm = newGeneralLevelOfQualityNorm;
-        }*/
 
         public AddNormOfRawForm(HarmfulLevelOfQualityNorm newharmfulLevelOfQualityNorm, string[] impurities, string newType, string newSubtype)
         {
@@ -88,38 +55,7 @@ namespace Elevator.AddAndEditForms
             subtype = newSubtype;
         }
 
-        /* public AddNormOfRawForm(string newValueImp, string valueNorm, string newNameTable, string newRaw, string newNameImp, string newNameNorm, string newNumberClass)
-         {
-             InitializeComponent();
-             controller = new AddNormOfRawController();
-             this.Text = "Изменение показателя качества";
-             impComboBox.Items.Add(newValueImp);
-             impComboBox.Text = newValueImp;
-             impComboBox.Enabled = false;
-             textBoxNorm.Text = valueNorm;
-             forChange = true;
-            /* nameImp = newNameImp;
-             valueImp = newValueImp;
-             nameNorm = newNameNorm;
-             nameTable = newNameTable;
-             raw = newRaw;
-             numberClass = newNumberClass;
-         }*/
-
-        /*public AddNormOfRawForm(GeneralLevelOfQualityNorm newGeneralLevelOfQualityNorm, bool change)
-        {
-            InitializeComponent();
-            controller = new AddNormOfRawController();
-            this.Text = "Изменение общего показателя качества";
-            impComboBox.Items.Add(newGeneralLevelOfQualityNorm.TypeImp);
-            impComboBox.Text = newGeneralLevelOfQualityNorm.TypeImp;
-            impComboBox.Enabled = false;
-            textBoxNorm.Text = newGeneralLevelOfQualityNorm.Norm;
-            generalLevelOfQualityNorm = newGeneralLevelOfQualityNorm;
-            forChange = change;            
-         }*/
-
-        public AddNormOfRawForm(HarmfulLevelOfQualityNorm newharmfulLevelOfQualityNorm, bool change)
+       public AddNormOfRawForm(HarmfulLevelOfQualityNorm newharmfulLevelOfQualityNorm, bool change)
         {
             InitializeComponent();
             controller = new AddNormOfRawController();
@@ -165,11 +101,6 @@ namespace Elevator.AddAndEditForms
                 string norm = textBoxNorm.Text.Trim().Replace(",", ".");
                 switch (this.Text)
                 {
-                    /*case "Изменение общего показателя качества":
-                        generalLevelOfQualityNorm.Norm = norm;
-                        if (controller.changeClick(generalLevelOfQualityNorm))
-                            this.Close();
-                        break;*/
                     case "Изменение вредного показателя качества":
                         harmfulLevelOfQualityNorm.Norm = norm;
                         if (controller.changeClick(harmfulLevelOfQualityNorm))
@@ -187,20 +118,8 @@ namespace Elevator.AddAndEditForms
                         break;
                 }
             }
-            // if (controller.changeClick(valueImp, nameTable, raw, textBoxImpurity.Text, nameImp, nameNorm, numberClass))
-
-            //if (controller.changeClick(generalLevelOfQualityNorm))
-            //   this.Close();
-
             else
-            {// if (controller.addClick(nameTableNorm, nameImp, impComboBox.Text, norm, raw, textBoxImpurity.Text, numberClass))
-               /* if (generalLevelOfQualityNorm != null)
-                {
-                    generalLevelOfQualityNorm.Norm = textBoxNorm.Text;
-                    generalLevelOfQualityNorm.TypeImp = impComboBox.Text;
-                    if (controller.addClick(generalLevelOfQualityNorm))
-                        this.Close();
-                }*/
+            {
                 if (harmfulLevelOfQualityNorm != null)
                 {
                     harmfulLevelOfQualityNorm.Norm = textBoxNorm.Text;
@@ -235,16 +154,8 @@ namespace Elevator.AddAndEditForms
         private void textBoxNorm_KeyPress(object sender, KeyPressEventArgs e)
         {
             char l = e.KeyChar;
-            if (l != '\b' && l != '.' && (l < '0' || l > '9'))
+            if (l != '\b' && l != ',' && (l < '0' || l > '9'))
                 e.Handled = true;
         }
-
-        /*private void impComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string[] classes = DAO.getInstance().getClasses();
-            impComboBox.Items.AddRange(classes);
-            if (classes.Length > 0)
-                groupComboBox.Text = groupComboBox.Items[0].ToString();
-        }*/
     }
 }

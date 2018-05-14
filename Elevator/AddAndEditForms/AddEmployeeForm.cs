@@ -35,7 +35,6 @@ namespace Elevator.AddAndEditForms
             secnameTextBox.Text = selectEmployee.SecName;
             comboBoxPost.Text = selectEmployee.Post;
             loginTextBox.Text = selectEmployee.Login;
-            passwordTextBox.Text = selectEmployee.Password;
             this.Text = "Изменение cотрудника";
             surnameTextBox.BackColor = Color.White;
             nameTextBox.BackColor = Color.White;
@@ -57,17 +56,29 @@ namespace Elevator.AddAndEditForms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            MD5 md5 = new MD5CryptoServiceProvider();
-            byte[] checkSum = md5.ComputeHash(Encoding.UTF8.GetBytes(passwordTextBox.Text.Trim()));
-            string resultPassword = BitConverter.ToString(checkSum).Replace("-", String.Empty);
+            string resultPassword = "";
+            if (passwordTextBox.Text.Trim() != "")
+            {
+                MD5 md5 = new MD5CryptoServiceProvider();
+                byte[] checkSum = md5.ComputeHash(Encoding.UTF8.GetBytes(passwordTextBox.Text.Trim()));
+                resultPassword = BitConverter.ToString(checkSum).Replace("-", String.Empty);
+            }
             if (selectEmployee == null)
             {
-                selectEmployee = new Employee(surnameTextBox.Text,
-                    nameTextBox.Text,
-                    secnameTextBox.Text,
-                    comboBoxPost.Text,
-                    loginTextBox.Text,
-                    resultPassword);
+                if (resultPassword != "")
+                {
+                    selectEmployee = new Employee(surnameTextBox.Text,
+                        nameTextBox.Text,
+                        secnameTextBox.Text,
+                        comboBoxPost.Text,
+                        loginTextBox.Text,
+                        resultPassword);
+                }
+                else selectEmployee = new Employee(surnameTextBox.Text,
+                       nameTextBox.Text,
+                       secnameTextBox.Text,
+                       comboBoxPost.Text,
+                       loginTextBox.Text);
                 if (controller.onSaveClick(selectEmployee, false))
                     this.Close();
                 else selectEmployee = null;
@@ -119,8 +130,11 @@ namespace Elevator.AddAndEditForms
 
         private void passwordTextBox_TextChanged(object sender, EventArgs e)
         {
-            checkSaveForAll();
-            passwordTextBox.BackColor = !AddEmployeeController.isEmpty(passwordTextBox.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
+            if (employee == null)
+            {
+                checkSaveForAll();
+                passwordTextBox.BackColor = !AddEmployeeController.isEmpty(passwordTextBox.Text.Replace(" ", "")) ? Color.White : Color.LightBlue;
+            }
         }
 
         private void keyPress(KeyPressEventArgs e)

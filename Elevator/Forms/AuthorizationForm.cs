@@ -30,6 +30,7 @@ namespace Elevator
             if (loginTextBox.Text.Equals("Логин"))
             {
                 loginTextBox.Clear();
+                loginTextBox.ForeColor = Color.Black;
             }
         }
 
@@ -39,6 +40,7 @@ namespace Elevator
             {
                 passwordTextBox.Clear();
                 passwordTextBox.UseSystemPasswordChar = true;
+                passwordTextBox.ForeColor = Color.Black;
             }
         }
 
@@ -69,7 +71,12 @@ namespace Elevator
             }
         }
 
-        private void authirizationButton_Click(object sender, EventArgs e)
+        private void AuthorizationForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Application.Exit();
+        }
+
+        private void authirizationButton_Click_1(object sender, EventArgs e)
         {
             bool isEmpty = false;
             if (loginTextBox.Text.Equals("Логин") || loginTextBox.Text.Trim().Equals(""))
@@ -122,11 +129,6 @@ namespace Elevator
                     }
                 }
             }
-        }
-
-        private void AuthorizationForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            //Application.Exit();
         }
     }
 }

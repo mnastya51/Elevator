@@ -63,7 +63,7 @@
             this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(352, 205);
+            this.groupBox1.Size = new System.Drawing.Size(373, 205);
             this.groupBox1.TabIndex = 46;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Информация о сотруднике";
@@ -80,7 +80,7 @@
             "Главный бухгалтер"});
             this.comboBoxPost.Location = new System.Drawing.Point(122, 157);
             this.comboBoxPost.Name = "comboBoxPost";
-            this.comboBoxPost.Size = new System.Drawing.Size(207, 28);
+            this.comboBoxPost.Size = new System.Drawing.Size(230, 28);
             this.comboBoxPost.TabIndex = 25;
             // 
             // secnameTextBox
@@ -90,7 +90,7 @@
             this.secnameTextBox.Location = new System.Drawing.Point(122, 113);
             this.secnameTextBox.MaxLength = 20;
             this.secnameTextBox.Name = "secnameTextBox";
-            this.secnameTextBox.Size = new System.Drawing.Size(207, 26);
+            this.secnameTextBox.Size = new System.Drawing.Size(230, 26);
             this.secnameTextBox.TabIndex = 24;
             this.secnameTextBox.TextChanged += new System.EventHandler(this.secnameTextBox_TextChanged);
             this.secnameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.secnameTextBox_KeyPress);
@@ -102,7 +102,7 @@
             this.nameTextBox.Location = new System.Drawing.Point(121, 68);
             this.nameTextBox.MaxLength = 20;
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(208, 26);
+            this.nameTextBox.Size = new System.Drawing.Size(231, 26);
             this.nameTextBox.TabIndex = 23;
             this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             this.nameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameTextBox_KeyPress);
@@ -114,7 +114,7 @@
             this.surnameTextBox.Location = new System.Drawing.Point(121, 26);
             this.surnameTextBox.MaxLength = 30;
             this.surnameTextBox.Name = "surnameTextBox";
-            this.surnameTextBox.Size = new System.Drawing.Size(208, 26);
+            this.surnameTextBox.Size = new System.Drawing.Size(231, 26);
             this.surnameTextBox.TabIndex = 22;
             this.surnameTextBox.TextChanged += new System.EventHandler(this.surnameTextBox_TextChanged);
             this.surnameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.surnameTextBox_KeyPress);
@@ -174,7 +174,7 @@
             this.groupBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.groupBox2.Location = new System.Drawing.Point(12, 225);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(352, 112);
+            this.groupBox2.Size = new System.Drawing.Size(373, 112);
             this.groupBox2.TabIndex = 47;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Информация для входа в систему";
@@ -189,7 +189,7 @@
             this.passwordTextBox.MaxLength = 35;
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
-            this.passwordTextBox.Size = new System.Drawing.Size(208, 26);
+            this.passwordTextBox.Size = new System.Drawing.Size(231, 26);
             this.passwordTextBox.TabIndex = 23;
             this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
             this.passwordTextBox.Enter += new System.EventHandler(this.passwordTextBox_Enter);
@@ -201,7 +201,7 @@
             this.loginTextBox.Location = new System.Drawing.Point(121, 24);
             this.loginTextBox.MaxLength = 20;
             this.loginTextBox.Name = "loginTextBox";
-            this.loginTextBox.Size = new System.Drawing.Size(208, 26);
+            this.loginTextBox.Size = new System.Drawing.Size(231, 26);
             this.loginTextBox.TabIndex = 22;
             this.loginTextBox.TextChanged += new System.EventHandler(this.loginTextBox_TextChanged);
             // 
@@ -235,7 +235,7 @@
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.saveButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.saveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.saveButton.Location = new System.Drawing.Point(133, 353);
+            this.saveButton.Location = new System.Drawing.Point(155, 359);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(100, 36);
             this.saveButton.TabIndex = 68;
@@ -249,13 +249,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(381, 407);
+            this.ClientSize = new System.Drawing.Size(396, 407);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(397, 446);
-            this.MinimumSize = new System.Drawing.Size(397, 446);
+            this.MaximumSize = new System.Drawing.Size(412, 446);
+            this.MinimumSize = new System.Drawing.Size(412, 446);
             this.Name = "AddEmployeeForm";
             this.Text = "Добавление сотрудника";
             this.groupBox1.ResumeLayout(false);

@@ -33,7 +33,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LevelOfQualityForm));
             this.label1 = new System.Windows.Forms.Label();
             this.groupComboBox = new System.Windows.Forms.ComboBox();
-            this.showButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.dataGridViewImpurityQuality = new System.Windows.Forms.DataGridView();
@@ -45,7 +44,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 18);
+            this.label1.Location = new System.Drawing.Point(39, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 20);
             this.label1.TabIndex = 56;
@@ -61,38 +60,22 @@
             "Вредные примеси",
             "Сорные примеси",
             "Зерновые примеси"});
-            this.groupComboBox.Location = new System.Drawing.Point(83, 18);
+            this.groupComboBox.Location = new System.Drawing.Point(110, 18);
             this.groupComboBox.Name = "groupComboBox";
-            this.groupComboBox.Size = new System.Drawing.Size(203, 28);
+            this.groupComboBox.Size = new System.Drawing.Size(259, 28);
             this.groupComboBox.TabIndex = 57;
-            // 
-            // showButton
-            // 
-            this.showButton.BackColor = System.Drawing.Color.DarkOrange;
-            this.showButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.showButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.showButton.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.showButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.showButton.Location = new System.Drawing.Point(301, 14);
-            this.showButton.Name = "showButton";
-            this.showButton.Size = new System.Drawing.Size(92, 34);
-            this.showButton.TabIndex = 67;
-            this.showButton.Text = "Показать";
-            this.showButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.showButton.UseVisualStyleBackColor = false;
-            this.showButton.Click += new System.EventHandler(this.showButton_Click);
+            this.groupComboBox.SelectedIndexChanged += new System.EventHandler(this.showButton_Click);
             // 
             // deleteButton
             // 
-            this.deleteButton.BackColor = System.Drawing.Color.LightGray;
-            this.deleteButton.Enabled = false;
+            this.deleteButton.BackColor = System.Drawing.Color.DarkOrange;
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.deleteButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteButton.Location = new System.Drawing.Point(110, 57);
+            this.deleteButton.Location = new System.Drawing.Point(123, 57);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(88, 28);
+            this.deleteButton.Size = new System.Drawing.Size(93, 28);
             this.deleteButton.TabIndex = 61;
             this.deleteButton.Text = "Удалить";
             this.deleteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -101,15 +84,14 @@
             // 
             // addButton
             // 
-            this.addButton.BackColor = System.Drawing.Color.LightGray;
-            this.addButton.Enabled = false;
+            this.addButton.BackColor = System.Drawing.Color.DarkOrange;
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.addButton.Location = new System.Drawing.Point(16, 57);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(88, 28);
+            this.addButton.Size = new System.Drawing.Size(101, 28);
             this.addButton.TabIndex = 59;
             this.addButton.Text = "Добавить";
             this.addButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -162,7 +144,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.ClientSize = new System.Drawing.Size(410, 298);
-            this.Controls.Add(this.showButton);
             this.Controls.Add(this.dataGridViewImpurityQuality);
             this.Controls.Add(this.groupComboBox);
             this.Controls.Add(this.deleteButton);
@@ -182,7 +163,6 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox groupComboBox;
-        private System.Windows.Forms.Button showButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.DataGridView dataGridViewImpurityQuality;
