@@ -100,7 +100,26 @@ namespace Elevator.Controllers
                     MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-                else return true;
+                else
+                {
+                    if (shipment.PlaceStorage.Equals("склад"))
+                    {
+                        if (!DAO.getInstance().cancelStoragePlace(Convert.ToString(shipment.Id), shipment.Number, shipment.Weight,
+                       StoreStoragePlace.NameTable, StoreStoragePlace.NumberAttr, StoreStoragePlace.WeightAttr,
+                       shipment.IdPlaceStorage, shipment.WeightBefore))
+                        {
+                            MessageBox.Show("Превышен вес!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        DAO.getInstance().cancelStoragePlace(Convert.ToString(shipment.Id), shipment.Number, shipment.Weight,
+                       SilageStoragePlace.NameTable, SilageStoragePlace.NumberAttr, SilageStoragePlace.WeightAttr,
+                       shipment.IdPlaceStorage, shipment.WeightBefore);
+                    }
+                    return true;
+                }
             }
 
         }

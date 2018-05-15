@@ -1182,40 +1182,12 @@ namespace Elevator
             FormValue<string, string> date, int idRaw, string raw, string type, string subtype,
             string year)
         {
-            string sqlCommandStorage;
             try
             {
-                if (isTypesForStorage(raw))
-                {
-                    if (isSubtypesForStorage(type, raw))//есть тип и подтип
-                    {
-                        sqlCommandStorage = string.Format("Update Storage set id_NameRaw = (select id_NameRaw from Raw where name_raw = '{0}'), " +
-                       "id_subtype = (select s.id_subtype from Subtype_raw s join Type_raw t on s.id_type = t. id_type join Raw r on " +
-                       "r.id_NameRaw = t.id_NameRaw where s.name_subtype = '{1}' and t.name_type_raw = '{2}'  and r.name_raw = '{0}'), " +
-                       "year_crop = {3}, weight = {5} where id_raw = {4}", raw, subtype, type, year, idRaw, weight.getValue());
-                    }
-                    else//есть тип
-                    {
-                        sqlCommandStorage = string.Format("Update Storage set id_NameRaw = (select id_NameRaw from Raw where name_raw = '{0}'), " +
-                       "id_subtype = (select s.id_subtype from Subtype_raw s join Type_raw t on s.id_type = t. id_type join Raw r on " +
-                             "r.id_NameRaw = t.id_NameRaw where  t.name_type_raw = '{1}'  and r.name_raw = '{0}'), " +
-                       "year_crop = {2}, weight = {4} where id_raw = {3}", raw, type, year, idRaw, weight.getValue());
-                    }
-                }
-                else//нет типа
-                {
-                    sqlCommandStorage = string.Format("Update Storage set id_NameRaw = (select id_NameRaw from Raw where name_raw = '{0}'), " +
-                        "id_subtype = null, " +
-                       "year_crop = {1}, weight = {3} where id_raw = {2}", raw, year, idRaw, weight.getValue());
-                }
-                string sqlCommand = string.Format("set xact_abort on; " +
-                        " begin tran;" +
-                        "{0};" +
-                        "Update {9} set {6} = '{1}', " +
-                       "{7} = '{2}', {8} = '{3}', " +
-                       "id_contractor = (select id_contractor from Contractor where name_contr = '{4}' and subdivision = '{10}') " +
-                       "where id_raw = {5};" +
-                       "commit tran;", sqlCommandStorage, transport.getValue(), weight.getValue(),
+                 string sqlCommand = string.Format("Update {8} set {5} = '{0}', " +
+                       "{6} = '{1}', {7} = '{2}', " +
+                       "id_contractor = (select id_contractor from Contractor where name_contr = '{3}' and subdivision = '{9}') " +
+                       "where id_raw = {4}", transport.getValue(), weight.getValue(),
                        date.getValue(), contractor, idRaw,
                        transport.getKey(), weight.getKey(), date.getKey(), nameTable, subdivision);
 
@@ -1232,6 +1204,9 @@ namespace Elevator
                 return false;
             }
         }
+
+        
+
         public void findTransportation(string sqlCommand, DataGridView dataGridViewContract)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -2318,16 +2293,38 @@ namespace Elevator
             return employee;
         }
         public bool cancelStoragePlace(string idRaw, string number, string weight, string nameTable,
-            string numberAttr, string weightAttr, string idPlaceStorage)
+            string numberAttr, string weightAttr, string idPlaceStorage, double weightBefore)
         {
             string sqlCommand;
             try
             {
-                sqlCommand = string.Format("Update {0} Set {3} = (select {3} from {0} " +
-                    "where id_raw ={5} and id_place_storage = {6} and {1} = {2})+{4} where id_raw ={5} and " +
-                    "id_place_storage = {6} and {1} = {2}",
-                    nameTable, numberAttr, number, weightAttr, weight, idRaw, idPlaceStorage);
-
+                double weightRes;
+                if (Convert.ToDouble(weight) >= weightBefore)
+                {
+                    string sql = string.Format("select {3} from {0} where id_raw ={4} and id_place_storage = {5} and {1} = {2}",
+                        nameTable, numberAttr, number, weightAttr, idRaw, idPlaceStorage);
+                    SqlConnection connection = new SqlConnection(connectionString);
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sql, connection);
+                    float count = (float)command.ExecuteScalar();
+                    connection.Close();
+                    weightRes = Convert.ToDouble(weight) - weightBefore;
+                    if (count - Convert.ToDouble(weight) < 0)
+                        return false;
+                    else 
+                    sqlCommand = string.Format("Update {0} Set {3} = (select {3} from {0} " +
+                        "where id_raw ={5} and id_place_storage = {6} and {1} = {2})-{4} where id_raw ={5} and " +
+                        "id_place_storage = {6} and {1} = {2}",
+                        nameTable, numberAttr, number, weightAttr, weightRes, idRaw, idPlaceStorage);
+                }
+                else
+                {
+                    weightRes = weightBefore - Convert.ToDouble(weight);
+                    sqlCommand = string.Format("Update {0} Set {3} = (select {3} from {0} " +
+                        "where id_raw ={5} and id_place_storage = {6} and {1} = {2})+{4} where id_raw ={5} and " +
+                        "id_place_storage = {6} and {1} = {2}",
+                        nameTable, numberAttr, number, weightAttr, weightRes, idRaw, idPlaceStorage);
+                }
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();

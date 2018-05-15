@@ -34,30 +34,25 @@ namespace Elevator.Forms
             InitializeComponent();
             this.Text = title;
             controller = new TransportationController();
-            changeButton.Text = "Удалить";
             DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
             column1.Name = "Код";
             dataGridViewDelivery.Columns.Add(column1);
-            column1.Visible = false;
+           // column1.Visible = false;
             DataGridViewTextBoxColumn column2 = new DataGridViewTextBoxColumn();
             column2.Name = "Хранилище";
             dataGridViewDelivery.Columns.Add(column2);
-            column2.Visible = false;
+          //  column2.Visible = false;
             DataGridViewTextBoxColumn column3 = new DataGridViewTextBoxColumn();
             column3.Name = "Номер";
             dataGridViewDelivery.Columns.Add(column3);
-            column3.Visible = false;
+           // column3.Visible = false;
             select();
-            cancelButton.Enabled = true;
-            cancelButton.Visible = true;
             if (employee.Post.Equals("Бухгалтер") || employee.Post.Equals("Главный бухгалтер"))
             {
                 addButton.Enabled = false;
                 addButton.BackColor = Color.LightGray;
                 changeButton.Enabled = false;
                 changeButton.BackColor = Color.LightGray;
-                cancelButton.Enabled = false;
-                cancelButton.BackColor = Color.LightGray;
             }
         }
 
@@ -106,16 +101,30 @@ namespace Elevator.Forms
                 }
                 else
                 {
-                    DialogResult dr = MessageBox.Show("Вы действительно хотите удалить запись?",
-                "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-                    if (dr == DialogResult.OK)
-                    {
-                        Shipment shipment = new Shipment(Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[1].Value),
+                    Storage storage = new Storage(Convert.ToInt32(dataGridViewDelivery.CurrentRow.Cells[0].Value),
+                   Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[3].Value),
+                   Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[4].Value),
+                   Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[5].Value),
+                   Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[7].Value));
+                    Shipment shipment = new Shipment(Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[1].Value),
                         Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[2].Value),
                         Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[6].Value),
-                        Convert.ToInt32(dataGridViewDelivery.CurrentRow.Cells[0].Value));
-                        controller.deleteButtonClick(shipment);
-                    }
+                        Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[8].Value),
+                        Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[9].Value),
+                        Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[10].Value),
+                        Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[11].Value),
+                        Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[12].Value));
+                    controller.changeButtonClick(storage, shipment);
+                    /* DialogResult dr = MessageBox.Show("Вы действительно хотите удалить запись?",
+                 "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                     if (dr == DialogResult.OK)
+                     {
+                         Shipment shipment = new Shipment(Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[1].Value),
+                         Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[2].Value),
+                         Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[6].Value),
+                         Convert.ToInt32(dataGridViewDelivery.CurrentRow.Cells[0].Value));
+                         controller.deleteButtonClick(shipment);
+                     }*/
                 }
                 select();
             }

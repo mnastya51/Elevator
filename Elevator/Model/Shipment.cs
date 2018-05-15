@@ -13,9 +13,55 @@ namespace Elevator.Model
         public const string TransportAttr = "type_transport_shipment";
         public const string WeightAttr = "weight_shipment";
         public string IdStorage { get; set; }
+        public double WeightBefore { get; set; }
         public Shipment(int id, string contractor, string subdivision, string date, string transport, string weight,
            string placeStorage, string number, string idPlaceStorage) : 
-            base(id, contractor, subdivision, date, transport, weight, placeStorage, number, idPlaceStorage )
+            base(id, contractor, subdivision, date, transport, weight, placeStorage, number, idPlaceStorage)
+        {
+        }  
+        public Shipment(int id, string contractor, string subdivision, string date, string transport, string weight,
+               double weightBefore, string idPlaceStorage, string placeStorage, string number)
+        {
+            this.Id = id;
+            this.Transport = transport;
+            this.Weight = weight;
+            this.Date = date;
+            this.Contractor = contractor;
+            this.Subdivision = subdivision;
+            this.WeightBefore = weightBefore;
+            this.IdPlaceStorage = IdPlaceStorage;
+            this.PlaceStorage = placeStorage;
+            this.Number = number;
+        }
+
+        public Shipment(int id, string contractor, string subdivision, string date, string transport, string weight,
+               double weightBefore)
+        {
+            this.Id = id;
+            this.Transport = transport;
+            this.Weight = weight;
+            this.Date = date;
+            this.Contractor = contractor;
+            this.Subdivision = subdivision;
+            this.WeightBefore = weightBefore;
+            this.IdPlaceStorage = IdPlaceStorage;
+        }
+
+        public Shipment(string contractor, string subdivision, string date, string transport, string weight,
+              string idPlaceStorage, string placeStorage, string number)
+        {
+            this.Transport = transport;
+            this.Weight = weight;
+            this.Date = date;
+            this.Contractor = contractor;
+            this.Subdivision = subdivision;
+            this.IdPlaceStorage = idPlaceStorage;
+            this.PlaceStorage = placeStorage;
+            this.Number = number;
+        }
+
+        public Shipment(int id, string contractor, string subdivision, string date, string transport, string weight) : 
+            base(id, contractor, subdivision, date, transport, weight)
         {
         }
         public Shipment(string contractor, string subdivision, string date, string transport, string weight) : 
@@ -29,10 +75,10 @@ namespace Elevator.Model
             this.Subdivision = subdivision;
             this.Date = date;
         }
-        public Shipment(string contractor, string subdivision, string idStorage, int id, string date,
+        public Shipment(string contractor, string subdivision, string IdPlaceStorage, int id, string date,
             string placeStorage, string number, string weight)
         {
-            this.IdStorage = idStorage;
+            this.IdPlaceStorage = IdPlaceStorage;
             this.Contractor = contractor;
             this.Subdivision = subdivision;
             this.Id = id;

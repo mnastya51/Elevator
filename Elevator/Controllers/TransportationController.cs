@@ -25,7 +25,11 @@ namespace Elevator.Controllers
         public void changeButtonClick(Storage storage, Delivery delivery)
         {
             new AddDeliveryForm(storage, delivery).ShowDialog();
-        }       
+        }
+        public void changeButtonClick(Storage storage, Shipment delivery)
+        {
+            new AddDeliveryForm(storage, delivery).ShowDialog();
+        }
         public void deleteButtonClick(Shipment shipment)
         {
             DAO.getInstance().deleteShipment(shipment.Date, shipment.Contractor, shipment.Subdivision, shipment.Id);
@@ -34,7 +38,7 @@ namespace Elevator.Controllers
         {
             DAO.getInstance().deleteShipment(shipment.Date, shipment.Contractor, shipment.Subdivision, shipment.Id);
             
-            if (shipment.PlaceStorage.Equals("склад"))
+           /* if (shipment.PlaceStorage.Equals("склад"))
             {
                 DAO.getInstance().cancelStoragePlace(Convert.ToString(shipment.Id), shipment.Number, shipment.Weight,
                StoreStoragePlace.NameTable, StoreStoragePlace.NumberAttr, StoreStoragePlace.WeightAttr,
@@ -45,7 +49,7 @@ namespace Elevator.Controllers
                 DAO.getInstance().cancelStoragePlace(Convert.ToString(shipment.Id), shipment.Number, shipment.Weight,
                SilageStoragePlace.NameTable, SilageStoragePlace.NumberAttr, SilageStoragePlace.WeightAttr,
                shipment.IdPlaceStorage);
-            }
+            }*/
         }
     }
 }

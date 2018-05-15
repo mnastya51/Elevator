@@ -56,7 +56,6 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cancelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.rawBindingSource)).BeginInit();
             this.filtrGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).BeginInit();
@@ -318,31 +317,12 @@
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
-            // cancelButton
-            // 
-            this.cancelButton.BackColor = System.Drawing.Color.DarkOrange;
-            this.cancelButton.Enabled = false;
-            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cancelButton.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.cancelButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cancelButton.Location = new System.Drawing.Point(210, 83);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(100, 28);
-            this.cancelButton.TabIndex = 63;
-            this.cancelButton.Text = "Отменить";
-            this.cancelButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.cancelButton.UseVisualStyleBackColor = false;
-            this.cancelButton.Visible = false;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
-            // 
             // TransportationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.ClientSize = new System.Drawing.Size(1075, 417);
-            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.dataGridViewDelivery);
             this.Controls.Add(this.filtrGroupBox);
             this.Controls.Add(this.changeButton);
@@ -387,6 +367,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.Button cancelButton;
     }
 }

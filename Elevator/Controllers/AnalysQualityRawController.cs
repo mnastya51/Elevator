@@ -75,10 +75,20 @@ namespace Elevator.Controllers
                     classes[i], GeneralLevelOfQualityNorm.NormAttr, GeneralLevelOfQualityNorm.NameTable,
                     GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr);
                     FormValue<string, string>[] valueArray = value.ToArray<FormValue<string, string>>();
-                    string[] res = fillWithClassForGeneral(dataGridViewAnalys, i, flag, classes, 
-                        valueArray, generalLevelOfQuality.IdRaw, type);
-                    numberClass = res[0];
-                    i = Convert.ToInt32(res[1]);
+                    if (valueArray.Length != 0)
+                    {
+                        string[] res = fillWithClassForGeneral(dataGridViewAnalys, i, flag, classes,
+                            valueArray, generalLevelOfQuality.IdRaw, type);
+                        numberClass = res[0];
+                        i = Convert.ToInt32(res[1]);
+                    }
+                    else
+                    {
+                        for (int j = 0; j < dataGridViewAnalys.Rows.Count; j++)
+                            dataGridViewAnalys.Rows[j].Cells[3].Value = "";
+                        MessageBox.Show("Установите нормы для всех классов данного сырья!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        break;
+                    }
                 }
                 dataGridViewAnalys.ClearSelection();
                 return numberClass;
@@ -89,28 +99,37 @@ namespace Elevator.Controllers
                     GeneralLevelOfQualityNorm.NameTable,
                     GeneralLevelOfQualityNorm.TypeOfLevelQualityAttr);
                 FormValue<string, string>[] valueArray = value.ToArray<FormValue<string, string>>();
-                for (int i = 0; i < value.Count; i++)
+                if (valueArray.Length != 0)
                 {
-                    try
+                    for (int i = 0; i < value.Count; i++)
                     {
-                        DataGridViewRow row = dataGridViewAnalys.Rows[i];
-                        if (row.Cells[1].Value.ToString() == valueArray[i].getKey())
+                        try
                         {
-                            row.Cells[3].Value = valueArray[i].getValue();
-                            bool isMax = DAO.getInstance().isMaximum(generalLevelOfQuality.IdRaw, type, "", row.Cells[1].Value.ToString());
-                            if (!isMax)
+                            DataGridViewRow row = dataGridViewAnalys.Rows[i];
+                            if (row.Cells[1].Value.ToString() == valueArray[i].getKey())
                             {
-                                if (Convert.ToDouble(row.Cells[2].Value) > Convert.ToDouble(row.Cells[3].Value))
-                                    dataGridViewAnalys.Rows[i].Cells[2].Style.BackColor = System.Drawing.Color.LightBlue;
-                            }
-                            else
-                            {
-                                if (Convert.ToDouble(row.Cells[2].Value) < Convert.ToDouble(row.Cells[3].Value))
-                                    dataGridViewAnalys.Rows[i].Cells[2].Style.BackColor = System.Drawing.Color.LightBlue;
+                                row.Cells[3].Value = valueArray[i].getValue();
+                                bool isMax = DAO.getInstance().isMaximum(generalLevelOfQuality.IdRaw, type, "", row.Cells[1].Value.ToString());
+                                if (!isMax)
+                                {
+                                    if (Convert.ToDouble(row.Cells[2].Value) > Convert.ToDouble(row.Cells[3].Value))
+                                        dataGridViewAnalys.Rows[i].Cells[2].Style.BackColor = System.Drawing.Color.LightBlue;
+                                }
+                                else
+                                {
+                                    if (Convert.ToDouble(row.Cells[2].Value) < Convert.ToDouble(row.Cells[3].Value))
+                                        dataGridViewAnalys.Rows[i].Cells[2].Style.BackColor = System.Drawing.Color.LightBlue;
+                                }
                             }
                         }
+                        catch { i++; }
                     }
-                    catch { i++; }
+                }
+                else
+                {
+                    for (int j = 0; j < dataGridViewAnalys.Rows.Count; j++)
+                        dataGridViewAnalys.Rows[j].Cells[3].Value = "";
+                    MessageBox.Show("Установите нормы для всех классов данного сырья!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 dataGridViewAnalys.ClearSelection();
                 return numberClass;
@@ -130,10 +149,19 @@ namespace Elevator.Controllers
                     classes[i], HarmfulLevelOfQualityNorm.NormAttr, HarmfulLevelOfQualityNorm.NameTable,
                     HarmfulLevelOfQualityNorm.TypeOfLevelQualityAttr);
                     FormValue<string, string>[] valueArray = value.ToArray<FormValue<string, string>>();
-                    string[] res = fillWithClass(dataGridViewAnalys, i, flag, classes, valueArray,
-                        harmfulLevelOfQuality.IdRaw, "hurmful", type);
-                    numberClass = res[0];
-                    i = Convert.ToInt32(res[1]);
+                    if (valueArray.Length != 0) {
+                        string[] res = fillWithClass(dataGridViewAnalys, i, flag, classes, valueArray,
+                            harmfulLevelOfQuality.IdRaw, "hurmful", type);
+                        numberClass = res[0];
+                        i = Convert.ToInt32(res[1]);
+                    }
+                    else
+                    {
+                        for (int j = 0; j < dataGridViewAnalys.Rows.Count; j++)
+                            dataGridViewAnalys.Rows[j].Cells[3].Value = "";
+                        MessageBox.Show("Установите нормы для всех классов данного сырья!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        break;
+                    }
                 }
                 dataGridViewAnalys.ClearSelection();
                 return numberClass;
@@ -145,7 +173,14 @@ namespace Elevator.Controllers
                     HarmfulLevelOfQualityNorm.NameTable,
                     HarmfulLevelOfQualityNorm.TypeOfLevelQualityAttr);
                 FormValue<string, string>[] valueArray = value.ToArray<FormValue<string, string>>();
-                fillWithoutClass(dataGridViewAnalys, valueArray);
+                if(valueArray.Length != 0)
+                    fillWithoutClass(dataGridViewAnalys, valueArray);
+                else
+                    {
+                    for (int j = 0; j < dataGridViewAnalys.Rows.Count; j++)
+                        dataGridViewAnalys.Rows[j].Cells[3].Value = "";
+                    MessageBox.Show("Установите нормы для всех классов данного сырья!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 return numberClass;
             }
         }
@@ -163,10 +198,20 @@ namespace Elevator.Controllers
                     classes[i], WeedLevelOfQualityNorm.NormAttr, WeedLevelOfQualityNorm.NameTable,
                    WeedLevelOfQualityNorm.TypeOfLevelQualityAttr);
                     FormValue<string, string>[] valueArray = value.ToArray<FormValue<string, string>>();
-                    string[] res = fillWithClass(dataGridViewAnalys, i, flag, classes, valueArray,
-                        weedLevelOfQuality.IdRaw, "weed", type);
-                    numberClass = res[0];
-                    i = Convert.ToInt32(res[1]);
+                    if (valueArray.Length != 0)
+                    {
+                        string[] res = fillWithClass(dataGridViewAnalys, i, flag, classes, valueArray,
+                            weedLevelOfQuality.IdRaw, "weed", type);
+                        numberClass = res[0];
+                        i = Convert.ToInt32(res[1]);
+                    }
+                    else
+                    {
+                        for (int j = 0; j < dataGridViewAnalys.Rows.Count; j++)
+                            dataGridViewAnalys.Rows[j].Cells[3].Value = "";
+                        MessageBox.Show("Установите нормы для всех классов данного сырья!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        break;
+                    }
                 }
                 dataGridViewAnalys.ClearSelection();
                 return numberClass;
@@ -178,7 +223,14 @@ namespace Elevator.Controllers
                     WeedLevelOfQualityNorm.NameTable,
                     WeedLevelOfQualityNorm.TypeOfLevelQualityAttr);
                 FormValue<string, string>[] valueArray = value.ToArray<FormValue<string, string>>();
-                fillWithoutClass(dataGridViewAnalys, valueArray);
+                if (valueArray.Length != 0)
+                    fillWithoutClass(dataGridViewAnalys, valueArray);
+                else
+                    {
+                    for (int j = 0; j < dataGridViewAnalys.Rows.Count; j++)
+                        dataGridViewAnalys.Rows[j].Cells[3].Value = "";
+                    MessageBox.Show("Установите нормы для всех классов данного сырья!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 return numberClass;
             }
         }
@@ -196,10 +248,20 @@ namespace Elevator.Controllers
                     classes[i], GrainLevelOfQualityNorm.NormAttr, GrainLevelOfQualityNorm.NameTable,
                     GrainLevelOfQualityNorm.TypeOfLevelQualityAttr);
                     FormValue<string, string>[] valueArray = value.ToArray<FormValue<string, string>>();
-                    string[] res = fillWithClass(dataGridViewAnalys, i, flag, classes, valueArray,
+                    if (valueArray.Length != 0)
+                    {
+                        string[] res = fillWithClass(dataGridViewAnalys, i, flag, classes, valueArray,
                         grainLevelOfQuality.IdRaw, "grain", type);
-                    numberClass = res[0];
-                    i = Convert.ToInt32(res[1]);
+                        numberClass = res[0];
+                        i = Convert.ToInt32(res[1]);
+                    }
+                    else
+                    {
+                        for (int j = 0; j < dataGridViewAnalys.Rows.Count; j++)
+                            dataGridViewAnalys.Rows[j].Cells[3].Value = "";
+                        MessageBox.Show("Установите нормы для всех классов данного сырья!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        break;
+                    }
                 }
                 dataGridViewAnalys.ClearSelection();
                 return numberClass;
@@ -211,7 +273,14 @@ namespace Elevator.Controllers
                     GrainLevelOfQualityNorm.NameTable,
                     GrainLevelOfQualityNorm.TypeOfLevelQualityAttr);
                 FormValue<string, string>[] valueArray = value.ToArray<FormValue<string, string>>();
-                fillWithoutClass(dataGridViewAnalys, valueArray);
+                if (valueArray.Length != 0)
+                    fillWithoutClass(dataGridViewAnalys, valueArray);
+                 else
+                    {
+                    for (int j = 0; j < dataGridViewAnalys.Rows.Count; j++)
+                        dataGridViewAnalys.Rows[j].Cells[3].Value = "";
+                    MessageBox.Show("Установите нормы для всех классов данного сырья!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 return numberClass;
             }
         }
@@ -244,6 +313,10 @@ namespace Elevator.Controllers
         {
             string[] res = new string[2];
             string idClass = valueArray[0].getValue();
+            int count;
+            if (dataGridViewAnalys.Rows.Count > valueArray.Length - 1)
+                count = valueArray.Length - 1;
+            else count = dataGridViewAnalys.Rows.Count;
             for (int j = 1; j < valueArray.Length; j++)
             {
                 try
@@ -255,7 +328,7 @@ namespace Elevator.Controllers
                         {
                             //row.Cells[3].Value = valueArray[j].getValue();
                            // dataGridViewAnalys.Rows[j - 1].Cells[2].Style.BackColor = System.Drawing.Color.White;
-                            if (flag && j == valueArray.Length - 1)
+                            if (flag && j == count)
                             {
                                 switch (groupLevel)
                                 {
@@ -354,6 +427,7 @@ namespace Elevator.Controllers
                             res[1] = i.ToString();
                         }
                     }
+                    else { j++; }
                 }
                 catch { j++; }
             }
@@ -364,6 +438,10 @@ namespace Elevator.Controllers
         {
             string[] res = new string[2];
             string idClass = valueArray[0].getValue();
+            int count;
+            if (dataGridViewAnalys.Rows.Count > valueArray.Length-1)
+                count = valueArray.Length-1;
+            else count = dataGridViewAnalys.Rows.Count;
             for (int j = 1; j < valueArray.Length; j++)
             {
                 try
@@ -378,7 +456,7 @@ namespace Elevator.Controllers
                             {
                                 row.Cells[3].Value = valueArray[j].getValue();
                                 dataGridViewAnalys.Rows[j - 1].Cells[2].Style.BackColor = System.Drawing.Color.White;
-                                if (flag && j == valueArray.Length - 1)
+                                if (flag && j == count)
                                 {////////////////////////////////////////////////
                                     res = findClassGrain(i, classes, idRaw, dataGridViewAnalys);
                                     if (res[0] != "")
@@ -416,10 +494,13 @@ namespace Elevator.Controllers
                                 flag = false;
                                 row.Cells[3].Value = valueArray[j].getValue();
                                 if (i == classes.Length - 1)
+                                {
                                     dataGridViewAnalys.Rows[j - 1].Cells[2].Style.BackColor = System.Drawing.Color.LightBlue;
+                                    DAO.getInstance().updateClassToNullForStorage(idRaw);
+                                }
                                 j = valueArray.Length;
                                 res[0] = "";
-                                DAO.getInstance().updateClassToNullForStorage(idRaw);
+                                //DAO.getInstance().updateClassToNullForStorage(idRaw);
                                 res[1] = i.ToString();
                             }
                         }
@@ -429,7 +510,7 @@ namespace Elevator.Controllers
                             {
                                 row.Cells[3].Value = valueArray[j].getValue();
                                 dataGridViewAnalys.Rows[j - 1].Cells[2].Style.BackColor = System.Drawing.Color.White;
-                                if (flag && j == valueArray.Length - 1)
+                                if (flag && j == count)
                                 {
                                     res = findClassGrain(i, classes, idRaw, dataGridViewAnalys);
                                     if (res[0] != "")
@@ -475,6 +556,7 @@ namespace Elevator.Controllers
                             }
                         }
                     }
+                    else { j++; }
                 }
                 catch { j++; }
             }
@@ -569,17 +651,22 @@ namespace Elevator.Controllers
             string[] res = new string[3];
             bool flag = true;
             string idClass = valueArray[0].getValue();
+            int count = 0;
+            if (valuesRes.Length > valueArray.Length-1)
+                count = valueArray.Length-1;
+            else count = valuesRes.Length;
             if (valuesRes.Length != 0 && valueArray.Length != 0)
             {
-                for (int j = 1; j < valueArray.Length; j++)
+                for (int j = 1; j <= count; j++)
                 {
                     try
                     {
                         if (valuesRes[j - 1].getKey() == valueArray[j].getKey())
                         {
+                            double c = Convert.ToDouble(valueArray[j].getValue());
                             if (Convert.ToDouble(valuesRes[j - 1].getValue()) <= Convert.ToDouble(valueArray[j].getValue()))
                             {
-                                if (flag && j == valueArray.Length - 1)
+                                if (flag && j == count)
                                 {
                                     res[0] = classes[i];
                                     res[1] = classes.Length.ToString();
@@ -589,7 +676,7 @@ namespace Elevator.Controllers
                             else
                             {
                                 flag = false;
-                                j = valueArray.Length;
+                                j = count;
                                 res[0] = "";
                                 res[1] = i.ToString();
                             }
@@ -613,9 +700,13 @@ namespace Elevator.Controllers
             string[] res = new string[3];
             bool flag = true;
             string idClass = valueArray[0].getValue();
+            int count;
+            if (valuesRes.Length > valueArray.Length-1)
+                count = valueArray.Length-1;
+            else count = valuesRes.Length;
             if (valuesRes.Length != 0 && valueArray.Length != 0)
             {
-                for (int j = 1; j < valueArray.Length; j++)
+                for (int j = 1; j <= count; j++)
                 {
                     try
                     {
@@ -624,9 +715,9 @@ namespace Elevator.Controllers
                             bool isMax = DAO.getInstance().isMaximum(idRaw, type, classes[i], valuesRes[j - 1].getKey());
                             if (isMax)
                             {
-                                if (Convert.ToDouble(valuesRes[j - 1].getValue()) > Convert.ToDouble(valueArray[j].getValue()))
+                                if (Convert.ToDouble(valuesRes[j - 1].getValue()) >= Convert.ToDouble(valueArray[j].getValue()))
                                 {
-                                    if (flag && j == valueArray.Length - 1)
+                                    if (flag && j == count)
                                     {
                                         res[0] = classes[i];
                                         res[1] = classes.Length.ToString();
@@ -636,7 +727,7 @@ namespace Elevator.Controllers
                                 else
                                 {
                                     flag = false;
-                                    j = valueArray.Length;
+                                    j = count;
                                     res[0] = "";
                                     res[1] = i.ToString();
                                 }
@@ -645,7 +736,7 @@ namespace Elevator.Controllers
                             {
                                 if (Convert.ToDouble(valuesRes[j - 1].getValue()) <= Convert.ToDouble(valueArray[j].getValue()))
                                 {
-                                    if (flag && j == valueArray.Length - 1)
+                                    if (flag && j == count)
                                     {
                                         res[0] = classes[i];
                                         res[1] = classes.Length.ToString();
@@ -655,7 +746,7 @@ namespace Elevator.Controllers
                                 else
                                 {
                                     flag = false;
-                                    j = valueArray.Length;
+                                    j = count;
                                     res[0] = "";
                                     res[1] = i.ToString();
                                 }
