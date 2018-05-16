@@ -24,7 +24,7 @@ namespace Elevator.Forms
             InitializeComponent();
             impurities = new LinkedList<string>();
             controller = new AnalysQualityRawController();
-            dataGridViewRaw.CellClick += dataGridViewRaw_CellClick;
+            dataGridViewRaw.SelectionChanged += dataGridViewRaw_CellClick;
             select();
         }
         private void select()
@@ -34,21 +34,17 @@ namespace Elevator.Forms
             dataGridViewRaw.ClearSelection();
         }
 
-        private void dataGridViewRaw_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewRaw_CellClick(object sender, EventArgs e)
         {
             string[] typeAndSubtype = DAO.getInstance().selectTypeAndSubtype(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
             typeLabel.Text = typeAndSubtype[0];
             subtypeLabel.Text = typeAndSubtype[1];
             groupComboBox.Enabled = true;
-            groupComboBox.SelectedIndex = -1;
-            addButton.BackColor = Color.LightGray;
-            changeButton.BackColor = Color.LightGray;
-            defineClassButton.BackColor = Color.LightGray;
-            addButton.Enabled = false;
-            changeButton.Enabled = false;
-            defineClassButton.Enabled = false;
+            groupComboBox.SelectedIndex = 0;
             dataGridViewAnalys.Rows.Clear();
             classLabel.Text = "";
+            change = changeComboBox(groupComboBox.Text);
+            selectAnalys(change);
         }
 
         private string[] changeComboBox(string nameTable)
@@ -65,15 +61,6 @@ namespace Elevator.Forms
         private void groupComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             change = changeComboBox(groupComboBox.Text);
-            groupBox3.Enabled = true;
-            addButton.BackColor = Color.DarkOrange;
-            changeButton.BackColor = Color.DarkOrange;
-            defineClassButton.BackColor = Color.DarkOrange;
-            addButton.Enabled = true;
-            changeButton.Enabled = true;
-            defineClassButton.Enabled = true;
-            dateAnalysButton.Enabled = true;
-            dateAnalysButton.BackColor = Color.DarkOrange;
             selectAnalys(change);
         }
         private void selectAnalys(string[] change)

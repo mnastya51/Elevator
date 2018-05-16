@@ -331,7 +331,7 @@
             this.MaximumSize = new System.Drawing.Size(1091, 456);
             this.MinimumSize = new System.Drawing.Size(1091, 456);
             this.Name = "TransportationForm";
-            this.Text = "Поставка";
+            this.Text = "Поставки";
             ((System.ComponentModel.ISupportInitialize)(this.rawBindingSource)).EndInit();
             this.filtrGroupBox.ResumeLayout(false);
             this.filtrGroupBox.PerformLayout();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Elevator.Model
 {
-    public class Silage : AbstractStorage
+    public class Silage : AbstractTypeStoragePlace
     {
         public const double Capacity = 150;
         public const string NameTable = "Silage";

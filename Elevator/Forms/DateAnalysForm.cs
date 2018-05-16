@@ -21,7 +21,7 @@ namespace Elevator.Forms
         {
             InitializeComponent();
             controller = new DateAnalysController();
-            dataGridViewRaw.CellClick += dataGridViewRaw_CellClick;
+            dataGridViewRaw.SelectionChanged += dataGridViewRaw_CellClick;
             select();
         }
 
@@ -43,14 +43,8 @@ namespace Elevator.Forms
             dataGridViewRaw.ClearSelection();
         }
 
-        private void dataGridViewRaw_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewRaw_CellClick(object sender, EventArgs e)
         {
-            addButton.BackColor = Color.DarkOrange;
-            changeButton.BackColor = Color.DarkOrange;           
-            addButton.Enabled = true;
-            changeButton.Enabled = true;
-            deleteButton.BackColor = Color.DarkOrange;
-            deleteButton.Enabled = true;
             selectDate();
         }
 

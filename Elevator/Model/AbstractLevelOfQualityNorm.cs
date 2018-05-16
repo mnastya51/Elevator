@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Elevator.Model
 {
-    public abstract class AbstractQualityLevelNorm
+    public abstract class AbstractLevelOfQualityNorm
     {
         public string Norm { get; set; }
         public string Raw { get; set; }
@@ -14,20 +14,20 @@ namespace Elevator.Model
         public string TypeImp { get; set; }
         public string Id { get; set; }
 
-        public AbstractQualityLevelNorm() { }
+        public AbstractLevelOfQualityNorm() { }
 
-        public AbstractQualityLevelNorm(string id)
+        public AbstractLevelOfQualityNorm(string id)
         {
             this.Id = id;
         }
 
-        public AbstractQualityLevelNorm(string raw, string classRaw)
+        public AbstractLevelOfQualityNorm(string raw, string classRaw)
         {
             this.Raw = raw;
             this.ClassRaw = classRaw;
         }
 
-        public AbstractQualityLevelNorm(string typeImp, string norm, string raw, string classRaw)
+        public AbstractLevelOfQualityNorm(string typeImp, string norm, string raw, string classRaw)
         {
             this.Raw = raw;
             this.ClassRaw = classRaw;
@@ -35,7 +35,7 @@ namespace Elevator.Model
             this.Norm = norm;
         }
 
-        public AbstractQualityLevelNorm(string typeImp, string norm, string id)
+        public AbstractLevelOfQualityNorm(string typeImp, string norm, string id)
         {
             this.Norm = norm;
             this.Id = id;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Elevator.Model
 {
-    public class WeedLevelOfQualityNorm : AbstractQualityLevelNorm
+    public class WeedLevelOfQualityNorm : AbstractLevelOfQualityNorm
     {
         public const string NameTable = "Norm_weed_impurities";
         public const string NormAttr = "norm_weed_imp";

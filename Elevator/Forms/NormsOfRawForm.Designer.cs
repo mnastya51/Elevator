@@ -327,7 +327,7 @@
             this.MaximumSize = new System.Drawing.Size(677, 431);
             this.MinimumSize = new System.Drawing.Size(677, 431);
             this.Name = "NormsOfRawForm";
-            this.Text = "Нормы сырья";
+            this.Text = "Нормы показателей качества";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNorms)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

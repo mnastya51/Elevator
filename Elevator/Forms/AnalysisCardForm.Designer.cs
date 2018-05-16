@@ -169,7 +169,7 @@
             this.Controls.Add(this.createReportButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AnalysisCardForm";
-            this.Text = "Выбор отчета";
+            this.Text = "Карточка анализа";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRaw)).EndInit();
             this.ResumeLayout(false);
 

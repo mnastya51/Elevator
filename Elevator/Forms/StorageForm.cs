@@ -21,7 +21,7 @@ namespace Elevator.Forms
         {
             InitializeComponent();
             controller = new StorageController();
-            dataGridViewRaw.CellClick += dataGridViewRaw_CellClick;
+            dataGridViewRaw.SelectionChanged += dataGridViewRaw_CellClick;
             select();
             this.employee = employee;
             if ((employee.Post.Equals("Бухгалтер") || employee.Post.Equals("Главный бухгалтер")))
@@ -38,16 +38,16 @@ namespace Elevator.Forms
             dataGridViewRaw.ClearSelection();
         }
 
-        private void dataGridViewRaw_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewRaw_CellClick(object sender, EventArgs e)
         {
-            if (!(employee.Post.Equals("Бухгалтер") || employee.Post.Equals("Главный бухгалтер")))
+            if ((employee.Post.Equals("Бухгалтер") || employee.Post.Equals("Главный бухгалтер")))
             {
-                addButton.BackColor = Color.DarkOrange;
-                changeButton.BackColor = Color.DarkOrange;
-                addButton.Enabled = true;
-                changeButton.Enabled = true;
-                selectStorage();
+                addButton.BackColor = Color.LightGray;
+                changeButton.BackColor = Color.LightGray;
+                addButton.Enabled = false;
+                changeButton.Enabled = false;
             }
+            selectStorage();
         }
 
         private void findButton_Click(object sender, EventArgs e)

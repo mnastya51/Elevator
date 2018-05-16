@@ -21,6 +21,9 @@ namespace Elevator.Forms
             this.employee = employee;
             labelEmp.Text = employee.Surname + " " + employee.Name;
             determineLaw();
+            dataGridViewRaw.Rows.Clear();
+            DAO.getInstance().selectRawForShipment(dataGridViewRaw);
+            dataGridViewRaw.ClearSelection();
         }
 
         private void determineLaw()
@@ -113,7 +116,7 @@ namespace Elevator.Forms
 
         private void отгрузкаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new TransportationForm("Отгрузка", employee).ShowDialog();
+            new TransportationForm("Отгрузки", employee).ShowDialog();
         }
 
         private void analysisQualityToolStripMenuItem_Click(object sender, EventArgs e)

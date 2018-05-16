@@ -35,6 +35,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DateAnalysForm));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridViewRaw = new System.Windows.Forms.DataGridView();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.contractorTextBox = new System.Windows.Forms.TextBox();
             this.rawTextBox = new System.Windows.Forms.TextBox();
@@ -49,13 +56,6 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.changeButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRaw)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -111,6 +111,50 @@
             this.dataGridViewRaw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewRaw.Size = new System.Drawing.Size(506, 259);
             this.dataGridViewRaw.TabIndex = 47;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Код сырья";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Контрагент";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Культура";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Тип";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Подтип";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Дата поставки";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Код контрагента";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Visible = false;
             // 
             // groupBox1
             // 
@@ -214,8 +258,7 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.BackColor = System.Drawing.Color.LightGray;
-            this.deleteButton.Enabled = false;
+            this.deleteButton.BackColor = System.Drawing.Color.DarkOrange;
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.deleteButton.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -278,8 +321,7 @@
             // 
             // changeButton
             // 
-            this.changeButton.BackColor = System.Drawing.Color.LightGray;
-            this.changeButton.Enabled = false;
+            this.changeButton.BackColor = System.Drawing.Color.DarkOrange;
             this.changeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.changeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.changeButton.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -295,8 +337,7 @@
             // 
             // addButton
             // 
-            this.addButton.BackColor = System.Drawing.Color.LightGray;
-            this.addButton.Enabled = false;
+            this.addButton.BackColor = System.Drawing.Color.DarkOrange;
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addButton.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -310,50 +351,6 @@
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Код сырья";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Visible = false;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Контрагент";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Культура";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Тип";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Подтип";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Дата поставки";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Код контрагента";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Visible = false;
-            // 
             // DateAnalysForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -364,7 +361,7 @@
             this.Controls.Add(this.groupBox2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DateAnalysForm";
-            this.Text = "Даты анализа хранилищ";
+            this.Text = "Даты анализа качества";
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRaw)).EndInit();
             this.groupBox1.ResumeLayout(false);

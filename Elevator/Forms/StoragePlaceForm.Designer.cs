@@ -110,7 +110,7 @@
             this.MaximumSize = new System.Drawing.Size(397, 173);
             this.MinimumSize = new System.Drawing.Size(397, 173);
             this.Name = "StoragePlac1Form";
-            this.Text = "Место хранения";
+            this.Text = "Места хранения";
             this.Load += new System.EventHandler(this.StorageForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.storeNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.silageNumericUpDown)).EndInit();

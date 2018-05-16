@@ -223,8 +223,7 @@
             // 
             // changeDryButton
             // 
-            this.changeDryButton.BackColor = System.Drawing.Color.LightGray;
-            this.changeDryButton.Enabled = false;
+            this.changeDryButton.BackColor = System.Drawing.Color.DarkOrange;
             this.changeDryButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.changeDryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.changeDryButton.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -240,8 +239,7 @@
             // 
             // addDryButton
             // 
-            this.addDryButton.BackColor = System.Drawing.Color.LightGray;
-            this.addDryButton.Enabled = false;
+            this.addDryButton.BackColor = System.Drawing.Color.DarkOrange;
             this.addDryButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addDryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addDryButton.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -438,8 +436,7 @@
             // 
             // changeClearButton
             // 
-            this.changeClearButton.BackColor = System.Drawing.Color.LightGray;
-            this.changeClearButton.Enabled = false;
+            this.changeClearButton.BackColor = System.Drawing.Color.DarkOrange;
             this.changeClearButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.changeClearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.changeClearButton.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -455,8 +452,7 @@
             // 
             // addClearButton
             // 
-            this.addClearButton.BackColor = System.Drawing.Color.LightGray;
-            this.addClearButton.Enabled = false;
+            this.addClearButton.BackColor = System.Drawing.Color.DarkOrange;
             this.addClearButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addClearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addClearButton.ForeColor = System.Drawing.SystemColors.Desktop;

@@ -223,8 +223,8 @@
     <Compile Include="Model\AbstractStoragePlace.cs" />
     <Compile Include="Model\AbstractTransportation.cs" />
     <Compile Include="Model\AbstractTypeLevelOfQuality.cs" />
-    <Compile Include="Model\AbstractQualityLevelNorm.cs" />
-    <Compile Include="Model\AbstractStorage.cs" />
+    <Compile Include="Model\AbstractLevelOfQualityNorm.cs" />
+    <Compile Include="Model\AbstractTypeStoragePlace.cs" />
     <Compile Include="Model\Clearing.cs" />
     <Compile Include="Model\Contract.cs" />
     <Compile Include="Model\Contractor.cs" />

@@ -37,20 +37,13 @@
             this.changeButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridViewStorage = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridViewRaw = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.contractorTextBox = new System.Windows.Forms.TextBox();
-            this.rawTextBox = new System.Windows.Forms.TextBox();
-            this.btnAllList = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.findButton = new System.Windows.Forms.Button();
-            this.lbName = new System.Windows.Forms.Label();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewRaw = new System.Windows.Forms.DataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +53,13 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.contractorTextBox = new System.Windows.Forms.TextBox();
+            this.rawTextBox = new System.Windows.Forms.TextBox();
+            this.btnAllList = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.findButton = new System.Windows.Forms.Button();
+            this.lbName = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStorage)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -69,8 +69,7 @@
             // 
             // addButton
             // 
-            this.addButton.BackColor = System.Drawing.Color.LightGray;
-            this.addButton.Enabled = false;
+            this.addButton.BackColor = System.Drawing.Color.DarkOrange;
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addButton.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -86,8 +85,7 @@
             // 
             // changeButton
             // 
-            this.changeButton.BackColor = System.Drawing.Color.LightGray;
-            this.changeButton.Enabled = false;
+            this.changeButton.BackColor = System.Drawing.Color.DarkOrange;
             this.changeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.changeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.changeButton.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -151,6 +149,38 @@
             this.dataGridViewStorage.Size = new System.Drawing.Size(257, 310);
             this.dataGridViewStorage.TabIndex = 61;
             // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "idRaw";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Visible = false;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "idPlaceStorage";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Visible = false;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Хранилище";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Номер";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Вес";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dataGridViewRaw);
@@ -201,6 +231,62 @@
             this.dataGridViewRaw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewRaw.Size = new System.Drawing.Size(590, 259);
             this.dataGridViewRaw.TabIndex = 47;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Код сырья";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Контрагент";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Культура";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Тип";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Подтип";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Класс";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Дата поставки";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Вес";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Код контрагента";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Visible = false;
             // 
             // groupBox3
             // 
@@ -289,94 +375,6 @@
             this.lbName.Size = new System.Drawing.Size(102, 20);
             this.lbName.TabIndex = 6;
             this.lbName.Text = "Контрагент:";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "idRaw";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Visible = false;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "idPlaceStorage";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Visible = false;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Хранилище";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Номер";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Вес";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Код сырья";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Visible = false;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Контрагент";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Культура";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Тип";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Подтип";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Класс";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Дата поставки";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Вес";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Код контрагента";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Visible = false;
             // 
             // StorageForm
             // 

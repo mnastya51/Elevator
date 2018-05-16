@@ -42,6 +42,11 @@
             this.lbName = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridViewRaw = new System.Windows.Forms.DataGridView();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addButton = new System.Windows.Forms.Button();
             this.changeButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -60,11 +65,6 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRaw)).BeginInit();
@@ -209,10 +209,42 @@
             this.dataGridViewRaw.Size = new System.Drawing.Size(524, 285);
             this.dataGridViewRaw.TabIndex = 45;
             // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Код сырья";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Контрагент";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Культура";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Дата поставки";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Код контрагента";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Visible = false;
+            // 
             // addButton
             // 
-            this.addButton.BackColor = System.Drawing.Color.LightGray;
-            this.addButton.Enabled = false;
+            this.addButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.addButton.Cursor = System.Windows.Forms.Cursors.Default;
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addButton.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -228,8 +260,7 @@
             // 
             // changeButton
             // 
-            this.changeButton.BackColor = System.Drawing.Color.LightGray;
-            this.changeButton.Enabled = false;
+            this.changeButton.BackColor = System.Drawing.Color.DarkOrange;
             this.changeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.changeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.changeButton.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -266,8 +297,7 @@
             // 
             // dateAnalysButton
             // 
-            this.dateAnalysButton.BackColor = System.Drawing.Color.LightGray;
-            this.dateAnalysButton.Enabled = false;
+            this.dateAnalysButton.BackColor = System.Drawing.Color.DarkOrange;
             this.dateAnalysButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.dateAnalysButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dateAnalysButton.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -332,8 +362,7 @@
             // 
             // defineClassButton
             // 
-            this.defineClassButton.BackColor = System.Drawing.Color.LightGray;
-            this.defineClassButton.Enabled = false;
+            this.defineClassButton.BackColor = System.Drawing.Color.DarkOrange;
             this.defineClassButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.defineClassButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.defineClassButton.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -449,38 +478,6 @@
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Код сырья";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Visible = false;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Контрагент";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Культура";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Дата поставки";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Код контрагента";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Visible = false;
-            // 
             // AnalysQualityRawForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -491,7 +488,7 @@
             this.Controls.Add(this.groupBox2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AnalysQualityRawForm";
-            this.Text = "Анализ качества сырья";
+            this.Text = "Анализ качества ";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

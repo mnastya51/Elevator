@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Elevator.Model
 {
-    public abstract class AbstractStorage
+    public abstract class AbstractTypeStoragePlace
     {
         public int Count { get; set; }
-        public AbstractStorage(int count)
+        public AbstractTypeStoragePlace(int count)
         {
             this.Count = count;
         }

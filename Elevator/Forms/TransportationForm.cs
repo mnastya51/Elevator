@@ -25,8 +25,8 @@ namespace Elevator.Forms
             {
                 addButton.Enabled = false;
                 addButton.BackColor = Color.LightGray;
-                changeButton.Enabled = false;
-                changeButton.BackColor = Color.LightGray;
+                //changeButton.Enabled = false;
+                //changeButton.BackColor = Color.LightGray;
             }
         }
         public TransportationForm(string title, Employee employee)
@@ -37,29 +37,29 @@ namespace Elevator.Forms
             DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
             column1.Name = "Код";
             dataGridViewDelivery.Columns.Add(column1);
-           // column1.Visible = false;
+            column1.Visible = false;
             DataGridViewTextBoxColumn column2 = new DataGridViewTextBoxColumn();
             column2.Name = "Хранилище";
             dataGridViewDelivery.Columns.Add(column2);
-          //  column2.Visible = false;
+            column2.Visible = false;
             DataGridViewTextBoxColumn column3 = new DataGridViewTextBoxColumn();
             column3.Name = "Номер";
             dataGridViewDelivery.Columns.Add(column3);
-           // column3.Visible = false;
+            column3.Visible = false;
             select();
             if (employee.Post.Equals("Бухгалтер") || employee.Post.Equals("Главный бухгалтер"))
             {
                 addButton.Enabled = false;
                 addButton.BackColor = Color.LightGray;
-                changeButton.Enabled = false;
-                changeButton.BackColor = Color.LightGray;
+                //changeButton.Enabled = false;
+                //changeButton.BackColor = Color.LightGray;
             }
         }
 
         private void select()
         {
             dataGridViewDelivery.Rows.Clear();
-            if (this.Text == "Поставка")
+            if (this.Text == "Поставки")
             {              
                 string[] columns = { Delivery.DateAttr, Delivery.TransportAttr, Delivery.WeightAttr };
                 DAO.getInstance().selectDelivery(Delivery.NameTable, columns, dataGridViewDelivery);              
@@ -74,7 +74,7 @@ namespace Elevator.Forms
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            if (this.Text == "Поставка")
+            if (this.Text == "Поставки")
                 controller.addButtonDeliveryClick();
             else controller.addButtonShipmentClick();
             select();                
@@ -85,7 +85,7 @@ namespace Elevator.Forms
             try
             {
                 DataGridViewRow row = dataGridViewDelivery.SelectedRows[0];      
-                if (this.Text == "Поставка")
+                if (this.Text == "Поставки")
                 {
                     Storage storage = new Storage(Convert.ToInt32(dataGridViewDelivery.CurrentRow.Cells[0].Value),
                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[3].Value),
@@ -141,7 +141,7 @@ namespace Elevator.Forms
             filterFormatter.addValueWithRegisters("name_raw", rawTextBox.Text);
             filterFormatter.addValueWithRegisters("name_contr", contractorTextBox.Text);
             string command = "";
-            if (this.Text == "Поставка")
+            if (this.Text == "Поставки")
             {
                 string[] columns = { Delivery.DateAttr, Delivery.TransportAttr, Delivery.WeightAttr };
                 command = filterFormatter.getFormattedRequestForTransportation(Delivery.NameTable, columns);
