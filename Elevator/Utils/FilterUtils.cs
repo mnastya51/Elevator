@@ -25,12 +25,8 @@ namespace Elevator.Utils
 
             public void addValue(string key, string value)
             {
-                values.Add(string.Format(" {0} = '{1}'", key, value));
-            }
-
-            public void addValue(string key, int value)
-            {
-                values.Add(string.Format(" {0} = '{1}'", key, value));
+                if (value != null && value != "")
+                    values.Add(string.Format(" {0} = '{1}'", key, value));
             }
 
             public string getFormattedRequestForTransportation(string nameTable, string[] columns)

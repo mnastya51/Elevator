@@ -74,6 +74,7 @@ namespace Elevator.AddAndEditForms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            double d = Convert.ToDouble(textBoxWeight.Text);
             if (Convert.ToDouble(textBoxWeight.Text) > weight)
             {
                 MessageBox.Show(String.Format("Вес не должен превышать {0} тонн!", weight), "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);

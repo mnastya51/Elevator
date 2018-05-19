@@ -73,7 +73,7 @@ namespace Elevator.Forms
             }
             catch (System.Data.SqlClient.SqlException)
             {
-                MessageBox.Show("Невозможно удалить запись! Она используется в других таблицах!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Невозможно удалить запись! Данный контрагент имеет записи о поставках, отгрузках или имеет договор с элеватором!", "Удаление", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception)
             {

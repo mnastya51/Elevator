@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransportationForm));
             this.rawBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.changeButton = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbName = new System.Windows.Forms.Label();
             this.btnAllList = new System.Windows.Forms.Button();
-            this.yearNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.findButton = new System.Windows.Forms.Button();
             this.contractorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewDelivery = new System.Windows.Forms.DataGridView();
@@ -56,9 +56,9 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.rawBindingSource)).BeginInit();
             this.filtrGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDelivery)).BeginInit();
             this.SuspendLayout();
@@ -97,13 +97,13 @@
             // 
             // filtrGroupBox
             // 
+            this.filtrGroupBox.Controls.Add(this.yearTextBox);
             this.filtrGroupBox.Controls.Add(this.contractorTextBox);
             this.filtrGroupBox.Controls.Add(this.rawTextBox);
             this.filtrGroupBox.Controls.Add(this.label2);
             this.filtrGroupBox.Controls.Add(this.label1);
             this.filtrGroupBox.Controls.Add(this.lbName);
             this.filtrGroupBox.Controls.Add(this.btnAllList);
-            this.filtrGroupBox.Controls.Add(this.yearNumericUpDown);
             this.filtrGroupBox.Controls.Add(this.findButton);
             this.filtrGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.filtrGroupBox.Location = new System.Drawing.Point(12, 12);
@@ -178,26 +178,6 @@
             this.btnAllList.UseVisualStyleBackColor = false;
             this.btnAllList.Click += new System.EventHandler(this.btnAllList_Click);
             // 
-            // yearNumericUpDown
-            // 
-            this.yearNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.yearNumericUpDown.Location = new System.Drawing.Point(112, 22);
-            this.yearNumericUpDown.Maximum = new decimal(new int[] {
-            5000,
-            0,
-            0,
-            0});
-            this.yearNumericUpDown.Name = "yearNumericUpDown";
-            this.yearNumericUpDown.Size = new System.Drawing.Size(70, 26);
-            this.yearNumericUpDown.TabIndex = 12;
-            this.yearNumericUpDown.Tag = "1960";
-            this.yearNumericUpDown.UseWaitCursor = true;
-            this.yearNumericUpDown.Value = new decimal(new int[] {
-            2018,
-            0,
-            0,
-            0});
-            // 
             // findButton
             // 
             this.findButton.BackColor = System.Drawing.Color.DarkOrange;
@@ -224,7 +204,7 @@
             this.dataGridViewDelivery.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -242,15 +222,23 @@
             this.Column4,
             this.Column5,
             this.Column6});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewDelivery.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewDelivery.EnableHeadersVisualStyles = false;
             this.dataGridViewDelivery.Location = new System.Drawing.Point(12, 119);
             this.dataGridViewDelivery.MultiSelect = false;
             this.dataGridViewDelivery.Name = "dataGridViewDelivery";
             this.dataGridViewDelivery.ReadOnly = true;
             this.dataGridViewDelivery.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewDelivery.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewDelivery.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewDelivery.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewDelivery.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewDelivery.Size = new System.Drawing.Size(1048, 286);
@@ -317,6 +305,15 @@
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
+            // yearTextBox
+            // 
+            this.yearTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.yearTextBox.Location = new System.Drawing.Point(112, 20);
+            this.yearTextBox.Name = "yearTextBox";
+            this.yearTextBox.Size = new System.Drawing.Size(70, 26);
+            this.yearTextBox.TabIndex = 68;
+            this.yearTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.yearTextBox_KeyPress);
+            // 
             // TransportationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -331,11 +328,10 @@
             this.MaximumSize = new System.Drawing.Size(1091, 456);
             this.MinimumSize = new System.Drawing.Size(1091, 456);
             this.Name = "TransportationForm";
-            this.Text = "Поставки";
+            this.Text = "Поставка";
             ((System.ComponentModel.ISupportInitialize)(this.rawBindingSource)).EndInit();
             this.filtrGroupBox.ResumeLayout(false);
             this.filtrGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contractorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDelivery)).EndInit();
             this.ResumeLayout(false);
@@ -350,7 +346,6 @@
         private System.Windows.Forms.DataGridView dataGridViewDelivery;
         private System.Windows.Forms.BindingSource rawBindingSource;
         private System.Windows.Forms.BindingSource contractorBindingSource;
-        private System.Windows.Forms.NumericUpDown yearNumericUpDown;
         private System.Windows.Forms.Button btnAllList;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -367,5 +362,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.TextBox yearTextBox;
     }
 }

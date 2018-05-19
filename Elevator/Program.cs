@@ -22,7 +22,6 @@ namespace Elevator
             {
                 Application.Run(new Forms.MainForm(authForm.Empl));
             }
-            Application.Run(new AuthorizationForm());
         }
     }
 }

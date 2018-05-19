@@ -45,40 +45,12 @@ namespace Elevator.Controllers
             }
         }
 
-        public int checkIndex(string index)
-        {
-                if (index.Replace(" ", "").Length > 6)
-                {
-                    MessageBox.Show("Длина индекса должа быть равна 6!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return Convert.ToInt32(index.Substring(0, index.Length - 1));
-                }
-                else
-                    return -1;
-        }
-
         public bool checkSaveForIndex(string index)
         {
             if (index.Length == 0) return true;
             if (index.Length != 6) return false;
             return true;
-        }
-
-        public Int64 checkInn(string inn)
-        {
-            try
-            {
-                if (inn.Replace(" ", "").Length > 12)
-                {
-                    MessageBox.Show("Длина ИНН должа быть равна 12!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return Convert.ToInt64(inn.Substring(0, inn.Length - 1));
-                }
-                return Convert.ToInt64(inn);
-            }
-            catch (Exception)
-            {
-                return -1;
-            }
-        }
+        }       
 
         public bool checkSaveForInn(string inn)
         {

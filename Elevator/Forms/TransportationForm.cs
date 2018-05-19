@@ -59,7 +59,7 @@ namespace Elevator.Forms
         private void select()
         {
             dataGridViewDelivery.Rows.Clear();
-            if (this.Text == "Поставки")
+            if (this.Text == "Поставка")
             {              
                 string[] columns = { Delivery.DateAttr, Delivery.TransportAttr, Delivery.WeightAttr };
                 DAO.getInstance().selectDelivery(Delivery.NameTable, columns, dataGridViewDelivery);              
@@ -74,7 +74,7 @@ namespace Elevator.Forms
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            if (this.Text == "Поставки")
+            if (this.Text == "Поставка")
                 controller.addButtonDeliveryClick();
             else controller.addButtonShipmentClick();
             select();                
@@ -85,7 +85,7 @@ namespace Elevator.Forms
             try
             {
                 DataGridViewRow row = dataGridViewDelivery.SelectedRows[0];      
-                if (this.Text == "Поставки")
+                if (this.Text == "Поставка")
                 {
                     Storage storage = new Storage(Convert.ToInt32(dataGridViewDelivery.CurrentRow.Cells[0].Value),
                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[3].Value),
@@ -137,7 +137,7 @@ namespace Elevator.Forms
         {
             dataGridViewDelivery.Rows.Clear();
             FilterUtils.FilterFormatter filterFormatter = new FilterUtils.FilterFormatter();
-            filterFormatter.addValueWithRegisters("year_crop", yearNumericUpDown.Text);
+            filterFormatter.addValue("year_crop", yearTextBox.Text);
             filterFormatter.addValueWithRegisters("name_raw", rawTextBox.Text);
             filterFormatter.addValueWithRegisters("name_contr", contractorTextBox.Text);
             string command = "";
@@ -185,6 +185,15 @@ namespace Elevator.Forms
             }
             catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите запись!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             select();
+        }
+
+        private void yearTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char l = e.KeyChar;
+            if (l != '\b' && l != ',' && (l < '0' || l > '9'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

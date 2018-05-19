@@ -20,8 +20,6 @@ namespace Elevator
         public AuthorizationForm()
         {
             InitializeComponent();
-            loginTextBox.TabStop = false;
-            passwordTextBox.TabStop = false;
             employeeController = new EmployeeController();
         }
 

@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddShipmentForm));
             this.subdivisionComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,10 +46,6 @@
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.labelYear = new System.Windows.Forms.Label();
             this.dataGridViewRaw = new System.Windows.Forms.DataGridView();
-            this.rawTextBox = new System.Windows.Forms.TextBox();
-            this.btnAllList = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.findButton = new System.Windows.Forms.Button();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +55,10 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rawTextBox = new System.Windows.Forms.TextBox();
+            this.btnAllList = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.findButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRaw)).BeginInit();
             this.SuspendLayout();
@@ -231,7 +232,7 @@
             this.dataGridViewRaw.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -248,68 +249,27 @@
             this.Column1,
             this.Column4,
             this.Column5});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewRaw.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewRaw.EnableHeadersVisualStyles = false;
             this.dataGridViewRaw.Location = new System.Drawing.Point(12, 64);
             this.dataGridViewRaw.MultiSelect = false;
             this.dataGridViewRaw.Name = "dataGridViewRaw";
             this.dataGridViewRaw.ReadOnly = true;
             this.dataGridViewRaw.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewRaw.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewRaw.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewRaw.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewRaw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewRaw.Size = new System.Drawing.Size(585, 270);
+            this.dataGridViewRaw.Size = new System.Drawing.Size(585, 265);
             this.dataGridViewRaw.TabIndex = 49;
-            // 
-            // rawTextBox
-            // 
-            this.rawTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rawTextBox.Location = new System.Drawing.Point(101, 20);
-            this.rawTextBox.Name = "rawTextBox";
-            this.rawTextBox.Size = new System.Drawing.Size(173, 26);
-            this.rawTextBox.TabIndex = 12;
-            // 
-            // btnAllList
-            // 
-            this.btnAllList.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnAllList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAllList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAllList.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnAllList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAllList.Location = new System.Drawing.Point(397, 18);
-            this.btnAllList.Name = "btnAllList";
-            this.btnAllList.Size = new System.Drawing.Size(200, 28);
-            this.btnAllList.TabIndex = 7;
-            this.btnAllList.Text = "Вывести полный список";
-            this.btnAllList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAllList.UseVisualStyleBackColor = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(12, 20);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 20);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Культура:";
-            // 
-            // findButton
-            // 
-            this.findButton.BackColor = System.Drawing.Color.DarkOrange;
-            this.findButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.findButton.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.findButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.findButton.Location = new System.Drawing.Point(294, 18);
-            this.findButton.Name = "findButton";
-            this.findButton.Size = new System.Drawing.Size(82, 28);
-            this.findButton.TabIndex = 5;
-            this.findButton.Text = "Найти";
-            this.findButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.findButton.UseVisualStyleBackColor = false;
             // 
             // Column3
             // 
@@ -366,6 +326,55 @@
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             this.Column5.Visible = false;
+            // 
+            // rawTextBox
+            // 
+            this.rawTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rawTextBox.Location = new System.Drawing.Point(101, 20);
+            this.rawTextBox.Name = "rawTextBox";
+            this.rawTextBox.Size = new System.Drawing.Size(173, 26);
+            this.rawTextBox.TabIndex = 12;
+            // 
+            // btnAllList
+            // 
+            this.btnAllList.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnAllList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAllList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAllList.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnAllList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAllList.Location = new System.Drawing.Point(397, 18);
+            this.btnAllList.Name = "btnAllList";
+            this.btnAllList.Size = new System.Drawing.Size(200, 28);
+            this.btnAllList.TabIndex = 7;
+            this.btnAllList.Text = "Вывести полный список";
+            this.btnAllList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAllList.UseVisualStyleBackColor = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(12, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 20);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Культура:";
+            // 
+            // findButton
+            // 
+            this.findButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.findButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.findButton.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.findButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.findButton.Location = new System.Drawing.Point(294, 18);
+            this.findButton.Name = "findButton";
+            this.findButton.Size = new System.Drawing.Size(82, 28);
+            this.findButton.TabIndex = 5;
+            this.findButton.Text = "Найти";
+            this.findButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.findButton.UseVisualStyleBackColor = false;
             // 
             // AddShipmentForm
             // 

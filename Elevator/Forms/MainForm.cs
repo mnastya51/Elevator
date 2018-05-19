@@ -116,7 +116,7 @@ namespace Elevator.Forms
 
         private void отгрузкаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new TransportationForm("Отгрузки", employee).ShowDialog();
+            new TransportationForm("Отгрузка", employee).ShowDialog();
         }
 
         private void analysisQualityToolStripMenuItem_Click(object sender, EventArgs e)

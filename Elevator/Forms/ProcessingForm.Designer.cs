@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProcessingForm));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -99,7 +100,7 @@
             this.tabControl.Location = new System.Drawing.Point(6, 15);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(340, 307);
+            this.tabControl.Size = new System.Drawing.Size(300, 307);
             this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl.TabIndex = 0;
             // 
@@ -122,7 +123,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(332, 276);
+            this.tabPage1.Size = new System.Drawing.Size(292, 276);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Сушка";
             // 
@@ -278,7 +279,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(332, 276);
+            this.tabPage2.Size = new System.Drawing.Size(292, 276);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Очистка";
             // 
@@ -286,7 +287,7 @@
             // 
             this.labelWeightAfterClear.AutoSize = true;
             this.labelWeightAfterClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelWeightAfterClear.Location = new System.Drawing.Point(176, 138);
+            this.labelWeightAfterClear.Location = new System.Drawing.Point(119, 138);
             this.labelWeightAfterClear.Name = "labelWeightAfterClear";
             this.labelWeightAfterClear.Size = new System.Drawing.Size(0, 20);
             this.labelWeightAfterClear.TabIndex = 78;
@@ -305,7 +306,7 @@
             // 
             this.labelWeightBeforeClear.AutoSize = true;
             this.labelWeightBeforeClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelWeightBeforeClear.Location = new System.Drawing.Point(176, 95);
+            this.labelWeightBeforeClear.Location = new System.Drawing.Point(119, 95);
             this.labelWeightBeforeClear.Name = "labelWeightBeforeClear";
             this.labelWeightBeforeClear.Size = new System.Drawing.Size(0, 20);
             this.labelWeightBeforeClear.TabIndex = 73;
@@ -324,7 +325,7 @@
             // 
             this.labelDateClear.AutoSize = true;
             this.labelDateClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelDateClear.Location = new System.Drawing.Point(176, 53);
+            this.labelDateClear.Location = new System.Drawing.Point(119, 53);
             this.labelDateClear.Name = "labelDateClear";
             this.labelDateClear.Size = new System.Drawing.Size(0, 20);
             this.labelDateClear.TabIndex = 71;
@@ -438,10 +439,10 @@
             // 
             this.changeClearButton.BackColor = System.Drawing.Color.DarkOrange;
             this.changeClearButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.changeClearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.changeClearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.changeClearButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.changeClearButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.changeClearButton.Location = new System.Drawing.Point(100, 6);
+            this.changeClearButton.Location = new System.Drawing.Point(105, 6);
             this.changeClearButton.Name = "changeClearButton";
             this.changeClearButton.Size = new System.Drawing.Size(93, 28);
             this.changeClearButton.TabIndex = 50;
@@ -454,7 +455,7 @@
             // 
             this.addClearButton.BackColor = System.Drawing.Color.DarkOrange;
             this.addClearButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addClearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addClearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addClearButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.addClearButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.addClearButton.Location = new System.Drawing.Point(6, 6);
@@ -486,7 +487,7 @@
             this.dataGridViewRaw.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -501,15 +502,23 @@
             this.Column7,
             this.Column4,
             this.Column6});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewRaw.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewRaw.EnableHeadersVisualStyles = false;
             this.dataGridViewRaw.Location = new System.Drawing.Point(12, 120);
             this.dataGridViewRaw.MultiSelect = false;
             this.dataGridViewRaw.Name = "dataGridViewRaw";
             this.dataGridViewRaw.ReadOnly = true;
             this.dataGridViewRaw.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewRaw.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewRaw.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewRaw.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewRaw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewRaw.Size = new System.Drawing.Size(506, 202);
@@ -652,7 +661,7 @@
             this.groupBox3.Controls.Add(this.tabControl);
             this.groupBox3.Location = new System.Drawing.Point(551, 7);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(363, 332);
+            this.groupBox3.Size = new System.Drawing.Size(313, 332);
             this.groupBox3.TabIndex = 63;
             this.groupBox3.TabStop = false;
             // 
@@ -661,12 +670,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(931, 347);
+            this.ClientSize = new System.Drawing.Size(875, 347);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(947, 386);
-            this.MinimumSize = new System.Drawing.Size(947, 386);
+            this.MaximumSize = new System.Drawing.Size(891, 386);
+            this.MinimumSize = new System.Drawing.Size(891, 386);
             this.Name = "ProcessingForm";
             this.Text = "Обработка";
             this.tabControl.ResumeLayout(false);

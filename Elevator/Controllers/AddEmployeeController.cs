@@ -70,6 +70,11 @@ namespace Elevator.Controllers
             return isNotEmpty(surname) && isNotEmpty(name) && isNotEmpty(secName) && isNotEmpty(login) && isNotEmpty(password);
         }
 
+        public bool checkSaveForAll(string surname, string name, string secName, string login)
+        {
+            return isNotEmpty(surname) && isNotEmpty(name) && isNotEmpty(secName) && isNotEmpty(login);
+        }
+
         public bool isNotEmpty(string text)
         {
             return text.Replace(" ", "").Length > 0;

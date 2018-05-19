@@ -43,7 +43,7 @@
             this.loginTextBox.MaxLength = 15;
             this.loginTextBox.Name = "loginTextBox";
             this.loginTextBox.Size = new System.Drawing.Size(196, 33);
-            this.loginTextBox.TabIndex = 1;
+            this.loginTextBox.TabIndex = 2;
             this.loginTextBox.Text = "Логин";
             this.loginTextBox.Enter += new System.EventHandler(this.loginTextBox_Enter);
             this.loginTextBox.Leave += new System.EventHandler(this.loginTextBox_Leave);
@@ -60,7 +60,7 @@
             this.authirizationButton.MinimumSize = new System.Drawing.Size(101, 34);
             this.authirizationButton.Name = "authirizationButton";
             this.authirizationButton.Size = new System.Drawing.Size(101, 34);
-            this.authirizationButton.TabIndex = 4;
+            this.authirizationButton.TabIndex = 0;
             this.authirizationButton.Text = "Войти";
             this.authirizationButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.authirizationButton.UseVisualStyleBackColor = false;
@@ -75,9 +75,10 @@
             this.passwordTextBox.MaxLength = 15;
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(196, 33);
-            this.passwordTextBox.TabIndex = 2;
+            this.passwordTextBox.TabIndex = 3;
             this.passwordTextBox.Text = "Пароль";
             this.passwordTextBox.Enter += new System.EventHandler(this.passwordTextBox_Enter);
+            this.passwordTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.passwordTextBox_KeyPress);
             this.passwordTextBox.Leave += new System.EventHandler(this.passwordTextBox_Leave);
             // 
             // AuthorizationForm
@@ -94,7 +95,7 @@
             this.MaximizeBox = false;
             this.Name = "AuthorizationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Авторизация";
+            this.Text = "Аутентификация";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AuthorizationForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

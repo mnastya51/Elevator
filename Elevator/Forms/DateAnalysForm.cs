@@ -71,7 +71,7 @@ namespace Elevator.Forms
             dataGridViewDate.ClearSelection();
         }
 
-        private void changeButton_Click(object sender, EventArgs e)
+        /*private void changeButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace Elevator.Forms
                 selectDate();
             }
             catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите контрагента!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-        }
+        }*/
 
         private void deleteButton_Click(object sender, EventArgs e)
         {

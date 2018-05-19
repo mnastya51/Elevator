@@ -1839,7 +1839,7 @@ namespace Elevator
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 sqlCommand = string.Format("select id_raw, id_place_storage, 'склад', numb_store, " +
-                    "weight_store from Store_raw where id_raw = {0} ",
+                    "weight_store from Store_raw where id_raw = {0} and weight_store != 0",
                     idRaw);
                 connection.Open();
                 int c = 0;
@@ -1862,7 +1862,7 @@ namespace Elevator
                 }
                 reader.Close();
                 sqlCommand = string.Format("select id_raw, id_place_storage, 'силос', numb_silage, weight_silage from " +
-                    "Silage_raw where id_raw = {0}",
+                    "Silage_raw where id_raw = {0} and weight_silage != 0",
                     idRaw);
                 command = new SqlCommand(sqlCommand, connection);
                 reader = command.ExecuteReader();
@@ -2048,7 +2048,7 @@ namespace Elevator
                 "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join Type_raw t on s.id_type = t.id_type " +
                 "left join Class cl on st.id_class = cl.id_class join PlaceStorage p on st.id_raw = " +
                 "p.id_raw join Silage_raw e on e.id_place_storage = p.id_place_storage " +
-                    "where e.numb_silage != 0");
+                    "where e.weight_silage != 0");
                 command = new SqlCommand(sqlCommand, connection);
                 reader = command.ExecuteReader();
                 if (reader.HasRows)

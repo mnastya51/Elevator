@@ -98,11 +98,17 @@ namespace Elevator.AddAndEditForms
         {
             char l = e.KeyChar;
             if (l != '\b' && l != ',' && (l < '0' || l > '9'))
-                e.Handled = true;
-            int newIndex = controller.checkIndex(textBoxIndex.Text);
-            if (newIndex == -1 && textBoxIndex.Text.Length <= 1)
             {
-                textBoxIndex.Text = string.Empty;
+                 e.Handled = true;
+            }
+            else
+            {
+                if (l != '\b' && textBoxIndex.Text.Length > 5)
+                {
+                    MessageBox.Show("Длина индекса должа быть равна 6!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBoxIndex.Text.Substring(0, 6);
+                    e.Handled = true;
+                }
             }
             textBoxIndex.SelectionStart = textBoxIndex.Text.Length;
             saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text);
@@ -114,16 +120,22 @@ namespace Elevator.AddAndEditForms
         {
             char l = e.KeyChar;
             if (l != '\b' && l != ',' && (l < '0' || l > '9'))
-                e.Handled = true;
-            Int64 newIndex = controller.checkInn(textBoxINN.Text);
-            if (newIndex == -1 && textBoxINN.Text.Length <= 1)
             {
-                textBoxINN.Text = string.Empty;
+                e.Handled = true;
+            }
+            else
+            {
+                if (l != '\b' && textBoxINN.Text.Length > 11)
+                {
+                    MessageBox.Show("Длина ИНН должа быть равна 12!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBoxINN.Text.Substring(0, 12);
+                    e.Handled = true;
+                }
             }
             textBoxINN.SelectionStart = textBoxINN.Text.Length;
             saveButton.Enabled = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text);
             saveButton.BackColor = controller.checkSaveForAll(textBoxName.Text, richTextBoxFactadress.Text, textBoxIndex.Text, textBoxINN.Text, maskedTextBoxPhone.Text) ? Color.DarkOrange : Color.LightBlue;
             textBoxINN.BackColor = controller.checkSaveForInn(textBoxINN.Text) ? Color.White : Color.LightBlue;
-        }
+        }       
     }
 }
