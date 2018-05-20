@@ -335,30 +335,30 @@ namespace Elevator.Controllers
                                     case "hurmful":
                                         {
                                             res = findClassGrain(i, classes, idRaw, dataGridViewAnalys);
-                                            if (res[0] != "")
+                                            if (res[0] != "" && res[0] != null)
                                                 res = findClassWeed(Convert.ToInt16(res[2]), classes, idRaw, dataGridViewAnalys);
                                             else break;
-                                            if (res[0] != "")
+                                            if (res[0] != "" && res[0] != null)
                                                 res = findClassGeneral(Convert.ToInt16(res[2]), classes, idRaw, dataGridViewAnalys, type);
                                             break;
                                         }
                                     case "weed":
                                         {
                                             res = findClassGrain(i, classes, idRaw, dataGridViewAnalys);
-                                            if (res[0] != "")
+                                            if (res[0] != "" && res[0] != null)
                                                 res = findClassHurmful(Convert.ToInt16(res[2]), classes, idRaw, dataGridViewAnalys);
                                             else break;
-                                            if (res[0] != "")
+                                            if (res[0] != "" && res[0] != null)
                                                 res = findClassGeneral(Convert.ToInt16(res[2]), classes, idRaw, dataGridViewAnalys, type);
                                             break;
                                         }
                                     case "grain":
                                         {
                                             res = findClassHurmful(i, classes, idRaw, dataGridViewAnalys);
-                                            if (res[0] != "")
+                                            if (res[0] != "" && res[0] != null)
                                                 res = findClassWeed(Convert.ToInt16(res[2]), classes, idRaw, dataGridViewAnalys);
                                             else break;
-                                            if (res[0] != "")
+                                            if (res[0] != "" && res[0] != null)
                                                 res = findClassGeneral(Convert.ToInt16(res[2]), classes, idRaw, dataGridViewAnalys, type);
                                             break;
                                         }
@@ -459,11 +459,11 @@ namespace Elevator.Controllers
                                 if (flag && j == count)
                                 {////////////////////////////////////////////////
                                     res = findClassGrain(i, classes, idRaw, dataGridViewAnalys);
-                                    if (res[0] != "")
+                                    if (res[0] != "" && res[0] != null)
                                         res = findClassWeed(Convert.ToInt16(res[2]), classes, idRaw, dataGridViewAnalys);
-                                    if (res[0] != "")
+                                    if (res[0] != "" && res[0] != null)
                                         res = findClassHurmful(Convert.ToInt16(res[2]), classes, idRaw, dataGridViewAnalys);
-                                    if (res[0] != "")
+                                    if (res[0] != "" && res[0] != null)
                                     {
                                         LinkedList<FormValue<string, string>> value = DAO.getInstance().defineStateForClass(idRaw,
                                             res[0], GeneralLevelOfQualityNorm.NormAttr, GeneralLevelOfQualityNorm.NameTable,
@@ -513,11 +513,11 @@ namespace Elevator.Controllers
                                 if (flag && j == count)
                                 {
                                     res = findClassGrain(i, classes, idRaw, dataGridViewAnalys);
-                                    if (res[0] != "")
+                                    if (res[0] != "" && res[0] != null)
                                         res = findClassWeed(Convert.ToInt16(res[2]), classes, idRaw, dataGridViewAnalys);
-                                    if (res[0] != "")
+                                    if (res[0] != "" && res[0] != null)
                                         res = findClassHurmful(Convert.ToInt16(res[2]), classes, idRaw, dataGridViewAnalys);
-                                    if (res[0] != "")
+                                    if (res[0] != "" && res[0] != null)
                                     {
                                         LinkedList<FormValue<string, string>> value = DAO.getInstance().defineStateForClass(idRaw,
                                             res[0], GeneralLevelOfQualityNorm.NormAttr, GeneralLevelOfQualityNorm.NameTable,
@@ -577,9 +577,19 @@ namespace Elevator.Controllers
                 LinkedList<FormValue<string, string>> values = DAO.getInstance().selectAnalysQualityForDefineClass(TypeGrainLevelOfQuality.NameTable,
                     TypeGrainLevelOfQuality.NameAttr, GrainLevelOfQuality.NameTable,
                     GrainLevelOfQuality.ValueAttr, idRaw);
-                FormValue<string, string>[] valueRes = values.ToArray<FormValue<string, string>>();              
-                res = find(classes, valueRes, i,  idRaw,  dataGridViewAnalys, valueArray);
-                i = Convert.ToInt16(res[1]);
+                FormValue<string, string>[] valueRes = values.ToArray<FormValue<string, string>>();
+                if (valueArray.Length != 0)
+                {
+                    res = find(classes, valueRes, i, idRaw, dataGridViewAnalys, valueArray);
+                    i = Convert.ToInt16(res[1]);
+                }
+                else
+                {
+                    for (int j = 0; j < dataGridViewAnalys.Rows.Count; j++)
+                        dataGridViewAnalys.Rows[j].Cells[3].Value = "";
+                    MessageBox.Show("Установите нормы для всех классов данного сырья!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                }                
             }
             return res;
         }
@@ -599,8 +609,18 @@ namespace Elevator.Controllers
                     TypeWeedLevelOfQuality.NameAttr, WeedLevelOfQuality.NameTable,
                     WeedLevelOfQuality.ValueAttr, idRaw);
                 FormValue<string, string>[] valueRes = values.ToArray<FormValue<string, string>>();
-                res = find(classes, valueRes, i, idRaw, dataGridViewAnalys, valueArray);
-                i = Convert.ToInt16(res[1]);
+                if (valueArray.Length != 0)
+                {
+                    res = find(classes, valueRes, i, idRaw, dataGridViewAnalys, valueArray);
+                    i = Convert.ToInt16(res[1]);
+                }
+                else
+                {
+                    for (int j = 0; j < dataGridViewAnalys.Rows.Count; j++)
+                        dataGridViewAnalys.Rows[j].Cells[3].Value = "";
+                    MessageBox.Show("Установите нормы для всех классов данного сырья!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                }
             }
             return res;
         }
@@ -620,8 +640,18 @@ namespace Elevator.Controllers
                     TypeHarmfulLevelOfQuality.NameAttr, HarmfulLevelOfQuality.NameTable,
                     HarmfulLevelOfQuality.ValueAttr, idRaw);
                 FormValue<string, string>[] valueRes = values.ToArray<FormValue<string, string>>();
-                res = find(classes, valueRes, i, idRaw, dataGridViewAnalys, valueArray);
-                i = Convert.ToInt16(res[1]);
+                if (valueArray.Length != 0)
+                {
+                    res = find(classes, valueRes, i, idRaw, dataGridViewAnalys, valueArray);
+                    i = Convert.ToInt16(res[1]);
+                }
+                else
+                {
+                    for (int j = 0; j < dataGridViewAnalys.Rows.Count; j++)
+                        dataGridViewAnalys.Rows[j].Cells[3].Value = "";
+                    MessageBox.Show("Установите нормы для всех классов данного сырья!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                }
             }
             return res;
         }
@@ -640,8 +670,18 @@ namespace Elevator.Controllers
                     TypeGeneralLevelOfQuality.NameAttr, GeneralLevelOfQuality.NameTable,
                    GeneralLevelOfQuality.ValueAttr, idRaw);
                 FormValue<string, string>[] valueRes = values.ToArray<FormValue<string, string>>();
-                res = findGeneral(classes, valueRes, i, idRaw, dataGridViewAnalys, valueArray, type);
-                i = Convert.ToInt16(res[1]);
+                if (valueArray.Length != 0)
+                {
+                    res = findGeneral(classes, valueRes, i, idRaw, dataGridViewAnalys, valueArray, type);
+                    i = Convert.ToInt16(res[1]);
+                }
+                else
+                {
+                    for (int j = 0; j < dataGridViewAnalys.Rows.Count; j++)
+                        dataGridViewAnalys.Rows[j].Cells[3].Value = "";
+                    MessageBox.Show("Установите нормы для всех классов данного сырья!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                }
             }            
             return res;
         }

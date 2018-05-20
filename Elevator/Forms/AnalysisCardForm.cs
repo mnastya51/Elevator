@@ -32,7 +32,8 @@ namespace Elevator.Forms
             try
             {
                 DataGridViewRow row = dataGridViewRaw.SelectedRows[0];
-                new ReportAnalysisCardForm(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value), employee).ShowDialog();
+                //new ReportAnalysisCardForm(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value), employee).ShowDialog();
+                new Form1(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value), employee).ShowDialog();
             }
             catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите запись!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }

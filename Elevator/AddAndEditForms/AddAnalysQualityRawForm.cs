@@ -115,9 +115,9 @@ namespace Elevator.AddAndEditForms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            string value = valueTextBox.Text.Replace(",", ".");
             if (forChange)
             {
-                string value = valueTextBox.Text.Replace(",", ".");
                 switch (this.Text)
                 {
                     case "Изменение общего показателя качества":
@@ -146,28 +146,28 @@ namespace Elevator.AddAndEditForms
             {
                 if (generalLevelOfQuality != null)
                 {
-                    generalLevelOfQuality.Value = valueTextBox.Text;
+                    generalLevelOfQuality.Value = value;
                     generalLevelOfQuality.LevelQuality = impurityComboBox.Text;
                     if (controller.addClick(generalLevelOfQuality))
                         this.Close();
                 }
                 else if (harmfulLevelOfQuality != null)
                 {
-                    harmfulLevelOfQuality.Value = valueTextBox.Text;
+                    harmfulLevelOfQuality.Value = value;
                     harmfulLevelOfQuality.LevelQuality = impurityComboBox.Text;
                     if (controller.addClick(harmfulLevelOfQuality))
                         this.Close();
                 }
                 else if (weedLevelOfQuality != null)
                 {
-                    weedLevelOfQuality.Value = valueTextBox.Text;
+                    weedLevelOfQuality.Value = value;
                     weedLevelOfQuality.LevelQuality = impurityComboBox.Text;
                     if (controller.addClick(weedLevelOfQuality))
                         this.Close();
                 }
                 else if (grainLevelOfQuality != null)
                 {
-                    grainLevelOfQuality.Value = valueTextBox.Text;
+                    grainLevelOfQuality.Value = value;
                     grainLevelOfQuality.LevelQuality = impurityComboBox.Text;
                     if (controller.addClick(grainLevelOfQuality))
                         this.Close();

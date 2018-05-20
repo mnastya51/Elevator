@@ -51,7 +51,6 @@ namespace Elevator
                     connection.Open();
                     SqlCommand cmd = new SqlCommand(sqlCommand, connection);
                     cmd.ExecuteNonQuery();
-                    connection.Close();
                 }
                 return true;
             }
@@ -98,7 +97,6 @@ namespace Elevator
                 connection.Open();
                 SqlCommand cmd = new SqlCommand(sqlCommand, connection);
                 cmd.ExecuteNonQuery();
-                connection.Close();
             }
         }
 
@@ -127,7 +125,6 @@ namespace Elevator
 
                 DataTable table = new DataTable();
                 dataAdapter.Fill(table);
-                connection.Close();
                 return table;
             }
         }
@@ -746,7 +743,7 @@ namespace Elevator
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 sqlCommand = string.Format("Select k.name_contr, k.subdivision, c.id_contract, c.date_contr, c.goal From Contract c join Contractor k " +
-                    "on c.id_contractor = k.id_contractor");
+                    "on c.id_contractor = k.id_contractor order by c.date_contr");
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
                 SqlDataReader reader = command.ExecuteReader();
@@ -865,7 +862,7 @@ namespace Elevator
                 sqlCommand = string.Format("Select d.id_raw, c.name_contr, c.subdivision, r.name_raw, t.name_type_raw, s.name_subtype, d.{1}, st.year_crop, " +
                     "d.{2}, d.{3} From Contractor c join {0} d " +
                     "on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join Raw r on st.id_NameRaw = " +
-                    "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join Type_raw t on s.id_type = t.id_type",
+                    "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join Type_raw t on s.id_type = t.id_type order by d.{1} desc",
                     nameTable, columns[0], columns[1], columns[2]);
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
@@ -904,7 +901,7 @@ namespace Elevator
                     "weight_shipment, id_place_storage, 'склад', numb_store From Contractor c join Shipment " +
                     "d on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join " +
                     " Raw r on st.id_NameRaw = r.id_NameRaw left join Subtype_raw s on s.id_subtype = " +
-                    "st.id_subtype left join Type_raw t on s.id_type = t.id_type where numb_store is not null");
+                    "st.id_subtype left join Type_raw t on s.id_type = t.id_type where numb_store is not null order by date_shipment desc");
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
                 SqlDataReader reader = command.ExecuteReader();
@@ -1121,7 +1118,7 @@ namespace Elevator
             }
             try
             {
-                //добавление в поставку или отгрузку
+                //добавление в поставку
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     string sqlCommand = string.Format("set xact_abort on; " +
@@ -1248,7 +1245,7 @@ namespace Elevator
             {
                 sqlCommand = string.Format("Select d.id_raw, c.name_contr, r.name_raw, d.date_delivery, c.id_contractor From Contractor c join Delivery d " +
                     "on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join Raw r on st.id_NameRaw = " +
-                    "r.id_NameRaw");
+                    "r.id_NameRaw order by d.id_raw desc");
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
                 SqlDataReader reader = command.ExecuteReader();
@@ -1278,7 +1275,7 @@ namespace Elevator
             {
                 sqlCommand = string.Format("Select d.id_raw, c.name_contr, r.name_raw, t.name_type_raw, s.name_subtype, d.date_delivery, c.id_contractor From Contractor c join Delivery d " +
                     "on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join Raw r on st.id_NameRaw = " +
-                    "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join Type_raw t on s.id_type = t.id_type");
+                    "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join Type_raw t on s.id_type = t.id_type order by d.date_delivery desc");
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
                 SqlDataReader reader = command.ExecuteReader();
@@ -1311,7 +1308,7 @@ namespace Elevator
                 sqlCommand = string.Format("Select d.id_raw, c.name_contr, r.name_raw, t.name_type_raw, s.name_subtype, cl.number_class, d.date_delivery, st.weight, c.id_contractor From Contractor c join Delivery d " +
                     "on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join Raw r on st.id_NameRaw = " +
                     "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join Type_raw t on s.id_type = t.id_type " +
-                    "left join Class cl on st.id_class = cl.id_class");
+                    "left join Class cl on st.id_class = cl.id_class order by d.date_delivery desc");
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
                 SqlDataReader reader = command.ExecuteReader();
@@ -2019,7 +2016,7 @@ namespace Elevator
                     "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join Type_raw t on s.id_type = t.id_type " +
                     "left join Class cl on st.id_class = cl.id_class join PlaceStorage p on st.id_raw = " +
                     "p.id_raw join Store_raw e on e.id_place_storage = p.id_place_storage " +
-                    "where e.weight_store != 0");
+                    "where e.weight_store != 0 order by st.id_raw desc");
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlCommand, connection);
                 SqlDataReader reader = command.ExecuteReader();
