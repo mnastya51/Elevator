@@ -40,8 +40,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.labelWeightBefore = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.labelDate = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.changeDryButton = new System.Windows.Forms.Button();
@@ -49,8 +47,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.labelWeightAfterClear = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.labelWeightBeforeClear = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.labelDateClear = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -66,14 +62,6 @@
             this.changeClearButton = new System.Windows.Forms.Button();
             this.addClearButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridViewRaw = new System.Windows.Forms.DataGridView();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.contractorTextBox = new System.Windows.Forms.TextBox();
             this.rawTextBox = new System.Windows.Forms.TextBox();
@@ -82,13 +70,27 @@
             this.findButton = new System.Windows.Forms.Button();
             this.lbName = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewRaw = new System.Windows.Forms.DataGridView();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label24 = new System.Windows.Forms.Label();
+            this.labelWeightBeforeClear = new System.Windows.Forms.Label();
+            this.labelWeightBefore = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRaw)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRaw)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -100,7 +102,7 @@
             this.tabControl.Location = new System.Drawing.Point(6, 15);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(300, 307);
+            this.tabControl.Size = new System.Drawing.Size(300, 344);
             this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl.TabIndex = 0;
             // 
@@ -184,25 +186,6 @@
             this.label5.TabIndex = 54;
             this.label5.Text = "Вес после:";
             // 
-            // labelWeightBefore
-            // 
-            this.labelWeightBefore.AutoSize = true;
-            this.labelWeightBefore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelWeightBefore.Location = new System.Drawing.Point(164, 95);
-            this.labelWeightBefore.Name = "labelWeightBefore";
-            this.labelWeightBefore.Size = new System.Drawing.Size(0, 20);
-            this.labelWeightBefore.TabIndex = 53;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(6, 95);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 20);
-            this.label3.TabIndex = 52;
-            this.label3.Text = "Вес до:";
-            // 
             // labelDate
             // 
             this.labelDate.AutoSize = true;
@@ -279,7 +262,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(292, 276);
+            this.tabPage2.Size = new System.Drawing.Size(292, 313);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Очистка";
             // 
@@ -301,25 +284,6 @@
             this.label22.Size = new System.Drawing.Size(90, 20);
             this.label22.TabIndex = 74;
             this.label22.Text = "Вес после:";
-            // 
-            // labelWeightBeforeClear
-            // 
-            this.labelWeightBeforeClear.AutoSize = true;
-            this.labelWeightBeforeClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelWeightBeforeClear.Location = new System.Drawing.Point(119, 95);
-            this.labelWeightBeforeClear.Name = "labelWeightBeforeClear";
-            this.labelWeightBeforeClear.Size = new System.Drawing.Size(0, 20);
-            this.labelWeightBeforeClear.TabIndex = 73;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label24.Location = new System.Drawing.Point(18, 95);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(65, 20);
-            this.label24.TabIndex = 72;
-            this.label24.Text = "Вес до:";
             // 
             // labelDateClear
             // 
@@ -473,100 +437,9 @@
             this.groupBox2.Controls.Add(this.groupBox1);
             this.groupBox2.Location = new System.Drawing.Point(12, 7);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(533, 332);
+            this.groupBox2.Size = new System.Drawing.Size(592, 365);
             this.groupBox2.TabIndex = 64;
             this.groupBox2.TabStop = false;
-            // 
-            // dataGridViewRaw
-            // 
-            this.dataGridViewRaw.AllowUserToAddRows = false;
-            this.dataGridViewRaw.AllowUserToDeleteRows = false;
-            this.dataGridViewRaw.AllowUserToResizeRows = false;
-            this.dataGridViewRaw.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewRaw.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.dataGridViewRaw.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewRaw.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewRaw.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRaw.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column3,
-            this.Column1,
-            this.Column2,
-            this.Column5,
-            this.Column7,
-            this.Column4,
-            this.Column6});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewRaw.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewRaw.EnableHeadersVisualStyles = false;
-            this.dataGridViewRaw.Location = new System.Drawing.Point(12, 120);
-            this.dataGridViewRaw.MultiSelect = false;
-            this.dataGridViewRaw.Name = "dataGridViewRaw";
-            this.dataGridViewRaw.ReadOnly = true;
-            this.dataGridViewRaw.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.dataGridViewRaw.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewRaw.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridViewRaw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewRaw.Size = new System.Drawing.Size(506, 202);
-            this.dataGridViewRaw.TabIndex = 46;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Код сырья";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Visible = false;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Контрагент";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Культура";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Тип";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Подтип";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Дата поставки";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Код контрагента";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Visible = false;
             // 
             // groupBox1
             // 
@@ -659,23 +532,164 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.tabControl);
-            this.groupBox3.Location = new System.Drawing.Point(551, 7);
+            this.groupBox3.Location = new System.Drawing.Point(610, 7);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(313, 332);
+            this.groupBox3.Size = new System.Drawing.Size(313, 365);
             this.groupBox3.TabIndex = 63;
             this.groupBox3.TabStop = false;
+            // 
+            // dataGridViewRaw
+            // 
+            this.dataGridViewRaw.AllowUserToAddRows = false;
+            this.dataGridViewRaw.AllowUserToDeleteRows = false;
+            this.dataGridViewRaw.AllowUserToResizeRows = false;
+            this.dataGridViewRaw.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewRaw.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
+            this.dataGridViewRaw.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewRaw.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewRaw.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewRaw.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column3,
+            this.Column1,
+            this.Column2,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn4,
+            this.Column9,
+            this.Column4,
+            this.Column10,
+            this.Column6});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewRaw.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewRaw.EnableHeadersVisualStyles = false;
+            this.dataGridViewRaw.Location = new System.Drawing.Point(6, 120);
+            this.dataGridViewRaw.MultiSelect = false;
+            this.dataGridViewRaw.Name = "dataGridViewRaw";
+            this.dataGridViewRaw.ReadOnly = true;
+            this.dataGridViewRaw.RowHeadersVisible = false;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.dataGridViewRaw.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewRaw.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridViewRaw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewRaw.Size = new System.Drawing.Size(580, 239);
+            this.dataGridViewRaw.TabIndex = 48;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Код сырья";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Контрагент";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Культура";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Тип";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Подтип";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Класс";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Дата поставки";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Вес";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Код контрагента";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Visible = false;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label24.Location = new System.Drawing.Point(18, 95);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(65, 20);
+            this.label24.TabIndex = 72;
+            this.label24.Text = "Вес до:";
+            // 
+            // labelWeightBeforeClear
+            // 
+            this.labelWeightBeforeClear.AutoSize = true;
+            this.labelWeightBeforeClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelWeightBeforeClear.Location = new System.Drawing.Point(119, 95);
+            this.labelWeightBeforeClear.Name = "labelWeightBeforeClear";
+            this.labelWeightBeforeClear.Size = new System.Drawing.Size(0, 20);
+            this.labelWeightBeforeClear.TabIndex = 73;
+            // 
+            // labelWeightBefore
+            // 
+            this.labelWeightBefore.AutoSize = true;
+            this.labelWeightBefore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelWeightBefore.Location = new System.Drawing.Point(164, 95);
+            this.labelWeightBefore.Name = "labelWeightBefore";
+            this.labelWeightBefore.Size = new System.Drawing.Size(0, 20);
+            this.labelWeightBefore.TabIndex = 53;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(6, 95);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 20);
+            this.label3.TabIndex = 52;
+            this.label3.Text = "Вес до:";
             // 
             // ProcessingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(875, 347);
+            this.ClientSize = new System.Drawing.Size(935, 384);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(891, 386);
-            this.MinimumSize = new System.Drawing.Size(891, 386);
             this.Name = "ProcessingForm";
             this.Text = "Обработка";
             this.tabControl.ResumeLayout(false);
@@ -684,10 +698,10 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRaw)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRaw)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -701,7 +715,6 @@
         private System.Windows.Forms.Button changeClearButton;
         private System.Windows.Forms.Button addClearButton;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridViewRaw;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox contractorTextBox;
         private System.Windows.Forms.TextBox rawTextBox;
@@ -716,13 +729,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label labelWeightBefore;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelDate;
         private System.Windows.Forms.Label labelWeightAfterClear;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label labelWeightBeforeClear;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label labelDateClear;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label4;
@@ -736,12 +745,19 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView dataGridViewRaw;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.Label labelWeightBefore;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelWeightBeforeClear;
+        private System.Windows.Forms.Label label24;
     }
 }

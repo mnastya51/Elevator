@@ -36,7 +36,8 @@ namespace Elevator.Forms
         private void select()
         {
             dataGridViewRaw.Rows.Clear();
-            DAO.getInstance().selectRaw(dataGridViewRaw);
+            //DAO.getInstance().selectRaw(dataGridViewRaw);
+            DAO.getInstance().selectRawForStorage(dataGridViewRaw);
             dataGridViewRaw.ClearSelection();
         }
 
@@ -109,7 +110,7 @@ namespace Elevator.Forms
 
         private void addDryButton_Click(object sender, EventArgs e)
         {
-            if (labelDate.Text != "" || labelWeightBefore.Text != "" || labelWeightAfter.Text != "" ||
+            if (labelDate.Text != "" || labelWeightAfter.Text != "" ||
             labelWetBefore.Text != "" || labelWetAfter.Text != "")
             {
                 MessageBox.Show("Данные о сушке уже добавлены!", "Сушка!", MessageBoxButtons.OK, MessageBoxIcon.Information);        
@@ -117,7 +118,9 @@ namespace Elevator.Forms
             else
             {
                 controller.addButtonClick(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value),
-                    Convert.ToString(dataGridViewRaw.CurrentRow.Cells[6].Value), Convert.ToString(dataGridViewRaw.CurrentRow.Cells[2].Value));
+                    Convert.ToString(dataGridViewRaw.CurrentRow.Cells[8].Value), 
+                    Convert.ToString(dataGridViewRaw.CurrentRow.Cells[2].Value),
+                    Convert.ToString(dataGridViewRaw.CurrentRow.Cells[7].Value));
                 selectDry();
             }
         }
@@ -127,8 +130,8 @@ namespace Elevator.Forms
             if (labelDate.Text != "")
             {
                 Drying drying = new Drying(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value),
-                    Convert.ToString(dataGridViewRaw.CurrentRow.Cells[6].Value),
-                    labelDate.Text, labelWeightBefore.Text, labelWeightAfter.Text, labelWetBefore.Text, labelWetAfter.Text);
+                    Convert.ToString(dataGridViewRaw.CurrentRow.Cells[8].Value),
+                    labelDate.Text, Convert.ToString(dataGridViewRaw.CurrentRow.Cells[7].Value), labelWeightAfter.Text, labelWetBefore.Text, labelWetAfter.Text);
                 controller.changeButtonClick(drying);
                 selectDry();
             }
@@ -143,8 +146,8 @@ namespace Elevator.Forms
             if (labelDateClear.Text != "")
             {
                 Clearing clearing = new Clearing(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value),
-                    Convert.ToString(dataGridViewRaw.CurrentRow.Cells[6].Value),
-                    labelDateClear.Text, labelWeightBeforeClear.Text, labelWeightAfterClear.Text);
+                    Convert.ToString(dataGridViewRaw.CurrentRow.Cells[8].Value),
+                    labelDateClear.Text, Convert.ToString(dataGridViewRaw.CurrentRow.Cells[7].Value), labelWeightAfterClear.Text);
                 controller.changeButtonClearClick(clearing);
                 selectClear();
             }
@@ -156,15 +159,16 @@ namespace Elevator.Forms
 
         private void addClearButton_Click(object sender, EventArgs e)
         {
-            if (labelDateClear.Text != "" || labelWeightBeforeClear.Text != "" || labelWeightAfterClear.Text != "")
+            if (labelDateClear.Text != "" || labelWeightAfterClear.Text != "")
             {
                 MessageBox.Show("Данные об очистке уже добавлены!", "Очистка!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 controller.addButtonClearClick(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value),
-                    Convert.ToString(dataGridViewRaw.CurrentRow.Cells[6].Value),
-                    Convert.ToString(dataGridViewRaw.CurrentRow.Cells[2].Value));
+                    Convert.ToString(dataGridViewRaw.CurrentRow.Cells[8].Value),
+                    Convert.ToString(dataGridViewRaw.CurrentRow.Cells[2].Value),
+                    Convert.ToString(dataGridViewRaw.CurrentRow.Cells[7].Value));
                 selectClear();
             }
         }

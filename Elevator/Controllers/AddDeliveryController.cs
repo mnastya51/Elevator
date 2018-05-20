@@ -72,7 +72,7 @@ namespace Elevator.Controllers
                  storage.Raw, storage.Type, storage.Subtype, storage.Year);
         }
 
-        public bool onSaveClick(Shipment shipment, Storage storage, bool forChange)
+        public bool onSaveClick(Shipment shipment, Storage storage, bool forChange, string dateOld)
         {
             if (!forChange)
             {
@@ -90,7 +90,7 @@ namespace Elevator.Controllers
             }
             else
             {
-                if (!DAO.getInstance().changeTransportation(Shipment.NameTable, shipment.Id, shipment.Contractor,
+                if (!DAO.getInstance().changeTransportation(Shipment.NameTable, dateOld, shipment.Id, shipment.Contractor,
               shipment.Subdivision,
                new FormValue<string, string>(Shipment.TransportAttr, shipment.Transport),
                new FormValue<string, string>(Shipment.WeightAttr, shipment.Weight),
@@ -111,17 +111,21 @@ namespace Elevator.Controllers
                             MessageBox.Show("Превышен вес!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return false;
                         }
+                        else return true;
                     }
                     else
                     {
-                        DAO.getInstance().cancelStoragePlace(Convert.ToString(shipment.Id), shipment.Number, shipment.Weight,
+                        if (!DAO.getInstance().cancelStoragePlace(Convert.ToString(shipment.Id), shipment.Number, shipment.Weight,
                        SilageStoragePlace.NameTable, SilageStoragePlace.NumberAttr, SilageStoragePlace.WeightAttr,
-                       shipment.IdPlaceStorage, shipment.WeightBefore);
+                       shipment.IdPlaceStorage, shipment.WeightBefore))
+                        {
+                            MessageBox.Show("Превышен вес!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        else return true;
                     }
-                    return true;
                 }
             }
-
         }
         public bool checkSave(string surname)
         {

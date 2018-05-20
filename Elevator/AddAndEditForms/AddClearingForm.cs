@@ -18,13 +18,15 @@ namespace Elevator.AddAndEditForms
         public Clearing clearing;
         private string idRaw;
         private string raw;
+        private string weightBefore;
         private string idContractor;
-        public AddClearingForm(string newIdRaw, string idContractor, string newRaw)
+        public AddClearingForm(string newIdRaw, string idContractor, string newRaw, string weightBefore)
         {
             InitializeComponent();
             controller = new AddClearingController();
             idRaw = newIdRaw;
             raw = newRaw;
+            this.weightBefore = weightBefore;
             this.idContractor = idContractor;
         }
 
@@ -34,31 +36,39 @@ namespace Elevator.AddAndEditForms
             controller = new AddClearingController();
             clearing = newClearing;
             dateTimePicker.Text = clearing.Date;
-            textBoxWeightBefore.Text = clearing.WeightBefore;
+            weightBefore = clearing.WeightBefore;
             textBoxWeightAfter.Text = clearing.WeightAfter;
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            string weightBefore = textBoxWeightBefore.Text.Replace(",", ".");
+            weightBefore = weightBefore.Replace(",", ".");
             string weightAfter = textBoxWeightAfter.Text.Replace(",", ".");
-            if (clearing == null)
+            if (Convert.ToDouble(weightBefore) >= Convert.ToDouble(weightAfter))
             {
-                clearing = new Clearing(idRaw, idContractor, dateTimePicker.Text,
-                    weightBefore != "" ? weightBefore : "null",
-                    weightAfter != "" ? weightAfter : "null");
-                if (controller.onSaveClick(clearing, raw, false))
-                    this.Close();
-                else clearing = null;
+
+                if (clearing == null)
+                {
+                    clearing = new Clearing(idRaw, idContractor, dateTimePicker.Text,
+                        weightBefore != "" ? weightBefore : "null",
+                        weightAfter != "" ? weightAfter : "null");
+                    if (controller.onSaveClick(clearing, raw, false))
+                        this.Close();
+                    else clearing = null;
+                }
+                else
+                {
+                    clearing.Date = dateTimePicker.Text;
+                    clearing.WeightBefore = weightBefore != "" ? weightBefore : "null";
+                    clearing.WeightAfter = weightAfter != "" ? weightAfter : "null";
+                    if (controller.onSaveClick(clearing, raw, true))
+                        this.Close();
+                    else clearing = null;
+                }
             }
             else
             {
-                clearing.Date = dateTimePicker.Text;
-                clearing.WeightBefore = weightBefore != "" ? weightBefore : "null";
-                clearing.WeightAfter = weightAfter != "" ? weightAfter : "null";
-                if (controller.onSaveClick(clearing, raw, true))
-                    this.Close();
-                else clearing = null;
+                MessageBox.Show(String.Format("Вес не должен превышать {0} тонн(ы)!", weightBefore), "Сушка!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private void keyPress(KeyPressEventArgs e)

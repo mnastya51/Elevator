@@ -19,6 +19,7 @@ namespace Elevator.AddAndEditForms
         private Storage storage;
         private Shipment shipment;
         private double weightBefore;
+        private string dateOld;
         private bool loadFormType = true;
         private bool loadFormSubtype = true;
         private bool loadFormContractor = true;
@@ -70,7 +71,7 @@ namespace Elevator.AddAndEditForms
             rawComboBox.Text = newStorage.Raw;
             transportTextBox.Text = newDelivery.Transport;
             weightTextBox.Text = newDelivery.Weight;
-            dateTimePicker.Text = newDelivery.Date;           
+            dateTimePicker.Text = newDelivery.Date;        
         }
 
         public AddDeliveryForm(Storage newStorage, Shipment newShipment)
@@ -92,6 +93,7 @@ namespace Elevator.AddAndEditForms
             shipment = newShipment;
             yearNumericUpDown.Text = newStorage.Year;
             weightBefore = Convert.ToDouble(newShipment.Weight);
+            dateOld = newShipment.Date;
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -134,7 +136,7 @@ namespace Elevator.AddAndEditForms
                         yearNumericUpDown.Text);
                     shipment = new Shipment(contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text,
                          transportTextBox.Text, weight);
-                    if (controller.onSaveClick(shipment, storage, false))
+                    if (controller.onSaveClick(shipment, storage, false, ""))
                         this.Close();
                     else { shipment = null; storage = null; }
                 }
@@ -150,7 +152,7 @@ namespace Elevator.AddAndEditForms
                     shipment.Id = storage.IdRaw;
                        /* = new Shipment(storage.IdRaw, contractorComboBox.Text, subdivisionComboBox.Text, 
                         dateTimePicker.Text, transportTextBox.Text, weight, weightBefore);*/
-                    if (controller.onSaveClick(shipment, st, true))
+                    if (controller.onSaveClick(shipment, st, true, dateOld))
                         this.Close();
                    /* else
                     {

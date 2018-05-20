@@ -10,17 +10,17 @@ namespace Elevator.Controllers
 {
     class ProcessingController
     {
-        public void addButtonClick(string idRaw, string idContractor, string raw)
+        public void addButtonClick(string idRaw, string idContractor, string raw, string weightBefore)
         {
-            new AddDryForm(idRaw, idContractor, raw).ShowDialog();
+            new AddDryForm(idRaw, idContractor, raw, weightBefore).ShowDialog();
         }
         public void changeButtonClick(Drying drying)
         {
             new AddDryForm(drying).ShowDialog();
         }
-        public void addButtonClearClick(string idRaw, string idContractor, string raw)
+        public void addButtonClearClick(string idRaw, string idContractor, string raw, string weightBefore)
         {
-           new AddClearingForm(idRaw, idContractor, raw).ShowDialog();
+           new AddClearingForm(idRaw, idContractor, raw, weightBefore).ShowDialog();
         }
         public void changeButtonClearClick(Clearing clearing)
         {
