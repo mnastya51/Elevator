@@ -475,7 +475,7 @@ namespace Elevator.Controllers
                                     }
                                     else
                                     {
-                                        for (int k = 1; k < valueArray.Length; k++)
+                                        for (int k = 1; k < count-1; k++)
                                         {
                                             row = dataGridViewAnalys.Rows[k - 1];
                                             if (row.Cells[1].Value.ToString() == valueArray[k].getKey())

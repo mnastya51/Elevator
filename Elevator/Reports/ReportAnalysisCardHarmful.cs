@@ -16,14 +16,14 @@ namespace Elevator.Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CrystalReport3 : ReportClass {
+    public class ReportAnalysisCardHarmful : ReportClass {
         
-        public CrystalReport3() {
+        public ReportAnalysisCardHarmful() {
         }
         
         public override string ResourceName {
             get {
-                return "CrystalReport3.rpt";
+                return "ReportAnalysisCardHarmful.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Elevator.Reports {
         
         public override string FullResourceName {
             get {
-                return "Elevator.Reports.CrystalReport3.rpt";
+                return "Elevator.Reports.ReportAnalysisCardHarmful.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace Elevator.Reports {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCrystalReport3 : Component, ICachedReport {
+    public class CachedReportAnalysisCardHarmful : Component, ICachedReport {
         
-        public CachedCrystalReport3() {
+        public CachedReportAnalysisCardHarmful() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace Elevator.Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CrystalReport3 rpt = new CrystalReport3();
+            ReportAnalysisCardHarmful rpt = new ReportAnalysisCardHarmful();
             rpt.Site = this.Site;
             return rpt;
         }

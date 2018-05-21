@@ -41,22 +41,10 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.changeButton = new System.Windows.Forms.Button();
             this.dataGridViewEmployee = new System.Windows.Forms.DataGridView();
-            this.idempDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.secNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.postDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.accountOfGrainDataSet = new Elevator.AccountOfGrainDataSet();
             this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addButton = new System.Windows.Forms.Button();
-            this.employeeTableAdapter = new Elevator.AccountOfGrainDataSetTableAdapters.EmployeeTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,7 +153,6 @@
             this.dataGridViewEmployee.AllowUserToAddRows = false;
             this.dataGridViewEmployee.AllowUserToDeleteRows = false;
             this.dataGridViewEmployee.AllowUserToResizeRows = false;
-            this.dataGridViewEmployee.AutoGenerateColumns = false;
             this.dataGridViewEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewEmployee.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(157)))));
             this.dataGridViewEmployee.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -178,15 +165,6 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewEmployee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idempDataGridViewTextBoxColumn,
-            this.surnameDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.secNameDataGridViewTextBoxColumn,
-            this.postDataGridViewTextBoxColumn,
-            this.loginDataGridViewTextBoxColumn,
-            this.passwordDataGridViewTextBoxColumn});
-            this.dataGridViewEmployee.DataSource = this.employeeBindingSource1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -209,73 +187,6 @@
             this.dataGridViewEmployee.Size = new System.Drawing.Size(632, 233);
             this.dataGridViewEmployee.TabIndex = 54;
             // 
-            // idempDataGridViewTextBoxColumn
-            // 
-            this.idempDataGridViewTextBoxColumn.DataPropertyName = "id_emp";
-            this.idempDataGridViewTextBoxColumn.HeaderText = "id_emp";
-            this.idempDataGridViewTextBoxColumn.Name = "idempDataGridViewTextBoxColumn";
-            this.idempDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idempDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // surnameDataGridViewTextBoxColumn
-            // 
-            this.surnameDataGridViewTextBoxColumn.DataPropertyName = "surname";
-            this.surnameDataGridViewTextBoxColumn.HeaderText = "Фамилия";
-            this.surnameDataGridViewTextBoxColumn.Name = "surnameDataGridViewTextBoxColumn";
-            this.surnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Имя";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // secNameDataGridViewTextBoxColumn
-            // 
-            this.secNameDataGridViewTextBoxColumn.DataPropertyName = "secName";
-            this.secNameDataGridViewTextBoxColumn.HeaderText = "Отчество";
-            this.secNameDataGridViewTextBoxColumn.Name = "secNameDataGridViewTextBoxColumn";
-            this.secNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // postDataGridViewTextBoxColumn
-            // 
-            this.postDataGridViewTextBoxColumn.DataPropertyName = "post";
-            this.postDataGridViewTextBoxColumn.HeaderText = "Должность";
-            this.postDataGridViewTextBoxColumn.Name = "postDataGridViewTextBoxColumn";
-            this.postDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // loginDataGridViewTextBoxColumn
-            // 
-            this.loginDataGridViewTextBoxColumn.DataPropertyName = "login";
-            this.loginDataGridViewTextBoxColumn.HeaderText = "login";
-            this.loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
-            this.loginDataGridViewTextBoxColumn.ReadOnly = true;
-            this.loginDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "password";
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
-            this.passwordDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // employeeBindingSource1
-            // 
-            this.employeeBindingSource1.DataMember = "Employee";
-            this.employeeBindingSource1.DataSource = this.accountOfGrainDataSet;
-            // 
-            // accountOfGrainDataSet
-            // 
-            this.accountOfGrainDataSet.DataSetName = "AccountOfGrainDataSet";
-            this.accountOfGrainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // employeeBindingSource
-            // 
-            this.employeeBindingSource.DataSource = this.accountOfGrainDataSet;
-            this.employeeBindingSource.Position = 0;
-            // 
             // addButton
             // 
             this.addButton.BackColor = System.Drawing.Color.DarkOrange;
@@ -291,10 +202,6 @@
             this.addButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
-            // 
-            // employeeTableAdapter
-            // 
-            this.employeeTableAdapter.ClearBeforeFill = true;
             // 
             // EmployeeForm
             // 
@@ -316,8 +223,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accountOfGrainDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -335,15 +240,5 @@
         private System.Windows.Forms.TextBox surnameTextBox;
         private System.Windows.Forms.BindingSource employeeBindingSource;
         private System.Windows.Forms.Button addButton;
-        private AccountOfGrainDataSet accountOfGrainDataSet;
-        private System.Windows.Forms.BindingSource employeeBindingSource1;
-        private AccountOfGrainDataSetTableAdapters.EmployeeTableAdapter employeeTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idempDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn surnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn secNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn postDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn loginDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
     }
 }

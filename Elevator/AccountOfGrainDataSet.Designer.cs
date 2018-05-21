@@ -58,6 +58,8 @@ namespace Elevator {
         
         private RawDataTable tableRaw;
         
+        private ShipmentDataTable tableShipment;
+        
         private SilageDataTable tableSilage;
         
         private Silage_rawDataTable tableSilage_raw;
@@ -92,7 +94,13 @@ namespace Elevator {
         
         private ProcessReportWithPeriodDataTable tableProcessReportWithPeriod;
         
-        private ReportAnalysisCardDataTable tableReportAnalysisCard;
+        private ReportAnalysisCardGeneralDataTable tableReportAnalysisCardGeneral;
+        
+        private ReportAnalysisCardGrainDataTable tableReportAnalysisCardGrain;
+        
+        private ReportAnalysisCardHarmfulDataTable tableReportAnalysisCardHarmful;
+        
+        private ReportAnalysisCardWeedDataTable tableReportAnalysisCardWeed;
         
         private ReportWeightWithContractorDataTable tableReportWeightWithContractor;
         
@@ -151,6 +159,14 @@ namespace Elevator {
         private global::System.Data.DataRelation relationFK__Norm_weed__name___414EAC47;
         
         private global::System.Data.DataRelation relationFK__PlaceStor__id_ra__511AFFBC;
+        
+        private global::System.Data.DataRelation relationfk;
+        
+        private global::System.Data.DataRelation relationFK__Shipment__id_con__381A47C8;
+        
+        private global::System.Data.DataRelation relationFK__Shipment__id_raw__390E6C01;
+        
+        private global::System.Data.DataRelation relationfk1;
         
         private global::System.Data.DataRelation relationFK__Silage_ra__numb___59B045BD;
         
@@ -253,6 +269,9 @@ namespace Elevator {
                 if ((ds.Tables["Raw"] != null)) {
                     base.Tables.Add(new RawDataTable(ds.Tables["Raw"]));
                 }
+                if ((ds.Tables["Shipment"] != null)) {
+                    base.Tables.Add(new ShipmentDataTable(ds.Tables["Shipment"]));
+                }
                 if ((ds.Tables["Silage"] != null)) {
                     base.Tables.Add(new SilageDataTable(ds.Tables["Silage"]));
                 }
@@ -304,8 +323,17 @@ namespace Elevator {
                 if ((ds.Tables["ProcessReportWithPeriod"] != null)) {
                     base.Tables.Add(new ProcessReportWithPeriodDataTable(ds.Tables["ProcessReportWithPeriod"]));
                 }
-                if ((ds.Tables["ReportAnalysisCard"] != null)) {
-                    base.Tables.Add(new ReportAnalysisCardDataTable(ds.Tables["ReportAnalysisCard"]));
+                if ((ds.Tables["ReportAnalysisCardGeneral"] != null)) {
+                    base.Tables.Add(new ReportAnalysisCardGeneralDataTable(ds.Tables["ReportAnalysisCardGeneral"]));
+                }
+                if ((ds.Tables["ReportAnalysisCardGrain"] != null)) {
+                    base.Tables.Add(new ReportAnalysisCardGrainDataTable(ds.Tables["ReportAnalysisCardGrain"]));
+                }
+                if ((ds.Tables["ReportAnalysisCardHarmful"] != null)) {
+                    base.Tables.Add(new ReportAnalysisCardHarmfulDataTable(ds.Tables["ReportAnalysisCardHarmful"]));
+                }
+                if ((ds.Tables["ReportAnalysisCardWeed"] != null)) {
+                    base.Tables.Add(new ReportAnalysisCardWeedDataTable(ds.Tables["ReportAnalysisCardWeed"]));
                 }
                 if ((ds.Tables["ReportWeightWithContractor"] != null)) {
                     base.Tables.Add(new ReportWeightWithContractorDataTable(ds.Tables["ReportWeightWithContractor"]));
@@ -508,6 +536,16 @@ namespace Elevator {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public ShipmentDataTable Shipment {
+            get {
+                return this.tableShipment;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public SilageDataTable Silage {
             get {
                 return this.tableSilage;
@@ -678,9 +716,39 @@ namespace Elevator {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ReportAnalysisCardDataTable ReportAnalysisCard {
+        public ReportAnalysisCardGeneralDataTable ReportAnalysisCardGeneral {
             get {
-                return this.tableReportAnalysisCard;
+                return this.tableReportAnalysisCardGeneral;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public ReportAnalysisCardGrainDataTable ReportAnalysisCardGrain {
+            get {
+                return this.tableReportAnalysisCardGrain;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public ReportAnalysisCardHarmfulDataTable ReportAnalysisCardHarmful {
+            get {
+                return this.tableReportAnalysisCardHarmful;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public ReportAnalysisCardWeedDataTable ReportAnalysisCardWeed {
+            get {
+                return this.tableReportAnalysisCardWeed;
             }
         }
         
@@ -832,6 +900,9 @@ namespace Elevator {
                 if ((ds.Tables["Raw"] != null)) {
                     base.Tables.Add(new RawDataTable(ds.Tables["Raw"]));
                 }
+                if ((ds.Tables["Shipment"] != null)) {
+                    base.Tables.Add(new ShipmentDataTable(ds.Tables["Shipment"]));
+                }
                 if ((ds.Tables["Silage"] != null)) {
                     base.Tables.Add(new SilageDataTable(ds.Tables["Silage"]));
                 }
@@ -883,8 +954,17 @@ namespace Elevator {
                 if ((ds.Tables["ProcessReportWithPeriod"] != null)) {
                     base.Tables.Add(new ProcessReportWithPeriodDataTable(ds.Tables["ProcessReportWithPeriod"]));
                 }
-                if ((ds.Tables["ReportAnalysisCard"] != null)) {
-                    base.Tables.Add(new ReportAnalysisCardDataTable(ds.Tables["ReportAnalysisCard"]));
+                if ((ds.Tables["ReportAnalysisCardGeneral"] != null)) {
+                    base.Tables.Add(new ReportAnalysisCardGeneralDataTable(ds.Tables["ReportAnalysisCardGeneral"]));
+                }
+                if ((ds.Tables["ReportAnalysisCardGrain"] != null)) {
+                    base.Tables.Add(new ReportAnalysisCardGrainDataTable(ds.Tables["ReportAnalysisCardGrain"]));
+                }
+                if ((ds.Tables["ReportAnalysisCardHarmful"] != null)) {
+                    base.Tables.Add(new ReportAnalysisCardHarmfulDataTable(ds.Tables["ReportAnalysisCardHarmful"]));
+                }
+                if ((ds.Tables["ReportAnalysisCardWeed"] != null)) {
+                    base.Tables.Add(new ReportAnalysisCardWeedDataTable(ds.Tables["ReportAnalysisCardWeed"]));
                 }
                 if ((ds.Tables["ReportWeightWithContractor"] != null)) {
                     base.Tables.Add(new ReportWeightWithContractorDataTable(ds.Tables["ReportWeightWithContractor"]));
@@ -1030,6 +1110,12 @@ namespace Elevator {
                     this.tableRaw.InitVars();
                 }
             }
+            this.tableShipment = ((ShipmentDataTable)(base.Tables["Shipment"]));
+            if ((initTable == true)) {
+                if ((this.tableShipment != null)) {
+                    this.tableShipment.InitVars();
+                }
+            }
             this.tableSilage = ((SilageDataTable)(base.Tables["Silage"]));
             if ((initTable == true)) {
                 if ((this.tableSilage != null)) {
@@ -1132,10 +1218,28 @@ namespace Elevator {
                     this.tableProcessReportWithPeriod.InitVars();
                 }
             }
-            this.tableReportAnalysisCard = ((ReportAnalysisCardDataTable)(base.Tables["ReportAnalysisCard"]));
+            this.tableReportAnalysisCardGeneral = ((ReportAnalysisCardGeneralDataTable)(base.Tables["ReportAnalysisCardGeneral"]));
             if ((initTable == true)) {
-                if ((this.tableReportAnalysisCard != null)) {
-                    this.tableReportAnalysisCard.InitVars();
+                if ((this.tableReportAnalysisCardGeneral != null)) {
+                    this.tableReportAnalysisCardGeneral.InitVars();
+                }
+            }
+            this.tableReportAnalysisCardGrain = ((ReportAnalysisCardGrainDataTable)(base.Tables["ReportAnalysisCardGrain"]));
+            if ((initTable == true)) {
+                if ((this.tableReportAnalysisCardGrain != null)) {
+                    this.tableReportAnalysisCardGrain.InitVars();
+                }
+            }
+            this.tableReportAnalysisCardHarmful = ((ReportAnalysisCardHarmfulDataTable)(base.Tables["ReportAnalysisCardHarmful"]));
+            if ((initTable == true)) {
+                if ((this.tableReportAnalysisCardHarmful != null)) {
+                    this.tableReportAnalysisCardHarmful.InitVars();
+                }
+            }
+            this.tableReportAnalysisCardWeed = ((ReportAnalysisCardWeedDataTable)(base.Tables["ReportAnalysisCardWeed"]));
+            if ((initTable == true)) {
+                if ((this.tableReportAnalysisCardWeed != null)) {
+                    this.tableReportAnalysisCardWeed.InitVars();
                 }
             }
             this.tableReportWeightWithContractor = ((ReportWeightWithContractorDataTable)(base.Tables["ReportWeightWithContractor"]));
@@ -1182,6 +1286,10 @@ namespace Elevator {
             this.relationFK__Norm_weed__id_su__4336F4B9 = this.Relations["FK__Norm_weed__id_su__4336F4B9"];
             this.relationFK__Norm_weed__name___414EAC47 = this.Relations["FK__Norm_weed__name___414EAC47"];
             this.relationFK__PlaceStor__id_ra__511AFFBC = this.Relations["FK__PlaceStor__id_ra__511AFFBC"];
+            this.relationfk = this.Relations["fk"];
+            this.relationFK__Shipment__id_con__381A47C8 = this.Relations["FK__Shipment__id_con__381A47C8"];
+            this.relationFK__Shipment__id_raw__390E6C01 = this.Relations["FK__Shipment__id_raw__390E6C01"];
+            this.relationfk1 = this.Relations["fk1"];
             this.relationFK__Silage_ra__numb___59B045BD = this.Relations["FK__Silage_ra__numb___59B045BD"];
             this.relationFK__Silage_raw__5AA469F6 = this.Relations["FK__Silage_raw__5AA469F6"];
             this.relationFK__Storage__id_clas__338A9CD5 = this.Relations["FK__Storage__id_clas__338A9CD5"];
@@ -1237,6 +1345,8 @@ namespace Elevator {
             base.Tables.Add(this.tablePlaceStorage);
             this.tableRaw = new RawDataTable();
             base.Tables.Add(this.tableRaw);
+            this.tableShipment = new ShipmentDataTable();
+            base.Tables.Add(this.tableShipment);
             this.tableSilage = new SilageDataTable();
             base.Tables.Add(this.tableSilage);
             this.tableSilage_raw = new Silage_rawDataTable();
@@ -1271,8 +1381,14 @@ namespace Elevator {
             base.Tables.Add(this.tableProcessReportContractorWithPeriod);
             this.tableProcessReportWithPeriod = new ProcessReportWithPeriodDataTable();
             base.Tables.Add(this.tableProcessReportWithPeriod);
-            this.tableReportAnalysisCard = new ReportAnalysisCardDataTable();
-            base.Tables.Add(this.tableReportAnalysisCard);
+            this.tableReportAnalysisCardGeneral = new ReportAnalysisCardGeneralDataTable();
+            base.Tables.Add(this.tableReportAnalysisCardGeneral);
+            this.tableReportAnalysisCardGrain = new ReportAnalysisCardGrainDataTable();
+            base.Tables.Add(this.tableReportAnalysisCardGrain);
+            this.tableReportAnalysisCardHarmful = new ReportAnalysisCardHarmfulDataTable();
+            base.Tables.Add(this.tableReportAnalysisCardHarmful);
+            this.tableReportAnalysisCardWeed = new ReportAnalysisCardWeedDataTable();
+            base.Tables.Add(this.tableReportAnalysisCardWeed);
             this.tableReportWeightWithContractor = new ReportWeightWithContractorDataTable();
             base.Tables.Add(this.tableReportWeightWithContractor);
             this.tableReportWeightWithContractorPeriod = new ReportWeightWithContractorPeriodDataTable();
@@ -1389,6 +1505,30 @@ namespace Elevator {
                         this.tableStorage.id_rawColumn}, new global::System.Data.DataColumn[] {
                         this.tablePlaceStorage.id_rawColumn}, false);
             this.Relations.Add(this.relationFK__PlaceStor__id_ra__511AFFBC);
+            this.relationfk = new global::System.Data.DataRelation("fk", new global::System.Data.DataColumn[] {
+                        this.tableStore_raw.numb_storeColumn,
+                        this.tableStore_raw.id_place_storageColumn,
+                        this.tableStore_raw.id_rawColumn}, new global::System.Data.DataColumn[] {
+                        this.tableShipment.numb_storeColumn,
+                        this.tableShipment.id_place_storageColumn,
+                        this.tableShipment.id_rawColumn}, false);
+            this.Relations.Add(this.relationfk);
+            this.relationFK__Shipment__id_con__381A47C8 = new global::System.Data.DataRelation("FK__Shipment__id_con__381A47C8", new global::System.Data.DataColumn[] {
+                        this.tableContractor.id_contractorColumn}, new global::System.Data.DataColumn[] {
+                        this.tableShipment.id_contractorColumn}, false);
+            this.Relations.Add(this.relationFK__Shipment__id_con__381A47C8);
+            this.relationFK__Shipment__id_raw__390E6C01 = new global::System.Data.DataRelation("FK__Shipment__id_raw__390E6C01", new global::System.Data.DataColumn[] {
+                        this.tableStorage.id_rawColumn}, new global::System.Data.DataColumn[] {
+                        this.tableShipment.id_rawColumn}, false);
+            this.Relations.Add(this.relationFK__Shipment__id_raw__390E6C01);
+            this.relationfk1 = new global::System.Data.DataRelation("fk1", new global::System.Data.DataColumn[] {
+                        this.tableSilage_raw.numb_silageColumn,
+                        this.tableSilage_raw.id_place_storageColumn,
+                        this.tableSilage_raw.id_rawColumn}, new global::System.Data.DataColumn[] {
+                        this.tableShipment.numb_silageColumn,
+                        this.tableShipment.id_place_storageColumn,
+                        this.tableShipment.id_rawColumn}, false);
+            this.Relations.Add(this.relationfk1);
             this.relationFK__Silage_ra__numb___59B045BD = new global::System.Data.DataRelation("FK__Silage_ra__numb___59B045BD", new global::System.Data.DataColumn[] {
                         this.tableSilage.numb_silageColumn}, new global::System.Data.DataColumn[] {
                         this.tableSilage_raw.numb_silageColumn}, false);
@@ -1543,6 +1683,12 @@ namespace Elevator {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeShipment() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeSilage() {
             return false;
         }
@@ -1645,7 +1791,25 @@ namespace Elevator {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeReportAnalysisCard() {
+        private bool ShouldSerializeReportAnalysisCardGeneral() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeReportAnalysisCardGrain() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeReportAnalysisCardHarmful() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeReportAnalysisCardWeed() {
             return false;
         }
         
@@ -1774,6 +1938,9 @@ namespace Elevator {
         public delegate void RawRowChangeEventHandler(object sender, RawRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void ShipmentRowChangeEventHandler(object sender, ShipmentRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void SilageRowChangeEventHandler(object sender, SilageRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1825,7 +1992,16 @@ namespace Elevator {
         public delegate void ProcessReportWithPeriodRowChangeEventHandler(object sender, ProcessReportWithPeriodRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void ReportAnalysisCardRowChangeEventHandler(object sender, ReportAnalysisCardRowChangeEvent e);
+        public delegate void ReportAnalysisCardGeneralRowChangeEventHandler(object sender, ReportAnalysisCardGeneralRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void ReportAnalysisCardGrainRowChangeEventHandler(object sender, ReportAnalysisCardGrainRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void ReportAnalysisCardHarmfulRowChangeEventHandler(object sender, ReportAnalysisCardHarmfulRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void ReportAnalysisCardWeedRowChangeEventHandler(object sender, ReportAnalysisCardWeedRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void ReportWeightWithContractorRowChangeEventHandler(object sender, ReportWeightWithContractorRowChangeEvent e);
@@ -7256,6 +7432,375 @@ namespace Elevator {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ShipmentDataTable : global::System.Data.TypedTableBase<ShipmentRow> {
+            
+            private global::System.Data.DataColumn columnid_contractor;
+            
+            private global::System.Data.DataColumn columnid_raw;
+            
+            private global::System.Data.DataColumn columntype_transport_shipment;
+            
+            private global::System.Data.DataColumn columnweight_shipment;
+            
+            private global::System.Data.DataColumn columndate_shipment;
+            
+            private global::System.Data.DataColumn columnid_place_storage;
+            
+            private global::System.Data.DataColumn columnnumb_store;
+            
+            private global::System.Data.DataColumn columnnumb_silage;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ShipmentDataTable() {
+                this.TableName = "Shipment";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal ShipmentDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected ShipmentDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn id_contractorColumn {
+                get {
+                    return this.columnid_contractor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn id_rawColumn {
+                get {
+                    return this.columnid_raw;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn type_transport_shipmentColumn {
+                get {
+                    return this.columntype_transport_shipment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn weight_shipmentColumn {
+                get {
+                    return this.columnweight_shipment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn date_shipmentColumn {
+                get {
+                    return this.columndate_shipment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn id_place_storageColumn {
+                get {
+                    return this.columnid_place_storage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn numb_storeColumn {
+                get {
+                    return this.columnnumb_store;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn numb_silageColumn {
+                get {
+                    return this.columnnumb_silage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ShipmentRow this[int index] {
+                get {
+                    return ((ShipmentRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ShipmentRowChangeEventHandler ShipmentRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ShipmentRowChangeEventHandler ShipmentRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ShipmentRowChangeEventHandler ShipmentRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ShipmentRowChangeEventHandler ShipmentRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddShipmentRow(ShipmentRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ShipmentRow AddShipmentRow(ContractorRow parentContractorRowByFK__Shipment__id_con__381A47C8, StorageRow parentStorageRowByFK__Shipment__id_raw__390E6C01, string type_transport_shipment, float weight_shipment, string date_shipment, int id_place_storage, int numb_store, int numb_silage) {
+                ShipmentRow rowShipmentRow = ((ShipmentRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null,
+                        type_transport_shipment,
+                        weight_shipment,
+                        date_shipment,
+                        id_place_storage,
+                        numb_store,
+                        numb_silage};
+                if ((parentContractorRowByFK__Shipment__id_con__381A47C8 != null)) {
+                    columnValuesArray[0] = parentContractorRowByFK__Shipment__id_con__381A47C8[0];
+                }
+                if ((parentStorageRowByFK__Shipment__id_raw__390E6C01 != null)) {
+                    columnValuesArray[1] = parentStorageRowByFK__Shipment__id_raw__390E6C01[0];
+                }
+                rowShipmentRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowShipmentRow);
+                return rowShipmentRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ShipmentRow FindByid_contractorid_rawdate_shipment(int id_contractor, int id_raw, string date_shipment) {
+                return ((ShipmentRow)(this.Rows.Find(new object[] {
+                            id_contractor,
+                            id_raw,
+                            date_shipment})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                ShipmentDataTable cln = ((ShipmentDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ShipmentDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnid_contractor = base.Columns["id_contractor"];
+                this.columnid_raw = base.Columns["id_raw"];
+                this.columntype_transport_shipment = base.Columns["type_transport_shipment"];
+                this.columnweight_shipment = base.Columns["weight_shipment"];
+                this.columndate_shipment = base.Columns["date_shipment"];
+                this.columnid_place_storage = base.Columns["id_place_storage"];
+                this.columnnumb_store = base.Columns["numb_store"];
+                this.columnnumb_silage = base.Columns["numb_silage"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnid_contractor = new global::System.Data.DataColumn("id_contractor", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_contractor);
+                this.columnid_raw = new global::System.Data.DataColumn("id_raw", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_raw);
+                this.columntype_transport_shipment = new global::System.Data.DataColumn("type_transport_shipment", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntype_transport_shipment);
+                this.columnweight_shipment = new global::System.Data.DataColumn("weight_shipment", typeof(float), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnweight_shipment);
+                this.columndate_shipment = new global::System.Data.DataColumn("date_shipment", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndate_shipment);
+                this.columnid_place_storage = new global::System.Data.DataColumn("id_place_storage", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_place_storage);
+                this.columnnumb_store = new global::System.Data.DataColumn("numb_store", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnumb_store);
+                this.columnnumb_silage = new global::System.Data.DataColumn("numb_silage", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnumb_silage);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnid_contractor,
+                                this.columnid_raw,
+                                this.columndate_shipment}, true));
+                this.columnid_contractor.AllowDBNull = false;
+                this.columnid_raw.AllowDBNull = false;
+                this.columntype_transport_shipment.MaxLength = 20;
+                this.columndate_shipment.AllowDBNull = false;
+                this.columndate_shipment.MaxLength = 25;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ShipmentRow NewShipmentRow() {
+                return ((ShipmentRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ShipmentRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(ShipmentRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ShipmentRowChanged != null)) {
+                    this.ShipmentRowChanged(this, new ShipmentRowChangeEvent(((ShipmentRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ShipmentRowChanging != null)) {
+                    this.ShipmentRowChanging(this, new ShipmentRowChangeEvent(((ShipmentRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ShipmentRowDeleted != null)) {
+                    this.ShipmentRowDeleted(this, new ShipmentRowChangeEvent(((ShipmentRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ShipmentRowDeleting != null)) {
+                    this.ShipmentRowDeleting(this, new ShipmentRowChangeEvent(((ShipmentRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveShipmentRow(ShipmentRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ShipmentDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class SilageDataTable : global::System.Data.TypedTableBase<SilageRow> {
             
             private global::System.Data.DataColumn columnnumb_silage;
@@ -12148,7 +12693,7 @@ namespace Elevator {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ReportAnalysisCardDataTable : global::System.Data.TypedTableBase<ReportAnalysisCardRow> {
+        public partial class ReportAnalysisCardGeneralDataTable : global::System.Data.TypedTableBase<ReportAnalysisCardGeneralRow> {
             
             private global::System.Data.DataColumn columnname_contr;
             
@@ -12170,26 +12715,14 @@ namespace Elevator {
             
             private global::System.Data.DataColumn columnvalue_imp;
             
-            private global::System.Data.DataColumn columnname_harm_imp;
-            
-            private global::System.Data.DataColumn columnvalue_harm_imp;
-            
-            private global::System.Data.DataColumn columnname_weed_imp;
-            
-            private global::System.Data.DataColumn columnvalue_weed_imp;
-            
-            private global::System.Data.DataColumn columnname_grain_imp;
-            
-            private global::System.Data.DataColumn columnvalue_grain_imp;
-            
             private global::System.Data.DataColumn columnColumn1;
             
             private global::System.Data.DataColumn columnColumn2;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ReportAnalysisCardDataTable() {
-                this.TableName = "ReportAnalysisCard";
+            public ReportAnalysisCardGeneralDataTable() {
+                this.TableName = "ReportAnalysisCardGeneral";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -12197,7 +12730,7 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ReportAnalysisCardDataTable(global::System.Data.DataTable table) {
+            internal ReportAnalysisCardGeneralDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -12214,7 +12747,7 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected ReportAnalysisCardDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected ReportAnalysisCardGeneralDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -12301,54 +12834,6 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn name_harm_impColumn {
-                get {
-                    return this.columnname_harm_imp;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn value_harm_impColumn {
-                get {
-                    return this.columnvalue_harm_imp;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn name_weed_impColumn {
-                get {
-                    return this.columnname_weed_imp;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn value_weed_impColumn {
-                get {
-                    return this.columnvalue_weed_imp;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn name_grain_impColumn {
-                get {
-                    return this.columnname_grain_imp;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn value_grain_impColumn {
-                get {
-                    return this.columnvalue_grain_imp;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Column1Column {
                 get {
                     return this.columnColumn1;
@@ -12374,52 +12859,34 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ReportAnalysisCardRow this[int index] {
+            public ReportAnalysisCardGeneralRow this[int index] {
                 get {
-                    return ((ReportAnalysisCardRow)(this.Rows[index]));
+                    return ((ReportAnalysisCardGeneralRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ReportAnalysisCardRowChangeEventHandler ReportAnalysisCardRowChanging;
+            public event ReportAnalysisCardGeneralRowChangeEventHandler ReportAnalysisCardGeneralRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ReportAnalysisCardRowChangeEventHandler ReportAnalysisCardRowChanged;
+            public event ReportAnalysisCardGeneralRowChangeEventHandler ReportAnalysisCardGeneralRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ReportAnalysisCardRowChangeEventHandler ReportAnalysisCardRowDeleting;
+            public event ReportAnalysisCardGeneralRowChangeEventHandler ReportAnalysisCardGeneralRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ReportAnalysisCardRowChangeEventHandler ReportAnalysisCardRowDeleted;
+            public event ReportAnalysisCardGeneralRowChangeEventHandler ReportAnalysisCardGeneralRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddReportAnalysisCardRow(ReportAnalysisCardRow row) {
+            public void AddReportAnalysisCardGeneralRow(ReportAnalysisCardGeneralRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ReportAnalysisCardRow AddReportAnalysisCardRow(
-                        string name_contr, 
-                        string subdivision, 
-                        int year_crop, 
-                        string name_raw, 
-                        int name_type_raw, 
-                        string number_gost, 
-                        int name_subtype, 
-                        int number_class, 
-                        string name_imp, 
-                        float value_imp, 
-                        string name_harm_imp, 
-                        float value_harm_imp, 
-                        string name_weed_imp, 
-                        float value_weed_imp, 
-                        string name_grain_imp, 
-                        float value_grain_imp, 
-                        string Column1, 
-                        string Column2) {
-                ReportAnalysisCardRow rowReportAnalysisCardRow = ((ReportAnalysisCardRow)(this.NewRow()));
+            public ReportAnalysisCardGeneralRow AddReportAnalysisCardGeneralRow(string name_contr, string subdivision, int year_crop, string name_raw, int name_type_raw, string number_gost, int name_subtype, int number_class, string name_imp, float value_imp, string Column1, string Column2) {
+                ReportAnalysisCardGeneralRow rowReportAnalysisCardGeneralRow = ((ReportAnalysisCardGeneralRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         name_contr,
                         subdivision,
@@ -12431,23 +12898,17 @@ namespace Elevator {
                         number_class,
                         name_imp,
                         value_imp,
-                        name_harm_imp,
-                        value_harm_imp,
-                        name_weed_imp,
-                        value_weed_imp,
-                        name_grain_imp,
-                        value_grain_imp,
                         Column1,
                         Column2};
-                rowReportAnalysisCardRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowReportAnalysisCardRow);
-                return rowReportAnalysisCardRow;
+                rowReportAnalysisCardGeneralRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowReportAnalysisCardGeneralRow);
+                return rowReportAnalysisCardGeneralRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                ReportAnalysisCardDataTable cln = ((ReportAnalysisCardDataTable)(base.Clone()));
+                ReportAnalysisCardGeneralDataTable cln = ((ReportAnalysisCardGeneralDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -12455,7 +12916,7 @@ namespace Elevator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new ReportAnalysisCardDataTable();
+                return new ReportAnalysisCardGeneralDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12471,12 +12932,6 @@ namespace Elevator {
                 this.columnnumber_class = base.Columns["number_class"];
                 this.columnname_imp = base.Columns["name_imp"];
                 this.columnvalue_imp = base.Columns["value_imp"];
-                this.columnname_harm_imp = base.Columns["name_harm_imp"];
-                this.columnvalue_harm_imp = base.Columns["value_harm_imp"];
-                this.columnname_weed_imp = base.Columns["name_weed_imp"];
-                this.columnvalue_weed_imp = base.Columns["value_weed_imp"];
-                this.columnname_grain_imp = base.Columns["name_grain_imp"];
-                this.columnvalue_grain_imp = base.Columns["value_grain_imp"];
                 this.columnColumn1 = base.Columns["Column1"];
                 this.columnColumn2 = base.Columns["Column2"];
             }
@@ -12504,18 +12959,6 @@ namespace Elevator {
                 base.Columns.Add(this.columnname_imp);
                 this.columnvalue_imp = new global::System.Data.DataColumn("value_imp", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvalue_imp);
-                this.columnname_harm_imp = new global::System.Data.DataColumn("name_harm_imp", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnname_harm_imp);
-                this.columnvalue_harm_imp = new global::System.Data.DataColumn("value_harm_imp", typeof(float), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvalue_harm_imp);
-                this.columnname_weed_imp = new global::System.Data.DataColumn("name_weed_imp", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnname_weed_imp);
-                this.columnvalue_weed_imp = new global::System.Data.DataColumn("value_weed_imp", typeof(float), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvalue_weed_imp);
-                this.columnname_grain_imp = new global::System.Data.DataColumn("name_grain_imp", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnname_grain_imp);
-                this.columnvalue_grain_imp = new global::System.Data.DataColumn("value_grain_imp", typeof(float), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvalue_grain_imp);
                 this.columnColumn1 = new global::System.Data.DataColumn("Column1", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnColumn1);
                 this.columnColumn2 = new global::System.Data.DataColumn("Column2", typeof(string), null, global::System.Data.MappingType.Element);
@@ -12527,9 +12970,6 @@ namespace Elevator {
                 this.columnname_raw.MaxLength = 15;
                 this.columnnumber_gost.MaxLength = 30;
                 this.columnname_imp.MaxLength = 20;
-                this.columnname_harm_imp.MaxLength = 20;
-                this.columnname_weed_imp.MaxLength = 20;
-                this.columnname_grain_imp.MaxLength = 20;
                 this.columnColumn1.ReadOnly = true;
                 this.columnColumn1.MaxLength = 30;
                 this.columnColumn2.ReadOnly = true;
@@ -12538,28 +12978,28 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ReportAnalysisCardRow NewReportAnalysisCardRow() {
-                return ((ReportAnalysisCardRow)(this.NewRow()));
+            public ReportAnalysisCardGeneralRow NewReportAnalysisCardGeneralRow() {
+                return ((ReportAnalysisCardGeneralRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ReportAnalysisCardRow(builder);
+                return new ReportAnalysisCardGeneralRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(ReportAnalysisCardRow);
+                return typeof(ReportAnalysisCardGeneralRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.ReportAnalysisCardRowChanged != null)) {
-                    this.ReportAnalysisCardRowChanged(this, new ReportAnalysisCardRowChangeEvent(((ReportAnalysisCardRow)(e.Row)), e.Action));
+                if ((this.ReportAnalysisCardGeneralRowChanged != null)) {
+                    this.ReportAnalysisCardGeneralRowChanged(this, new ReportAnalysisCardGeneralRowChangeEvent(((ReportAnalysisCardGeneralRow)(e.Row)), e.Action));
                 }
             }
             
@@ -12567,8 +13007,8 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.ReportAnalysisCardRowChanging != null)) {
-                    this.ReportAnalysisCardRowChanging(this, new ReportAnalysisCardRowChangeEvent(((ReportAnalysisCardRow)(e.Row)), e.Action));
+                if ((this.ReportAnalysisCardGeneralRowChanging != null)) {
+                    this.ReportAnalysisCardGeneralRowChanging(this, new ReportAnalysisCardGeneralRowChangeEvent(((ReportAnalysisCardGeneralRow)(e.Row)), e.Action));
                 }
             }
             
@@ -12576,8 +13016,8 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.ReportAnalysisCardRowDeleted != null)) {
-                    this.ReportAnalysisCardRowDeleted(this, new ReportAnalysisCardRowChangeEvent(((ReportAnalysisCardRow)(e.Row)), e.Action));
+                if ((this.ReportAnalysisCardGeneralRowDeleted != null)) {
+                    this.ReportAnalysisCardGeneralRowDeleted(this, new ReportAnalysisCardGeneralRowChangeEvent(((ReportAnalysisCardGeneralRow)(e.Row)), e.Action));
                 }
             }
             
@@ -12585,14 +13025,14 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.ReportAnalysisCardRowDeleting != null)) {
-                    this.ReportAnalysisCardRowDeleting(this, new ReportAnalysisCardRowChangeEvent(((ReportAnalysisCardRow)(e.Row)), e.Action));
+                if ((this.ReportAnalysisCardGeneralRowDeleting != null)) {
+                    this.ReportAnalysisCardGeneralRowDeleting(this, new ReportAnalysisCardGeneralRowChangeEvent(((ReportAnalysisCardGeneralRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveReportAnalysisCardRow(ReportAnalysisCardRow row) {
+            public void RemoveReportAnalysisCardGeneralRow(ReportAnalysisCardGeneralRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -12619,7 +13059,793 @@ namespace Elevator {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ReportAnalysisCardDataTable";
+                attribute2.FixedValue = "ReportAnalysisCardGeneralDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ReportAnalysisCardGrainDataTable : global::System.Data.TypedTableBase<ReportAnalysisCardGrainRow> {
+            
+            private global::System.Data.DataColumn columnname_grain_imp;
+            
+            private global::System.Data.DataColumn columnvalue_grain_imp;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ReportAnalysisCardGrainDataTable() {
+                this.TableName = "ReportAnalysisCardGrain";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal ReportAnalysisCardGrainDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected ReportAnalysisCardGrainDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn name_grain_impColumn {
+                get {
+                    return this.columnname_grain_imp;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn value_grain_impColumn {
+                get {
+                    return this.columnvalue_grain_imp;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ReportAnalysisCardGrainRow this[int index] {
+                get {
+                    return ((ReportAnalysisCardGrainRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ReportAnalysisCardGrainRowChangeEventHandler ReportAnalysisCardGrainRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ReportAnalysisCardGrainRowChangeEventHandler ReportAnalysisCardGrainRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ReportAnalysisCardGrainRowChangeEventHandler ReportAnalysisCardGrainRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ReportAnalysisCardGrainRowChangeEventHandler ReportAnalysisCardGrainRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddReportAnalysisCardGrainRow(ReportAnalysisCardGrainRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ReportAnalysisCardGrainRow AddReportAnalysisCardGrainRow(string name_grain_imp, float value_grain_imp) {
+                ReportAnalysisCardGrainRow rowReportAnalysisCardGrainRow = ((ReportAnalysisCardGrainRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        name_grain_imp,
+                        value_grain_imp};
+                rowReportAnalysisCardGrainRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowReportAnalysisCardGrainRow);
+                return rowReportAnalysisCardGrainRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                ReportAnalysisCardGrainDataTable cln = ((ReportAnalysisCardGrainDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ReportAnalysisCardGrainDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnname_grain_imp = base.Columns["name_grain_imp"];
+                this.columnvalue_grain_imp = base.Columns["value_grain_imp"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnname_grain_imp = new global::System.Data.DataColumn("name_grain_imp", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnname_grain_imp);
+                this.columnvalue_grain_imp = new global::System.Data.DataColumn("value_grain_imp", typeof(float), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvalue_grain_imp);
+                this.columnname_grain_imp.MaxLength = 20;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ReportAnalysisCardGrainRow NewReportAnalysisCardGrainRow() {
+                return ((ReportAnalysisCardGrainRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ReportAnalysisCardGrainRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(ReportAnalysisCardGrainRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ReportAnalysisCardGrainRowChanged != null)) {
+                    this.ReportAnalysisCardGrainRowChanged(this, new ReportAnalysisCardGrainRowChangeEvent(((ReportAnalysisCardGrainRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ReportAnalysisCardGrainRowChanging != null)) {
+                    this.ReportAnalysisCardGrainRowChanging(this, new ReportAnalysisCardGrainRowChangeEvent(((ReportAnalysisCardGrainRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ReportAnalysisCardGrainRowDeleted != null)) {
+                    this.ReportAnalysisCardGrainRowDeleted(this, new ReportAnalysisCardGrainRowChangeEvent(((ReportAnalysisCardGrainRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ReportAnalysisCardGrainRowDeleting != null)) {
+                    this.ReportAnalysisCardGrainRowDeleting(this, new ReportAnalysisCardGrainRowChangeEvent(((ReportAnalysisCardGrainRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveReportAnalysisCardGrainRow(ReportAnalysisCardGrainRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ReportAnalysisCardGrainDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ReportAnalysisCardHarmfulDataTable : global::System.Data.TypedTableBase<ReportAnalysisCardHarmfulRow> {
+            
+            private global::System.Data.DataColumn columnname_harm_imp;
+            
+            private global::System.Data.DataColumn columnvalue_harm_imp;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ReportAnalysisCardHarmfulDataTable() {
+                this.TableName = "ReportAnalysisCardHarmful";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal ReportAnalysisCardHarmfulDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected ReportAnalysisCardHarmfulDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn name_harm_impColumn {
+                get {
+                    return this.columnname_harm_imp;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn value_harm_impColumn {
+                get {
+                    return this.columnvalue_harm_imp;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ReportAnalysisCardHarmfulRow this[int index] {
+                get {
+                    return ((ReportAnalysisCardHarmfulRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ReportAnalysisCardHarmfulRowChangeEventHandler ReportAnalysisCardHarmfulRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ReportAnalysisCardHarmfulRowChangeEventHandler ReportAnalysisCardHarmfulRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ReportAnalysisCardHarmfulRowChangeEventHandler ReportAnalysisCardHarmfulRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ReportAnalysisCardHarmfulRowChangeEventHandler ReportAnalysisCardHarmfulRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddReportAnalysisCardHarmfulRow(ReportAnalysisCardHarmfulRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ReportAnalysisCardHarmfulRow AddReportAnalysisCardHarmfulRow(string name_harm_imp, float value_harm_imp) {
+                ReportAnalysisCardHarmfulRow rowReportAnalysisCardHarmfulRow = ((ReportAnalysisCardHarmfulRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        name_harm_imp,
+                        value_harm_imp};
+                rowReportAnalysisCardHarmfulRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowReportAnalysisCardHarmfulRow);
+                return rowReportAnalysisCardHarmfulRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                ReportAnalysisCardHarmfulDataTable cln = ((ReportAnalysisCardHarmfulDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ReportAnalysisCardHarmfulDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnname_harm_imp = base.Columns["name_harm_imp"];
+                this.columnvalue_harm_imp = base.Columns["value_harm_imp"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnname_harm_imp = new global::System.Data.DataColumn("name_harm_imp", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnname_harm_imp);
+                this.columnvalue_harm_imp = new global::System.Data.DataColumn("value_harm_imp", typeof(float), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvalue_harm_imp);
+                this.columnname_harm_imp.MaxLength = 20;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ReportAnalysisCardHarmfulRow NewReportAnalysisCardHarmfulRow() {
+                return ((ReportAnalysisCardHarmfulRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ReportAnalysisCardHarmfulRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(ReportAnalysisCardHarmfulRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ReportAnalysisCardHarmfulRowChanged != null)) {
+                    this.ReportAnalysisCardHarmfulRowChanged(this, new ReportAnalysisCardHarmfulRowChangeEvent(((ReportAnalysisCardHarmfulRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ReportAnalysisCardHarmfulRowChanging != null)) {
+                    this.ReportAnalysisCardHarmfulRowChanging(this, new ReportAnalysisCardHarmfulRowChangeEvent(((ReportAnalysisCardHarmfulRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ReportAnalysisCardHarmfulRowDeleted != null)) {
+                    this.ReportAnalysisCardHarmfulRowDeleted(this, new ReportAnalysisCardHarmfulRowChangeEvent(((ReportAnalysisCardHarmfulRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ReportAnalysisCardHarmfulRowDeleting != null)) {
+                    this.ReportAnalysisCardHarmfulRowDeleting(this, new ReportAnalysisCardHarmfulRowChangeEvent(((ReportAnalysisCardHarmfulRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveReportAnalysisCardHarmfulRow(ReportAnalysisCardHarmfulRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ReportAnalysisCardHarmfulDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ReportAnalysisCardWeedDataTable : global::System.Data.TypedTableBase<ReportAnalysisCardWeedRow> {
+            
+            private global::System.Data.DataColumn columnname_weed_imp;
+            
+            private global::System.Data.DataColumn columnvalue_weed_imp;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ReportAnalysisCardWeedDataTable() {
+                this.TableName = "ReportAnalysisCardWeed";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal ReportAnalysisCardWeedDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected ReportAnalysisCardWeedDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn name_weed_impColumn {
+                get {
+                    return this.columnname_weed_imp;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn value_weed_impColumn {
+                get {
+                    return this.columnvalue_weed_imp;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ReportAnalysisCardWeedRow this[int index] {
+                get {
+                    return ((ReportAnalysisCardWeedRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ReportAnalysisCardWeedRowChangeEventHandler ReportAnalysisCardWeedRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ReportAnalysisCardWeedRowChangeEventHandler ReportAnalysisCardWeedRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ReportAnalysisCardWeedRowChangeEventHandler ReportAnalysisCardWeedRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ReportAnalysisCardWeedRowChangeEventHandler ReportAnalysisCardWeedRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddReportAnalysisCardWeedRow(ReportAnalysisCardWeedRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ReportAnalysisCardWeedRow AddReportAnalysisCardWeedRow(string name_weed_imp, float value_weed_imp) {
+                ReportAnalysisCardWeedRow rowReportAnalysisCardWeedRow = ((ReportAnalysisCardWeedRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        name_weed_imp,
+                        value_weed_imp};
+                rowReportAnalysisCardWeedRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowReportAnalysisCardWeedRow);
+                return rowReportAnalysisCardWeedRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                ReportAnalysisCardWeedDataTable cln = ((ReportAnalysisCardWeedDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ReportAnalysisCardWeedDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnname_weed_imp = base.Columns["name_weed_imp"];
+                this.columnvalue_weed_imp = base.Columns["value_weed_imp"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnname_weed_imp = new global::System.Data.DataColumn("name_weed_imp", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnname_weed_imp);
+                this.columnvalue_weed_imp = new global::System.Data.DataColumn("value_weed_imp", typeof(float), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvalue_weed_imp);
+                this.columnname_weed_imp.MaxLength = 20;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ReportAnalysisCardWeedRow NewReportAnalysisCardWeedRow() {
+                return ((ReportAnalysisCardWeedRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ReportAnalysisCardWeedRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(ReportAnalysisCardWeedRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ReportAnalysisCardWeedRowChanged != null)) {
+                    this.ReportAnalysisCardWeedRowChanged(this, new ReportAnalysisCardWeedRowChangeEvent(((ReportAnalysisCardWeedRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ReportAnalysisCardWeedRowChanging != null)) {
+                    this.ReportAnalysisCardWeedRowChanging(this, new ReportAnalysisCardWeedRowChangeEvent(((ReportAnalysisCardWeedRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ReportAnalysisCardWeedRowDeleted != null)) {
+                    this.ReportAnalysisCardWeedRowDeleted(this, new ReportAnalysisCardWeedRowChangeEvent(((ReportAnalysisCardWeedRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ReportAnalysisCardWeedRowDeleting != null)) {
+                    this.ReportAnalysisCardWeedRowDeleting(this, new ReportAnalysisCardWeedRowChangeEvent(((ReportAnalysisCardWeedRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveReportAnalysisCardWeedRow(ReportAnalysisCardWeedRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ReportAnalysisCardWeedDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -14111,6 +15337,17 @@ namespace Elevator {
                     return ((DeliveryRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Delivery__id_con__375B2DB9"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ShipmentRow[] GetShipmentRows() {
+                if ((this.Table.ChildRelations["FK__Shipment__id_con__381A47C8"] == null)) {
+                    return new ShipmentRow[0];
+                }
+                else {
+                    return ((ShipmentRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Shipment__id_con__381A47C8"])));
+                }
+            }
         }
         
         /// <summary>
@@ -15587,6 +16824,239 @@ namespace Elevator {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
+        public partial class ShipmentRow : global::System.Data.DataRow {
+            
+            private ShipmentDataTable tableShipment;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal ShipmentRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableShipment = ((ShipmentDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int id_contractor {
+                get {
+                    return ((int)(this[this.tableShipment.id_contractorColumn]));
+                }
+                set {
+                    this[this.tableShipment.id_contractorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int id_raw {
+                get {
+                    return ((int)(this[this.tableShipment.id_rawColumn]));
+                }
+                set {
+                    this[this.tableShipment.id_rawColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string type_transport_shipment {
+                get {
+                    try {
+                        return ((string)(this[this.tableShipment.type_transport_shipmentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'type_transport_shipment\' в таблице \'Shipment\' равно DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableShipment.type_transport_shipmentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public float weight_shipment {
+                get {
+                    try {
+                        return ((float)(this[this.tableShipment.weight_shipmentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'weight_shipment\' в таблице \'Shipment\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableShipment.weight_shipmentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string date_shipment {
+                get {
+                    return ((string)(this[this.tableShipment.date_shipmentColumn]));
+                }
+                set {
+                    this[this.tableShipment.date_shipmentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int id_place_storage {
+                get {
+                    try {
+                        return ((int)(this[this.tableShipment.id_place_storageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'id_place_storage\' в таблице \'Shipment\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableShipment.id_place_storageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int numb_store {
+                get {
+                    try {
+                        return ((int)(this[this.tableShipment.numb_storeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'numb_store\' в таблице \'Shipment\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableShipment.numb_storeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int numb_silage {
+                get {
+                    try {
+                        return ((int)(this[this.tableShipment.numb_silageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'numb_silage\' в таблице \'Shipment\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableShipment.numb_silageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Store_rawRow Store_rawRowParent {
+                get {
+                    return ((Store_rawRow)(this.GetParentRow(this.Table.ParentRelations["fk"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["fk"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ContractorRow ContractorRow {
+                get {
+                    return ((ContractorRow)(this.GetParentRow(this.Table.ParentRelations["FK__Shipment__id_con__381A47C8"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Shipment__id_con__381A47C8"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public StorageRow StorageRow {
+                get {
+                    return ((StorageRow)(this.GetParentRow(this.Table.ParentRelations["FK__Shipment__id_raw__390E6C01"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Shipment__id_raw__390E6C01"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Silage_rawRow Silage_rawRowParent {
+                get {
+                    return ((Silage_rawRow)(this.GetParentRow(this.Table.ParentRelations["fk1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["fk1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Istype_transport_shipmentNull() {
+                return this.IsNull(this.tableShipment.type_transport_shipmentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Settype_transport_shipmentNull() {
+                this[this.tableShipment.type_transport_shipmentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isweight_shipmentNull() {
+                return this.IsNull(this.tableShipment.weight_shipmentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setweight_shipmentNull() {
+                this[this.tableShipment.weight_shipmentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isid_place_storageNull() {
+                return this.IsNull(this.tableShipment.id_place_storageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setid_place_storageNull() {
+                this[this.tableShipment.id_place_storageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isnumb_storeNull() {
+                return this.IsNull(this.tableShipment.numb_storeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setnumb_storeNull() {
+                this[this.tableShipment.numb_storeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isnumb_silageNull() {
+                return this.IsNull(this.tableShipment.numb_silageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setnumb_silageNull() {
+                this[this.tableShipment.numb_silageColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
         public partial class SilageRow : global::System.Data.DataRow {
             
             private SilageDataTable tableSilage;
@@ -15698,6 +17168,17 @@ namespace Elevator {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK__Silage_raw__5AA469F6"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ShipmentRow[] GetShipmentRows() {
+                if ((this.Table.ChildRelations["fk1"] == null)) {
+                    return new ShipmentRow[0];
+                }
+                else {
+                    return ((ShipmentRow[])(base.GetChildRows(this.Table.ChildRelations["fk1"])));
                 }
             }
         }
@@ -15940,6 +17421,17 @@ namespace Elevator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ShipmentRow[] GetShipmentRows() {
+                if ((this.Table.ChildRelations["FK__Shipment__id_raw__390E6C01"] == null)) {
+                    return new ShipmentRow[0];
+                }
+                else {
+                    return ((ShipmentRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Shipment__id_raw__390E6C01"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Weed_impuritiesRow[] GetWeed_impuritiesRows() {
                 if ((this.Table.ChildRelations["FK__Weed_impu__id_ra__469D7149"] == null)) {
                     return new Weed_impuritiesRow[0];
@@ -16064,6 +17556,17 @@ namespace Elevator {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK__Store_raw__numb___54EB90A0"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ShipmentRow[] GetShipmentRows() {
+                if ((this.Table.ChildRelations["fk"] == null)) {
+                    return new ShipmentRow[0];
+                }
+                else {
+                    return ((ShipmentRow[])(base.GetChildRows(this.Table.ChildRelations["fk"])));
                 }
             }
         }
@@ -17220,25 +18723,25 @@ namespace Elevator {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class ReportAnalysisCardRow : global::System.Data.DataRow {
+        public partial class ReportAnalysisCardGeneralRow : global::System.Data.DataRow {
             
-            private ReportAnalysisCardDataTable tableReportAnalysisCard;
+            private ReportAnalysisCardGeneralDataTable tableReportAnalysisCardGeneral;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ReportAnalysisCardRow(global::System.Data.DataRowBuilder rb) : 
+            internal ReportAnalysisCardGeneralRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableReportAnalysisCard = ((ReportAnalysisCardDataTable)(this.Table));
+                this.tableReportAnalysisCardGeneral = ((ReportAnalysisCardGeneralDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string name_contr {
                 get {
-                    return ((string)(this[this.tableReportAnalysisCard.name_contrColumn]));
+                    return ((string)(this[this.tableReportAnalysisCardGeneral.name_contrColumn]));
                 }
                 set {
-                    this[this.tableReportAnalysisCard.name_contrColumn] = value;
+                    this[this.tableReportAnalysisCardGeneral.name_contrColumn] = value;
                 }
             }
             
@@ -17247,14 +18750,15 @@ namespace Elevator {
             public string subdivision {
                 get {
                     try {
-                        return ((string)(this[this.tableReportAnalysisCard.subdivisionColumn]));
+                        return ((string)(this[this.tableReportAnalysisCardGeneral.subdivisionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'subdivision\' в таблице \'ReportAnalysisCard\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'subdivision\' в таблице \'ReportAnalysisCardGeneral\' равно DB" +
+                                "Null.", e);
                     }
                 }
                 set {
-                    this[this.tableReportAnalysisCard.subdivisionColumn] = value;
+                    this[this.tableReportAnalysisCardGeneral.subdivisionColumn] = value;
                 }
             }
             
@@ -17262,10 +18766,10 @@ namespace Elevator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int year_crop {
                 get {
-                    return ((int)(this[this.tableReportAnalysisCard.year_cropColumn]));
+                    return ((int)(this[this.tableReportAnalysisCardGeneral.year_cropColumn]));
                 }
                 set {
-                    this[this.tableReportAnalysisCard.year_cropColumn] = value;
+                    this[this.tableReportAnalysisCardGeneral.year_cropColumn] = value;
                 }
             }
             
@@ -17274,14 +18778,15 @@ namespace Elevator {
             public string name_raw {
                 get {
                     try {
-                        return ((string)(this[this.tableReportAnalysisCard.name_rawColumn]));
+                        return ((string)(this[this.tableReportAnalysisCardGeneral.name_rawColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'name_raw\' в таблице \'ReportAnalysisCard\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'name_raw\' в таблице \'ReportAnalysisCardGeneral\' равно DBNul" +
+                                "l.", e);
                     }
                 }
                 set {
-                    this[this.tableReportAnalysisCard.name_rawColumn] = value;
+                    this[this.tableReportAnalysisCardGeneral.name_rawColumn] = value;
                 }
             }
             
@@ -17290,15 +18795,15 @@ namespace Elevator {
             public int name_type_raw {
                 get {
                     try {
-                        return ((int)(this[this.tableReportAnalysisCard.name_type_rawColumn]));
+                        return ((int)(this[this.tableReportAnalysisCardGeneral.name_type_rawColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'name_type_raw\' в таблице \'ReportAnalysisCard\' равно DBNull." +
-                                "", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'name_type_raw\' в таблице \'ReportAnalysisCardGeneral\' равно " +
+                                "DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableReportAnalysisCard.name_type_rawColumn] = value;
+                    this[this.tableReportAnalysisCardGeneral.name_type_rawColumn] = value;
                 }
             }
             
@@ -17307,14 +18812,15 @@ namespace Elevator {
             public string number_gost {
                 get {
                     try {
-                        return ((string)(this[this.tableReportAnalysisCard.number_gostColumn]));
+                        return ((string)(this[this.tableReportAnalysisCardGeneral.number_gostColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'number_gost\' в таблице \'ReportAnalysisCard\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'number_gost\' в таблице \'ReportAnalysisCardGeneral\' равно DB" +
+                                "Null.", e);
                     }
                 }
                 set {
-                    this[this.tableReportAnalysisCard.number_gostColumn] = value;
+                    this[this.tableReportAnalysisCardGeneral.number_gostColumn] = value;
                 }
             }
             
@@ -17323,14 +18829,15 @@ namespace Elevator {
             public int name_subtype {
                 get {
                     try {
-                        return ((int)(this[this.tableReportAnalysisCard.name_subtypeColumn]));
+                        return ((int)(this[this.tableReportAnalysisCardGeneral.name_subtypeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'name_subtype\' в таблице \'ReportAnalysisCard\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'name_subtype\' в таблице \'ReportAnalysisCardGeneral\' равно D" +
+                                "BNull.", e);
                     }
                 }
                 set {
-                    this[this.tableReportAnalysisCard.name_subtypeColumn] = value;
+                    this[this.tableReportAnalysisCardGeneral.name_subtypeColumn] = value;
                 }
             }
             
@@ -17339,14 +18846,15 @@ namespace Elevator {
             public int number_class {
                 get {
                     try {
-                        return ((int)(this[this.tableReportAnalysisCard.number_classColumn]));
+                        return ((int)(this[this.tableReportAnalysisCardGeneral.number_classColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'number_class\' в таблице \'ReportAnalysisCard\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'number_class\' в таблице \'ReportAnalysisCardGeneral\' равно D" +
+                                "BNull.", e);
                     }
                 }
                 set {
-                    this[this.tableReportAnalysisCard.number_classColumn] = value;
+                    this[this.tableReportAnalysisCardGeneral.number_classColumn] = value;
                 }
             }
             
@@ -17355,14 +18863,15 @@ namespace Elevator {
             public string name_imp {
                 get {
                     try {
-                        return ((string)(this[this.tableReportAnalysisCard.name_impColumn]));
+                        return ((string)(this[this.tableReportAnalysisCardGeneral.name_impColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'name_imp\' в таблице \'ReportAnalysisCard\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'name_imp\' в таблице \'ReportAnalysisCardGeneral\' равно DBNul" +
+                                "l.", e);
                     }
                 }
                 set {
-                    this[this.tableReportAnalysisCard.name_impColumn] = value;
+                    this[this.tableReportAnalysisCardGeneral.name_impColumn] = value;
                 }
             }
             
@@ -17371,116 +18880,15 @@ namespace Elevator {
             public float value_imp {
                 get {
                     try {
-                        return ((float)(this[this.tableReportAnalysisCard.value_impColumn]));
+                        return ((float)(this[this.tableReportAnalysisCardGeneral.value_impColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'value_imp\' в таблице \'ReportAnalysisCard\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'value_imp\' в таблице \'ReportAnalysisCardGeneral\' равно DBNu" +
+                                "ll.", e);
                     }
                 }
                 set {
-                    this[this.tableReportAnalysisCard.value_impColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string name_harm_imp {
-                get {
-                    try {
-                        return ((string)(this[this.tableReportAnalysisCard.name_harm_impColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'name_harm_imp\' в таблице \'ReportAnalysisCard\' равно DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tableReportAnalysisCard.name_harm_impColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public float value_harm_imp {
-                get {
-                    try {
-                        return ((float)(this[this.tableReportAnalysisCard.value_harm_impColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'value_harm_imp\' в таблице \'ReportAnalysisCard\' равно DBNull" +
-                                ".", e);
-                    }
-                }
-                set {
-                    this[this.tableReportAnalysisCard.value_harm_impColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string name_weed_imp {
-                get {
-                    try {
-                        return ((string)(this[this.tableReportAnalysisCard.name_weed_impColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'name_weed_imp\' в таблице \'ReportAnalysisCard\' равно DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tableReportAnalysisCard.name_weed_impColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public float value_weed_imp {
-                get {
-                    try {
-                        return ((float)(this[this.tableReportAnalysisCard.value_weed_impColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'value_weed_imp\' в таблице \'ReportAnalysisCard\' равно DBNull" +
-                                ".", e);
-                    }
-                }
-                set {
-                    this[this.tableReportAnalysisCard.value_weed_impColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string name_grain_imp {
-                get {
-                    try {
-                        return ((string)(this[this.tableReportAnalysisCard.name_grain_impColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'name_grain_imp\' в таблице \'ReportAnalysisCard\' равно DBNull" +
-                                ".", e);
-                    }
-                }
-                set {
-                    this[this.tableReportAnalysisCard.name_grain_impColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public float value_grain_imp {
-                get {
-                    try {
-                        return ((float)(this[this.tableReportAnalysisCard.value_grain_impColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'value_grain_imp\' в таблице \'ReportAnalysisCard\' равно DBNul" +
-                                "l.", e);
-                    }
-                }
-                set {
-                    this[this.tableReportAnalysisCard.value_grain_impColumn] = value;
+                    this[this.tableReportAnalysisCardGeneral.value_impColumn] = value;
                 }
             }
             
@@ -17489,14 +18897,15 @@ namespace Elevator {
             public string Column1 {
                 get {
                     try {
-                        return ((string)(this[this.tableReportAnalysisCard.Column1Column]));
+                        return ((string)(this[this.tableReportAnalysisCardGeneral.Column1Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Column1\' в таблице \'ReportAnalysisCard\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Column1\' в таблице \'ReportAnalysisCardGeneral\' равно DBNull" +
+                                ".", e);
                     }
                 }
                 set {
-                    this[this.tableReportAnalysisCard.Column1Column] = value;
+                    this[this.tableReportAnalysisCardGeneral.Column1Column] = value;
                 }
             }
             
@@ -17505,207 +18914,355 @@ namespace Elevator {
             public string Column2 {
                 get {
                     try {
-                        return ((string)(this[this.tableReportAnalysisCard.Column2Column]));
+                        return ((string)(this[this.tableReportAnalysisCardGeneral.Column2Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Column2\' в таблице \'ReportAnalysisCard\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Column2\' в таблице \'ReportAnalysisCardGeneral\' равно DBNull" +
+                                ".", e);
                     }
                 }
                 set {
-                    this[this.tableReportAnalysisCard.Column2Column] = value;
+                    this[this.tableReportAnalysisCardGeneral.Column2Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IssubdivisionNull() {
-                return this.IsNull(this.tableReportAnalysisCard.subdivisionColumn);
+                return this.IsNull(this.tableReportAnalysisCardGeneral.subdivisionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetsubdivisionNull() {
-                this[this.tableReportAnalysisCard.subdivisionColumn] = global::System.Convert.DBNull;
+                this[this.tableReportAnalysisCardGeneral.subdivisionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isname_rawNull() {
-                return this.IsNull(this.tableReportAnalysisCard.name_rawColumn);
+                return this.IsNull(this.tableReportAnalysisCardGeneral.name_rawColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setname_rawNull() {
-                this[this.tableReportAnalysisCard.name_rawColumn] = global::System.Convert.DBNull;
+                this[this.tableReportAnalysisCardGeneral.name_rawColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isname_type_rawNull() {
-                return this.IsNull(this.tableReportAnalysisCard.name_type_rawColumn);
+                return this.IsNull(this.tableReportAnalysisCardGeneral.name_type_rawColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setname_type_rawNull() {
-                this[this.tableReportAnalysisCard.name_type_rawColumn] = global::System.Convert.DBNull;
+                this[this.tableReportAnalysisCardGeneral.name_type_rawColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isnumber_gostNull() {
-                return this.IsNull(this.tableReportAnalysisCard.number_gostColumn);
+                return this.IsNull(this.tableReportAnalysisCardGeneral.number_gostColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setnumber_gostNull() {
-                this[this.tableReportAnalysisCard.number_gostColumn] = global::System.Convert.DBNull;
+                this[this.tableReportAnalysisCardGeneral.number_gostColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isname_subtypeNull() {
-                return this.IsNull(this.tableReportAnalysisCard.name_subtypeColumn);
+                return this.IsNull(this.tableReportAnalysisCardGeneral.name_subtypeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setname_subtypeNull() {
-                this[this.tableReportAnalysisCard.name_subtypeColumn] = global::System.Convert.DBNull;
+                this[this.tableReportAnalysisCardGeneral.name_subtypeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isnumber_classNull() {
-                return this.IsNull(this.tableReportAnalysisCard.number_classColumn);
+                return this.IsNull(this.tableReportAnalysisCardGeneral.number_classColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setnumber_classNull() {
-                this[this.tableReportAnalysisCard.number_classColumn] = global::System.Convert.DBNull;
+                this[this.tableReportAnalysisCardGeneral.number_classColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isname_impNull() {
-                return this.IsNull(this.tableReportAnalysisCard.name_impColumn);
+                return this.IsNull(this.tableReportAnalysisCardGeneral.name_impColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setname_impNull() {
-                this[this.tableReportAnalysisCard.name_impColumn] = global::System.Convert.DBNull;
+                this[this.tableReportAnalysisCardGeneral.name_impColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isvalue_impNull() {
-                return this.IsNull(this.tableReportAnalysisCard.value_impColumn);
+                return this.IsNull(this.tableReportAnalysisCardGeneral.value_impColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setvalue_impNull() {
-                this[this.tableReportAnalysisCard.value_impColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isname_harm_impNull() {
-                return this.IsNull(this.tableReportAnalysisCard.name_harm_impColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setname_harm_impNull() {
-                this[this.tableReportAnalysisCard.name_harm_impColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isvalue_harm_impNull() {
-                return this.IsNull(this.tableReportAnalysisCard.value_harm_impColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setvalue_harm_impNull() {
-                this[this.tableReportAnalysisCard.value_harm_impColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isname_weed_impNull() {
-                return this.IsNull(this.tableReportAnalysisCard.name_weed_impColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setname_weed_impNull() {
-                this[this.tableReportAnalysisCard.name_weed_impColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isvalue_weed_impNull() {
-                return this.IsNull(this.tableReportAnalysisCard.value_weed_impColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setvalue_weed_impNull() {
-                this[this.tableReportAnalysisCard.value_weed_impColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isname_grain_impNull() {
-                return this.IsNull(this.tableReportAnalysisCard.name_grain_impColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setname_grain_impNull() {
-                this[this.tableReportAnalysisCard.name_grain_impColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isvalue_grain_impNull() {
-                return this.IsNull(this.tableReportAnalysisCard.value_grain_impColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setvalue_grain_impNull() {
-                this[this.tableReportAnalysisCard.value_grain_impColumn] = global::System.Convert.DBNull;
+                this[this.tableReportAnalysisCardGeneral.value_impColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsColumn1Null() {
-                return this.IsNull(this.tableReportAnalysisCard.Column1Column);
+                return this.IsNull(this.tableReportAnalysisCardGeneral.Column1Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetColumn1Null() {
-                this[this.tableReportAnalysisCard.Column1Column] = global::System.Convert.DBNull;
+                this[this.tableReportAnalysisCardGeneral.Column1Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsColumn2Null() {
-                return this.IsNull(this.tableReportAnalysisCard.Column2Column);
+                return this.IsNull(this.tableReportAnalysisCardGeneral.Column2Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetColumn2Null() {
-                this[this.tableReportAnalysisCard.Column2Column] = global::System.Convert.DBNull;
+                this[this.tableReportAnalysisCardGeneral.Column2Column] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class ReportAnalysisCardGrainRow : global::System.Data.DataRow {
+            
+            private ReportAnalysisCardGrainDataTable tableReportAnalysisCardGrain;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal ReportAnalysisCardGrainRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableReportAnalysisCardGrain = ((ReportAnalysisCardGrainDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string name_grain_imp {
+                get {
+                    try {
+                        return ((string)(this[this.tableReportAnalysisCardGrain.name_grain_impColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'name_grain_imp\' в таблице \'ReportAnalysisCardGrain\' равно D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReportAnalysisCardGrain.name_grain_impColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public float value_grain_imp {
+                get {
+                    try {
+                        return ((float)(this[this.tableReportAnalysisCardGrain.value_grain_impColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'value_grain_imp\' в таблице \'ReportAnalysisCardGrain\' равно " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReportAnalysisCardGrain.value_grain_impColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isname_grain_impNull() {
+                return this.IsNull(this.tableReportAnalysisCardGrain.name_grain_impColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setname_grain_impNull() {
+                this[this.tableReportAnalysisCardGrain.name_grain_impColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isvalue_grain_impNull() {
+                return this.IsNull(this.tableReportAnalysisCardGrain.value_grain_impColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setvalue_grain_impNull() {
+                this[this.tableReportAnalysisCardGrain.value_grain_impColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class ReportAnalysisCardHarmfulRow : global::System.Data.DataRow {
+            
+            private ReportAnalysisCardHarmfulDataTable tableReportAnalysisCardHarmful;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal ReportAnalysisCardHarmfulRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableReportAnalysisCardHarmful = ((ReportAnalysisCardHarmfulDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string name_harm_imp {
+                get {
+                    try {
+                        return ((string)(this[this.tableReportAnalysisCardHarmful.name_harm_impColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'name_harm_imp\' в таблице \'ReportAnalysisCardHarmful\' равно " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReportAnalysisCardHarmful.name_harm_impColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public float value_harm_imp {
+                get {
+                    try {
+                        return ((float)(this[this.tableReportAnalysisCardHarmful.value_harm_impColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'value_harm_imp\' в таблице \'ReportAnalysisCardHarmful\' равно" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReportAnalysisCardHarmful.value_harm_impColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isname_harm_impNull() {
+                return this.IsNull(this.tableReportAnalysisCardHarmful.name_harm_impColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setname_harm_impNull() {
+                this[this.tableReportAnalysisCardHarmful.name_harm_impColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isvalue_harm_impNull() {
+                return this.IsNull(this.tableReportAnalysisCardHarmful.value_harm_impColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setvalue_harm_impNull() {
+                this[this.tableReportAnalysisCardHarmful.value_harm_impColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class ReportAnalysisCardWeedRow : global::System.Data.DataRow {
+            
+            private ReportAnalysisCardWeedDataTable tableReportAnalysisCardWeed;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal ReportAnalysisCardWeedRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableReportAnalysisCardWeed = ((ReportAnalysisCardWeedDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string name_weed_imp {
+                get {
+                    try {
+                        return ((string)(this[this.tableReportAnalysisCardWeed.name_weed_impColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'name_weed_imp\' в таблице \'ReportAnalysisCardWeed\' равно DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReportAnalysisCardWeed.name_weed_impColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public float value_weed_imp {
+                get {
+                    try {
+                        return ((float)(this[this.tableReportAnalysisCardWeed.value_weed_impColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'value_weed_imp\' в таблице \'ReportAnalysisCardWeed\' равно DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableReportAnalysisCardWeed.value_weed_impColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isname_weed_impNull() {
+                return this.IsNull(this.tableReportAnalysisCardWeed.name_weed_impColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setname_weed_impNull() {
+                this[this.tableReportAnalysisCardWeed.name_weed_impColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isvalue_weed_impNull() {
+                return this.IsNull(this.tableReportAnalysisCardWeed.value_weed_impColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setvalue_weed_impNull() {
+                this[this.tableReportAnalysisCardWeed.value_weed_impColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -18508,6 +20065,40 @@ namespace Elevator {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class ShipmentRowChangeEvent : global::System.EventArgs {
+            
+            private ShipmentRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ShipmentRowChangeEvent(ShipmentRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ShipmentRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public class SilageRowChangeEvent : global::System.EventArgs {
             
             private SilageRow eventRow;
@@ -19086,22 +20677,124 @@ namespace Elevator {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class ReportAnalysisCardRowChangeEvent : global::System.EventArgs {
+        public class ReportAnalysisCardGeneralRowChangeEvent : global::System.EventArgs {
             
-            private ReportAnalysisCardRow eventRow;
+            private ReportAnalysisCardGeneralRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ReportAnalysisCardRowChangeEvent(ReportAnalysisCardRow row, global::System.Data.DataRowAction action) {
+            public ReportAnalysisCardGeneralRowChangeEvent(ReportAnalysisCardGeneralRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ReportAnalysisCardRow Row {
+            public ReportAnalysisCardGeneralRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class ReportAnalysisCardGrainRowChangeEvent : global::System.EventArgs {
+            
+            private ReportAnalysisCardGrainRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ReportAnalysisCardGrainRowChangeEvent(ReportAnalysisCardGrainRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ReportAnalysisCardGrainRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class ReportAnalysisCardHarmfulRowChangeEvent : global::System.EventArgs {
+            
+            private ReportAnalysisCardHarmfulRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ReportAnalysisCardHarmfulRowChangeEvent(ReportAnalysisCardHarmfulRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ReportAnalysisCardHarmfulRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class ReportAnalysisCardWeedRowChangeEvent : global::System.EventArgs {
+            
+            private ReportAnalysisCardWeedRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ReportAnalysisCardWeedRowChangeEvent(ReportAnalysisCardWeedRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ReportAnalysisCardWeedRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -19388,7 +21081,7 @@ SELECT id_analysis, id_contractor, id_raw, date_analysis FROM Analysis WHERE (id
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19770,7 +21463,7 @@ SELECT id_class, id_NameRaw, number_class FROM Class WHERE (id_class = @id_class
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20140,7 +21833,7 @@ SELECT id_raw, id_contractor, date_clearing, weight_before_clearing, weight_afte
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20535,7 +22228,7 @@ SELECT id_contractor, id_contract, goal, date_contr FROM Contract WHERE (id_cont
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20940,7 +22633,7 @@ SELECT id_contractor, name_contr, subdivision, jur_address, fact_address, mail_i
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21457,7 +23150,7 @@ SELECT id_contractor, id_raw, type_transport_delivery, weight_delivery, date_del
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21871,7 +23564,7 @@ SELECT id_raw, id_contractor, date_drying, weight_before_drying, weight_after_dr
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -22334,7 +24027,7 @@ SELECT id_emp, surname, name, secName, post, login, password FROM Employee WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -22778,7 +24471,7 @@ SELECT name_imp, id_raw, value_imp FROM General_impurities WHERE (id_raw = @id_r
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23107,7 +24800,7 @@ SELECT name_grain_imp, id_raw, value_grain_imp FROM Grain_impurities WHERE (id_r
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23436,7 +25129,7 @@ SELECT name_harm_imp, id_raw, value_harm_imp FROM Harmful_impurities WHERE (id_r
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23783,7 +25476,7 @@ SELECT id_norm_general, name_imp, id_class, norm_imp, is_minimum, id_subtype FRO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -24189,7 +25882,7 @@ SELECT id_norm_grain, name_grain_imp, id_class, norm_grain_imp, id_subtype FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -24591,7 +26284,7 @@ SELECT id_norm_harmful, name_harm_imp, id_class, norm_harm_imp, id_subtype FROM 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -24993,7 +26686,7 @@ SELECT id_norm_weed, name_weed_imp, id_class, norm_weed_imp, id_subtype FROM Nor
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -25376,7 +27069,7 @@ SELECT id_place_storage, id_raw FROM PlaceStorage WHERE (id_place_storage = @id_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -25682,7 +27375,7 @@ SELECT id_NameRaw, name_raw, number_gost FROM Raw WHERE (id_NameRaw = @id_NameRa
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -25888,6 +27581,525 @@ SELECT id_NameRaw, name_raw, number_gost FROM Raw WHERE (id_NameRaw = @id_NameRa
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class ShipmentTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public ShipmentTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Shipment";
+            tableMapping.ColumnMappings.Add("id_contractor", "id_contractor");
+            tableMapping.ColumnMappings.Add("id_raw", "id_raw");
+            tableMapping.ColumnMappings.Add("type_transport_shipment", "type_transport_shipment");
+            tableMapping.ColumnMappings.Add("weight_shipment", "weight_shipment");
+            tableMapping.ColumnMappings.Add("date_shipment", "date_shipment");
+            tableMapping.ColumnMappings.Add("id_place_storage", "id_place_storage");
+            tableMapping.ColumnMappings.Add("numb_store", "numb_store");
+            tableMapping.ColumnMappings.Add("numb_silage", "numb_silage");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Shipment] WHERE (([id_contractor] = @Original_id_contractor) AND ([id_raw] = @Original_id_raw) AND ((@IsNull_type_transport_shipment = 1 AND [type_transport_shipment] IS NULL) OR ([type_transport_shipment] = @Original_type_transport_shipment)) AND ((@IsNull_weight_shipment = 1 AND [weight_shipment] IS NULL) OR ([weight_shipment] = @Original_weight_shipment)) AND ([date_shipment] = @Original_date_shipment) AND ((@IsNull_id_place_storage = 1 AND [id_place_storage] IS NULL) OR ([id_place_storage] = @Original_id_place_storage)) AND ((@IsNull_numb_store = 1 AND [numb_store] IS NULL) OR ([numb_store] = @Original_numb_store)) AND ((@IsNull_numb_silage = 1 AND [numb_silage] IS NULL) OR ([numb_silage] = @Original_numb_silage)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_contractor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_contractor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_raw", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_raw", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_type_transport_shipment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type_transport_shipment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_type_transport_shipment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type_transport_shipment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_weight_shipment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight_shipment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_weight_shipment", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight_shipment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_date_shipment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "date_shipment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_id_place_storage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_place_storage", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_place_storage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_place_storage", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_numb_store", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numb_store", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_numb_store", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numb_store", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_numb_silage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numb_silage", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_numb_silage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numb_silage", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Shipment] ([id_contractor], [id_raw], [type_transport_shipment], [weight_shipment], [date_shipment], [id_place_storage], [numb_store], [numb_silage]) VALUES (@id_contractor, @id_raw, @type_transport_shipment, @weight_shipment, @date_shipment, @id_place_storage, @numb_store, @numb_silage);
+SELECT id_contractor, id_raw, type_transport_shipment, weight_shipment, date_shipment, id_place_storage, numb_store, numb_silage FROM Shipment WHERE (date_shipment = @date_shipment) AND (id_contractor = @id_contractor) AND (id_raw = @id_raw)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_contractor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_contractor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_raw", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_raw", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type_transport_shipment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type_transport_shipment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight_shipment", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight_shipment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date_shipment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "date_shipment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_place_storage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_place_storage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@numb_store", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numb_store", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@numb_silage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numb_silage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Shipment] SET [id_contractor] = @id_contractor, [id_raw] = @id_raw, [type_transport_shipment] = @type_transport_shipment, [weight_shipment] = @weight_shipment, [date_shipment] = @date_shipment, [id_place_storage] = @id_place_storage, [numb_store] = @numb_store, [numb_silage] = @numb_silage WHERE (([id_contractor] = @Original_id_contractor) AND ([id_raw] = @Original_id_raw) AND ((@IsNull_type_transport_shipment = 1 AND [type_transport_shipment] IS NULL) OR ([type_transport_shipment] = @Original_type_transport_shipment)) AND ((@IsNull_weight_shipment = 1 AND [weight_shipment] IS NULL) OR ([weight_shipment] = @Original_weight_shipment)) AND ([date_shipment] = @Original_date_shipment) AND ((@IsNull_id_place_storage = 1 AND [id_place_storage] IS NULL) OR ([id_place_storage] = @Original_id_place_storage)) AND ((@IsNull_numb_store = 1 AND [numb_store] IS NULL) OR ([numb_store] = @Original_numb_store)) AND ((@IsNull_numb_silage = 1 AND [numb_silage] IS NULL) OR ([numb_silage] = @Original_numb_silage)));
+SELECT id_contractor, id_raw, type_transport_shipment, weight_shipment, date_shipment, id_place_storage, numb_store, numb_silage FROM Shipment WHERE (date_shipment = @date_shipment) AND (id_contractor = @id_contractor) AND (id_raw = @id_raw)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_contractor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_contractor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_raw", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_raw", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type_transport_shipment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type_transport_shipment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight_shipment", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight_shipment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date_shipment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "date_shipment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_place_storage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_place_storage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@numb_store", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numb_store", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@numb_silage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numb_silage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_contractor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_contractor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_raw", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_raw", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_type_transport_shipment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type_transport_shipment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_type_transport_shipment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "type_transport_shipment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_weight_shipment", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight_shipment", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_weight_shipment", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight_shipment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_date_shipment", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "date_shipment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_id_place_storage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_place_storage", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_place_storage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_place_storage", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_numb_store", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numb_store", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_numb_store", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numb_store", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_numb_silage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numb_silage", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_numb_silage", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numb_silage", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT id_contractor, id_raw, type_transport_shipment, weight_shipment, date_ship" +
+                "ment, id_place_storage, numb_store, numb_silage FROM dbo.Shipment";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(AccountOfGrainDataSet.ShipmentDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual AccountOfGrainDataSet.ShipmentDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            AccountOfGrainDataSet.ShipmentDataTable dataTable = new AccountOfGrainDataSet.ShipmentDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(AccountOfGrainDataSet.ShipmentDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(AccountOfGrainDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "Shipment");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_id_contractor, int Original_id_raw, string Original_type_transport_shipment, global::System.Nullable<float> Original_weight_shipment, string Original_date_shipment, global::System.Nullable<int> Original_id_place_storage, global::System.Nullable<int> Original_numb_store, global::System.Nullable<int> Original_numb_silage) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_contractor));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_id_raw));
+            if ((Original_type_transport_shipment == null)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_type_transport_shipment));
+            }
+            if ((Original_weight_shipment.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((float)(Original_weight_shipment.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Original_date_shipment == null)) {
+                throw new global::System.ArgumentNullException("Original_date_shipment");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_date_shipment));
+            }
+            if ((Original_id_place_storage.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_id_place_storage.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Original_numb_store.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_numb_store.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Original_numb_silage.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((int)(Original_numb_silage.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(int id_contractor, int id_raw, string type_transport_shipment, global::System.Nullable<float> weight_shipment, string date_shipment, global::System.Nullable<int> id_place_storage, global::System.Nullable<int> numb_store, global::System.Nullable<int> numb_silage) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id_contractor));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(id_raw));
+            if ((type_transport_shipment == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(type_transport_shipment));
+            }
+            if ((weight_shipment.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((float)(weight_shipment.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((date_shipment == null)) {
+                throw new global::System.ArgumentNullException("date_shipment");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(date_shipment));
+            }
+            if ((id_place_storage.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(id_place_storage.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((numb_store.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(numb_store.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((numb_silage.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(numb_silage.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    int id_contractor, 
+                    int id_raw, 
+                    string type_transport_shipment, 
+                    global::System.Nullable<float> weight_shipment, 
+                    string date_shipment, 
+                    global::System.Nullable<int> id_place_storage, 
+                    global::System.Nullable<int> numb_store, 
+                    global::System.Nullable<int> numb_silage, 
+                    int Original_id_contractor, 
+                    int Original_id_raw, 
+                    string Original_type_transport_shipment, 
+                    global::System.Nullable<float> Original_weight_shipment, 
+                    string Original_date_shipment, 
+                    global::System.Nullable<int> Original_id_place_storage, 
+                    global::System.Nullable<int> Original_numb_store, 
+                    global::System.Nullable<int> Original_numb_silage) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(id_contractor));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(id_raw));
+            if ((type_transport_shipment == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(type_transport_shipment));
+            }
+            if ((weight_shipment.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((float)(weight_shipment.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((date_shipment == null)) {
+                throw new global::System.ArgumentNullException("date_shipment");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(date_shipment));
+            }
+            if ((id_place_storage.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(id_place_storage.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((numb_store.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(numb_store.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((numb_silage.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(numb_silage.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_id_contractor));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_id_raw));
+            if ((Original_type_transport_shipment == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_type_transport_shipment));
+            }
+            if ((Original_weight_shipment.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((float)(Original_weight_shipment.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((Original_date_shipment == null)) {
+                throw new global::System.ArgumentNullException("Original_date_shipment");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_date_shipment));
+            }
+            if ((Original_id_place_storage.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_id_place_storage.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((Original_numb_store.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_numb_store.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((Original_numb_silage.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_numb_silage.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string type_transport_shipment, global::System.Nullable<float> weight_shipment, global::System.Nullable<int> id_place_storage, global::System.Nullable<int> numb_store, global::System.Nullable<int> numb_silage, int Original_id_contractor, int Original_id_raw, string Original_type_transport_shipment, global::System.Nullable<float> Original_weight_shipment, string Original_date_shipment, global::System.Nullable<int> Original_id_place_storage, global::System.Nullable<int> Original_numb_store, global::System.Nullable<int> Original_numb_silage) {
+            return this.Update(Original_id_contractor, Original_id_raw, type_transport_shipment, weight_shipment, Original_date_shipment, id_place_storage, numb_store, numb_silage, Original_id_contractor, Original_id_raw, Original_type_transport_shipment, Original_weight_shipment, Original_date_shipment, Original_id_place_storage, Original_numb_store, Original_numb_silage);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class SilageTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -26027,7 +28239,7 @@ SELECT id_NameRaw, name_raw, number_gost FROM Raw WHERE (id_NameRaw = @id_NameRa
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -26333,7 +28545,7 @@ SELECT numb_silage, id_place_storage, id_raw, weight_silage FROM Silage_raw WHER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -26666,7 +28878,7 @@ SELECT id_raw, year_crop, id_subtype, weight, id_NameRaw, id_class FROM Storage 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -27072,7 +29284,7 @@ SELECT id_raw, year_crop, id_subtype, weight, id_NameRaw, id_class FROM Storage 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -27378,7 +29590,7 @@ SELECT numb_store, id_place_storage, id_raw, weight_store FROM Store_raw WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -27693,7 +29905,7 @@ SELECT id_subtype, id_type, name_subtype FROM Subtype_raw WHERE (id_subtype = @i
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -28039,7 +30251,7 @@ SELECT id_subtype, id_type, name_subtype FROM Subtype_raw WHERE (id_subtype = @i
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -28351,7 +30563,7 @@ SELECT id_subtype, id_type, name_subtype FROM Subtype_raw WHERE (id_subtype = @i
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -28663,7 +30875,7 @@ SELECT id_subtype, id_type, name_subtype FROM Subtype_raw WHERE (id_subtype = @i
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -28986,7 +31198,7 @@ SELECT id_type, name_type_raw, id_NameRaw FROM Type_raw WHERE (id_type = @id_typ
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -29333,7 +31545,7 @@ SELECT id_type, name_type_raw, id_NameRaw FROM Type_raw WHERE (id_type = @id_typ
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -29654,7 +31866,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -29957,7 +32169,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -30126,7 +32338,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -30297,7 +32509,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -30482,7 +32694,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -30693,7 +32905,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -30767,7 +32979,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ReportAnalysisCardTableAdapter : global::System.ComponentModel.Component {
+    public partial class ReportAnalysisCardGeneralTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -30781,7 +32993,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public ReportAnalysisCardTableAdapter() {
+        public ReportAnalysisCardGeneralTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -30878,7 +33090,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "ReportAnalysisCard";
+            tableMapping.DataSetTable = "ReportAnalysisCardGeneral";
             tableMapping.ColumnMappings.Add("name_contr", "name_contr");
             tableMapping.ColumnMappings.Add("subdivision", "subdivision");
             tableMapping.ColumnMappings.Add("year_crop", "year_crop");
@@ -30889,12 +33101,6 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
             tableMapping.ColumnMappings.Add("number_class", "number_class");
             tableMapping.ColumnMappings.Add("name_imp", "name_imp");
             tableMapping.ColumnMappings.Add("value_imp", "value_imp");
-            tableMapping.ColumnMappings.Add("name_harm_imp", "name_harm_imp");
-            tableMapping.ColumnMappings.Add("value_harm_imp", "value_harm_imp");
-            tableMapping.ColumnMappings.Add("name_weed_imp", "name_weed_imp");
-            tableMapping.ColumnMappings.Add("value_weed_imp", "value_weed_imp");
-            tableMapping.ColumnMappings.Add("name_grain_imp", "name_grain_imp");
-            tableMapping.ColumnMappings.Add("value_grain_imp", "value_grain_imp");
             tableMapping.ColumnMappings.Add("Column1", "Column1");
             tableMapping.ColumnMappings.Add("Column2", "Column2");
             this._adapter.TableMappings.Add(tableMapping);
@@ -30904,7 +33110,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -30913,7 +33119,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.ReportAnalysisCard";
+            this._commandCollection[0].CommandText = "dbo.ReportAnalysisCardGeneral";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -30924,7 +33130,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(AccountOfGrainDataSet.ReportAnalysisCardDataTable dataTable, global::System.Nullable<int> id, global::System.Nullable<int> idEmp) {
+        public virtual int Fill(AccountOfGrainDataSet.ReportAnalysisCardGeneralDataTable dataTable, global::System.Nullable<int> id, global::System.Nullable<int> idEmp) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((id.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id.Value));
@@ -30949,7 +33155,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual AccountOfGrainDataSet.ReportAnalysisCardDataTable GetData(global::System.Nullable<int> id, global::System.Nullable<int> idEmp) {
+        public virtual AccountOfGrainDataSet.ReportAnalysisCardGeneralDataTable GetData(global::System.Nullable<int> id, global::System.Nullable<int> idEmp) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((id.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id.Value));
@@ -30963,7 +33169,553 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            AccountOfGrainDataSet.ReportAnalysisCardDataTable dataTable = new AccountOfGrainDataSet.ReportAnalysisCardDataTable();
+            AccountOfGrainDataSet.ReportAnalysisCardGeneralDataTable dataTable = new AccountOfGrainDataSet.ReportAnalysisCardGeneralDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class ReportAnalysisCardGrainTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public ReportAnalysisCardGrainTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "ReportAnalysisCardGrain";
+            tableMapping.ColumnMappings.Add("name_grain_imp", "name_grain_imp");
+            tableMapping.ColumnMappings.Add("value_grain_imp", "value_grain_imp");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.ReportAnalysisCardGrain";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(AccountOfGrainDataSet.ReportAnalysisCardGrainDataTable dataTable, global::System.Nullable<int> id) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual AccountOfGrainDataSet.ReportAnalysisCardGrainDataTable GetData(global::System.Nullable<int> id) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            AccountOfGrainDataSet.ReportAnalysisCardGrainDataTable dataTable = new AccountOfGrainDataSet.ReportAnalysisCardGrainDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class ReportAnalysisCardHarmfulTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public ReportAnalysisCardHarmfulTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "ReportAnalysisCardHarmful";
+            tableMapping.ColumnMappings.Add("name_harm_imp", "name_harm_imp");
+            tableMapping.ColumnMappings.Add("value_harm_imp", "value_harm_imp");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.ReportAnalysisCardHarmful";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(AccountOfGrainDataSet.ReportAnalysisCardHarmfulDataTable dataTable, global::System.Nullable<int> id) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual AccountOfGrainDataSet.ReportAnalysisCardHarmfulDataTable GetData(global::System.Nullable<int> id) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            AccountOfGrainDataSet.ReportAnalysisCardHarmfulDataTable dataTable = new AccountOfGrainDataSet.ReportAnalysisCardHarmfulDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class ReportAnalysisCardWeedTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public ReportAnalysisCardWeedTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "ReportAnalysisCardWeed";
+            tableMapping.ColumnMappings.Add("name_weed_imp", "name_weed_imp");
+            tableMapping.ColumnMappings.Add("value_weed_imp", "value_weed_imp");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.ReportAnalysisCardWeed";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(AccountOfGrainDataSet.ReportAnalysisCardWeedDataTable dataTable, global::System.Nullable<int> id) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual AccountOfGrainDataSet.ReportAnalysisCardWeedDataTable GetData(global::System.Nullable<int> id) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            AccountOfGrainDataSet.ReportAnalysisCardWeedDataTable dataTable = new AccountOfGrainDataSet.ReportAnalysisCardWeedDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -31099,7 +33851,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -31281,7 +34033,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -31489,7 +34241,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainElevator;
+            this._connection.ConnectionString = global::Elevator.Properties.Settings.Default.AccountOfGrainConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -31599,6 +34351,8 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
         private PlaceStorageTableAdapter _placeStorageTableAdapter;
         
         private RawTableAdapter _rawTableAdapter;
+        
+        private ShipmentTableAdapter _shipmentTableAdapter;
         
         private SilageTableAdapter _silageTableAdapter;
         
@@ -31882,6 +34636,20 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
+        public ShipmentTableAdapter ShipmentTableAdapter {
+            get {
+                return this._shipmentTableAdapter;
+            }
+            set {
+                this._shipmentTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
         public SilageTableAdapter SilageTableAdapter {
             get {
                 return this._silageTableAdapter;
@@ -32132,6 +34900,10 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                             && (this._rawTableAdapter.Connection != null))) {
                     return this._rawTableAdapter.Connection;
                 }
+                if (((this._shipmentTableAdapter != null) 
+                            && (this._shipmentTableAdapter.Connection != null))) {
+                    return this._shipmentTableAdapter.Connection;
+                }
                 if (((this._silageTableAdapter != null) 
                             && (this._silageTableAdapter.Connection != null))) {
                     return this._silageTableAdapter.Connection;
@@ -32244,6 +35016,9 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                 if ((this._rawTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._shipmentTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 if ((this._silageTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -32309,21 +35084,21 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._subtype_rawTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Subtype_raw.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._subtype_rawTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._classTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Class.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._classTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._subtype_rawTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Subtype_raw.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._subtype_rawTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -32354,24 +35129,6 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._deliveryTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Delivery.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._deliveryTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._type_grain_impuritiesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Type_grain_impurities.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._type_grain_impuritiesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._silageTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Silage.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -32390,15 +35147,6 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._type_harmful_impuritiesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Type_harmful_impurities.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._type_harmful_impuritiesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._type_general_impuritiesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Type_general_impurities.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -32408,12 +35156,57 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._store_rawTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Store_raw.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._store_rawTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._silage_rawTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Silage_raw.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._silage_rawTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._type_weed_impuritiesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Type_weed_impurities.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._type_weed_impuritiesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._type_harmful_impuritiesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Type_harmful_impurities.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._type_harmful_impuritiesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._deliveryTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Delivery.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._deliveryTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._type_grain_impuritiesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Type_grain_impurities.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._type_grain_impuritiesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -32435,12 +35228,12 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._silage_rawTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Silage_raw.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._shipmentTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Shipment.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._silage_rawTableAdapter.Update(updatedRows));
+                    result = (result + this._shipmentTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -32543,15 +35336,6 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._store_rawTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Store_raw.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._store_rawTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -32578,19 +35362,19 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._subtype_rawTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Subtype_raw.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._subtype_rawTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._classTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Class.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._classTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._subtype_rawTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Subtype_raw.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._subtype_rawTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -32618,22 +35402,6 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._deliveryTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Delivery.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._deliveryTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._type_grain_impuritiesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Type_grain_impurities.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._type_grain_impuritiesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._silageTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Silage.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -32650,14 +35418,6 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._type_harmful_impuritiesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Type_harmful_impurities.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._type_harmful_impuritiesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._type_general_impuritiesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Type_general_impurities.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -32666,11 +35426,51 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._store_rawTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Store_raw.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._store_rawTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._silage_rawTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Silage_raw.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._silage_rawTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._type_weed_impuritiesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Type_weed_impurities.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._type_weed_impuritiesTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._type_harmful_impuritiesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Type_harmful_impurities.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._type_harmful_impuritiesTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._deliveryTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Delivery.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._deliveryTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._type_grain_impuritiesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Type_grain_impurities.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._type_grain_impuritiesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -32690,11 +35490,11 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._silage_rawTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Silage_raw.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._shipmentTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Shipment.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._silage_rawTableAdapter.Update(addedRows));
+                    result = (result + this._shipmentTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -32786,14 +35586,6 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._store_rawTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Store_raw.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._store_rawTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -32804,14 +35596,6 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(AccountOfGrainDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._store_rawTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Store_raw.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._store_rawTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._clearingTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Clearing.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -32900,11 +35684,11 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._silage_rawTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Silage_raw.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._shipmentTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Shipment.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._silage_rawTableAdapter.Update(deletedRows));
+                    result = (result + this._shipmentTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -32924,19 +35708,19 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._type_weed_impuritiesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Type_weed_impurities.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._type_grain_impuritiesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Type_grain_impurities.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._type_weed_impuritiesTableAdapter.Update(deletedRows));
+                    result = (result + this._type_grain_impuritiesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._type_general_impuritiesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Type_general_impurities.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._deliveryTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Delivery.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._type_general_impuritiesTableAdapter.Update(deletedRows));
+                    result = (result + this._deliveryTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -32945,6 +35729,38 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._type_harmful_impuritiesTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._type_weed_impuritiesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Type_weed_impurities.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._type_weed_impuritiesTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._silage_rawTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Silage_raw.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._silage_rawTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._store_rawTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Store_raw.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._store_rawTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._type_general_impuritiesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Type_general_impurities.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._type_general_impuritiesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -32961,22 +35777,6 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._silageTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._type_grain_impuritiesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Type_grain_impurities.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._type_grain_impuritiesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._deliveryTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Delivery.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._deliveryTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -33004,19 +35804,19 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._classTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Class.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._classTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._subtype_rawTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Subtype_raw.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._subtype_rawTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._classTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Class.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._classTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -33157,6 +35957,11 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
             }
             if (((this._rawTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._rawTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
+                        "r, должны использовать одинаковую строку подключения.");
+            }
+            if (((this._shipmentTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._shipmentTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
@@ -33405,6 +36210,15 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                         adaptersWithAcceptChangesDuringUpdate.Add(this._rawTableAdapter.Adapter);
                     }
                 }
+                if ((this._shipmentTableAdapter != null)) {
+                    revertConnections.Add(this._shipmentTableAdapter, this._shipmentTableAdapter.Connection);
+                    this._shipmentTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._shipmentTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._shipmentTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._shipmentTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._shipmentTableAdapter.Adapter);
+                    }
+                }
                 if ((this._silageTableAdapter != null)) {
                     revertConnections.Add(this._silageTableAdapter, this._silageTableAdapter.Connection);
                     this._silageTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -33638,6 +36452,10 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                 if ((this._rawTableAdapter != null)) {
                     this._rawTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._rawTableAdapter]));
                     this._rawTableAdapter.Transaction = null;
+                }
+                if ((this._shipmentTableAdapter != null)) {
+                    this._shipmentTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._shipmentTableAdapter]));
+                    this._shipmentTableAdapter.Transaction = null;
                 }
                 if ((this._silageTableAdapter != null)) {
                     this._silageTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._silageTableAdapter]));

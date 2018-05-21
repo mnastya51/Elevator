@@ -2347,12 +2347,42 @@ namespace Elevator
             return da;
         }
 
-        public SqlDataAdapter selectReportAnalysisCard(string idRaw, int id)
+        public SqlDataAdapter selectReportAnalysisCardGeneral(string idRaw, int id)
         {
             string sqlCommand = string.Empty;
             SqlConnection connection = new SqlConnection(connectionString);
-            sqlCommand = string.Format("exec ReportAnalysisCard @id= {0},  @idEmp = {1}",
+            sqlCommand = string.Format("exec ReportAnalysisCardGeneral @id= {0},  @idEmp = {1}",
                 idRaw, id);
+            connection.Open();
+            SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
+            return da;
+        }
+
+        public SqlDataAdapter selectReportAnalysisCardGrain(string idRaw)
+        {
+            string sqlCommand = string.Empty;
+            SqlConnection connection = new SqlConnection(connectionString);
+            sqlCommand = string.Format("exec ReportAnalysisCardGrain {0}", idRaw);
+            connection.Open();
+            SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
+            return da;
+        }
+
+        public SqlDataAdapter selectReportAnalysisCardHarmful(string idRaw)
+        {
+            string sqlCommand = string.Empty;
+            SqlConnection connection = new SqlConnection(connectionString);
+            sqlCommand = string.Format("exec ReportAnalysisCardHarmful {0}", idRaw);
+            connection.Open();
+            SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
+            return da;
+        }
+
+        public SqlDataAdapter selectReportAnalysisCardWeed (string idRaw)
+        {
+            string sqlCommand = string.Empty;
+            SqlConnection connection = new SqlConnection(connectionString);
+            sqlCommand = string.Format("exec ReportAnalysisCardWeed {0}", idRaw);
             connection.Open();
             SqlDataAdapter da = new SqlDataAdapter(sqlCommand, connection);
             return da;

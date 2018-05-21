@@ -18,11 +18,11 @@ namespace Elevator.Forms
         public Form1(string idRaw, Employee employee)
         {
             InitializeComponent();
-            SqlDataAdapter da = DAO.getInstance().selectReportAnalysisCard(idRaw, employee.Id);
+            SqlDataAdapter da = DAO.getInstance().selectReportAnalysisCardGeneral(idRaw, employee.Id);
             AccountOfGrainDataSet ds = new AccountOfGrainDataSet();
-            da.Fill(ds, "ReportAnalysisCard");
+            da.Fill(ds, "ReportAnalysisCardGeneral");
             ReportDocument doc = new ReportDocument();
-            doc.Load("Reports/CrystalReport3.rpt");
+            doc.Load("Reports/ReportAnalysisCardGeneral.rpt");
             doc.SetDataSource(ds);
             crystalReportViewer1.ReportSource = doc;
         }

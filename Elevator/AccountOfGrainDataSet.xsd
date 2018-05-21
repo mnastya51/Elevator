@@ -4,12 +4,12 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="AccountOfGrainElevator" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="AccountOfGrainElevator (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Elevator.Properties.Settings.GlobalReference.Default.AccountOfGrainElevator" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="AccountOfGrainConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="AccountOfGrainConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Elevator.Properties.Settings.GlobalReference.Default.AccountOfGrainConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AnalysisTableAdapter" GeneratorDataComponentClassName="AnalysisTableAdapter" Name="Analysis" UserDataComponentName="AnalysisTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Analysis" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Analysis" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Analysis] WHERE (([id_analysis] = @Original_id_analysis) AND ((@IsNull_id_contractor = 1 AND [id_contractor] IS NULL) OR ([id_contractor] = @Original_id_contractor)) AND ((@IsNull_id_raw = 1 AND [id_raw] IS NULL) OR ([id_raw] = @Original_id_raw)) AND ([date_analysis] = @Original_date_analysis))</CommandText>
@@ -70,7 +70,7 @@ SELECT id_analysis, id_contractor, id_raw, date_analysis FROM Analysis WHERE (id
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ClassTableAdapter" GeneratorDataComponentClassName="ClassTableAdapter" Name="Class" UserDataComponentName="ClassTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Class" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Class" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Class] WHERE (([id_class] = @Original_id_class) AND ((@IsNull_id_NameRaw = 1 AND [id_NameRaw] IS NULL) OR ([id_NameRaw] = @Original_id_NameRaw)) AND ((@IsNull_number_class = 1 AND [number_class] IS NULL) OR ([number_class] = @Original_number_class)))</CommandText>
@@ -126,7 +126,7 @@ SELECT id_class, id_NameRaw, number_class FROM Class WHERE (id_class = @id_class
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ClearingTableAdapter" GeneratorDataComponentClassName="ClearingTableAdapter" Name="Clearing" UserDataComponentName="ClearingTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Clearing" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Clearing" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Clearing] WHERE (([id_raw] = @Original_id_raw) AND ([id_contractor] = @Original_id_contractor) AND ((@IsNull_date_clearing = 1 AND [date_clearing] IS NULL) OR ([date_clearing] = @Original_date_clearing)) AND ((@IsNull_weight_before_clearing = 1 AND [weight_before_clearing] IS NULL) OR ([weight_before_clearing] = @Original_weight_before_clearing)) AND ((@IsNull_weight_after_clearing = 1 AND [weight_after_clearing] IS NULL) OR ([weight_after_clearing] = @Original_weight_after_clearing)))</CommandText>
@@ -195,7 +195,7 @@ SELECT id_raw, id_contractor, date_clearing, weight_before_clearing, weight_afte
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ContractTableAdapter" GeneratorDataComponentClassName="ContractTableAdapter" Name="Contract" UserDataComponentName="ContractTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Contract" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Contract" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Contract] WHERE (([id_contractor] = @Original_id_contractor) AND ([id_contract] = @Original_id_contract) AND ([goal] = @Original_goal) AND ([date_contr] = @Original_date_contr))</CommandText>
@@ -253,7 +253,7 @@ SELECT id_contractor, id_contract, goal, date_contr FROM Contract WHERE (id_cont
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ContractorTableAdapter" GeneratorDataComponentClassName="ContractorTableAdapter" Name="Contractor" UserDataComponentName="ContractorTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Contractor" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Contractor" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Contractor] WHERE (([id_contractor] = @Original_id_contractor) AND ([name_contr] = @Original_name_contr) AND ((@IsNull_subdivision = 1 AND [subdivision] IS NULL) OR ([subdivision] = @Original_subdivision)) AND ((@IsNull_jur_address = 1 AND [jur_address] IS NULL) OR ([jur_address] = @Original_jur_address)) AND ([fact_address] = @Original_fact_address) AND ((@IsNull_mail_index = 1 AND [mail_index] IS NULL) OR ([mail_index] = @Original_mail_index)) AND ((@IsNull_phone = 1 AND [phone] IS NULL) OR ([phone] = @Original_phone)) AND ((@IsNull_inn = 1 AND [inn] IS NULL) OR ([inn] = @Original_inn)))</CommandText>
@@ -340,7 +340,7 @@ SELECT id_contractor, name_contr, subdivision, jur_address, fact_address, mail_i
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DeliveryTableAdapter" GeneratorDataComponentClassName="DeliveryTableAdapter" Name="Delivery" UserDataComponentName="DeliveryTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Delivery" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Delivery" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Delivery] WHERE (([id_contractor] = @Original_id_contractor) AND ([id_raw] = @Original_id_raw) AND ((@IsNull_type_transport_delivery = 1 AND [type_transport_delivery] IS NULL) OR ([type_transport_delivery] = @Original_type_transport_delivery)) AND ((@IsNull_weight_delivery = 1 AND [weight_delivery] IS NULL) OR ([weight_delivery] = @Original_weight_delivery)) AND ([date_delivery] = @Original_date_delivery))</CommandText>
@@ -407,7 +407,7 @@ SELECT id_contractor, id_raw, type_transport_delivery, weight_delivery, date_del
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DryingTableAdapter" GeneratorDataComponentClassName="DryingTableAdapter" Name="Drying" UserDataComponentName="DryingTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Drying" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Drying" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Drying] WHERE (([id_raw] = @Original_id_raw) AND ([id_contractor] = @Original_id_contractor) AND ((@IsNull_date_drying = 1 AND [date_drying] IS NULL) OR ([date_drying] = @Original_date_drying)) AND ((@IsNull_weight_before_drying = 1 AND [weight_before_drying] IS NULL) OR ([weight_before_drying] = @Original_weight_before_drying)) AND ((@IsNull_weight_after_drying = 1 AND [weight_after_drying] IS NULL) OR ([weight_after_drying] = @Original_weight_after_drying)) AND ((@IsNull_wet_before = 1 AND [wet_before] IS NULL) OR ([wet_before] = @Original_wet_before)) AND ((@IsNull_wet_after = 1 AND [wet_after] IS NULL) OR ([wet_after] = @Original_wet_after)))</CommandText>
@@ -490,7 +490,7 @@ SELECT id_raw, id_contractor, date_drying, weight_before_drying, weight_after_dr
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EmployeeTableAdapter" GeneratorDataComponentClassName="EmployeeTableAdapter" Name="Employee" UserDataComponentName="EmployeeTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Employee" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Employee" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Employee] WHERE (([id_emp] = @Original_id_emp) AND ([surname] = @Original_surname) AND ([name] = @Original_name) AND ([secName] = @Original_secName) AND ([post] = @Original_post) AND ([login] = @Original_login) AND ([password] = @Original_password))</CommandText>
@@ -562,7 +562,7 @@ SELECT id_emp, surname, name, secName, post, login, password FROM Employee WHERE
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="General_impuritiesTableAdapter" GeneratorDataComponentClassName="General_impuritiesTableAdapter" Name="General_impurities" UserDataComponentName="General_impuritiesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.General_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.General_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[General_impurities] WHERE (([name_imp] = @Original_name_imp) AND ([id_raw] = @Original_id_raw) AND ([value_imp] = @Original_value_imp))</CommandText>
@@ -615,7 +615,7 @@ SELECT name_imp, id_raw, value_imp FROM General_impurities WHERE (id_raw = @id_r
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Grain_impuritiesTableAdapter" GeneratorDataComponentClassName="Grain_impuritiesTableAdapter" Name="Grain_impurities" UserDataComponentName="Grain_impuritiesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Grain_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Grain_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Grain_impurities] WHERE (([name_grain_imp] = @Original_name_grain_imp) AND ([id_raw] = @Original_id_raw) AND ([value_grain_imp] = @Original_value_grain_imp))</CommandText>
@@ -668,7 +668,7 @@ SELECT name_grain_imp, id_raw, value_grain_imp FROM Grain_impurities WHERE (id_r
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Harmful_impuritiesTableAdapter" GeneratorDataComponentClassName="Harmful_impuritiesTableAdapter" Name="Harmful_impurities" UserDataComponentName="Harmful_impuritiesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Harmful_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Harmful_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Harmful_impurities] WHERE (([name_harm_imp] = @Original_name_harm_imp) AND ([id_raw] = @Original_id_raw) AND ([value_harm_imp] = @Original_value_harm_imp))</CommandText>
@@ -721,7 +721,7 @@ SELECT name_harm_imp, id_raw, value_harm_imp FROM Harmful_impurities WHERE (id_r
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Norm_general_impuritiesTableAdapter" GeneratorDataComponentClassName="Norm_general_impuritiesTableAdapter" Name="Norm_general_impurities" UserDataComponentName="Norm_general_impuritiesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Norm_general_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Norm_general_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Norm_general_impurities] WHERE (([id_norm_general] = @Original_id_norm_general) AND ((@IsNull_name_imp = 1 AND [name_imp] IS NULL) OR ([name_imp] = @Original_name_imp)) AND ((@IsNull_id_class = 1 AND [id_class] IS NULL) OR ([id_class] = @Original_id_class)) AND ([norm_imp] = @Original_norm_imp) AND ([is_minimum] = @Original_is_minimum) AND ((@IsNull_id_subtype = 1 AND [id_subtype] IS NULL) OR ([id_subtype] = @Original_id_subtype)))</CommandText>
@@ -794,7 +794,7 @@ SELECT id_norm_general, name_imp, id_class, norm_imp, is_minimum, id_subtype FRO
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Norm_grain_impuritiesTableAdapter" GeneratorDataComponentClassName="Norm_grain_impuritiesTableAdapter" Name="Norm_grain_impurities" UserDataComponentName="Norm_grain_impuritiesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Norm_grain_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Norm_grain_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Norm_grain_impurities] WHERE (([id_norm_grain] = @Original_id_norm_grain) AND ((@IsNull_name_grain_imp = 1 AND [name_grain_imp] IS NULL) OR ([name_grain_imp] = @Original_name_grain_imp)) AND ((@IsNull_id_class = 1 AND [id_class] IS NULL) OR ([id_class] = @Original_id_class)) AND ([norm_grain_imp] = @Original_norm_grain_imp) AND ((@IsNull_id_subtype = 1 AND [id_subtype] IS NULL) OR ([id_subtype] = @Original_id_subtype)))</CommandText>
@@ -862,7 +862,7 @@ SELECT id_norm_grain, name_grain_imp, id_class, norm_grain_imp, id_subtype FROM 
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Norm_harmful_impuritiesTableAdapter" GeneratorDataComponentClassName="Norm_harmful_impuritiesTableAdapter" Name="Norm_harmful_impurities" UserDataComponentName="Norm_harmful_impuritiesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Norm_harmful_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Norm_harmful_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Norm_harmful_impurities] WHERE (([id_norm_harmful] = @Original_id_norm_harmful) AND ((@IsNull_name_harm_imp = 1 AND [name_harm_imp] IS NULL) OR ([name_harm_imp] = @Original_name_harm_imp)) AND ((@IsNull_id_class = 1 AND [id_class] IS NULL) OR ([id_class] = @Original_id_class)) AND ([norm_harm_imp] = @Original_norm_harm_imp) AND ((@IsNull_id_subtype = 1 AND [id_subtype] IS NULL) OR ([id_subtype] = @Original_id_subtype)))</CommandText>
@@ -930,7 +930,7 @@ SELECT id_norm_harmful, name_harm_imp, id_class, norm_harm_imp, id_subtype FROM 
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Norm_weed_impuritiesTableAdapter" GeneratorDataComponentClassName="Norm_weed_impuritiesTableAdapter" Name="Norm_weed_impurities" UserDataComponentName="Norm_weed_impuritiesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Norm_weed_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Norm_weed_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Norm_weed_impurities] WHERE (([id_norm_weed] = @Original_id_norm_weed) AND ((@IsNull_name_weed_imp = 1 AND [name_weed_imp] IS NULL) OR ([name_weed_imp] = @Original_name_weed_imp)) AND ((@IsNull_id_class = 1 AND [id_class] IS NULL) OR ([id_class] = @Original_id_class)) AND ([norm_weed_imp] = @Original_norm_weed_imp) AND ((@IsNull_id_subtype = 1 AND [id_subtype] IS NULL) OR ([id_subtype] = @Original_id_subtype)))</CommandText>
@@ -998,7 +998,7 @@ SELECT id_norm_weed, name_weed_imp, id_class, norm_weed_imp, id_subtype FROM Nor
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PlaceStorageTableAdapter" GeneratorDataComponentClassName="PlaceStorageTableAdapter" Name="PlaceStorage" UserDataComponentName="PlaceStorageTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.PlaceStorage" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.PlaceStorage" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[PlaceStorage] WHERE (([id_place_storage] = @Original_id_place_storage) AND ([id_raw] = @Original_id_raw))</CommandText>
@@ -1045,7 +1045,7 @@ SELECT id_place_storage, id_raw FROM PlaceStorage WHERE (id_place_storage = @id_
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RawTableAdapter" GeneratorDataComponentClassName="RawTableAdapter" Name="Raw" UserDataComponentName="RawTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Raw" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Raw" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Raw] WHERE (([id_NameRaw] = @Original_id_NameRaw) AND ((@IsNull_name_raw = 1 AND [name_raw] IS NULL) OR ([name_raw] = @Original_name_raw)) AND ((@IsNull_number_gost = 1 AND [number_gost] IS NULL) OR ([number_gost] = @Original_number_gost)))</CommandText>
@@ -1099,9 +1099,97 @@ SELECT id_NameRaw, name_raw, number_gost FROM Raw WHERE (id_NameRaw = @id_NameRa
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ShipmentTableAdapter" GeneratorDataComponentClassName="ShipmentTableAdapter" Name="Shipment" UserDataComponentName="ShipmentTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Shipment" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Shipment] WHERE (([id_contractor] = @Original_id_contractor) AND ([id_raw] = @Original_id_raw) AND ((@IsNull_type_transport_shipment = 1 AND [type_transport_shipment] IS NULL) OR ([type_transport_shipment] = @Original_type_transport_shipment)) AND ((@IsNull_weight_shipment = 1 AND [weight_shipment] IS NULL) OR ([weight_shipment] = @Original_weight_shipment)) AND ([date_shipment] = @Original_date_shipment) AND ((@IsNull_id_place_storage = 1 AND [id_place_storage] IS NULL) OR ([id_place_storage] = @Original_id_place_storage)) AND ((@IsNull_numb_store = 1 AND [numb_store] IS NULL) OR ([numb_store] = @Original_numb_store)) AND ((@IsNull_numb_silage = 1 AND [numb_silage] IS NULL) OR ([numb_silage] = @Original_numb_silage)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id_contractor" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_contractor" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id_raw" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_raw" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_type_transport_shipment" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="type_transport_shipment" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_type_transport_shipment" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="type_transport_shipment" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_weight_shipment" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="weight_shipment" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Single" Direction="Input" ParameterName="@Original_weight_shipment" Precision="0" ProviderType="Real" Scale="0" Size="0" SourceColumn="weight_shipment" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_date_shipment" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="date_shipment" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_id_place_storage" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_place_storage" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id_place_storage" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_place_storage" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_numb_store" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="numb_store" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_numb_store" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="numb_store" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_numb_silage" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="numb_silage" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_numb_silage" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="numb_silage" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Shipment] ([id_contractor], [id_raw], [type_transport_shipment], [weight_shipment], [date_shipment], [id_place_storage], [numb_store], [numb_silage]) VALUES (@id_contractor, @id_raw, @type_transport_shipment, @weight_shipment, @date_shipment, @id_place_storage, @numb_store, @numb_silage);
+SELECT id_contractor, id_raw, type_transport_shipment, weight_shipment, date_shipment, id_place_storage, numb_store, numb_silage FROM Shipment WHERE (date_shipment = @date_shipment) AND (id_contractor = @id_contractor) AND (id_raw = @id_raw)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@id_contractor" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_contractor" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@id_raw" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_raw" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@type_transport_shipment" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="type_transport_shipment" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Single" Direction="Input" ParameterName="@weight_shipment" Precision="0" ProviderType="Real" Scale="0" Size="0" SourceColumn="weight_shipment" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@date_shipment" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="date_shipment" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@id_place_storage" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_place_storage" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@numb_store" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="numb_store" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@numb_silage" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="numb_silage" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id_contractor, id_raw, type_transport_shipment, weight_shipment, date_shipment, id_place_storage, numb_store, numb_silage FROM dbo.Shipment</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Shipment] SET [id_contractor] = @id_contractor, [id_raw] = @id_raw, [type_transport_shipment] = @type_transport_shipment, [weight_shipment] = @weight_shipment, [date_shipment] = @date_shipment, [id_place_storage] = @id_place_storage, [numb_store] = @numb_store, [numb_silage] = @numb_silage WHERE (([id_contractor] = @Original_id_contractor) AND ([id_raw] = @Original_id_raw) AND ((@IsNull_type_transport_shipment = 1 AND [type_transport_shipment] IS NULL) OR ([type_transport_shipment] = @Original_type_transport_shipment)) AND ((@IsNull_weight_shipment = 1 AND [weight_shipment] IS NULL) OR ([weight_shipment] = @Original_weight_shipment)) AND ([date_shipment] = @Original_date_shipment) AND ((@IsNull_id_place_storage = 1 AND [id_place_storage] IS NULL) OR ([id_place_storage] = @Original_id_place_storage)) AND ((@IsNull_numb_store = 1 AND [numb_store] IS NULL) OR ([numb_store] = @Original_numb_store)) AND ((@IsNull_numb_silage = 1 AND [numb_silage] IS NULL) OR ([numb_silage] = @Original_numb_silage)));
+SELECT id_contractor, id_raw, type_transport_shipment, weight_shipment, date_shipment, id_place_storage, numb_store, numb_silage FROM Shipment WHERE (date_shipment = @date_shipment) AND (id_contractor = @id_contractor) AND (id_raw = @id_raw)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@id_contractor" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_contractor" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@id_raw" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_raw" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@type_transport_shipment" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="type_transport_shipment" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Single" Direction="Input" ParameterName="@weight_shipment" Precision="0" ProviderType="Real" Scale="0" Size="0" SourceColumn="weight_shipment" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@date_shipment" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="date_shipment" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@id_place_storage" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_place_storage" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@numb_store" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="numb_store" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@numb_silage" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="numb_silage" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id_contractor" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_contractor" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id_raw" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_raw" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_type_transport_shipment" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="type_transport_shipment" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_type_transport_shipment" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="type_transport_shipment" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_weight_shipment" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="weight_shipment" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Single" Direction="Input" ParameterName="@Original_weight_shipment" Precision="0" ProviderType="Real" Scale="0" Size="0" SourceColumn="weight_shipment" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_date_shipment" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="date_shipment" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_id_place_storage" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_place_storage" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id_place_storage" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id_place_storage" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_numb_store" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="numb_store" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_numb_store" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="numb_store" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_numb_silage" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="numb_silage" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_numb_silage" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="numb_silage" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id_contractor" DataSetColumn="id_contractor" />
+              <Mapping SourceColumn="id_raw" DataSetColumn="id_raw" />
+              <Mapping SourceColumn="type_transport_shipment" DataSetColumn="type_transport_shipment" />
+              <Mapping SourceColumn="weight_shipment" DataSetColumn="weight_shipment" />
+              <Mapping SourceColumn="date_shipment" DataSetColumn="date_shipment" />
+              <Mapping SourceColumn="id_place_storage" DataSetColumn="id_place_storage" />
+              <Mapping SourceColumn="numb_store" DataSetColumn="numb_store" />
+              <Mapping SourceColumn="numb_silage" DataSetColumn="numb_silage" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SilageTableAdapter" GeneratorDataComponentClassName="SilageTableAdapter" Name="Silage" UserDataComponentName="SilageTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Silage" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Silage" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Silage] WHERE (([numb_silage] = @Original_numb_silage))</CommandText>
@@ -1144,7 +1232,7 @@ SELECT numb_silage FROM Silage WHERE (numb_silage = @numb_silage)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Silage_rawTableAdapter" GeneratorDataComponentClassName="Silage_rawTableAdapter" Name="Silage_raw" UserDataComponentName="Silage_rawTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Silage_raw" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Silage_raw" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Silage_raw] WHERE (([numb_silage] = @Original_numb_silage) AND ([id_place_storage] = @Original_id_place_storage) AND ([id_raw] = @Original_id_raw) AND ([weight_silage] = @Original_weight_silage))</CommandText>
@@ -1202,7 +1290,7 @@ SELECT numb_silage, id_place_storage, id_raw, weight_silage FROM Silage_raw WHER
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="StorageTableAdapter" GeneratorDataComponentClassName="StorageTableAdapter" Name="Storage" UserDataComponentName="StorageTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Storage" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Storage" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Storage] WHERE (([id_raw] = @Original_id_raw) AND ([year_crop] = @Original_year_crop) AND ((@IsNull_id_subtype = 1 AND [id_subtype] IS NULL) OR ([id_subtype] = @Original_id_subtype)) AND ((@IsNull_weight = 1 AND [weight] IS NULL) OR ([weight] = @Original_weight)) AND ((@IsNull_id_NameRaw = 1 AND [id_NameRaw] IS NULL) OR ([id_NameRaw] = @Original_id_NameRaw)) AND ((@IsNull_id_class = 1 AND [id_class] IS NULL) OR ([id_class] = @Original_id_class)))</CommandText>
@@ -1277,7 +1365,7 @@ SELECT id_raw, year_crop, id_subtype, weight, id_NameRaw, id_class FROM Storage 
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="StoreTableAdapter" GeneratorDataComponentClassName="StoreTableAdapter" Name="Store" UserDataComponentName="StoreTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Store" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Store" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Store] WHERE (([numb_store] = @Original_numb_store))</CommandText>
@@ -1320,7 +1408,7 @@ SELECT numb_store FROM Store WHERE (numb_store = @numb_store)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Store_rawTableAdapter" GeneratorDataComponentClassName="Store_rawTableAdapter" Name="Store_raw" UserDataComponentName="Store_rawTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Store_raw" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Store_raw" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Store_raw] WHERE (([numb_store] = @Original_numb_store) AND ([id_place_storage] = @Original_id_place_storage) AND ([id_raw] = @Original_id_raw) AND ([weight_store] = @Original_weight_store))</CommandText>
@@ -1378,7 +1466,7 @@ SELECT numb_store, id_place_storage, id_raw, weight_store FROM Store_raw WHERE (
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Subtype_rawTableAdapter" GeneratorDataComponentClassName="Subtype_rawTableAdapter" Name="Subtype_raw" UserDataComponentName="Subtype_rawTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Subtype_raw" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Subtype_raw" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Subtype_raw] WHERE (([id_subtype] = @Original_id_subtype) AND ((@IsNull_id_type = 1 AND [id_type] IS NULL) OR ([id_type] = @Original_id_type)) AND ((@IsNull_name_subtype = 1 AND [name_subtype] IS NULL) OR ([name_subtype] = @Original_name_subtype)))</CommandText>
@@ -1434,7 +1522,7 @@ SELECT id_subtype, id_type, name_subtype FROM Subtype_raw WHERE (id_subtype = @i
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Type_general_impuritiesTableAdapter" GeneratorDataComponentClassName="Type_general_impuritiesTableAdapter" Name="Type_general_impurities" UserDataComponentName="Type_general_impuritiesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Type_general_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Type_general_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Type_general_impurities] WHERE (([name_imp] = @Original_name_imp))</CommandText>
@@ -1477,7 +1565,7 @@ SELECT name_imp FROM Type_general_impurities WHERE (name_imp = @name_imp)</Comma
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Type_grain_impuritiesTableAdapter" GeneratorDataComponentClassName="Type_grain_impuritiesTableAdapter" Name="Type_grain_impurities" UserDataComponentName="Type_grain_impuritiesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Type_grain_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Type_grain_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Type_grain_impurities] WHERE (([name_grain_imp] = @Original_name_grain_imp))</CommandText>
@@ -1520,7 +1608,7 @@ SELECT name_grain_imp FROM Type_grain_impurities WHERE (name_grain_imp = @name_g
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Type_harmful_impuritiesTableAdapter" GeneratorDataComponentClassName="Type_harmful_impuritiesTableAdapter" Name="Type_harmful_impurities" UserDataComponentName="Type_harmful_impuritiesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Type_harmful_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Type_harmful_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Type_harmful_impurities] WHERE (([name_harm_imp] = @Original_name_harm_imp))</CommandText>
@@ -1563,7 +1651,7 @@ SELECT name_harm_imp FROM Type_harmful_impurities WHERE (name_harm_imp = @name_h
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Type_rawTableAdapter" GeneratorDataComponentClassName="Type_rawTableAdapter" Name="Type_raw" UserDataComponentName="Type_rawTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Type_raw" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Type_raw" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Type_raw] WHERE (([id_type] = @Original_id_type) AND ((@IsNull_name_type_raw = 1 AND [name_type_raw] IS NULL) OR ([name_type_raw] = @Original_name_type_raw)) AND ((@IsNull_id_NameRaw = 1 AND [id_NameRaw] IS NULL) OR ([id_NameRaw] = @Original_id_NameRaw)))</CommandText>
@@ -1619,7 +1707,7 @@ SELECT id_type, name_type_raw, id_NameRaw FROM Type_raw WHERE (id_type = @id_typ
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Type_weed_impuritiesTableAdapter" GeneratorDataComponentClassName="Type_weed_impuritiesTableAdapter" Name="Type_weed_impurities" UserDataComponentName="Type_weed_impuritiesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Type_weed_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Type_weed_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Type_weed_impurities] WHERE (([name_weed_imp] = @Original_name_weed_imp))</CommandText>
@@ -1662,7 +1750,7 @@ SELECT name_weed_imp FROM Type_weed_impurities WHERE (name_weed_imp = @name_weed
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Weed_impuritiesTableAdapter" GeneratorDataComponentClassName="Weed_impuritiesTableAdapter" Name="Weed_impurities" UserDataComponentName="Weed_impuritiesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.Weed_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.Weed_impurities" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Weed_impurities] WHERE (([name_weed_imp] = @Original_name_weed_imp) AND ([id_raw] = @Original_id_raw) AND ([value_weed_imp] = @Original_value_weed_imp))</CommandText>
@@ -1715,7 +1803,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProcessReportTableAdapter" GeneratorDataComponentClassName="ProcessReportTableAdapter" Name="ProcessReport" UserDataComponentName="ProcessReportTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.ProcessReport" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.ProcessReport" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT contractor, subdivision, name_raw, date_clearing, date_drying FROM dbo.ProcessReport</CommandText>
@@ -1735,7 +1823,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ReportWeightTableAdapter" GeneratorDataComponentClassName="ReportWeightTableAdapter" Name="ReportWeight" UserDataComponentName="ReportWeightTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.ReportWeight" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.ReportWeight" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT raw, weight FROM dbo.ReportWeight</CommandText>
@@ -1752,7 +1840,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProcessReportContractorTableAdapter" GeneratorDataComponentClassName="ProcessReportContractorTableAdapter" Name="ProcessReportContractor" UserDataComponentName="ProcessReportContractorTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.ProcessReportContractor" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.ProcessReportContractor" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.ProcessReportContractor</CommandText>
@@ -1775,7 +1863,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProcessReportContractorWithPeriodTableAdapter" GeneratorDataComponentClassName="ProcessReportContractorWithPeriodTableAdapter" Name="ProcessReportContractorWithPeriod" UserDataComponentName="ProcessReportContractorWithPeriodTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.ProcessReportContractorWithPeriod" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.ProcessReportContractorWithPeriod" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.ProcessReportContractorWithPeriod</CommandText>
@@ -1800,7 +1888,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProcessReportWithPeriodTableAdapter" GeneratorDataComponentClassName="ProcessReportWithPeriodTableAdapter" Name="ProcessReportWithPeriod" UserDataComponentName="ProcessReportWithPeriodTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.ProcessReportWithPeriod" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.ProcessReportWithPeriod" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.ProcessReportWithPeriod</CommandText>
@@ -1822,12 +1910,12 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ReportAnalysisCardTableAdapter" GeneratorDataComponentClassName="ReportAnalysisCardTableAdapter" Name="ReportAnalysisCard" UserDataComponentName="ReportAnalysisCardTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ReportAnalysisCardGeneralTableAdapter" GeneratorDataComponentClassName="ReportAnalysisCardGeneralTableAdapter" Name="ReportAnalysisCardGeneral" UserDataComponentName="ReportAnalysisCardGeneralTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.ReportAnalysisCard" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.ReportAnalysisCardGeneral" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
-                    <CommandText>dbo.ReportAnalysisCard</CommandText>
+                    <CommandText>dbo.ReportAnalysisCardGeneral</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -1848,20 +1936,74 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
               <Mapping SourceColumn="number_class" DataSetColumn="number_class" />
               <Mapping SourceColumn="name_imp" DataSetColumn="name_imp" />
               <Mapping SourceColumn="value_imp" DataSetColumn="value_imp" />
-              <Mapping SourceColumn="name_harm_imp" DataSetColumn="name_harm_imp" />
-              <Mapping SourceColumn="value_harm_imp" DataSetColumn="value_harm_imp" />
-              <Mapping SourceColumn="name_weed_imp" DataSetColumn="name_weed_imp" />
-              <Mapping SourceColumn="value_weed_imp" DataSetColumn="value_weed_imp" />
-              <Mapping SourceColumn="name_grain_imp" DataSetColumn="name_grain_imp" />
-              <Mapping SourceColumn="value_grain_imp" DataSetColumn="value_grain_imp" />
               <Mapping SourceColumn="Column1" DataSetColumn="Column1" />
               <Mapping SourceColumn="Column2" DataSetColumn="Column2" />
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ReportAnalysisCardGrainTableAdapter" GeneratorDataComponentClassName="ReportAnalysisCardGrainTableAdapter" Name="ReportAnalysisCardGrain" UserDataComponentName="ReportAnalysisCardGrainTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.ReportAnalysisCardGrain" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.ReportAnalysisCardGrain</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="name_grain_imp" DataSetColumn="name_grain_imp" />
+              <Mapping SourceColumn="value_grain_imp" DataSetColumn="value_grain_imp" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ReportAnalysisCardHarmfulTableAdapter" GeneratorDataComponentClassName="ReportAnalysisCardHarmfulTableAdapter" Name="ReportAnalysisCardHarmful" UserDataComponentName="ReportAnalysisCardHarmfulTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.ReportAnalysisCardHarmful" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.ReportAnalysisCardHarmful</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="name_harm_imp" DataSetColumn="name_harm_imp" />
+              <Mapping SourceColumn="value_harm_imp" DataSetColumn="value_harm_imp" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ReportAnalysisCardWeedTableAdapter" GeneratorDataComponentClassName="ReportAnalysisCardWeedTableAdapter" Name="ReportAnalysisCardWeed" UserDataComponentName="ReportAnalysisCardWeedTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.ReportAnalysisCardWeed" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.ReportAnalysisCardWeed</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="name_weed_imp" DataSetColumn="name_weed_imp" />
+              <Mapping SourceColumn="value_weed_imp" DataSetColumn="value_weed_imp" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ReportWeightWithContractorTableAdapter" GeneratorDataComponentClassName="ReportWeightWithContractorTableAdapter" Name="ReportWeightWithContractor" UserDataComponentName="ReportWeightWithContractorTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.ReportWeightWithContractor" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.ReportWeightWithContractor" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.ReportWeightWithContractor</CommandText>
@@ -1881,7 +2023,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ReportWeightWithContractorPeriodTableAdapter" GeneratorDataComponentClassName="ReportWeightWithContractorPeriodTableAdapter" Name="ReportWeightWithContractorPeriod" UserDataComponentName="ReportWeightWithContractorPeriodTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.ReportWeightWithContractorPeriod" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.ReportWeightWithContractorPeriod" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.ReportWeightWithContractorPeriod</CommandText>
@@ -1903,7 +2045,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ReportWeightWithPeriodTableAdapter" GeneratorDataComponentClassName="ReportWeightWithPeriodTableAdapter" Name="ReportWeightWithPeriod" UserDataComponentName="ReportWeightWithPeriodTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AccountOfGrainElevator (Settings)" DbObjectName="[D:\НАСТЯ\ДИПЛОМ\ВКРБ МИХЕЕВА\БАЗА ДАННЫХ\ACCOUNTOFGRAIN.MDF].dbo.ReportWeightWithPeriod" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AccountOfGrainConnectionString (Settings)" DbObjectName="dbo.ReportWeightWithPeriod" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.ReportWeightWithPeriod</CommandText>
@@ -2290,6 +2432,32 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Shipment" msprop:Generator_TableClassName="ShipmentDataTable" msprop:Generator_TableVarName="tableShipment" msprop:Generator_TablePropName="Shipment" msprop:Generator_RowDeletingName="ShipmentRowDeleting" msprop:Generator_RowChangingName="ShipmentRowChanging" msprop:Generator_RowEvHandlerName="ShipmentRowChangeEventHandler" msprop:Generator_RowDeletedName="ShipmentRowDeleted" msprop:Generator_UserTableName="Shipment" msprop:Generator_RowChangedName="ShipmentRowChanged" msprop:Generator_RowEvArgName="ShipmentRowChangeEvent" msprop:Generator_RowClassName="ShipmentRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_contractor" msprop:Generator_ColumnVarNameInTable="columnid_contractor" msprop:Generator_ColumnPropNameInRow="id_contractor" msprop:Generator_ColumnPropNameInTable="id_contractorColumn" msprop:Generator_UserColumnName="id_contractor" type="xs:int" />
+              <xs:element name="id_raw" msprop:Generator_ColumnVarNameInTable="columnid_raw" msprop:Generator_ColumnPropNameInRow="id_raw" msprop:Generator_ColumnPropNameInTable="id_rawColumn" msprop:Generator_UserColumnName="id_raw" type="xs:int" />
+              <xs:element name="type_transport_shipment" msprop:Generator_ColumnVarNameInTable="columntype_transport_shipment" msprop:Generator_ColumnPropNameInRow="type_transport_shipment" msprop:Generator_ColumnPropNameInTable="type_transport_shipmentColumn" msprop:Generator_UserColumnName="type_transport_shipment" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="weight_shipment" msprop:Generator_ColumnVarNameInTable="columnweight_shipment" msprop:Generator_ColumnPropNameInRow="weight_shipment" msprop:Generator_ColumnPropNameInTable="weight_shipmentColumn" msprop:Generator_UserColumnName="weight_shipment" type="xs:float" minOccurs="0" />
+              <xs:element name="date_shipment" msprop:Generator_ColumnVarNameInTable="columndate_shipment" msprop:Generator_ColumnPropNameInRow="date_shipment" msprop:Generator_ColumnPropNameInTable="date_shipmentColumn" msprop:Generator_UserColumnName="date_shipment">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_place_storage" msprop:Generator_ColumnVarNameInTable="columnid_place_storage" msprop:Generator_ColumnPropNameInRow="id_place_storage" msprop:Generator_ColumnPropNameInTable="id_place_storageColumn" msprop:Generator_UserColumnName="id_place_storage" type="xs:int" minOccurs="0" />
+              <xs:element name="numb_store" msprop:Generator_ColumnVarNameInTable="columnnumb_store" msprop:Generator_ColumnPropNameInRow="numb_store" msprop:Generator_ColumnPropNameInTable="numb_storeColumn" msprop:Generator_UserColumnName="numb_store" type="xs:int" minOccurs="0" />
+              <xs:element name="numb_silage" msprop:Generator_ColumnVarNameInTable="columnnumb_silage" msprop:Generator_ColumnPropNameInRow="numb_silage" msprop:Generator_ColumnPropNameInTable="numb_silageColumn" msprop:Generator_UserColumnName="numb_silage" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
         <xs:element name="Silage" msprop:Generator_TableClassName="SilageDataTable" msprop:Generator_TableVarName="tableSilage" msprop:Generator_TablePropName="Silage" msprop:Generator_RowDeletingName="SilageRowDeleting" msprop:Generator_RowChangingName="SilageRowChanging" msprop:Generator_RowEvHandlerName="SilageRowChangeEventHandler" msprop:Generator_RowDeletedName="SilageRowDeleted" msprop:Generator_UserTableName="Silage" msprop:Generator_RowChangedName="SilageRowChanged" msprop:Generator_RowEvArgName="SilageRowChangeEvent" msprop:Generator_RowClassName="SilageRow">
           <xs:complexType>
             <xs:sequence>
@@ -2599,7 +2767,7 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ReportAnalysisCard" msprop:Generator_TableClassName="ReportAnalysisCardDataTable" msprop:Generator_TableVarName="tableReportAnalysisCard" msprop:Generator_TablePropName="ReportAnalysisCard" msprop:Generator_RowDeletingName="ReportAnalysisCardRowDeleting" msprop:Generator_RowChangingName="ReportAnalysisCardRowChanging" msprop:Generator_RowEvHandlerName="ReportAnalysisCardRowChangeEventHandler" msprop:Generator_RowDeletedName="ReportAnalysisCardRowDeleted" msprop:Generator_UserTableName="ReportAnalysisCard" msprop:Generator_RowChangedName="ReportAnalysisCardRowChanged" msprop:Generator_RowEvArgName="ReportAnalysisCardRowChangeEvent" msprop:Generator_RowClassName="ReportAnalysisCardRow">
+        <xs:element name="ReportAnalysisCardGeneral" msprop:Generator_TableClassName="ReportAnalysisCardGeneralDataTable" msprop:Generator_TableVarName="tableReportAnalysisCardGeneral" msprop:Generator_TablePropName="ReportAnalysisCardGeneral" msprop:Generator_RowDeletingName="ReportAnalysisCardGeneralRowDeleting" msprop:Generator_RowChangingName="ReportAnalysisCardGeneralRowChanging" msprop:Generator_RowEvHandlerName="ReportAnalysisCardGeneralRowChangeEventHandler" msprop:Generator_RowDeletedName="ReportAnalysisCardGeneralRowDeleted" msprop:Generator_UserTableName="ReportAnalysisCardGeneral" msprop:Generator_RowChangedName="ReportAnalysisCardGeneralRowChanged" msprop:Generator_RowEvArgName="ReportAnalysisCardGeneralRowChangeEvent" msprop:Generator_RowClassName="ReportAnalysisCardGeneralRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="name_contr" msprop:Generator_ColumnVarNameInTable="columnname_contr" msprop:Generator_ColumnPropNameInRow="name_contr" msprop:Generator_ColumnPropNameInTable="name_contrColumn" msprop:Generator_UserColumnName="name_contr">
@@ -2642,30 +2810,6 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                 </xs:simpleType>
               </xs:element>
               <xs:element name="value_imp" msprop:Generator_ColumnVarNameInTable="columnvalue_imp" msprop:Generator_ColumnPropNameInRow="value_imp" msprop:Generator_ColumnPropNameInTable="value_impColumn" msprop:Generator_UserColumnName="value_imp" type="xs:float" minOccurs="0" />
-              <xs:element name="name_harm_imp" msprop:Generator_ColumnVarNameInTable="columnname_harm_imp" msprop:Generator_ColumnPropNameInRow="name_harm_imp" msprop:Generator_ColumnPropNameInTable="name_harm_impColumn" msprop:Generator_UserColumnName="name_harm_imp" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="value_harm_imp" msprop:Generator_ColumnVarNameInTable="columnvalue_harm_imp" msprop:Generator_ColumnPropNameInRow="value_harm_imp" msprop:Generator_ColumnPropNameInTable="value_harm_impColumn" msprop:Generator_UserColumnName="value_harm_imp" type="xs:float" minOccurs="0" />
-              <xs:element name="name_weed_imp" msprop:Generator_ColumnVarNameInTable="columnname_weed_imp" msprop:Generator_ColumnPropNameInRow="name_weed_imp" msprop:Generator_ColumnPropNameInTable="name_weed_impColumn" msprop:Generator_UserColumnName="name_weed_imp" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="value_weed_imp" msprop:Generator_ColumnVarNameInTable="columnvalue_weed_imp" msprop:Generator_ColumnPropNameInRow="value_weed_imp" msprop:Generator_ColumnPropNameInTable="value_weed_impColumn" msprop:Generator_UserColumnName="value_weed_imp" type="xs:float" minOccurs="0" />
-              <xs:element name="name_grain_imp" msprop:Generator_ColumnVarNameInTable="columnname_grain_imp" msprop:Generator_ColumnPropNameInRow="name_grain_imp" msprop:Generator_ColumnPropNameInTable="name_grain_impColumn" msprop:Generator_UserColumnName="name_grain_imp" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="value_grain_imp" msprop:Generator_ColumnVarNameInTable="columnvalue_grain_imp" msprop:Generator_ColumnPropNameInRow="value_grain_imp" msprop:Generator_ColumnPropNameInTable="value_grain_impColumn" msprop:Generator_UserColumnName="value_grain_imp" type="xs:float" minOccurs="0" />
               <xs:element name="Column1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnColumn1" msprop:Generator_ColumnPropNameInRow="Column1" msprop:Generator_ColumnPropNameInTable="Column1Column" msprop:Generator_UserColumnName="Column1" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -2680,6 +2824,48 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ReportAnalysisCardGrain" msprop:Generator_TableClassName="ReportAnalysisCardGrainDataTable" msprop:Generator_TableVarName="tableReportAnalysisCardGrain" msprop:Generator_TablePropName="ReportAnalysisCardGrain" msprop:Generator_RowDeletingName="ReportAnalysisCardGrainRowDeleting" msprop:Generator_RowChangingName="ReportAnalysisCardGrainRowChanging" msprop:Generator_RowEvHandlerName="ReportAnalysisCardGrainRowChangeEventHandler" msprop:Generator_RowDeletedName="ReportAnalysisCardGrainRowDeleted" msprop:Generator_UserTableName="ReportAnalysisCardGrain" msprop:Generator_RowChangedName="ReportAnalysisCardGrainRowChanged" msprop:Generator_RowEvArgName="ReportAnalysisCardGrainRowChangeEvent" msprop:Generator_RowClassName="ReportAnalysisCardGrainRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name_grain_imp" msprop:Generator_ColumnVarNameInTable="columnname_grain_imp" msprop:Generator_ColumnPropNameInRow="name_grain_imp" msprop:Generator_ColumnPropNameInTable="name_grain_impColumn" msprop:Generator_UserColumnName="name_grain_imp" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="value_grain_imp" msprop:Generator_ColumnVarNameInTable="columnvalue_grain_imp" msprop:Generator_ColumnPropNameInRow="value_grain_imp" msprop:Generator_ColumnPropNameInTable="value_grain_impColumn" msprop:Generator_UserColumnName="value_grain_imp" type="xs:float" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ReportAnalysisCardHarmful" msprop:Generator_TableClassName="ReportAnalysisCardHarmfulDataTable" msprop:Generator_TableVarName="tableReportAnalysisCardHarmful" msprop:Generator_TablePropName="ReportAnalysisCardHarmful" msprop:Generator_RowDeletingName="ReportAnalysisCardHarmfulRowDeleting" msprop:Generator_RowChangingName="ReportAnalysisCardHarmfulRowChanging" msprop:Generator_RowEvHandlerName="ReportAnalysisCardHarmfulRowChangeEventHandler" msprop:Generator_RowDeletedName="ReportAnalysisCardHarmfulRowDeleted" msprop:Generator_UserTableName="ReportAnalysisCardHarmful" msprop:Generator_RowChangedName="ReportAnalysisCardHarmfulRowChanged" msprop:Generator_RowEvArgName="ReportAnalysisCardHarmfulRowChangeEvent" msprop:Generator_RowClassName="ReportAnalysisCardHarmfulRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name_harm_imp" msprop:Generator_ColumnVarNameInTable="columnname_harm_imp" msprop:Generator_ColumnPropNameInRow="name_harm_imp" msprop:Generator_ColumnPropNameInTable="name_harm_impColumn" msprop:Generator_UserColumnName="name_harm_imp" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="value_harm_imp" msprop:Generator_ColumnVarNameInTable="columnvalue_harm_imp" msprop:Generator_ColumnPropNameInRow="value_harm_imp" msprop:Generator_ColumnPropNameInTable="value_harm_impColumn" msprop:Generator_UserColumnName="value_harm_imp" type="xs:float" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ReportAnalysisCardWeed" msprop:Generator_TableClassName="ReportAnalysisCardWeedDataTable" msprop:Generator_TableVarName="tableReportAnalysisCardWeed" msprop:Generator_TablePropName="ReportAnalysisCardWeed" msprop:Generator_RowDeletingName="ReportAnalysisCardWeedRowDeleting" msprop:Generator_RowChangingName="ReportAnalysisCardWeedRowChanging" msprop:Generator_RowEvHandlerName="ReportAnalysisCardWeedRowChangeEventHandler" msprop:Generator_RowDeletedName="ReportAnalysisCardWeedRowDeleted" msprop:Generator_UserTableName="ReportAnalysisCardWeed" msprop:Generator_RowChangedName="ReportAnalysisCardWeedRowChanged" msprop:Generator_RowEvArgName="ReportAnalysisCardWeedRowChangeEvent" msprop:Generator_RowClassName="ReportAnalysisCardWeedRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name_weed_imp" msprop:Generator_ColumnVarNameInTable="columnname_weed_imp" msprop:Generator_ColumnPropNameInRow="name_weed_imp" msprop:Generator_ColumnPropNameInTable="name_weed_impColumn" msprop:Generator_UserColumnName="name_weed_imp" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="value_weed_imp" msprop:Generator_ColumnVarNameInTable="columnvalue_weed_imp" msprop:Generator_ColumnPropNameInRow="value_weed_imp" msprop:Generator_ColumnPropNameInTable="value_weed_impColumn" msprop:Generator_UserColumnName="value_weed_imp" type="xs:float" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -2803,6 +2989,12 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
       <xs:selector xpath=".//mstns:Raw" />
       <xs:field xpath="mstns:id_NameRaw" />
     </xs:unique>
+    <xs:unique name="Shipment_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Shipment" />
+      <xs:field xpath="mstns:id_contractor" />
+      <xs:field xpath="mstns:id_raw" />
+      <xs:field xpath="mstns:date_shipment" />
+    </xs:unique>
     <xs:unique name="Silage_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Silage" />
       <xs:field xpath="mstns:numb_silage" />
@@ -2885,6 +3077,10 @@ SELECT name_weed_imp, id_raw, value_weed_imp FROM Weed_impurities WHERE (id_raw 
       <msdata:Relationship name="FK__Norm_weed__id_su__4336F4B9" msdata:parent="Subtype_raw" msdata:child="Norm_weed_impurities" msdata:parentkey="id_subtype" msdata:childkey="id_subtype" msprop:Generator_UserChildTable="Norm_weed_impurities" msprop:Generator_ChildPropName="GetNorm_weed_impuritiesRows" msprop:Generator_UserRelationName="FK__Norm_weed__id_su__4336F4B9" msprop:Generator_RelationVarName="relationFK__Norm_weed__id_su__4336F4B9" msprop:Generator_UserParentTable="Subtype_raw" msprop:Generator_ParentPropName="Subtype_rawRow" />
       <msdata:Relationship name="FK__Norm_weed__name___414EAC47" msdata:parent="Type_weed_impurities" msdata:child="Norm_weed_impurities" msdata:parentkey="name_weed_imp" msdata:childkey="name_weed_imp" msprop:Generator_UserChildTable="Norm_weed_impurities" msprop:Generator_ChildPropName="GetNorm_weed_impuritiesRows" msprop:Generator_UserRelationName="FK__Norm_weed__name___414EAC47" msprop:Generator_RelationVarName="relationFK__Norm_weed__name___414EAC47" msprop:Generator_UserParentTable="Type_weed_impurities" msprop:Generator_ParentPropName="Type_weed_impuritiesRow" />
       <msdata:Relationship name="FK__PlaceStor__id_ra__511AFFBC" msdata:parent="Storage" msdata:child="PlaceStorage" msdata:parentkey="id_raw" msdata:childkey="id_raw" msprop:Generator_UserChildTable="PlaceStorage" msprop:Generator_ChildPropName="GetPlaceStorageRows" msprop:Generator_UserRelationName="FK__PlaceStor__id_ra__511AFFBC" msprop:Generator_RelationVarName="relationFK__PlaceStor__id_ra__511AFFBC" msprop:Generator_UserParentTable="Storage" msprop:Generator_ParentPropName="StorageRow" />
+      <msdata:Relationship name="fk" msdata:parent="Store_raw" msdata:child="Shipment" msdata:parentkey="numb_store id_place_storage id_raw" msdata:childkey="numb_store id_place_storage id_raw" msprop:Generator_UserChildTable="Shipment" msprop:Generator_ChildPropName="GetShipmentRows" msprop:Generator_UserRelationName="fk" msprop:Generator_RelationVarName="relationfk" msprop:Generator_UserParentTable="Store_raw" msprop:Generator_ParentPropName="Store_rawRowParent" />
+      <msdata:Relationship name="FK__Shipment__id_con__381A47C8" msdata:parent="Contractor" msdata:child="Shipment" msdata:parentkey="id_contractor" msdata:childkey="id_contractor" msprop:Generator_UserChildTable="Shipment" msprop:Generator_ChildPropName="GetShipmentRows" msprop:Generator_UserRelationName="FK__Shipment__id_con__381A47C8" msprop:Generator_ParentPropName="ContractorRow" msprop:Generator_RelationVarName="relationFK__Shipment__id_con__381A47C8" msprop:Generator_UserParentTable="Contractor" />
+      <msdata:Relationship name="FK__Shipment__id_raw__390E6C01" msdata:parent="Storage" msdata:child="Shipment" msdata:parentkey="id_raw" msdata:childkey="id_raw" msprop:Generator_UserChildTable="Shipment" msprop:Generator_ChildPropName="GetShipmentRows" msprop:Generator_UserRelationName="FK__Shipment__id_raw__390E6C01" msprop:Generator_RelationVarName="relationFK__Shipment__id_raw__390E6C01" msprop:Generator_UserParentTable="Storage" msprop:Generator_ParentPropName="StorageRow" />
+      <msdata:Relationship name="fk1" msdata:parent="Silage_raw" msdata:child="Shipment" msdata:parentkey="numb_silage id_place_storage id_raw" msdata:childkey="numb_silage id_place_storage id_raw" msprop:Generator_UserChildTable="Shipment" msprop:Generator_ChildPropName="GetShipmentRows" msprop:Generator_UserRelationName="fk1" msprop:Generator_RelationVarName="relationfk1" msprop:Generator_UserParentTable="Silage_raw" msprop:Generator_ParentPropName="Silage_rawRowParent" />
       <msdata:Relationship name="FK__Silage_ra__numb___59B045BD" msdata:parent="Silage" msdata:child="Silage_raw" msdata:parentkey="numb_silage" msdata:childkey="numb_silage" msprop:Generator_UserChildTable="Silage_raw" msprop:Generator_ChildPropName="GetSilage_rawRows" msprop:Generator_UserRelationName="FK__Silage_ra__numb___59B045BD" msprop:Generator_ParentPropName="SilageRow" msprop:Generator_RelationVarName="relationFK__Silage_ra__numb___59B045BD" msprop:Generator_UserParentTable="Silage" />
       <msdata:Relationship name="FK__Silage_raw__5AA469F6" msdata:parent="PlaceStorage" msdata:child="Silage_raw" msdata:parentkey="id_place_storage id_raw" msdata:childkey="id_place_storage id_raw" msprop:Generator_UserChildTable="Silage_raw" msprop:Generator_ChildPropName="GetSilage_rawRows" msprop:Generator_UserRelationName="FK__Silage_raw__5AA469F6" msprop:Generator_ParentPropName="PlaceStorageRowParent" msprop:Generator_RelationVarName="relationFK__Silage_raw__5AA469F6" msprop:Generator_UserParentTable="PlaceStorage" />
       <msdata:Relationship name="FK__Storage__id_clas__338A9CD5" msdata:parent="Class" msdata:child="Storage" msdata:parentkey="id_class" msdata:childkey="id_class" msprop:Generator_UserChildTable="Storage" msprop:Generator_ChildPropName="GetStorageRows" msprop:Generator_UserRelationName="FK__Storage__id_clas__338A9CD5" msprop:Generator_ParentPropName="ClassRow" msprop:Generator_RelationVarName="relationFK__Storage__id_clas__338A9CD5" msprop:Generator_UserParentTable="Class" />
