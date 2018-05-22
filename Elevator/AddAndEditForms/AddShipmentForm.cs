@@ -32,6 +32,7 @@ namespace Elevator.AddAndEditForms
         private void select()
         {
             dataGridViewRaw.Rows.Clear();
+            //DAO.getInstance().selectRawForShipment(dataGridViewRaw);
             DAO.getInstance().selectRawForShipment(dataGridViewRaw);
             dataGridViewRaw.ClearSelection();
         }
@@ -58,6 +59,7 @@ namespace Elevator.AddAndEditForms
             else
             {
                 string weightStr = weight.ToString().Replace(",", ".");
+                
                 shipment = new Shipment(Convert.ToInt32(dataGridViewRaw.CurrentRow.Cells[0].Value), contractorComboBox.Text, subdivisionComboBox.Text, dateTimePicker.Text,
                      transportTextBox.Text, weightStr, Convert.ToString(dataGridViewRaw.CurrentRow.Cells[6].Value),
                      Convert.ToString(dataGridViewRaw.CurrentRow.Cells[7].Value),

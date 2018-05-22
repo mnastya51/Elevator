@@ -22,36 +22,37 @@ namespace Elevator.Controllers
 
         public bool onSaveClick(Shipment shipment, StoreStoragePlace store, string id)
         {
-            if (!DAO.getInstance().addShipment(shipment.Id, shipment.Contractor,
-            shipment.Subdivision, shipment.Transport, shipment.Weight, shipment.Date, id, "numb_store", shipment.Number))
+            if (!DAO.getInstance().addShipment(shipment.Contractor,shipment.Subdivision, shipment.Transport, 
+                shipment.Weight, shipment.Date, "numb_store", "Store_raw","weight_store", shipment.Number))
             {
                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else
             {
-                DAO.getInstance().updateStoragePlace(store.IdRaw, store.Number, store.Weight,
+          /*      DAO.getInstance().updateStoragePlace(store.IdRaw, store.Number, store.Weight,
             StoreStoragePlace.NameTable, StoreStoragePlace.NumberAttr, StoreStoragePlace.WeightAttr,
-            store.IdPlaceStorage, store.Number);
+            store.IdPlaceStorage, store.Number);*/
                 return true;
             }
         }                        
 
         public bool onSaveClick(Shipment shipment, SilageStoragePlace silage, string id)
         {
-            if (!DAO.getInstance().addShipment(shipment.Id, shipment.Contractor,
-                shipment.Subdivision, shipment.Transport, shipment.Weight, shipment.Date, id, "numb_silage", shipment.Number))
-            {
-                MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            else
-            {
-                DAO.getInstance().updateStoragePlace(silage.IdRaw, silage.Number, silage.Weight,
-            SilageStoragePlace.NameTable, SilageStoragePlace.NumberAttr, SilageStoragePlace.WeightAttr,
-            silage.IdPlaceStorage, silage.Number);
-                return true;
-            }
+             if (!DAO.getInstance().addShipment(shipment.Contractor,shipment.Subdivision, 
+                 shipment.Transport, shipment.Weight, shipment.Date, "numb_silage",
+                 "Silage_raw", "weight_silage",shipment.Number))
+             {
+                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                 return false;
+             }
+             else
+             {
+               /*  DAO.getInstance().updateStoragePlace(silage.IdRaw, silage.Number, silage.Weight,
+             SilageStoragePlace.NameTable, SilageStoragePlace.NumberAttr, SilageStoragePlace.WeightAttr,
+             silage.IdPlaceStorage, silage.Number);*/
+                 return true;
+             }
         }                    
 
         public bool checkSave(string surname)

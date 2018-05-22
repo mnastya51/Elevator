@@ -35,17 +35,9 @@ namespace Elevator.Forms
             this.Text = title;
             controller = new TransportationController();
             DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
-            column1.Name = "Код";
+            column1.Name = "Хранилище";
             dataGridViewDelivery.Columns.Add(column1);
-            column1.Visible = false;
-            DataGridViewTextBoxColumn column2 = new DataGridViewTextBoxColumn();
-            column2.Name = "Хранилище";
-            dataGridViewDelivery.Columns.Add(column2);
-            column2.Visible = false;
-            DataGridViewTextBoxColumn column3 = new DataGridViewTextBoxColumn();
-            column3.Name = "Номер";
-            dataGridViewDelivery.Columns.Add(column3);
-            column3.Visible = false;
+           // column1.Visible = false;
             select();
             if (employee.Post.Equals("Бухгалтер") || employee.Post.Equals("Главный бухгалтер"))
             {
