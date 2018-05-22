@@ -2229,7 +2229,7 @@ namespace Elevator
                     reader.Close();
                     StoreStoragePlace[] storageN = storage.ToArray<StoreStoragePlace>();
                     string sql = "";
-                    string result = string.Format("{1},{0}?", number, numbAttr);
+                    string result = string.Format("{1}?{0}?", number, numbAttr);
                     for (int i = 0; i < storageN.Length; i++)
                     {
                         if (Convert.ToDouble(weight) >= Convert.ToDouble(storageN[i].Weight))
@@ -2239,7 +2239,7 @@ namespace Elevator
                                 storageN[i].IdRaw, storageN[i].IdPlaceStorage, number, nameTable, weightAttr, numbAttr);
                             weight = (Convert.ToDouble(weight) - Convert.ToDouble(storageN[i].Weight)).ToString();
                             result += storageN[i].IdPlaceStorage + "," + storageN[i].IdRaw +
-                                "," + storageN[i].Weight + ";";
+                                "," + storageN[i].Weight + "?";
                         }
                         else
                         {
@@ -2249,7 +2249,7 @@ namespace Elevator
                                 (Convert.ToDouble(storageN[i].Weight) - Convert.ToDouble(weight)).ToString(),
                                 nameTable, weightAttr, numbAttr);
                             result += storageN[i].IdPlaceStorage + "," + storageN[i].IdRaw +
-                                "," + storageN[i].Weight + ";";
+                                "," + storageN[i].Weight;
                             break;
                         }
                     }
@@ -2267,12 +2267,12 @@ namespace Elevator
                 return false;
             }
         }
-        public void deleteShipment(string date, string contractor, string subdivision, int idRaw)
+        public void deleteShipment(string date, string contractor, string subdivision)
         {
             string sqlCommand;
-            sqlCommand = string.Format("Delete Shipment where date_shipment = '{0}' and id_raw = {1} and " +
-                "id_contractor = (select id_contractor from Contractor where name_contr = '{2}' and subdivision = '{3}')",
-                date, idRaw, contractor, subdivision);
+            sqlCommand = string.Format("Delete Shipment where date_shipment = '{0}' and " +
+                "id_contractor = (select id_contractor from Contractor where name_contr = '{1}' and subdivision = '{2}')",
+                date, contractor, subdivision);
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

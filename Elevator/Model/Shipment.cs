@@ -75,16 +75,14 @@ namespace Elevator.Model
             this.Subdivision = subdivision;
             this.Date = date;
         }
-        public Shipment(string contractor, string subdivision, string IdPlaceStorage, int id, string date,
-            string placeStorage, string number, string weight)
+        public Shipment(string contractor, string subdivision, int id, string date,
+            string placeStorage, string weight)
         {
-            this.IdPlaceStorage = IdPlaceStorage;
             this.Contractor = contractor;
             this.Subdivision = subdivision;
             this.Id = id;
             this.Date = date;
             this.PlaceStorage = placeStorage;
-            this.Number = number;
             this.Weight = weight;
         }
     }

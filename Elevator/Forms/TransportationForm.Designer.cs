@@ -37,6 +37,7 @@
             this.changeButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.filtrGroupBox = new System.Windows.Forms.GroupBox();
+            this.yearTextBox = new System.Windows.Forms.TextBox();
             this.contractorTextBox = new System.Windows.Forms.TextBox();
             this.rawTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yearTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.rawBindingSource)).BeginInit();
             this.filtrGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contractorBindingSource)).BeginInit();
@@ -72,7 +72,7 @@
             this.changeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.changeButton.Location = new System.Drawing.Point(111, 83);
             this.changeButton.Name = "changeButton";
-            this.changeButton.Size = new System.Drawing.Size(93, 28);
+            this.changeButton.Size = new System.Drawing.Size(102, 28);
             this.changeButton.TabIndex = 48;
             this.changeButton.Text = "Изменить";
             this.changeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -112,6 +112,15 @@
             this.filtrGroupBox.TabIndex = 59;
             this.filtrGroupBox.TabStop = false;
             this.filtrGroupBox.Text = "Поиск";
+            // 
+            // yearTextBox
+            // 
+            this.yearTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.yearTextBox.Location = new System.Drawing.Point(112, 20);
+            this.yearTextBox.Name = "yearTextBox";
+            this.yearTextBox.Size = new System.Drawing.Size(70, 26);
+            this.yearTextBox.TabIndex = 68;
+            this.yearTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.yearTextBox_KeyPress);
             // 
             // contractorTextBox
             // 
@@ -304,15 +313,6 @@
             this.Column6.HeaderText = "Вес";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
-            // 
-            // yearTextBox
-            // 
-            this.yearTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.yearTextBox.Location = new System.Drawing.Point(112, 20);
-            this.yearTextBox.Name = "yearTextBox";
-            this.yearTextBox.Size = new System.Drawing.Size(70, 26);
-            this.yearTextBox.TabIndex = 68;
-            this.yearTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.yearTextBox_KeyPress);
             // 
             // TransportationForm
             // 

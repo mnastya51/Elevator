@@ -33,6 +33,7 @@ namespace Elevator.Forms
         {
             InitializeComponent();
             this.Text = title;
+            changeButton.Text = "Отменить";
             controller = new TransportationController();
             DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
             column1.Name = "Хранилище";
@@ -93,7 +94,7 @@ namespace Elevator.Forms
                 }
                 else
                 {
-                    Storage storage = new Storage(Convert.ToInt32(dataGridViewDelivery.CurrentRow.Cells[0].Value),
+                   /* Storage storage = new Storage(Convert.ToInt32(dataGridViewDelivery.CurrentRow.Cells[0].Value),
                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[3].Value),
                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[4].Value),
                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[5].Value),
@@ -105,8 +106,29 @@ namespace Elevator.Forms
                         Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[9].Value),
                         Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[10].Value),
                         Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[11].Value),
-                        Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[12].Value));
-                    controller.changeButtonClick(storage, shipment);
+                        Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[12].Value));*/
+
+                    try
+                    {
+                        DialogResult dr = MessageBox.Show("Вы действительно хотите отменить запись?",
+                    "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                        if (dr == DialogResult.OK)
+                        {
+                            Shipment shipment = new Shipment(Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[1].Value),
+                            Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[2].Value),
+                            Convert.ToInt32(dataGridViewDelivery.CurrentRow.Cells[0].Value),
+                            Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[6].Value),
+                            Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[10].Value),
+                            Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[9].Value));
+                            controller.cancelShipmentClick(shipment);
+                        }
+                    }
+                    catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите запись!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    select();
+
+                    // controller.changeButtonClick(storage, shipment);
+
+
                     /* DialogResult dr = MessageBox.Show("Вы действительно хотите удалить запись?",
                  "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                      if (dr == DialogResult.OK)
@@ -164,15 +186,14 @@ namespace Elevator.Forms
             "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                 if (dr == DialogResult.OK)
                 {
-                    Shipment shipment = new Shipment(Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[1].Value),
+                   /* Shipment shipment = new Shipment(Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[1].Value),
                     Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[2].Value),
-                    Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[10].Value),
                     Convert.ToInt32(dataGridViewDelivery.CurrentRow.Cells[0].Value),
                     Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[6].Value),
                     Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[11].Value),
                     Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[12].Value),
-                     Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[9].Value));
-                    controller.cancelShipmentClick(shipment);
+                     Convert.ToString(dataGridViewDelivery.CurrentRow.Cells[9].Value));*
+                    controller.cancelShipmentClick(shipment);*/
                 }
             }
             catch (System.ArgumentOutOfRangeException) { MessageBox.Show("Выберите запись!", "Изменение", MessageBoxButtons.OK, MessageBoxIcon.Error); }
