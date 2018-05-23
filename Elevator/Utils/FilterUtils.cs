@@ -57,6 +57,33 @@ namespace Elevator.Utils
                 }
                 return res;
             }
+            public string getFormattedRequestForFindRawDate()
+            {
+                string res = string.Format("Select d.id_raw, c.name_contr, r.name_raw, t.name_type_raw, s.name_subtype, d.date_delivery, c.id_contractor From Contractor c join Delivery d " +
+                    "on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join Raw r on st.id_NameRaw = " +
+                    "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join Type_raw t on s.id_type = t.id_type where ");
+                if (values.Count == 0) return null;
+                res += values[0];
+                for (int i = 1; i < values.Count; i++)
+                {
+                    res += " AND " + values[i];
+                }
+                return res;
+            }
+            public string getFormattedRequestForFindRawStorage()
+            {
+                string res = string.Format("Select d.id_raw, c.name_contr, r.name_raw, t.name_type_raw, s.name_subtype, cl.number_class, d.date_delivery, st.weight, c.id_contractor From Contractor c join Delivery d " +
+                    "on c.id_contractor = d.id_contractor join Storage st on st.id_raw = d.id_raw join Raw r on st.id_NameRaw = " +
+                    "r.id_NameRaw left join Subtype_raw s on s.id_subtype = st.id_subtype left join Type_raw t on s.id_type = t.id_type " +
+                    "left join Class cl on st.id_class = cl.id_class where ");
+                if (values.Count == 0) return null;
+                res += values[0];
+                for (int i = 1; i < values.Count; i++)
+                {
+                    res += " AND " + values[i];
+                }
+                return res;
+            }
         }
     }
 }

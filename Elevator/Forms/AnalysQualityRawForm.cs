@@ -19,6 +19,7 @@ namespace Elevator.Forms
         private LinkedList<string> impurities;
         private AnalysQualityRawController controller;
         private string[] change;
+        bool find = false;
         public AnalysQualityRawForm()
         {
             InitializeComponent();
@@ -36,15 +37,18 @@ namespace Elevator.Forms
 
         private void dataGridViewRaw_CellClick(object sender, EventArgs e)
         {
-            string[] typeAndSubtype = DAO.getInstance().selectTypeAndSubtype(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
-            typeLabel.Text = typeAndSubtype[0];
-            subtypeLabel.Text = typeAndSubtype[1];
-            groupComboBox.Enabled = true;
-            groupComboBox.SelectedIndex = 0;
-            dataGridViewAnalys.Rows.Clear();
-            classLabel.Text = "";
-            change = changeComboBox(groupComboBox.Text);
-            selectAnalys(change);
+            if (!find)
+            {
+                string[] typeAndSubtype = DAO.getInstance().selectTypeAndSubtype(Convert.ToString(dataGridViewRaw.CurrentRow.Cells[0].Value));
+                typeLabel.Text = typeAndSubtype[0];
+                subtypeLabel.Text = typeAndSubtype[1];
+                groupComboBox.Enabled = true;
+                groupComboBox.SelectedIndex = 0;
+                dataGridViewAnalys.Rows.Clear();
+                classLabel.Text = "";
+                change = changeComboBox(groupComboBox.Text);
+                selectAnalys(change);
+            }
         }
 
         private string[] changeComboBox(string nameTable)
@@ -125,6 +129,7 @@ namespace Elevator.Forms
 
         private void findButton_Click(object sender, EventArgs e)
         {
+            find = true;
             dataGridViewRaw.Rows.Clear();
             FilterUtils.FilterFormatter filterFormatter = new FilterUtils.FilterFormatter();
             filterFormatter.addValueWithRegisters("name_raw", rawTextBox.Text);
@@ -132,12 +137,16 @@ namespace Elevator.Forms
             string command = filterFormatter.getFormattedRequestForFindRaw();           
             DAO.getInstance().findRaw(command, dataGridViewRaw);
             dataGridViewRaw.ClearSelection();
+            find = false;
         }
 
         private void btnAllList_Click(object sender, EventArgs e)
         {
+            find = true;
             rawTextBox.Text = "";
+            contractorTextBox.Text = "";
             select();
+            find = false;
         }
 
         private void defineClassButton_Click(object sender, EventArgs e)

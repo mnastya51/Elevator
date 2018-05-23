@@ -1,5 +1,6 @@
 ﻿using Elevator.Controllers;
 using Elevator.Model;
+using Elevator.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -98,6 +99,22 @@ namespace Elevator.AddAndEditForms
             }
             else if (subdivisions.Length > 0)
                 subdivisionComboBox.Text = subdivisionComboBox.Items[0].ToString();
+        }
+
+        private void findButton_Click(object sender, EventArgs e)
+        {
+            dataGridViewRaw.Rows.Clear();
+            FilterUtils.FilterFormatter filterFormatter = new FilterUtils.FilterFormatter();
+            filterFormatter.addValueWithRegisters("name_raw", rawTextBox.Text);
+            string command = filterFormatter.getFormattedRequestForFindRaw();
+            DAO.getInstance().findRaw(command, dataGridViewRaw);
+            dataGridViewRaw.ClearSelection();
+        }
+
+        private void btnAllList_Click(object sender, EventArgs e)
+        {
+            rawTextBox.Text = "";
+            select();
         }
     }       
 }

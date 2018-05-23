@@ -17,6 +17,7 @@ namespace Elevator.Forms
     {
         private StorageController controller;
         private Employee employee;
+        bool find = false;
         public StorageForm(Employee employee)
         {
             InitializeComponent();
@@ -40,32 +41,39 @@ namespace Elevator.Forms
 
         private void dataGridViewRaw_CellClick(object sender, EventArgs e)
         {
-            if ((employee.Post.Equals("Бухгалтер") || employee.Post.Equals("Главный бухгалтер")))
+            if (!find)
             {
-                addButton.BackColor = Color.LightGray;
-                changeButton.BackColor = Color.LightGray;
-                addButton.Enabled = false;
-                changeButton.Enabled = false;
+                if ((employee.Post.Equals("Бухгалтер") || employee.Post.Equals("Главный бухгалтер")))
+                {
+                    addButton.BackColor = Color.LightGray;
+                    changeButton.BackColor = Color.LightGray;
+                    addButton.Enabled = false;
+                    changeButton.Enabled = false;
+                }
+                selectStorage();
             }
-            selectStorage();
         }
 
         private void findButton_Click(object sender, EventArgs e)
         {
+            find = true;
             dataGridViewRaw.Rows.Clear();
             FilterUtils.FilterFormatter filterFormatter = new FilterUtils.FilterFormatter();
             filterFormatter.addValueWithRegisters("name_raw", rawTextBox.Text);
             filterFormatter.addValueWithRegisters("name_contr", contractorTextBox.Text);
-            string command = filterFormatter.getFormattedRequestForFindRaw();
-            DAO.getInstance().findRaw(command, dataGridViewRaw);
+            string command = filterFormatter.getFormattedRequestForFindRawStorage();
+            DAO.getInstance().findRawForStorage(command, dataGridViewRaw);
             dataGridViewRaw.ClearSelection();
+            find = false;
         }
 
         private void btnAllList_Click(object sender, EventArgs e)
         {
+            find = true;
             contractorTextBox.Text = "";
             rawTextBox.Text = "";
             select();
+            find = false;
         }
 
         private void addButton_Click(object sender, EventArgs e)

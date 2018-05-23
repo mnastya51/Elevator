@@ -556,7 +556,7 @@ namespace Elevator.Controllers
                             }
                         }
                     }
-                    else { j++; }
+                    else { j++; res[0] = classes[i]; res[1] = classes.Length.ToString(); }
                 }
                 catch { j++; }
             }
@@ -721,6 +721,10 @@ namespace Elevator.Controllers
                                 res[1] = i.ToString();
                             }
                         }
+                        else
+                        {
+                            j++; res[0] = classes[i]; res[1] = classes.Length.ToString();
+                        }
                     }
                     catch { j++; }
                 }
@@ -791,6 +795,10 @@ namespace Elevator.Controllers
                                     res[1] = i.ToString();
                                 }
                             }
+                        }
+                        else
+                        {
+                            j++; res[0] = classes[i]; res[1] = classes.Length.ToString();
                         }
                     }
                     catch { j++; }

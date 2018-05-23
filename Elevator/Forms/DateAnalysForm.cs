@@ -38,8 +38,8 @@ namespace Elevator.Forms
             FilterUtils.FilterFormatter filterFormatter = new FilterUtils.FilterFormatter();
             filterFormatter.addValueWithRegisters("name_raw", rawTextBox.Text);
             filterFormatter.addValueWithRegisters("name_contr", contractorTextBox.Text);
-            string command = filterFormatter.getFormattedRequestForFindRaw();
-            DAO.getInstance().findRaw(command, dataGridViewRaw);
+            string command = filterFormatter.getFormattedRequestForFindRawDate();
+            DAO.getInstance().findRawForDate(command, dataGridViewRaw);
             dataGridViewRaw.ClearSelection();
         }
 

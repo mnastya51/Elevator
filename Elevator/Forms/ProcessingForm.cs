@@ -17,6 +17,7 @@ namespace Elevator.Forms
     {
         private ProcessingController controller;
         private Employee employee;
+        bool find = false;
         public ProcessingForm(Employee employee)
         {
             InitializeComponent();
@@ -43,45 +44,52 @@ namespace Elevator.Forms
 
         private void findButton_Click(object sender, EventArgs e)
         {
+            find = true;
             dataGridViewRaw.Rows.Clear();
             FilterUtils.FilterFormatter filterFormatter = new FilterUtils.FilterFormatter();
             filterFormatter.addValueWithRegisters("name_raw", rawTextBox.Text);
             filterFormatter.addValueWithRegisters("name_contr", contractorTextBox.Text);
-            string command = filterFormatter.getFormattedRequestForFindRaw();
-            DAO.getInstance().findRaw(command, dataGridViewRaw);
+            string command = filterFormatter.getFormattedRequestForFindRawStorage();
+            DAO.getInstance().findRawForStorage(command, dataGridViewRaw);
             dataGridViewRaw.ClearSelection();
+            find = false;
         }
 
         private void dataGridViewRaw_CellClick(object sender, EventArgs e)
         {
-            if ((employee.Post.Equals("Бухгалтер") || employee.Post.Equals("Главный бухгалтер")))
+            if (!find)
             {
-                addClearButton.BackColor = Color.LightGray;
-                changeClearButton.BackColor = Color.LightGray;
-                addDryButton.BackColor = Color.LightGray;
-                changeDryButton.BackColor = Color.LightGray;
-                addClearButton.Enabled = false;
-                changeClearButton.Enabled = false;
-                changeDryButton.Enabled = false;
-                addDryButton.Enabled = false;
+                if ((employee.Post.Equals("Бухгалтер") || employee.Post.Equals("Главный бухгалтер")))
+                {
+                    addClearButton.BackColor = Color.LightGray;
+                    changeClearButton.BackColor = Color.LightGray;
+                    addDryButton.BackColor = Color.LightGray;
+                    changeDryButton.BackColor = Color.LightGray;
+                    addClearButton.Enabled = false;
+                    changeClearButton.Enabled = false;
+                    changeDryButton.Enabled = false;
+                    addDryButton.Enabled = false;
+                }
+                labelDate.Text = "";
+                labelWeightBefore.Text = "";
+                labelWeightAfter.Text = "";
+                labelWetBefore.Text = "";
+                labelWetAfter.Text = "";
+                labelDateClear.Text = "";
+                labelWeightBeforeClear.Text = "";
+                labelWeightAfterClear.Text = "";
+                selectDry();
+                selectClear();
             }
-            labelDate.Text = "";
-            labelWeightBefore.Text = "";
-            labelWeightAfter.Text = "";
-            labelWetBefore.Text = "";
-            labelWetAfter.Text = "";
-            labelDateClear.Text = "";
-            labelWeightBeforeClear.Text = "";
-            labelWeightAfterClear.Text = "";
-            selectDry();
-            selectClear();
         }
 
         private void btnAllList_Click(object sender, EventArgs e)
         {
+            find = true;
             contractorTextBox.Text = "";
             rawTextBox.Text = "";
             select();
+            find = false;
         }
 
         private void selectDry()

@@ -349,6 +349,7 @@
             this.btnAllList.Text = "Вывести полный список";
             this.btnAllList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAllList.UseVisualStyleBackColor = false;
+            this.btnAllList.Click += new System.EventHandler(this.btnAllList_Click);
             // 
             // label4
             // 
@@ -375,6 +376,7 @@
             this.findButton.Text = "Найти";
             this.findButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.findButton.UseVisualStyleBackColor = false;
+            this.findButton.Click += new System.EventHandler(this.findButton_Click);
             // 
             // AddShipmentForm
             // 

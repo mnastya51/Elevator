@@ -38,7 +38,7 @@ namespace Elevator.Forms
             DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
             column1.Name = "Хранилище";
             dataGridViewDelivery.Columns.Add(column1);
-           // column1.Visible = false;
+            column1.Visible = false;
             select();
             if (employee.Post.Equals("Бухгалтер") || employee.Post.Equals("Главный бухгалтер"))
             {
@@ -155,7 +155,7 @@ namespace Elevator.Forms
             filterFormatter.addValueWithRegisters("name_raw", rawTextBox.Text);
             filterFormatter.addValueWithRegisters("name_contr", contractorTextBox.Text);
             string command = "";
-            if (this.Text == "Поставки")
+            if (this.Text == "Поставка")
             {
                 string[] columns = { Delivery.DateAttr, Delivery.TransportAttr, Delivery.WeightAttr };
                 command = filterFormatter.getFormattedRequestForTransportation(Delivery.NameTable, columns);

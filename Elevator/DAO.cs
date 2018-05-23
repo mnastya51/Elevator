@@ -1540,6 +1540,64 @@ namespace Elevator
             }
         }
 
+        public void findRawForDate(string sqlCommand, DataGridView dataGridView)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        dataGridView.Rows.Add();
+                        DataGridViewRow row = dataGridView.Rows[c];
+                        row.Cells[0].Value = reader.GetInt32(0);
+                        row.Cells[1].Value = reader.GetString(1);
+                        row.Cells[2].Value = reader.GetString(2);
+                        try { row.Cells[3].Value = reader.GetInt32(3); } catch { }
+                        try { row.Cells[4].Value = reader.GetInt32(4); } catch { }
+                        row.Cells[5].Value = reader.GetString(5);
+                        row.Cells[6].Value = reader.GetInt32(6);
+                        c++;
+                    }
+                }
+                reader.Close();
+            }
+        }
+
+        public void findRawForStorage(string sqlCommand, DataGridView dataGridView)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlCommand, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int c = 0;
+                    while (reader.Read())
+                    {
+                        dataGridView.Rows.Add();
+                        DataGridViewRow row = dataGridView.Rows[c];
+                        row.Cells[0].Value = reader.GetInt32(0);
+                        row.Cells[1].Value = reader.GetString(1);
+                        row.Cells[2].Value = reader.GetString(2);
+                        try { row.Cells[3].Value = reader.GetInt32(3); } catch { }
+                        try { row.Cells[4].Value = reader.GetInt32(4); } catch { }
+                        try { row.Cells[5].Value = reader.GetInt32(5); } catch { }
+                        row.Cells[6].Value = reader.GetString(6);
+                        row.Cells[7].Value = reader.GetFloat(7);
+                        row.Cells[8].Value = reader.GetInt32(8);
+                        c++;
+                    }
+                }
+                reader.Close();
+            }
+        }
+
         public LinkedList<FormValue<string, string>> defineState(string idRaw, string type, string normAttr, string nameTable,
             string nameAttr)
         {
@@ -2232,7 +2290,7 @@ namespace Elevator
                     string result = string.Format("{1}?{0}?", number, numbAttr);
                     for (int i = 0; i < storageN.Length; i++)
                     {
-                        if (Convert.ToDouble(weight) >= Convert.ToDouble(storageN[i].Weight))
+                        if (Convert.ToDouble(weight) > Convert.ToDouble(storageN[i].Weight))
                         {
                             sql += string.Format("Update {3} set {4} = 0 where " +
                                 "id_raw = {0} and id_place_storage = {1} and {5} = {2} ",
