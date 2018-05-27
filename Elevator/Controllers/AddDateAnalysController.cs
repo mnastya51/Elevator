@@ -18,7 +18,7 @@ namespace Elevator.Controllers
                 new FormValue<string, string>("id_raw", dateAnalys.IdRaw.ToString()),
                 new FormValue<string, string>("date_analysis", dateAnalys.Date)))
                 {
-                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Данная дата анализа уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 else return true;
@@ -28,7 +28,7 @@ namespace Elevator.Controllers
                 if (!DAO.getInstance().updateNote("Analysis", new FormValue<string, string>("id_analysis", dateAnalys.Id.ToString()),
                     new FormValue<string, string>("date_analysis", dateAnalys.Date)))
                 {
-                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Данная дата анализа уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 else return true;

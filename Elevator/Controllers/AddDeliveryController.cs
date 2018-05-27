@@ -25,7 +25,7 @@ namespace Elevator.Controllers
                 new FormValue<string, string>(Delivery.WeightAttr, delivery.Weight),
                 storage.Raw, storage.Type, storage.Subtype, storage.Year))
                 {
-                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Данная запись о поставке уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 else return true;
@@ -39,7 +39,7 @@ namespace Elevator.Controllers
                new FormValue<string, string>(Delivery.DateAttr, delivery.Date), storage.IdRaw,
                storage.Raw, storage.Type, storage.Subtype, storage.Year))
                 {
-                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Данная запись о поставке уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 else return true;
@@ -83,7 +83,7 @@ namespace Elevator.Controllers
             new FormValue<string, string>(Shipment.WeightAttr, shipment.Weight),
                 storage.Raw, storage.Type, storage.Subtype, storage.Year))
                 {
-                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Данная запись об отгрузке уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 else return true;
@@ -97,7 +97,7 @@ namespace Elevator.Controllers
                new FormValue<string, string>(Shipment.DateAttr, shipment.Date), storage.IdRaw,
                storage.Raw, storage.Type, storage.Subtype, storage.Year))
                 {
-                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Данная запись об отгрузке уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 else

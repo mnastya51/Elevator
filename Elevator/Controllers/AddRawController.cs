@@ -17,7 +17,7 @@ namespace Elevator.Controllers
                 if(!DAO.getInstance().addNote("Raw", new FormValue<string, string>("name_raw", raw.Name),
                  new FormValue<string, string>("number_gost  ", raw.Gost)))
                 {
-                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Данная культура уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 else return true;
@@ -28,7 +28,7 @@ namespace Elevator.Controllers
                     new FormValue<string, string>("name_raw", raw.Name),
                 new FormValue<string, string>("number_gost  ", raw.Gost)))
                 {
-                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Данная культура уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 else return true;

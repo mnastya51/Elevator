@@ -25,7 +25,7 @@ namespace Elevator.Controllers
             if (!DAO.getInstance().addShipment(shipment.Contractor,shipment.Subdivision, shipment.Transport, 
                 shipment.Weight, shipment.Date, "numb_store", "Store_raw","weight_store", shipment.Number))
             {
-                MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Данная запись об отгрузке уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else
@@ -43,7 +43,7 @@ namespace Elevator.Controllers
                  shipment.Transport, shipment.Weight, shipment.Date, "numb_silage",
                  "Silage_raw", "weight_silage",shipment.Number))
              {
-                 MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                 MessageBox.Show("Данная запись об отгрузке уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                  return false;
              }
              else

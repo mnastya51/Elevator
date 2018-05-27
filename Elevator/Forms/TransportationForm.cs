@@ -25,8 +25,6 @@ namespace Elevator.Forms
             {
                 addButton.Enabled = false;
                 addButton.BackColor = Color.LightGray;
-                //changeButton.Enabled = false;
-                //changeButton.BackColor = Color.LightGray;
             }
         }
         public TransportationForm(string title, Employee employee)
@@ -44,8 +42,6 @@ namespace Elevator.Forms
             {
                 addButton.Enabled = false;
                 addButton.BackColor = Color.LightGray;
-                //changeButton.Enabled = false;
-                //changeButton.BackColor = Color.LightGray;
             }
         }
 

@@ -27,9 +27,8 @@ namespace Elevator.Forms
         {
             Store storeClass = new Store(Convert.ToInt32(storeNumericUpDown.Value));
             Silage silageClass = new Silage(Convert.ToInt32(silageNumericUpDown.Value));
-            controller.onSaveClick(storeClass, store);
-            controller.onSaveClick(silageClass, silage);
-            this.Close();
+            if(controller.onSaveClick(storeClass, store) && controller.onSaveClick(silageClass, silage))
+                this.Close();
         }
 
         private void StorageForm_Load(object sender, EventArgs e)

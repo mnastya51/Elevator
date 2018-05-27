@@ -40,6 +40,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.labelWeightBefore = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.labelDate = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.changeDryButton = new System.Windows.Forms.Button();
@@ -47,6 +49,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.labelWeightAfterClear = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.labelWeightBeforeClear = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.labelDateClear = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -62,14 +66,6 @@
             this.changeClearButton = new System.Windows.Forms.Button();
             this.addClearButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.contractorTextBox = new System.Windows.Forms.TextBox();
-            this.rawTextBox = new System.Windows.Forms.TextBox();
-            this.btnAllList = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.findButton = new System.Windows.Forms.Button();
-            this.lbName = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridViewRaw = new System.Windows.Forms.DataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,17 +76,21 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label24 = new System.Windows.Forms.Label();
-            this.labelWeightBeforeClear = new System.Windows.Forms.Label();
-            this.labelWeightBefore = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.contractorTextBox = new System.Windows.Forms.TextBox();
+            this.rawTextBox = new System.Windows.Forms.TextBox();
+            this.btnAllList = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.findButton = new System.Windows.Forms.Button();
+            this.lbName = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRaw)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRaw)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -125,7 +125,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(292, 276);
+            this.tabPage1.Size = new System.Drawing.Size(292, 313);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Сушка";
             // 
@@ -185,6 +185,25 @@
             this.label5.Size = new System.Drawing.Size(90, 20);
             this.label5.TabIndex = 54;
             this.label5.Text = "Вес после:";
+            // 
+            // labelWeightBefore
+            // 
+            this.labelWeightBefore.AutoSize = true;
+            this.labelWeightBefore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelWeightBefore.Location = new System.Drawing.Point(164, 95);
+            this.labelWeightBefore.Name = "labelWeightBefore";
+            this.labelWeightBefore.Size = new System.Drawing.Size(0, 20);
+            this.labelWeightBefore.TabIndex = 53;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(6, 95);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 20);
+            this.label3.TabIndex = 52;
+            this.label3.Text = "Вес до:";
             // 
             // labelDate
             // 
@@ -284,6 +303,25 @@
             this.label22.Size = new System.Drawing.Size(90, 20);
             this.label22.TabIndex = 74;
             this.label22.Text = "Вес после:";
+            // 
+            // labelWeightBeforeClear
+            // 
+            this.labelWeightBeforeClear.AutoSize = true;
+            this.labelWeightBeforeClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelWeightBeforeClear.Location = new System.Drawing.Point(119, 95);
+            this.labelWeightBeforeClear.Name = "labelWeightBeforeClear";
+            this.labelWeightBeforeClear.Size = new System.Drawing.Size(0, 20);
+            this.labelWeightBeforeClear.TabIndex = 73;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label24.Location = new System.Drawing.Point(18, 95);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(65, 20);
+            this.label24.TabIndex = 72;
+            this.label24.Text = "Вес до:";
             // 
             // labelDateClear
             // 
@@ -441,103 +479,6 @@
             this.groupBox2.TabIndex = 64;
             this.groupBox2.TabStop = false;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.contractorTextBox);
-            this.groupBox1.Controls.Add(this.rawTextBox);
-            this.groupBox1.Controls.Add(this.btnAllList);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.findButton);
-            this.groupBox1.Controls.Add(this.lbName);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.groupBox1.Location = new System.Drawing.Point(12, 9);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(506, 105);
-            this.groupBox1.TabIndex = 43;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Поиск";
-            // 
-            // contractorTextBox
-            // 
-            this.contractorTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.contractorTextBox.Location = new System.Drawing.Point(114, 20);
-            this.contractorTextBox.Name = "contractorTextBox";
-            this.contractorTextBox.Size = new System.Drawing.Size(149, 26);
-            this.contractorTextBox.TabIndex = 13;
-            // 
-            // rawTextBox
-            // 
-            this.rawTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rawTextBox.Location = new System.Drawing.Point(358, 20);
-            this.rawTextBox.Name = "rawTextBox";
-            this.rawTextBox.Size = new System.Drawing.Size(134, 26);
-            this.rawTextBox.TabIndex = 12;
-            // 
-            // btnAllList
-            // 
-            this.btnAllList.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnAllList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAllList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAllList.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnAllList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAllList.Location = new System.Drawing.Point(214, 60);
-            this.btnAllList.Name = "btnAllList";
-            this.btnAllList.Size = new System.Drawing.Size(218, 28);
-            this.btnAllList.TabIndex = 7;
-            this.btnAllList.Text = "Вывести полный список";
-            this.btnAllList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAllList.UseVisualStyleBackColor = false;
-            this.btnAllList.Click += new System.EventHandler(this.btnAllList_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(269, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 20);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Культура:";
-            // 
-            // findButton
-            // 
-            this.findButton.BackColor = System.Drawing.Color.DarkOrange;
-            this.findButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.findButton.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.findButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.findButton.Location = new System.Drawing.Point(114, 60);
-            this.findButton.Name = "findButton";
-            this.findButton.Size = new System.Drawing.Size(82, 28);
-            this.findButton.TabIndex = 5;
-            this.findButton.Text = "Найти";
-            this.findButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.findButton.UseVisualStyleBackColor = false;
-            this.findButton.Click += new System.EventHandler(this.findButton_Click);
-            // 
-            // lbName
-            // 
-            this.lbName.AutoSize = true;
-            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbName.ForeColor = System.Drawing.Color.Black;
-            this.lbName.Location = new System.Drawing.Point(6, 20);
-            this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(102, 20);
-            this.lbName.TabIndex = 6;
-            this.lbName.Text = "Контрагент:";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.tabControl);
-            this.groupBox3.Location = new System.Drawing.Point(610, 7);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(313, 365);
-            this.groupBox3.TabIndex = 63;
-            this.groupBox3.TabStop = false;
-            // 
             // dataGridViewRaw
             // 
             this.dataGridViewRaw.AllowUserToAddRows = false;
@@ -643,43 +584,102 @@
             this.Column6.ReadOnly = true;
             this.Column6.Visible = false;
             // 
-            // label24
+            // groupBox1
             // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label24.Location = new System.Drawing.Point(18, 95);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(65, 20);
-            this.label24.TabIndex = 72;
-            this.label24.Text = "Вес до:";
+            this.groupBox1.Controls.Add(this.contractorTextBox);
+            this.groupBox1.Controls.Add(this.rawTextBox);
+            this.groupBox1.Controls.Add(this.btnAllList);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.findButton);
+            this.groupBox1.Controls.Add(this.lbName);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.groupBox1.Location = new System.Drawing.Point(12, 9);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(506, 105);
+            this.groupBox1.TabIndex = 43;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Поиск";
             // 
-            // labelWeightBeforeClear
+            // contractorTextBox
             // 
-            this.labelWeightBeforeClear.AutoSize = true;
-            this.labelWeightBeforeClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelWeightBeforeClear.Location = new System.Drawing.Point(119, 95);
-            this.labelWeightBeforeClear.Name = "labelWeightBeforeClear";
-            this.labelWeightBeforeClear.Size = new System.Drawing.Size(0, 20);
-            this.labelWeightBeforeClear.TabIndex = 73;
+            this.contractorTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.contractorTextBox.Location = new System.Drawing.Point(114, 20);
+            this.contractorTextBox.Name = "contractorTextBox";
+            this.contractorTextBox.Size = new System.Drawing.Size(149, 26);
+            this.contractorTextBox.TabIndex = 1;
             // 
-            // labelWeightBefore
+            // rawTextBox
             // 
-            this.labelWeightBefore.AutoSize = true;
-            this.labelWeightBefore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelWeightBefore.Location = new System.Drawing.Point(164, 95);
-            this.labelWeightBefore.Name = "labelWeightBefore";
-            this.labelWeightBefore.Size = new System.Drawing.Size(0, 20);
-            this.labelWeightBefore.TabIndex = 53;
+            this.rawTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rawTextBox.Location = new System.Drawing.Point(358, 20);
+            this.rawTextBox.Name = "rawTextBox";
+            this.rawTextBox.Size = new System.Drawing.Size(134, 26);
+            this.rawTextBox.TabIndex = 2;
             // 
-            // label3
+            // btnAllList
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(6, 95);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 20);
-            this.label3.TabIndex = 52;
-            this.label3.Text = "Вес до:";
+            this.btnAllList.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnAllList.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAllList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAllList.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnAllList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAllList.Location = new System.Drawing.Point(214, 60);
+            this.btnAllList.Name = "btnAllList";
+            this.btnAllList.Size = new System.Drawing.Size(218, 28);
+            this.btnAllList.TabIndex = 4;
+            this.btnAllList.Text = "Вывести полный список";
+            this.btnAllList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAllList.UseVisualStyleBackColor = false;
+            this.btnAllList.Click += new System.EventHandler(this.btnAllList_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(269, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 20);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Культура:";
+            // 
+            // findButton
+            // 
+            this.findButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.findButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.findButton.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.findButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.findButton.Location = new System.Drawing.Point(114, 60);
+            this.findButton.Name = "findButton";
+            this.findButton.Size = new System.Drawing.Size(82, 28);
+            this.findButton.TabIndex = 3;
+            this.findButton.Text = "Найти";
+            this.findButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.findButton.UseVisualStyleBackColor = false;
+            this.findButton.Click += new System.EventHandler(this.findButton_Click);
+            // 
+            // lbName
+            // 
+            this.lbName.AutoSize = true;
+            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbName.ForeColor = System.Drawing.Color.Black;
+            this.lbName.Location = new System.Drawing.Point(6, 20);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(102, 20);
+            this.lbName.TabIndex = 6;
+            this.lbName.Text = "Контрагент:";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.tabControl);
+            this.groupBox3.Location = new System.Drawing.Point(610, 7);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(313, 365);
+            this.groupBox3.TabIndex = 63;
+            this.groupBox3.TabStop = false;
             // 
             // ProcessingForm
             // 
@@ -698,10 +698,10 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRaw)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRaw)).EndInit();
             this.ResumeLayout(false);
 
         }

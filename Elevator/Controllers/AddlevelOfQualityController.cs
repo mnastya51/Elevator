@@ -14,7 +14,7 @@ namespace Elevator.Controllers
         {
             if (!DAO.getInstance().addNote(formValue.getKey(), new FormValue<string, string> (formValue.getValue(), value)))
             {
-                MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Данный показатель уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else return true;

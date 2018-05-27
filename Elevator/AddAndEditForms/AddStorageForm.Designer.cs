@@ -69,7 +69,7 @@
             this.comboBoxStorage.Location = new System.Drawing.Point(125, 16);
             this.comboBoxStorage.Name = "comboBoxStorage";
             this.comboBoxStorage.Size = new System.Drawing.Size(215, 28);
-            this.comboBoxStorage.TabIndex = 59;
+            this.comboBoxStorage.TabIndex = 1;
             this.comboBoxStorage.SelectedIndexChanged += new System.EventHandler(this.comboBoxStorage_SelectedIndexChanged);
             // 
             // textBoxWeight
@@ -79,7 +79,7 @@
             this.textBoxWeight.Location = new System.Drawing.Point(125, 105);
             this.textBoxWeight.Name = "textBoxWeight";
             this.textBoxWeight.Size = new System.Drawing.Size(215, 26);
-            this.textBoxWeight.TabIndex = 61;
+            this.textBoxWeight.TabIndex = 3;
             this.textBoxWeight.TextChanged += new System.EventHandler(this.textBoxWeight_TextChanged);
             this.textBoxWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxWeight_KeyPress);
             // 
@@ -104,7 +104,7 @@
             this.saveButton.Location = new System.Drawing.Point(125, 150);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(100, 36);
-            this.saveButton.TabIndex = 75;
+            this.saveButton.TabIndex = 4;
             this.saveButton.Text = "Сохранить";
             this.saveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.saveButton.UseVisualStyleBackColor = false;
@@ -118,7 +118,7 @@
             this.comboBoxNumber.Location = new System.Drawing.Point(125, 61);
             this.comboBoxNumber.Name = "comboBoxNumber";
             this.comboBoxNumber.Size = new System.Drawing.Size(215, 28);
-            this.comboBoxNumber.TabIndex = 76;
+            this.comboBoxNumber.TabIndex = 2;
             // 
             // AddStorageForm
             // 

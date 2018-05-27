@@ -207,12 +207,6 @@
     <Compile Include="Forms\DateAnalysForm.Designer.cs">
       <DependentUpon>DateAnalysForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\ReportAnalysisCardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -509,9 +503,6 @@
     <EmbeddedResource Include="Forms\DateAnalysForm.resx">
       <DependentUpon>DateAnalysForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ReportAnalysisCardForm.resx">
       <DependentUpon>ReportAnalysisCardForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -671,6 +662,62 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user_male.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\restart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img5.png" />
+    <None Include="Resources\img4.png" />
+    <None Include="Resources\img3.png" />
+    <None Include="Resources\img2.png" />
+    <None Include="Resources\img1.png" />
+    <None Include="Resources\img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\auth.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\css.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\index.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\analysis.html" />
+    <Content Include="Resources\directory.html" />
+    <None Include="Resources\img33.png" />
+    <None Include="Resources\img32.png" />
+    <None Include="Resources\img31.png" />
+    <None Include="Resources\img30.png" />
+    <None Include="Resources\img29.png" />
+    <None Include="Resources\img28.png" />
+    <Content Include="Resources\reports.html" />
+    <None Include="Resources\img27.png" />
+    <None Include="Resources\img26.png" />
+    <None Include="Resources\img25.png" />
+    <Content Include="Resources\shipment.html" />
+    <None Include="Resources\img24.png" />
+    <None Include="Resources\img23.png" />
+    <None Include="Resources\img22.png" />
+    <None Include="Resources\img21.png" />
+    <Content Include="Resources\storage.html" />
+    <None Include="Resources\img20.png" />
+    <None Include="Resources\img19.png" />
+    <Content Include="Resources\processing.html" />
+    <None Include="Resources\img15.png" />
+    <None Include="Resources\img14.png" />
+    <None Include="Resources\img18.png" />
+    <None Include="Resources\img17.png" />
+    <None Include="Resources\img16.png" />
+    <None Include="Resources\img13.png" />
+    <None Include="Resources\img12.png" />
+    <None Include="Resources\img11.png" />
+    <None Include="Resources\img10.png" />
+    <None Include="Resources\img9.png" />
+    <None Include="Resources\img8.png" />
+    <None Include="Resources\img7.png" />
+    <None Include="Resources\img6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

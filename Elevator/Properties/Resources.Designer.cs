@@ -61,12 +61,591 @@ namespace Elevator.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;!DOCTYPE html&gt;
+        ///
+        ///&lt;html lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot; /&gt;
+        ///    &lt;title&gt;Руководство&lt;/title&gt;
+        ///    &lt;link rel=&quot;stylesheet&quot; href=&quot;css.css&quot;&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///    &lt;h2&gt;Анализ качества сырья&lt;/h2&gt;
+        ///    &lt;p&gt;Для того чтобы создать новую запись об анализе качества сырья необходимо выбрать пункт меню «Сервис» и подпункт «Анализ качества» в главном окне приложения. После этого откроется окно «Анализ качества» (рисунок 1).&lt;/p&gt;
+        ///    &lt;center&gt;
+        ///        &lt;img src=&quot;img14.png&quot;&gt;        /// [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string analysis {
+            get {
+                return ResourceManager.GetString("analysis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
         /// </summary>
         internal static System.Drawing.Icon auth {
             get {
                 object obj = ResourceManager.GetObject("auth", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;!DOCTYPE html&gt;
+        ///
+        ///&lt;html lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot; /&gt;
+        ///    &lt;title&gt;Руководство&lt;/title&gt;
+        ///    &lt;link rel=&quot;stylesheet&quot; href=&quot;css.css&quot;&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///    &lt;h2&gt;Авторизация&lt;/h2&gt;
+        ///    &lt;p&gt;При запуске приложения открывается окно аутентификации (рисунок 1).&lt;/p&gt;
+        ///    &lt;center&gt;
+        ///        &lt;img src=&quot;img1.png&quot;&gt;
+        ///        &lt;p class=&quot;img&quot;&gt;Рисунок 1 – Окно аутентификации&lt;/p&gt;&lt;/center&gt;
+        ///    &lt;p&gt;Пользователю необходимо заполнить поля «Логин» и «Пароль». Если любое из полей бу [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string auth1 {
+            get {
+                return ResourceManager.GetString("auth1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на body{
+        ///	background-color: aliceBlue;
+        ///	font-size:20px; 
+        ///	text-indent: 2em; 
+        ///    text-align: justify;	
+        ///}
+        ///
+        ///h1{
+        ///  text-align: center;
+        ///  font-size:50px;   
+        ///}
+        ///
+        ///h2{
+        ///  text-align: center;
+        ///  font-size:40px;   
+        ///}
+        ///
+        ///li a {
+        ///  font-size:40px; 
+        ///}
+        ///
+        ///li {
+        ///	font-size:40px; 
+        ///}
+        ///
+        ///ol li {
+        ///    font-size:20px; 
+        ///    text-align: justify;
+        ///    text-indent: 2em;	
+        ///}
+        ///
+        ///ul {
+        ///	text-align: center;
+        ///	list-style-type: none;
+        ///}
+        ///
+        ///.img{
+        ///	text-align:center;
+        ///}
+        ///
+        ///p{
+        ///	text-align: justify;	
+        ///}
+        ///.
+        /// </summary>
+        internal static string css {
+            get {
+                return ResourceManager.GetString("css", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;!DOCTYPE html&gt;
+        ///
+        ///&lt;html lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot; /&gt;
+        ///    &lt;title&gt;Руководство&lt;/title&gt;
+        ///    &lt;link rel=&quot;stylesheet&quot; href=&quot;css.css&quot;&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///    &lt;h2&gt;Работа со справочными данными&lt;/h2&gt;
+        ///    &lt;p&gt;Для работы со справочными данными необходимо нажать пункт меню «Справочники» на главном окне. В системе могут быть выполнены функции добавления, изменения и удаления записи.&lt;/p&gt;
+        ///    &lt;p&gt;В качестве примера работы со справочными данными рассмотрим справочник [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string directory {
+            get {
+                return ResourceManager.GetString("directory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img {
+            get {
+                object obj = ResourceManager.GetObject("img", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img1 {
+            get {
+                object obj = ResourceManager.GetObject("img1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img10 {
+            get {
+                object obj = ResourceManager.GetObject("img10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img11 {
+            get {
+                object obj = ResourceManager.GetObject("img11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img12 {
+            get {
+                object obj = ResourceManager.GetObject("img12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img13 {
+            get {
+                object obj = ResourceManager.GetObject("img13", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img14 {
+            get {
+                object obj = ResourceManager.GetObject("img14", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img15 {
+            get {
+                object obj = ResourceManager.GetObject("img15", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img16 {
+            get {
+                object obj = ResourceManager.GetObject("img16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img17 {
+            get {
+                object obj = ResourceManager.GetObject("img17", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img18 {
+            get {
+                object obj = ResourceManager.GetObject("img18", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img19 {
+            get {
+                object obj = ResourceManager.GetObject("img19", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img2 {
+            get {
+                object obj = ResourceManager.GetObject("img2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img20 {
+            get {
+                object obj = ResourceManager.GetObject("img20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img21 {
+            get {
+                object obj = ResourceManager.GetObject("img21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img22 {
+            get {
+                object obj = ResourceManager.GetObject("img22", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img23 {
+            get {
+                object obj = ResourceManager.GetObject("img23", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img24 {
+            get {
+                object obj = ResourceManager.GetObject("img24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img25 {
+            get {
+                object obj = ResourceManager.GetObject("img25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img26 {
+            get {
+                object obj = ResourceManager.GetObject("img26", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img27 {
+            get {
+                object obj = ResourceManager.GetObject("img27", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img28 {
+            get {
+                object obj = ResourceManager.GetObject("img28", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img29 {
+            get {
+                object obj = ResourceManager.GetObject("img29", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img3 {
+            get {
+                object obj = ResourceManager.GetObject("img3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img30 {
+            get {
+                object obj = ResourceManager.GetObject("img30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img31 {
+            get {
+                object obj = ResourceManager.GetObject("img31", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img32 {
+            get {
+                object obj = ResourceManager.GetObject("img32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img33 {
+            get {
+                object obj = ResourceManager.GetObject("img33", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img4 {
+            get {
+                object obj = ResourceManager.GetObject("img4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img5 {
+            get {
+                object obj = ResourceManager.GetObject("img5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img6 {
+            get {
+                object obj = ResourceManager.GetObject("img6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img7 {
+            get {
+                object obj = ResourceManager.GetObject("img7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img8 {
+            get {
+                object obj = ResourceManager.GetObject("img8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap img9 {
+            get {
+                object obj = ResourceManager.GetObject("img9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;!DOCTYPE html&gt;
+        ///
+        ///&lt;html lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot; /&gt;
+        ///    &lt;title&gt;Руководство пользователя&lt;/title&gt;
+        ///    &lt;link rel=&quot;stylesheet&quot; href=&quot;css.css&quot;&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///    &lt;h1&gt;Руководство пользователя&lt;/h1&gt;
+        ///    &lt;img src=&quot;img.png&quot; width=&quot;400&quot; height=&quot;400&quot; align=left&gt;
+        ///    &lt;img src=&quot;img.png&quot; width=&quot;400&quot; height=&quot;400&quot; align=right&gt;
+        ///    &lt;ul&gt;
+        ///        &lt;li&gt;&lt;u&gt; &lt;a href=&quot;auth.html&quot;&gt;Авторизация&lt;/a&gt;&lt;/u&gt;&lt;/li&gt;
+        ///        &lt;br&gt;
+        ///        &lt;li&gt;&lt;u&gt; &lt;a href=&quot;directory.html&quot;&gt;Работ [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string index {
+            get {
+                return ResourceManager.GetString("index", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;!DOCTYPE html&gt;
+        ///
+        ///&lt;html lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot; /&gt;
+        ///    &lt;title&gt;Руководство&lt;/title&gt;
+        ///    &lt;link rel=&quot;stylesheet&quot; href=&quot;css.css&quot;&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///    &lt;h2&gt;Обработка сырья&lt;/h2&gt;
+        ///    &lt;p&gt;Для того чтобы создать новую запись об обработке сырья необходимо выбрать пункт меню «Сервис» и подпункт «Обработка» в главном окне приложения. После этого откроется соответствующее окно (рисунок 1).&lt;/p&gt;
+        ///    &lt;center&gt;
+        ///        &lt;img src=&quot;img19.png&quot;&gt;
+        ///        &lt;p class=&quot;im [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string processing {
+            get {
+                return ResourceManager.GetString("processing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;!DOCTYPE html&gt;
+        ///
+        ///&lt;html lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot; /&gt;
+        ///    &lt;title&gt;Руководство&lt;/title&gt;
+        ///    &lt;link rel=&quot;stylesheet&quot; href=&quot;css.css&quot;&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///    &lt;h2&gt;Работа с отчетами&lt;/h2&gt;
+        ///    &lt;p&gt;В системе предусмотрена возможность формирования следующих отчетов:&lt;/p&gt;
+        ///    &lt;ol&gt;
+        ///        &lt;li&gt;карточка анализа;&lt;/li&gt;
+        ///        &lt;li&gt;отчет по объему зерна по всем контрагентам, по определенному контрагенту, по всем годам урожая или за выбранный период;&lt;/li&gt;
+        ///        &lt;li [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string reports {
+            get {
+                return ResourceManager.GetString("reports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap restart {
+            get {
+                object obj = ResourceManager.GetObject("restart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;!DOCTYPE html&gt;
+        ///
+        ///&lt;html lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot; /&gt;
+        ///    &lt;title&gt;Руководство&lt;/title&gt;
+        ///    &lt;link rel=&quot;stylesheet&quot; href=&quot;css.css&quot;&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///    &lt;h2&gt;Отгрузка сырья &lt;/h2&gt;
+        ///    &lt;p&gt;Для просмотра записей об отгрузках необходимо выбрать пункт меню «Сервис» и подпункт «Отгрузка» в главном окне приложения. После этого откроется соответствующее окно (рисунок 1).&lt;/p&gt;
+        ///    &lt;center&gt;
+        ///        &lt;img src=&quot;img25.png&quot;&gt;
+        ///        &lt;p class=&quot;img&quot;&gt;Рисунок 1 – Окно « [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string shipment {
+            get {
+                return ResourceManager.GetString("shipment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на &lt;!DOCTYPE html&gt;
+        ///
+        ///&lt;html lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;head&gt;
+        ///    &lt;meta charset=&quot;utf-8&quot; /&gt;
+        ///    &lt;title&gt;Руководство&lt;/title&gt;
+        ///    &lt;link rel=&quot;stylesheet&quot; href=&quot;css.css&quot;&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///    &lt;h2&gt;Хранение сырья &lt;/h2&gt;
+        ///    &lt;p&gt;Для того чтобы создать новую запись о хранении сырья необходимо выбрать пункт меню «Сервис» и подпункт «Хранение» в главном окне приложения. После этого откроется соответствующее окно (рисунок 1).&lt;/p&gt;
+        ///    &lt;center&gt;
+        ///        &lt;img src=&quot;img21.png&quot;&gt;
+        ///        &lt;p class=&quot;img&quot;&gt; [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string storage {
+            get {
+                return ResourceManager.GetString("storage", resourceCulture);
             }
         }
         

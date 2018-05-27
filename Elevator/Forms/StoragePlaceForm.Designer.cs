@@ -68,7 +68,7 @@
             this.saveButton.Location = new System.Drawing.Point(144, 84);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(105, 34);
-            this.saveButton.TabIndex = 67;
+            this.saveButton.TabIndex = 10;
             this.saveButton.Text = "Сохранить";
             this.saveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.saveButton.UseVisualStyleBackColor = false;
@@ -78,22 +78,27 @@
             // 
             this.storeNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.storeNumericUpDown.Location = new System.Drawing.Point(244, 9);
+            this.storeNumericUpDown.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
             this.storeNumericUpDown.Name = "storeNumericUpDown";
             this.storeNumericUpDown.Size = new System.Drawing.Size(120, 26);
-            this.storeNumericUpDown.TabIndex = 68;
+            this.storeNumericUpDown.TabIndex = 6;
             // 
             // silageNumericUpDown
             // 
             this.silageNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.silageNumericUpDown.Location = new System.Drawing.Point(244, 43);
             this.silageNumericUpDown.Maximum = new decimal(new int[] {
-            200,
+            150,
             0,
             0,
             0});
             this.silageNumericUpDown.Name = "silageNumericUpDown";
             this.silageNumericUpDown.Size = new System.Drawing.Size(120, 26);
-            this.silageNumericUpDown.TabIndex = 69;
+            this.silageNumericUpDown.TabIndex = 9;
             // 
             // StoragePlac1Form
             // 

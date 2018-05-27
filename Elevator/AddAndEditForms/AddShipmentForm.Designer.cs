@@ -72,7 +72,7 @@
             this.subdivisionComboBox.Location = new System.Drawing.Point(792, 64);
             this.subdivisionComboBox.Name = "subdivisionComboBox";
             this.subdivisionComboBox.Size = new System.Drawing.Size(231, 28);
-            this.subdivisionComboBox.TabIndex = 46;
+            this.subdivisionComboBox.TabIndex = 29;
             // 
             // label3
             // 
@@ -130,7 +130,7 @@
             this.yearNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.yearNumericUpDown.Location = new System.Drawing.Point(792, 155);
             this.yearNumericUpDown.Maximum = new decimal(new int[] {
-            5000,
+            3000,
             0,
             0,
             0});

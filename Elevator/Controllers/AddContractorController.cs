@@ -22,7 +22,7 @@ namespace Elevator.Controllers
                     new FormValue<string, string>("phone", contractor.Phone.Replace(" ", "").Length == 14 ? contractor.Phone : string.Empty),
                     new FormValue<string, string>("inn", contractor.Inn.ToString())))
                 {
-                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Данный контрагент уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;                
                 }
                 else return true;
@@ -38,7 +38,7 @@ namespace Elevator.Controllers
                     new FormValue<string, string>("phone", contractor.Phone.Replace(" ", "").Length == 14 ? contractor.Phone : string.Empty),
                     new FormValue<string, string>("inn", contractor.Inn.ToString())))
                 {
-                    MessageBox.Show("Данная запись уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Данный контрагент уже существует!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 else return true;

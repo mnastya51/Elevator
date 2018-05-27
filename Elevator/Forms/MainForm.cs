@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -171,6 +172,19 @@ namespace Elevator.Forms
             {
                 this.Close();
             }
+        }
+
+        private void button_Click(object sender, EventArgs e)
+        {
+            dataGridViewRaw.Rows.Clear();
+            DAO.getInstance().selectRawForShipment(dataGridViewRaw);
+        }
+
+        private void справкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = System.IO.Directory.GetCurrentDirectory();
+            path = path.Replace(@"bin\Debug", "");
+            Process.Start(path + "Resources\\index.html");
         }
     }   
 }

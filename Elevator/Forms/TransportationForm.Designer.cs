@@ -109,17 +109,17 @@
             this.filtrGroupBox.Location = new System.Drawing.Point(12, 12);
             this.filtrGroupBox.Name = "filtrGroupBox";
             this.filtrGroupBox.Size = new System.Drawing.Size(1048, 65);
-            this.filtrGroupBox.TabIndex = 59;
+            this.filtrGroupBox.TabIndex = 5;
             this.filtrGroupBox.TabStop = false;
             this.filtrGroupBox.Text = "Поиск";
             // 
             // yearTextBox
             // 
             this.yearTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.yearTextBox.Location = new System.Drawing.Point(112, 20);
+            this.yearTextBox.Location = new System.Drawing.Point(112, 21);
             this.yearTextBox.Name = "yearTextBox";
             this.yearTextBox.Size = new System.Drawing.Size(70, 26);
-            this.yearTextBox.TabIndex = 68;
+            this.yearTextBox.TabIndex = 6;
             this.yearTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.yearTextBox_KeyPress);
             // 
             // contractorTextBox
@@ -128,7 +128,7 @@
             this.contractorTextBox.Location = new System.Drawing.Point(550, 21);
             this.contractorTextBox.Name = "contractorTextBox";
             this.contractorTextBox.Size = new System.Drawing.Size(159, 26);
-            this.contractorTextBox.TabIndex = 67;
+            this.contractorTextBox.TabIndex = 8;
             // 
             // rawTextBox
             // 
@@ -136,7 +136,7 @@
             this.rawTextBox.Location = new System.Drawing.Point(277, 21);
             this.rawTextBox.Name = "rawTextBox";
             this.rawTextBox.Size = new System.Drawing.Size(159, 26);
-            this.rawTextBox.TabIndex = 66;
+            this.rawTextBox.TabIndex = 7;
             // 
             // label2
             // 
@@ -197,7 +197,7 @@
             this.findButton.Location = new System.Drawing.Point(727, 21);
             this.findButton.Name = "findButton";
             this.findButton.Size = new System.Drawing.Size(82, 28);
-            this.findButton.TabIndex = 11;
+            this.findButton.TabIndex = 9;
             this.findButton.Text = "Найти";
             this.findButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.findButton.UseVisualStyleBackColor = false;
